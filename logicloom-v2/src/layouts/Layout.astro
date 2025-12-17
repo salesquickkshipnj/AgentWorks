@@ -1,6 +1,19 @@
 ---
 import "../styles/global.css";
-const { title, description } = Astro.props;
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { 
+  title, 
+  description, 
+  image = "/og-default.png" // Recommendation: Add a default share image to your public folder
+} = Astro.props;
+
+const currentUrl = Astro.url.href;
 ---
 
 <!doctype html>
@@ -9,13 +22,29 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
     
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={currentUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={currentUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
@@ -29,17 +58,25 @@ const { title, description } = Astro.props;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
       }
       [x-cloak] { display: none !important; }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
   </head>
   
-  <body class="bg-[#F5F5F7] text-slate-900 antialiased font-sans" 
-        x-data="{ mobileMenuOpen: false, modalOpen: false }"
-        @open-modal.window="modalOpen = true"
+  <body 
+    class="bg-[#F5F5F7] text-slate-900 antialiased font-sans" 
+    x-data="{ mobileMenuOpen: false, modalOpen: false, solutionsOpen: false }"
+    @open-modal.window="modalOpen = true"
+    @keydown.escape.window="modalOpen = false"
   >
     
     <div class="fixed inset-0 z-0 pointer-events-none bg-grid-slate [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
 
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav" x-data="{ solutionsOpen: false }">
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav">
       <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         
         <a href="/" class="flex items-center gap-3 group focus:outline-none rounded-lg p-1 z-50 relative">
@@ -71,11 +108,17 @@ const { title, description } = Astro.props;
         </a>
 
         <div class="hidden md:flex items-center space-x-1">
-            <div class="relative" @click.outside="solutionsOpen = false">
-                <button @click="solutionsOpen = !solutionsOpen" class="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full transition-all group">
+          
+          <div class="relative" @click.outside="solutionsOpen = false">
+                <button @click="solutionsOpen = !solutionsOpen" class="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full transition-all group cursor-pointer">
                     Solutions <i class="ph ph-caret-down text-xs text-gray-400 group-hover:text-black transition-colors" :class="{'rotate-180': solutionsOpen}"></i>
                 </button>
-                <div x-show="solutionsOpen" style="display: none;" class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[600px] bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-6 grid grid-cols-2 gap-8 z-50">
+                <div x-show="solutionsOpen" 
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 translate-y-2"
+                     x-transition:enter-end="opacity-100 translate-y-0"
+                     style="display: none;" 
+                     class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[600px] bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-6 grid grid-cols-2 gap-8 z-50">
                     <div>
                         <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 block">By Industry</span>
                         <div class="space-y-2">
@@ -99,22 +142,26 @@ const { title, description } = Astro.props;
             <a href="/n8n-services" class="text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-100 px-4 py-2 rounded-full transition-all">n8n Experts</a>
 
             <div class="pl-4">
-                <button @click="$dispatch('open-modal')" class="bg-black text-white text-xs px-5 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition-transform active:scale-95 shadow-lg shadow-gray-200">
+               <button @click="$dispatch('open-modal')" class="bg-black text-white text-xs px-5 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition-transform active:scale-95 shadow-lg shadow-gray-200 cursor-pointer">
                 Start Project
-                </button>
+               </button>
             </div>
         </div>
 
-        <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-slate-900 p-2">
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-slate-900 p-2 cursor-pointer">
             <i class="ph ph-list text-2xl"></i>
         </button>
       </div>
 
-      <div x-show="mobileMenuOpen" style="display: none;" class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl h-screen" @click.outside="mobileMenuOpen = false">
+      <div x-show="mobileMenuOpen" 
+           style="display: none;"
+           x-transition
+           class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl h-screen" 
+           @click.outside="mobileMenuOpen = false">
            <div class="space-y-6">
                 <a href="/industries/roofing-automation" class="block text-lg font-semibold">Roofing</a>
                 <a href="/n8n-services" class="block text-lg font-semibold">n8n Services</a>
-                <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold">Start Project</button>
+                <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold cursor-pointer">Start Project</button>
            </div>
       </div>
     </nav>
@@ -133,63 +180,40 @@ const { title, description } = Astro.props;
         </div>
     </footer>
 
-    <div x-show="modalOpen" style="display:none;" class="fixed inset-0 z-[100] flex items-center justify-center px-4" x-transition.opacity>
+    <div 
+      x-show="modalOpen" 
+      style="display:none;"
+      class="fixed inset-0 z-[100] flex items-center justify-center px-4" 
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+    >
       <div @click="modalOpen = false" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
       
-      <div class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-4 space-y-3">
-        <div class="flex justify-between items-center mb-2">
-            <h3 class="font-bold text-lg text-gray-900">Select Session Type</h3>
-            <button @click="modalOpen = false" class="text-gray-400 hover:text-black"><i class="ph ph-x text-xl"></i></button>
+      <div 
+        class="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-slide-up h-[85vh] md:h-[700px]"
+        @click.stop
+      >
+        <div class="flex justify-between items-center p-4 border-b border-gray-100 bg-gray-50">
+            <h3 class="font-bold text-lg text-gray-900">Book Discovery Call</h3>
+            <button @click="modalOpen = false" class="text-gray-400 hover:text-black cursor-pointer"><i class="ph ph-x text-xl"></i></button>
         </div>
         
-        <button data-cal-link="logicloomsystems-cal/15min" data-cal-namespace="15min" class="w-full text-left group block p-4 rounded-xl border border-gray-200 hover:border-[#0071E3] hover:shadow-md transition-all bg-white cursor-pointer">
-            <div class="flex justify-between items-start">
-                <div><div class="flex items-center gap-2 mb-1"><span class="font-semibold text-gray-900">Discovery Call</span><span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded-full uppercase tracking-wide">Free</span></div><p class="text-sm text-gray-500">Feasibility check & intro.</p></div>
-                <div class="text-right"><span class="block text-lg font-bold text-gray-900">15<span class="text-sm font-normal text-gray-500">min</span></span></div>
-            </div>
-        </button>
-
-        <button data-cal-link="logicloomsystems-cal/30min" data-cal-namespace="30min" class="w-full text-left group block p-4 rounded-xl border border-[#0071E3] bg-blue-50/30 hover:bg-blue-50 hover:shadow-md transition-all cursor-pointer relative">
-            <div class="absolute -top-2.5 right-4 bg-[#0071E3] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Migration Plan</div>
-            <div class="flex justify-between items-start">
-                <div><div class="flex items-center gap-2 mb-1"><span class="font-semibold text-gray-900">Strategy Session</span></div><p class="text-sm text-gray-500">Workflow mapping & ROI.</p></div>
-                <div class="text-right"><span class="block text-lg font-bold text-gray-900">$99</span><span class="text-xs text-gray-400">30 min</span></div>
-            </div>
-        </button>
-
-        <button data-cal-link="logicloomsystems-cal/60-min-meeting" data-cal-namespace="60-min-meeting" class="w-full text-left group block p-4 rounded-xl border border-gray-200 hover:border-[#0071E3] hover:shadow-md transition-all bg-white cursor-pointer">
-             <div class="flex justify-between items-start">
-                <div><div class="flex items-center gap-2 mb-1"><span class="font-semibold text-gray-900">Deep Dive Audit</span></div><p class="text-sm text-gray-500">Full architecture plan.</p></div>
-                <div class="text-right"><span class="block text-lg font-bold text-gray-900">$249</span><span class="text-xs text-gray-400">1 hr</span></div>
-            </div>
-        </button>
-        
-        <div class="pt-2 text-center"><p class="text-xs text-gray-400 flex items-center justify-center gap-1"><i class="ph ph-lock-key"></i> Secure payments via Stripe</p></div>
+        <div class="w-full h-full bg-white relative">
+             <div class="absolute inset-0 flex items-center justify-center -z-10">
+                <i class="ph ph-spinner animate-spin text-3xl text-gray-300"></i>
+             </div>
+             <iframe 
+                src="https://cal.com/logicloomsystems-cal/15min?embed=true" 
+                style="width:100%;height:100%;border:none;"
+                title="Book a call"
+             ></iframe>
+        </div>
       </div>
     </div>
 
-    <script is:inline>
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-      Cal("init", "15min", { origin: "https://app.cal.com" });
-      Cal("init", "30min", { origin: "https://app.cal.com" });
-      Cal("init", "60-min-meeting", { origin: "https://app.cal.com" });
-      
-      const uiConfig = { "theme": "light", "cssVarsPerTheme": { "light": { "cal-brand": "#0071e3" } }, "hideEventTypeDetails": false, "layout": "month_view" };
-      Cal.ns["15min"]("ui", uiConfig);
-      Cal.ns["30min"]("ui", uiConfig);
-      Cal.ns["60-min-meeting"]("ui", uiConfig);
-
-      // Global Event Listener for Modal Clicks
-      document.addEventListener("click", function (e) {
-        const target = e.target.closest("[data-cal-link]");
-        if (!target) return;
-        e.preventDefault();
-        const link = target.getAttribute("data-cal-link");
-        const namespace = target.getAttribute("data-cal-namespace");
-        if (window.Cal && namespace) {
-          Cal.ns[namespace]("open", { calLink: link });
-        }
-      });
-    </script>
   </body>
 </html>

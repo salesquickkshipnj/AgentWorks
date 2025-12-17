@@ -1,12 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RoiGrid from '../../components/sections/RoiGrid.astro';
+
+const roiItems = [
+  { value: "30%", label: "More Billable Time" },
+  { value: "2x", label: "Faster Retainer Signings" },
+  { value: "↓80%", label: "Inbound 'Status' Calls" }
+];
 ---
 
 <Layout 
   title="Law Firm Automation & Intake Workflows | Clio & DocuSign | LogicLoom"
   description="Automate client intake, document collection, and retainer renewals. We integrate Clio, DocuSign, and Office 365 to let your attorneys practice law, not data entry."
 >
-  <div x-data="{ modalOpen: false }">
+  <div>
 
     <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
       <div class="max-w-4xl mx-auto text-center relative z-10">
@@ -22,11 +29,12 @@ import Layout from '../../layouts/Layout.astro';
         </h1>
 
         <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
-          Your attorneys should be practicing law, not chasing signatures or manually creating folders. We automate client intake, document collection, and retainer renewals.
+          Your attorneys should be practicing law, not chasing signatures or manually creating folders.
+          We automate client intake, document collection, and retainer renewals.
         </p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-          <button @click="modalOpen = true" class="bg-slate-900 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all shadow-xl shadow-gray-400/20 active:scale-95 border border-slate-700">
+          <button @click="$dispatch('open-modal')" class="bg-slate-900 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all shadow-xl shadow-gray-400/20 active:scale-95 border border-slate-700 cursor-pointer">
             Automate My Firm
           </button>
         </div>
@@ -80,7 +88,7 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-    <section class="py-16 bg-ios-bg">
+    <section class="py-16 bg-[#F5F5F7]">
       <div class="max-w-6xl mx-auto px-6 text-center">
         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Secure integrations for your firm</p>
         <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
@@ -93,48 +101,18 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-    <section class="py-20 bg-white border-t border-gray-100">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="font-display text-3xl font-bold mb-12">The ROI of Efficiency</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
-            <div class="text-4xl font-bold text-slate-800 mb-2">30%</div>
-            <p class="text-sm text-gray-600">More Billable Time</p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
-            <div class="text-4xl font-bold text-slate-800 mb-2">2x</div>
-            <p class="text-sm text-gray-600">Faster Retainer Signings</p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
-            <div class="text-4xl font-bold text-slate-800 mb-2">&darr; 80%</div>
-            <p class="text-sm text-gray-600">Inbound "Status" Calls</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RoiGrid items={roiItems} accentColor="orange" />
 
     <section class="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
       <div class="max-w-2xl mx-auto px-6 relative z-10">
         <h2 class="font-display text-4xl font-bold mb-6">Modernize your practice.</h2>
         <p class="text-gray-400 mb-10">We'll map your client intake lifecycle and identify the exact bottlenecks costing you billable hours.</p>
-        <button @click="modalOpen = true" class="bg-amber-600 text-white px-10 py-4 rounded-full font-bold hover:bg-amber-500 transition-all shadow-lg shadow-amber-900/50">
+        
+        <button @click="$dispatch('open-modal')" class="bg-amber-600 text-white px-10 py-4 rounded-full font-bold hover:bg-amber-500 transition-all shadow-lg shadow-amber-900/50 cursor-pointer">
           Audit My Firm
         </button>
       </div>
     </section>
 
-    <div x-show="modalOpen" style="display:none;" class="fixed inset-0 z-[100] flex items-center justify-center px-4" x-transition.opacity>
-      <div @click="modalOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-      <div class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
-        <div class="flex justify-between items-center p-4 border-b border-gray-100">
-          <h3 class="font-bold text-lg">Book Law Firm Audit</h3>
-          <button @click="modalOpen = false" class="text-gray-400 hover:text-black"><i class="ph ph-x text-xl"></i></button>
-        </div>
-        <div class="h-[500px] w-full bg-white">
-           <iframe src="https://cal.com/logicloomsystems-cal/15min?embed=true" style="width:100%;height:100%;border:none;"></iframe>
-        </div>
-      </div>
     </div>
-
-  </div>
 </Layout>

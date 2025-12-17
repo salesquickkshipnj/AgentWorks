@@ -1,15 +1,15 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind'; // Assuming you are using the integration
 
-import alpinejs from '@astrojs/alpinejs';
-
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
 export default defineConfig({
-  integrations: [alpinejs()],
-
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  site: 'https://www.logicloomsystems.com', // CRITICAL: This enables sitemap generation
+  integrations: [
+    tailwind(),
+    sitemap({
+        changefreq: 'weekly',
+        priority: 0.7,
+        lastmod: new Date()
+    })
+  ]
 });

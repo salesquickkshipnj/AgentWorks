@@ -1,0 +1,41 @@
+---
+interface Props {
+  href?: string;
+  intent?: "primary" | "secondary" | "outline" | "white";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+  [x: string]: any; // Allow arbitrary props like @click
+}
+
+const { 
+  href, 
+  intent = "primary", 
+  size = "md", 
+  class: className, 
+  ...rest 
+} = Astro.props;
+
+// Design System Tokens
+const baseStyles = "inline-flex items-center justify-center rounded-full font-medium transition-all active:scale-95 cursor-pointer gap-2";
+
+const intents = {
+  primary: "bg-[#0071E3] text-white hover:bg-blue-600 shadow-xl shadow-blue-500/20",
+  secondary: "bg-slate-900 text-white hover:bg-slate-800 shadow-xl shadow-gray-400/20",
+  outline: "bg-transparent border border-gray-200 text-slate-700 hover:bg-gray-50",
+  white: "bg-white text-slate-900 hover:bg-gray-100 shadow-lg"
+};
+
+const sizes = {
+  sm: "px-4 py-2 text-sm",
+  md: "px-8 py-4 text-base",
+  lg: "px-10 py-5 text-lg"
+};
+
+const classes = `${baseStyles} ${intents[intent]} ${sizes[size]} ${className || ''}`;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag href={href} class={classes} {...rest}>
+  <slot />
+</Tag>

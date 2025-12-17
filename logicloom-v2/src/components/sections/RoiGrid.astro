@@ -1,0 +1,43 @@
+<RoiGrid items={[
+  { value: "30%", label: "More Billable Time", color: "blue" },
+  { value: "2x", label: "Faster Retainer Signings", color: "blue" },
+  { value: "0", label: "Manual Data Entry", color: "blue" }
+]} />
+
+---
+interface RoiItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  items: RoiItem[];
+  accentColor?: "blue" | "green" | "orange" | "teal" | "emerald";
+}
+
+const { items, accentColor = "blue" } = Astro.props;
+
+const colors = {
+  blue: "text-blue-600",
+  green: "text-green-600",
+  orange: "text-orange-500",
+  teal: "text-teal-600",
+  emerald: "text-emerald-600"
+};
+---
+
+<section class="py-20 bg-white border-t border-gray-100">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="font-display text-3xl font-bold mb-12 text-slate-900">The ROI of Automation</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {items.map((item) => (
+        <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow duration-300">
+          <div class={`text-4xl font-bold mb-2 ${colors[accentColor]}`}>
+            {item.value}
+          </div>
+          <p class="text-sm text-gray-600 font-medium">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

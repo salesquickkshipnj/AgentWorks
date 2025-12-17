@@ -1,5 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RoiGrid from '../../components/sections/RoiGrid.astro';
+
+const roiItems = [
+  { value: "20%", label: "Fewer No-Shows" },
+  { value: "$5k+", label: "Reactivated Revenue / Mo" },
+  { value: "0", label: "Manual Confirmations" }
+];
 ---
 
 <Layout 
@@ -48,7 +55,7 @@ import Layout from '../../layouts/Layout.astro';
                 <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-user-minus text-xl"></i></div>
                 <div>
                   <h3 class="font-bold text-gray-900">The 'Recall' Void</h3>
-                  <p class="text-sm text-gray-500">You have 1,000 patients due for cleaning, but no one has time to call them. That's a dormant goldmine.</p>
+                  <p class="text-sm text-gray-500">You have 1,000 patients due for cleaning, but no one has time to call them. That's dormant goldmine.</p>
                 </div>
               </div>
               <div class="flex gap-4">
@@ -90,25 +97,7 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-    <section class="py-20 bg-white border-t border-gray-100">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="font-display text-3xl font-bold mb-12">The ROI of Automation</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="text-4xl font-bold text-teal-600 mb-2">20%</div>
-            <p class="text-sm text-gray-600">Fewer No-Shows</p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="text-4xl font-bold text-teal-600 mb-2">$5k+</div>
-            <p class="text-sm text-gray-600">Reactivated Revenue / Mo</p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <div class="text-4xl font-bold text-teal-600 mb-2">0</div>
-            <p class="text-sm text-gray-600">Manual Confirmations</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RoiGrid items={roiItems} accentColor="teal" />
 
     <section class="py-24 bg-slate-900 text-white text-center">
       <div class="max-w-2xl mx-auto px-6">
