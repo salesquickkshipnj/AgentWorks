@@ -1,0 +1,56 @@
+﻿---
+// You can replace these Phosphor icons with actual SVGs of client logos later.
+const clients = [
+  { name: "Acme Corp", icon: "ph-buildings" },
+  { name: "Global Ventures", icon: "ph-globe" },
+  { name: "Nexus Tech", icon: "ph-circuitry" },
+  { name: "Stark Ind", icon: "ph-lightning" },
+  { name: "Apex Law", icon: "ph-scales" },
+  { name: "Prime Realty", icon: "ph-house-line" },
+];
+---
+
+<section class="py-12 bg-white border-b border-gray-100 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 mb-8 text-center">
+    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">
+      Trusted by forward-thinking companies
+    </p>
+  </div>
+
+  <div class="relative w-full overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+    <div class="flex animate-marquee whitespace-nowrap">
+      
+      <div class="flex items-center gap-16 mx-8">
+        {clients.map((client) => (
+          <div class="flex items-center gap-2 text-gray-400 grayscale hover:grayscale-0 hover:text-slate-900 transition-all duration-300 cursor-default">
+            <i class={"ph " + client.icon + " text-3xl"}></i>
+            <span class="font-display font-bold text-xl">{client.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-16 mx-8">
+        {clients.map((client) => (
+          <div class="flex items-center gap-2 text-gray-400 grayscale hover:grayscale-0 hover:text-slate-900 transition-all duration-300 cursor-default">
+            <i class={"ph " + client.icon + " text-3xl"}></i>
+            <span class="font-display font-bold text-xl">{client.name}</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+</style>
