@@ -1,0 +1,76 @@
+---
+interface Props {
+  webhookUrl: string; // Your n8n Production Webhook URL
+  formId: string;
+}
+
+const { webhookUrl, formId } = Astro.props;
+---
+
+<form
+  id={formId}
+  class="space-y-4"
+  @submit.prevent={`submitWebhook('${webhookUrl}', '${formId}')`}
+  x-data
+>
+  <input type="text" name="_gotcha" style="display:none" />
+
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+    <input type="text" name="name" required class="w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500" />
+  </div>
+  
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Work Email</label>
+    <input type="email" name="email" required class="w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500" />
+  </div>
+
+  <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-full hover:bg-slate-800 transition-all flex justify-center items-center gap-2">
+    <span>Request Audit</span>
+    <i class="ph ph-paper-plane-right"></i>
+  </button>
+  
+  <div class="success-message hidden text-green-600 text-center text-sm font-medium mt-2">
+    Message received. Our agents are processing your request.
+  </div>
+  <div class="error-message hidden text-red-600 text-center text-sm font-medium mt-2">
+    Connection error. Please try again.
+  </div>
+</form>
+
+<script is:inline>
+  async function submitWebhook(url, formId) {
+    const form = document.getElementById(formId);
+    const btn = form.querySelector('button');
+    const successMsg = form.querySelector('.success-message');
+    const errorMsg = form.querySelector('.error-message');
+    
+    // Loading State
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="ph ph-spinner animate-spin text-xl"></i> Processing...';
+
+    try {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Spam Check
+      if (data._gotcha) return; 
+
+      await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, source: window.location.pathname })
+      });
+
+      successMsg.classList.remove('hidden');
+      form.reset();
+    } catch (err) {
+      errorMsg.classList.remove('hidden');
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  }
+</script>
