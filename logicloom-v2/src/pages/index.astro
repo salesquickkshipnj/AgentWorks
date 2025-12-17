@@ -6,81 +6,344 @@ import Layout from '../layouts/Layout.astro';
   title="LogicLoom Systems | AI Automation & Workforce Architecture"
   description="We build the AI workforce that never sleeps. Enterprise-grade n8n workflows and autonomous agents."
 >
-  <div x-data="{ modalOpen: false }">
-
-    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-        
-        <div class="relative z-10 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-blue-100 bg-blue-50 text-blue-700">
-             <span class="relative flex h-2 w-2">
-               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-               <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-             </span>
-             <span class="text-xs font-bold uppercase tracking-widest">Accepting New Builds for Q1 2026</span>
-          </div>
-          
-          <h1 class="font-display text-5xl md:text-7xl font-bold text-slate-900 leading-[1.1] mb-6">
-            We Build the <br /> 
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Workforce</span> <br />
-            That Never Sleeps.
-          </h1>
-          
-          <p class="text-xl text-gray-500 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-            Stop hiring for repetitive tasks. We architect self-hosted n8n workflows and custom agents that run your operations securely, 24/7.
-          </p>
-          
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button @click="modalOpen = true" class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20">
-              Analyze My Workflow
-            </button>
-            <a href="/n8n-services" class="px-8 py-4 rounded-full font-bold border border-gray-200 hover:bg-gray-50 text-slate-700 transition-all text-center">
-              View Services
-            </a>
-          </div>
-        </div>
-
-        <div class="relative z-10 flex justify-center lg:justify-end">
-           <img 
-             src="/LogicLoom_Neural.svg" 
-             alt="LogicLoom Neural Network" 
-             class="w-full max-w-[600px] h-auto object-contain drop-shadow-2xl animate-float"
-           />
-        </div>
-      </div>
+  <section id="top" class="relative pt-40 pb-16 md:pt-48 md:pb-20 px-6 overflow-hidden z-10">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
       
-      <div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-    </section>
+      <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm animate-fade-in">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </span>
+        <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Accepting New Builds for Q1 2026</span>
+      </div>
 
-    <section class="py-10 border-y border-gray-100 bg-slate-50/50">
-       <div class="max-w-6xl mx-auto px-6 text-center">
-          <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Powering Automation For</p>
-          <div class="flex flex-wrap justify-center gap-12 grayscale opacity-50">
-             <i class="ph ph-house-line text-3xl"></i>
-             <i class="ph ph-gavel text-3xl"></i>
-             <i class="ph ph-tooth text-3xl"></i>
-             <i class="ph ph-lightning text-3xl"></i>
-          </div>
-       </div>
-    </section>
+      <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05] animate-slide-up">
+        We Build the AI Workforce <br />
+        <span class="text-gray-400">That Never Sleeps.</span>
+      </h1>
 
-    <div x-show="modalOpen" style="display:none;" class="fixed inset-0 z-[100] flex items-center justify-center px-4" x-transition.opacity>
-      <div @click="modalOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-      <div class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
-        <div class="flex justify-between items-center p-4 border-b border-gray-100">
-          <h3 class="font-bold text-lg">Book Discovery Call</h3>
-          <button @click="modalOpen = false" class="text-gray-400 hover:text-black"><i class="ph ph-x text-xl"></i></button>
-        </div>
-        <div class="h-[500px] w-full bg-white">
-           <iframe src="https://cal.com/logicloomsystems-cal/15min?embed=true" style="width:100%;height:100%;border:none;"></iframe>
+      <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style="animation-delay: 0.1s;">
+        Stop hiring for repetitive tasks. We architect self-hosted <span class="text-slate-900 font-medium">n8n workflows</span> and custom agents that run your operations securely, 24/7.
+      </p>
+
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.2s;">
+        <a href="#contact"
+          class="bg-[#0071E3] text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95 flex items-center gap-2 w-full md:w-auto justify-center"
+        >
+          Analyze My Workflow
+          <i class="ph ph-arrow-down"></i>
+        </a>
+        
+        <button
+           @click="modalOpen = true"
+           class="bg-white text-slate-700 border border-gray-200 text-base px-8 py-4 rounded-full font-medium hover:bg-gray-50 transition-all active:scale-95 w-full md:w-auto"
+        >
+          Book Discovery
+        </button>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-gray-200/60 animate-slide-up" style="animation-delay: 0.3s;">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">Enterprise-Grade Stack</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+           <div class="flex items-center gap-2 font-display font-bold text-xl text-slate-700"><i class="ph ph-lightning-fill text-orange-500"></i> n8n</div>
+           <div class="flex items-center gap-2 font-display font-bold text-xl text-slate-700"><i class="ph ph-brain-fill text-green-600"></i> OpenAI</div>
+           <div class="flex items-center gap-2 font-display font-bold text-xl text-slate-700"><i class="ph ph-code text-yellow-500"></i> Python</div>
+           <div class="flex items-center gap-2 font-display font-bold text-xl text-slate-700"><i class="ph ph-database text-blue-600"></i> PostgreSQL</div>
+           <div class="flex items-center gap-2 font-display font-bold text-xl text-slate-700"><i class="ph ph-stripe-logo text-purple-600"></i> Stripe</div>
         </div>
       </div>
     </div>
+    
+    <div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+  </section>
 
-  </div>
-  
+  <section id="capabilities" class="py-24 bg-white relative z-10 border-y border-gray-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">The Automation Infrastructure</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">
+          We don't just "zap" things. We build resilient software architecture that handles thousands of operations without breaking.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="md:col-span-2 bg-gray-50 rounded-2xl p-10 relative overflow-hidden group hover:shadow-lg transition-all duration-500 border border-gray-100">
+          <div class="relative z-10">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
+              <i class="ph ph-users-three text-2xl text-[#0071E3]"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-3">Customer Ops Agents</h3>
+            <p class="text-gray-600 max-w-md leading-relaxed">
+              Deploy AI agents that triage support tickets, draft email replies, update CRM records, and route complex queries to humans only when necessary.
+            </p>
+            <div class="mt-8 flex gap-3">
+                <span class="text-xs font-mono bg-white border border-gray-200 px-2 py-1 rounded text-gray-500">GPT-4o</span>
+                <span class="text-xs font-mono bg-white border border-gray-200 px-2 py-1 rounded text-gray-500">Anthropic</span>
+            </div>
+          </div>
+          <div class="absolute right-[-20px] bottom-[-20px] w-64 h-48 bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex flex-col gap-3 opacity-90 group-hover:translate-y-[-5px] transition-transform duration-500">
+             <div class="flex items-center gap-2 border-b border-gray-100 pb-2">
+                 <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                 <span class="text-[10px] text-gray-400 font-mono">Incoming Ticket #9201</span>
+             </div>
+             <div class="space-y-2">
+                 <div class="bg-gray-100 h-2 w-full rounded-full"></div>
+                 <div class="bg-blue-50 h-2 w-2/3 rounded-full"></div>
+             </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-10 hover:shadow-lg transition-all duration-500 border border-gray-100">
+          <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
+            <i class="ph ph-chart-polar text-2xl text-slate-800"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3">Data Orchestration</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Unify data from fragmented tools. We build pipelines that pull from APIs, clean the data in Python/JS, and push to your dashboard or warehouse.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-10 hover:shadow-lg transition-all duration-500 border border-gray-100">
+          <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
+            <i class="ph ph-plugs text-2xl text-purple-600"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold mb-3">Custom Integrations</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Internal tool doesn't have a Zapier app? No problem. We write custom API wrappers and webhooks to connect the disconnectable.
+          </p>
+        </div>
+
+        <div class="md:col-span-2 bg-slate-900 text-white rounded-2xl p-10 relative overflow-hidden group">
+          <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="max-w-lg">
+                <h3 class="font-display text-2xl font-bold mb-2">The Architecture Audit</h3>
+                <p class="text-gray-400">
+                Not sure what's possible? We map your current stack, identify high-friction bottlenecks, and calculate the ROI of automation before writing a single line of code.
+                </p>
+            </div>
+            <button
+              @click="modalOpen = true"
+              class="whitespace-nowrap bg-white text-slate-900 text-sm font-semibold rounded-full px-6 py-3 hover:bg-gray-100 transition-colors"
+            >
+              Start Audit Strategy
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="py-24 relative overflow-hidden bg-gray-50 z-10">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="mb-16 md:text-center max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl font-bold tracking-tight mb-4">The LogicLoom Protocol</h2>
+        <p class="text-gray-500">A rigorous engineering approach to business process automation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+        <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+
+        <div class="relative group">
+          <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-xl font-bold shadow-sm mb-6 relative z-10 mx-auto md:mx-0 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors">
+              <span class="font-display">01</span>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Map & Measure</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We audit your manual workflows step-by-step. We don't just ask "what do you do?"—we ask "why?" and identify where data breaks.
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-xl font-bold shadow-sm mb-6 relative z-10 mx-auto md:mx-0 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors">
+              <span class="font-display">02</span>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Architect & Build</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            I build your agents using n8n and code. We implement error handling, logging, and fallback paths so your business doesn't crash on a bad API call.
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-xl font-bold shadow-sm mb-6 relative z-10 mx-auto md:mx-0 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors">
+              <span class="font-display">03</span>
+          </div>
+          <h3 class="font-display text-lg font-bold mb-2">Deploy & Transfer</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We deploy to your private server or cloud. You get full documentation and ownership of the source code. No vendor lock-in.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof" class="py-20 bg-white border-t border-gray-100 relative z-10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <h2 class="font-display text-3xl font-bold tracking-tight mb-3">Efficiency Metrics</h2>
+            <p class="text-gray-500 max-w-lg">Real outcomes from deployed architectures.</p>
+          </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-200 rounded-3xl overflow-hidden bg-white divide-y md:divide-y-0 md:divide-x divide-gray-200 shadow-sm">
+        
+        <div class="p-10 hover:bg-gray-50 transition-colors">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold font-mono text-gray-400 uppercase">Inbox Zero</span>
+            <i class="ph ph-check-circle text-green-500 text-xl"></i>
+          </div>
+          <div class="font-display text-4xl font-bold text-slate-900 mb-2">8 hrs</div>
+          <p class="text-sm text-gray-500">Saved weekly per employee by automating email triage and CRM entry.</p>
+        </div>
+
+        <div class="p-10 hover:bg-gray-50 transition-colors">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold font-mono text-gray-400 uppercase">Response Time</span>
+            <i class="ph ph-lightning text-yellow-500 text-xl"></i>
+          </div>
+          <div class="font-display text-4xl font-bold text-slate-900 mb-2">2 min</div>
+          <p class="text-sm text-gray-500">Average time to classify, route, and draft a response to inbound leads.</p>
+        </div>
+
+        <div class="p-10 hover:bg-gray-50 transition-colors">
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold font-mono text-gray-400 uppercase">Error Rate</span>
+            <i class="ph ph-trend-down text-blue-500 text-xl"></i>
+          </div>
+          <div class="font-display text-4xl font-bold text-slate-900 mb-2">~0%</div>
+          <p class="text-sm text-gray-500">Reduction in data entry errors compared to manual copy/pasting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-gray-50 border-t border-gray-200 relative z-10">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display text-3xl font-bold tracking-tight mb-2">Feasibility Audit</h2>
+        <p class="text-gray-500 text-sm">Tell me what's broken. I'll tell you if it can be automated.</p>
+      </div>
+
+      <div x-data="auditForm()">
+        
+        <div class="w-full bg-gray-200 h-1 rounded-full mb-8 overflow-hidden">
+          <div class="bg-slate-900 h-full transition-all duration-500 ease-out" :style="'width: ' + ((step / 5) * 100) + '%'"></div>
+        </div>
+
+        <div x-show="submitted" style="display: none;" class="mb-6 bg-green-50 border border-green-100 rounded-2xl p-6 text-center">
+          <i class="ph ph-check-circle text-3xl text-green-600 mb-2"></i>
+          <p class="font-semibold text-gray-900">Analysis Request Received.</p>
+          <p class="text-sm text-gray-500 mb-4">I will review your specs and email you a feasibility report shortly.</p>
+          <button @click="modalOpen = true" class="text-sm font-semibold text-[#0071E3] hover:underline">
+            Skip the line & Book a Call &rarr;
+          </button>
+        </div>
+
+        <form
+          x-show="!submitted"
+          action="https://formspree.io/f/xblnwooj"
+          method="POST"
+          class="bg-white p-8 md:p-12 rounded-2xl border border-gray-200 shadow-xl shadow-gray-200/50 relative min-h-[420px] flex flex-col justify-between"
+        >
+          <input type="hidden" name="_redirect" value="https://www.logicloomsystems.com/?submitted=1#contact" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr-only" />
+
+          <div x-show="step === 1">
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block">01 / 05</span>
+              <h3 class="font-display text-2xl font-bold text-slate-900">Who are we designing for?</h3>
+              <div class="space-y-4 mt-6">
+                <input type="text" name="name" x-model="name" placeholder="Your Name" class="w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 focus:ring-2 focus:ring-[#0071E3]" />
+                <input type="email" name="email" x-model="email" placeholder="Work Email" class="w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 focus:ring-2 focus:ring-[#0071E3]" />
+              </div>
+          </div>
+
+          <div x-show="step === 2" style="display:none;">
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block">02 / 05</span>
+              <h3 class="font-display text-2xl font-bold text-slate-900">Organization Context</h3>
+              <div class="space-y-4 mt-6">
+                <input type="text" name="business" x-model="business" placeholder="Business Name & Industry" class="w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 focus:ring-2 focus:ring-[#0071E3]" />
+                <input type="text" name="website" x-model="website" placeholder="Website URL" class="w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 focus:ring-2 focus:ring-[#0071E3]" />
+              </div>
+          </div>
+
+          <div x-show="step === 3" style="display:none;">
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block">03 / 05</span>
+              <h3 class="font-display text-2xl font-bold text-slate-900">The Bottleneck</h3>
+              <p class="text-gray-500 text-sm mt-2">Describe the repetitive task you want to kill.</p>
+              <textarea name="hated_task" x-model="hatedTask" rows="4" placeholder="Example: Every time we get a lead, I have to manually copy..." class="w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 focus:ring-2 focus:ring-[#0071E3] mt-4 resize-none"></textarea>
+          </div>
+
+          <div x-show="step === 4" style="display:none;">
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block">04 / 05</span>
+              <h3 class="font-display text-2xl font-bold text-slate-900">Operational Drag</h3>
+              <p class="text-gray-500 text-sm mt-2">How much time does this cost you weekly?</p>
+              <div class="space-y-3 mt-4">
+                <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:border-[#0071E3] hover:bg-blue-50/50 transition-all">
+                  <input type="radio" name="time_spent" value="1-3 Hours" x-model="timeSpent" class="w-5 h-5 text-[#0071E3] focus:ring-[#0071E3]" />
+                  <span class="ml-3 font-medium text-gray-900">1–3 Hours / Week</span>
+                </label>
+                <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:border-[#0071E3] hover:bg-blue-50/50 transition-all">
+                  <input type="radio" name="time_spent" value="4-10 Hours" x-model="timeSpent" class="w-5 h-5 text-[#0071E3] focus:ring-[#0071E3]" />
+                  <span class="ml-3 font-medium text-gray-900">4–10 Hours / Week</span>
+                </label>
+                <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:border-[#0071E3] hover:bg-blue-50/50 transition-all">
+                  <input type="radio" name="time_spent" value="10+ Hours" x-model="timeSpent" class="w-5 h-5 text-[#0071E3] focus:ring-[#0071E3]" />
+                  <span class="ml-3 font-medium text-gray-900">10+ Hours (Critical)</span>
+                </label>
+              </div>
+          </div>
+
+          <div x-show="step === 5" style="display:none;">
+              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block">05 / 05</span>
+              <h3 class="font-display text-2xl font-bold text-slate-900">Technical Details</h3>
+              <p class="text-gray-500 text-sm mt-2">Which tools are involved?</p>
+              <input type="text" name="tools" x-model="tools" placeholder="e.g. HubSpot, Gmail, Shopify, Postgres..." class="w-full bg-gray-50 border-0 rounded-xl px-5 py-4 text-gray-900 focus:ring-2 focus:ring-[#0071E3] mt-4" />
+          </div>
+
+          <div class="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
+            <button type="button" @click="step--" x-show="step > 1" class="text-gray-500 hover:text-black text-sm font-semibold transition-colors flex items-center gap-1">
+              &larr; Back
+            </button>
+            <div x-show="step === 1" class="flex-grow"></div>
+            <div class="flex items-center gap-2">
+              <button type="button" @click="step++" x-show="step < 5" :disabled="(step === 1 && !isStep1Valid()) || (step === 2 && !isStep2Valid()) || (step === 3 && !isStep3Valid()) || (step === 4 && !isStep4Valid())" class="bg-slate-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                Next &rarr;
+              </button>
+              <button type="submit" x-show="step === 5" :disabled="!isStep5Valid()" class="bg-[#0071E3] text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-blue-600 shadow-lg shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                Analyze Workflow <i class="ph ph-paper-plane-right"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    function auditForm() {
+      return {
+        step: 1,
+        submitted: false,
+        name: '', email: '', business: '', website: '', hatedTask: '', timeSpent: '', tools: '',
+
+        init() {
+          const url = new URL(window.location.href);
+          this.submitted = url.searchParams.get('submitted') === '1';
+        },
+
+        isStep1Valid() { return this.name.trim().length > 1 && this.email.includes('@'); },
+        isStep2Valid() { return this.business.trim().length > 2; },
+        isStep3Valid() { return this.hatedTask.trim().length > 3; },
+        isStep4Valid() { return this.timeSpent.trim().length > 0; },
+        isStep5Valid() { return this.tools.trim().length > 2; }
+      }
+    }
+  </script>
+
   <style>
-    /* Subtle float animation for the hero image */
+    /* Subtle float animation for hero image */
     @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
@@ -89,5 +352,10 @@ import Layout from '../layouts/Layout.astro';
     .animate-float {
       animation: float 6s ease-in-out infinite;
     }
+    /* Simple fade/slide animations */
+    .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </Layout>
