@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+---
+import "../styles/global.css";
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  </head>
+  <body class="bg-ios-bg text-ios-text antialiased font-sans" x-data="{ mobileMenuOpen: false }">
+    
+    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 group">
+          <span class="font-display font-bold text-xl text-slate-900 tracking-tight">LogicLoom</span>
+        </a>
+        
+        <div class="hidden md:flex items-center space-x-6">
+             <a href="/" class="text-sm font-medium text-gray-500 hover:text-black">Home</a>
+             <a href="/n8n-services" class="text-sm font-medium text-gray-500 hover:text-black">n8n Services</a>
+             <a href="/industries/roofing-automation" class="text-sm font-medium text-gray-500 hover:text-black">Roofing</a>
+             <a href="/industries/dental-automation" class="text-sm font-medium text-gray-500 hover:text-black">Dental</a>
+             <a href="/industries/legal-automation" class="text-sm font-medium text-gray-500 hover:text-black">Legal</a>
+        </div>
+
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-slate-900 p-2">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
+      </div>
+
+      <div x-show="mobileMenuOpen" style="display: none;" class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl">
+           <div class="flex flex-col space-y-4">
+                <a href="/" class="text-lg font-semibold">Home</a>
+                <a href="/n8n-services" class="text-lg font-semibold">n8n Services</a>
+                <a href="/industries/roofing-automation" class="text-lg font-semibold">Roofing</a>
+                <a href="/industries/dental-automation" class="text-lg font-semibold">Dental</a>
+                <a href="/industries/legal-automation" class="text-lg font-semibold">Legal</a>
+           </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot /> 
+    </main>
+
+    <footer class="bg-white py-12 border-t border-gray-200 mt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-sm text-gray-500">&copy; 2025 LogicLoom Systems.</p>
+        </div>
+    </footer>
+
+  </body>
+</html>

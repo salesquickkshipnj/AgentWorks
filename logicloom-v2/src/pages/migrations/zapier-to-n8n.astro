@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Zapier to n8n Migration Services | LogicLoom Systems"
+  description="Stop paying the 'Action Tax'. We migrate expensive Zapier setups to self-hosted n8n workflows. Secure, flat-rate automation."
+>
+  <div x-data="{ modalOpen: false }">
+    
+    <section class="pt-40 pb-20 px-6 text-center">
+      <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50/60 text-orange-700">
+        <i class="ph ph-lightning-fill"></i>
+        <span class="text-xs font-bold uppercase tracking-widest">Certified n8n Architects</span>
+      </div>
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+        Escape the <br /> <span class="text-orange-600">"Zapier Tax."</span>
+      </h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10">
+        We build enterprise-grade, self-hosted n8n nodes that handle millions of executions for a flat server fee. Stop paying per task.
+      </p>
+      <div class="flex justify-center gap-4">
+        <button @click="modalOpen = true" class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl">
+            Calculate My Savings
+        </button>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-y border-gray-100">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+            
+            <div class="bg-gray-50 p-10 rounded-3xl border border-gray-200 relative overflow-hidden">
+                <div class="flex items-center gap-2 mb-6 opacity-60">
+                    <span class="text-xs font-bold uppercase tracking-widest text-red-500">Legacy SaaS (Zapier)</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4">The "Pay-Per-Breath" Model</h3>
+                <ul class="space-y-4 text-sm text-gray-600">
+                    <li class="flex gap-3"><i class="ph ph-x text-red-500"></i> Costs explode with volume ($1,500+/mo).</li>
+                    <li class="flex gap-3"><i class="ph ph-x text-red-500"></i> Data lives on public servers (Privacy Risk).</li>
+                    <li class="flex gap-3"><i class="ph ph-x text-red-500"></i> Hard to execute custom Python code.</li>
+                </ul>
+            </div>
+
+            <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden shadow-2xl">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-green-400">The LogicLoom Stack (n8n)</span>
+                </div>
+                <h3 class="font-display text-2xl font-bold mb-4">Fixed-Cost Infrastructure</h3>
+                <ul class="space-y-4 text-sm text-gray-300">
+                    <li class="flex gap-3"><i class="ph ph-check text-green-400"></i> Flat Server Fee (~$40/mo) for unlimited tasks.</li>
+                    <li class="flex gap-3"><i class="ph ph-check text-green-400"></i> Self-Hosted: Data stays in your private cloud.</li>
+                    <li class="flex gap-3"><i class="ph ph-check text-green-400"></i> Turing Complete: We write custom JS/Python nodes.</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-ios-bg">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-3xl font-bold mb-12 text-center">Engineering Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <i class="ph ph-server text-3xl text-orange-500 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Private Deployment</h3>
+                    <p class="text-sm text-gray-500">We provision a VPS (DigitalOcean/AWS), install Docker/n8n, configure Nginx, SSL, and backups.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <i class="ph ph-arrows-merge text-3xl text-blue-500 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Logic Mapping</h3>
+                    <p class="text-sm text-gray-500">We audit your expensive Zaps, map the logic, and rebuild them in n8n—often condensing 10 steps into 1.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <i class="ph ph-code text-3xl text-purple-500 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Custom Nodes</h3>
+                    <p class="text-sm text-gray-500">Need to connect an internal API? We write custom HTTP requests or Python scripts within the workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div x-show="modalOpen" style="display:none;" class="fixed inset-0 z-[100] flex items-center justify-center px-4" x-transition.opacity>
+      <div @click="modalOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+      <div class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+        <div class="flex justify-between items-center p-4 border-b border-gray-100">
+          <h3 class="font-bold text-lg">Book Migration Assessment</h3>
+          <button @click="modalOpen = false" class="text-gray-400 hover:text-black"><i class="ph ph-x text-xl"></i></button>
+        </div>
+        <div class="h-[500px] w-full bg-white">
+           <iframe src="https://cal.com/logicloomsystems-cal/15min?embed=true" style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>

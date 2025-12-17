@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Roofing Automation & AI Answering | LogicLoom Systems"
+  description="Stop missing bids while you're on the roof. We automate lead capture, quoting, and follow-ups for roofing contractors."
+>
+  <div x-data="{ modalOpen: false }">
+
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+          <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Industry: Roofing & Construction</span>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+          You're on the roof. <br />
+          <span class="text-gray-400">The phone rings.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          You miss the call. You miss the $15k job. <br class="hidden md:block">
+          We build <strong>AI Voice Agents and n8n automations</strong> that answer calls, book appointments, and chase invoices while you work.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <button @click="modalOpen = true" class="bg-ios-blue text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
+            Automate My Leads
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl font-bold mb-6">The "Busy Contractor" Trap</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-phone-missed text-xl"></i></div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The Missed Call</h3>
+                  <p class="text-sm text-gray-500">60% of homeowners hire the first contractor to pick up. If you send them to voicemail, you lost the job.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-clock text-xl"></i></div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The 9 PM Paperwork</h3>
+                  <p class="text-sm text-gray-500">Creating estimates and invoices manually after a 10-hour day on site leads to burnout and errors.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-users-three text-xl"></i></div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Leaky Follow-ups</h3>
+                  <p class="text-sm text-gray-500">You sent the bid, but never followed up. The customer forgot you. That's money left on the table.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
+              <div class="space-y-4 font-mono text-sm">
+                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Missed Call &rarr; AI SMS instantly</span></div>
+                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Form Fill &rarr; CRM &rarr; Auto-Call</span></div>
+                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Job Done &rarr; Auto-Invoice via QuickBooks</span></div>
+                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Rain Delay &rarr; Bulk SMS to clients</span></div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-slate-900"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-ios-bg">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your toolbelt</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-house-line"></i> Jobber</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-squares-four"></i> CompanyCam</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-receipt"></i> QuickBooks</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-envelope-simple"></i> Gmail</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-phone"></i> Twilio</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl font-bold mb-12">The ROI of Automation</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
+            <p class="text-sm text-gray-600">Lead Response Rate</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <div class="text-4xl font-bold text-blue-600 mb-2">10 hrs</div>
+            <p class="text-sm text-gray-600">Saved Weekly on Admin</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <div class="text-4xl font-bold text-blue-600 mb-2">3x</div>
+            <p class="text-sm text-gray-600">Faster Quote Speed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold mb-6">Stop playing phone tag.</h2>
+        <p class="text-gray-400 mb-10">Get a free audit of your lead handling process. We'll show you exactly where you're losing money.</p>
+        <button @click="modalOpen = true" class="bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all">
+          Audit My Workflow
+        </button>
+      </div>
+    </section>
+
+    <div x-show="modalOpen" style="display:none;" class="fixed inset-0 z-[100] flex items-center justify-center px-4" x-transition.opacity>
+      <div @click="modalOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+      <div class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-bold text-lg">Book Your Audit</h3>
+          <button @click="modalOpen = false"><i class="ph ph-x text-xl"></i></button>
+        </div>
+        
+        <div class="h-[500px] w-full bg-white">
+           <iframe src="https://cal.com/logicloomsystems-cal/15min?embed=true" style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</Layout>

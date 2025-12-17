@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Dental Practice Automation & Patient Reactivation | LogicLoom"
+  description="Stop missing patients. We automate appointment confirmations, reactivate dormant patients, and sync forms to OpenDental using AI agents."
+>
+  <div x-data="{ modalOpen: false }">
+
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-teal-200 bg-teal-50/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-teal-500"></span>
+          <span class="text-xs font-semibold text-teal-700 uppercase tracking-widest">Industry: Dental & Orthodontics</span>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+          Fill your chair. <br />
+          <span class="text-gray-400">Not your inbox.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          Missed calls cost $300+. We automate patient confirmations, reactivate dormant patients, and sync forms to OpenDental—without adding front-desk staff.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <button @click="modalOpen = true" class="bg-ios-blue text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
+            Automate My Practice
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl font-bold mb-6">The Front Desk Bottleneck</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-calendar-x text-xl"></i></div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The Silent Chair</h3>
+                  <p class="text-sm text-gray-500">Patients forget appointments. Manual confirmation calls take hours. Chairs sit empty, costing you revenue.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-user-minus text-xl"></i></div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The 'Recall' Void</h3>
+                  <p class="text-sm text-gray-500">You have 1,000 patients due for cleaning, but no one has time to call them. That's a dormant goldmine.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-files text-xl"></i></div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The Paperwork Chase</h3>
+                  <p class="text-sm text-gray-500">Manually verifying insurance eligibility and typing handwritten forms into the EHR is a massive time sink.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
+              <div class="space-y-4 font-mono text-sm">
+                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>Booking &rarr; Auto-SMS Reminders</span></div>
+                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>6 Months No Visit &rarr; AI Reactivation Text</span></div>
+                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>New Patient &rarr; Digital Forms to EHR</span></div>
+                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>Post-Op &rarr; Automated Check-in Sequence</span></div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-slate-900"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-ios-bg">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your practice software</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-tooth"></i> OpenDental</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-first-aid-kit"></i> Dentrix</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-bird"></i> Eaglesoft</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-chat-circle-text"></i> Podium</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-phone-call"></i> Twilio</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white border-t border-gray-100">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl font-bold mb-12">The ROI of Automation</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <div class="text-4xl font-bold text-teal-600 mb-2">20%</div>
+            <p class="text-sm text-gray-600">Fewer No-Shows</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <div class="text-4xl font-bold text-teal-600 mb-2">$5k+</div>
+            <p class="text-sm text-gray-600">Reactivated Revenue / Mo</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-2xl">
+            <div class="text-4xl font-bold text-teal-600 mb-2">0</div>
+            <p class="text-sm text-gray-600">Manual Confirmations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-slate-900 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold mb-6">Stop playing phone tag.</h2>
+        <p class="text-gray-400 mb-10">Get a free audit of your patient flow. We'll show you exactly where you're losing appointments.</p>
+        <button @click="modalOpen = true" class="bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all">
+          Audit My Practice
+        </button>
+      </div>
+    </section>
+
+    <div x-show="modalOpen" style="display:none;" class="fixed inset-0 z-[100] flex items-center justify-center px-4" x-transition.opacity>
+      <div @click="modalOpen = false" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+      <div class="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden">
+        <div class="flex justify-between items-center p-4 border-b border-gray-100">
+          <h3 class="font-bold text-lg">Book Practice Audit</h3>
+          <button @click="modalOpen = false" class="text-gray-400 hover:text-black"><i class="ph ph-x text-xl"></i></button>
+        </div>
+        <div class="h-[500px] w-full bg-white">
+           <iframe src="https://cal.com/logicloomsystems-cal/15min?embed=true" style="width:100%;height:100%;border:none;"></iframe>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</Layout>
