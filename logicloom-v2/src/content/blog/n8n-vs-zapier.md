@@ -6,7 +6,13 @@ description: "A technical breakdown of the limitations of Zapier at scale and ho
 
 pubDate: 2025-12-18
 
-tags: \["Automation", "n8n", "Engineering"]
+tags: 
+
+&nbsp; - "Automation"
+
+&nbsp; - "n8n"
+
+&nbsp; - "Engineering"
 
 ---
 
@@ -17,8 +23,4 @@ tags: \["Automation", "n8n", "Engineering"]
 
 
 When you are small, Zapier is great. But as soon as you hit 50,000 tasks per month, the bill becomes a second mortgage...
-
-
-
-\[Write your content here...]
 
