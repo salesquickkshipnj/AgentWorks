@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Utilities */
 html {
   scroll-behavior: smooth;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
 }
