@@ -6,40 +6,8 @@ const { webhookUrl } = Astro.props;
 ---
 
 <div 
-  x-data={{
-    step: 1,
-    submitted: false,
-    loading: false,
-    data: {
-      name: '', email: '', business: '', industry: '', pain_point: '', 
-      employees: 1, hours: 5, rate: 45, tools: ''
-    },
-    formatCurrency(val) {
-      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
-    },
-    nextStep() {
-      if (this.step === 1 && (!this.data.name || !this.data.email)) {
-          alert('Please fill in your name and email to proceed.');
-          return;
-      }
-      this.step++;
-    },
-    async submitForm() {
-      this.loading = true;
-      try {
-        await fetch('', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.data)
-        });
-        this.submitted = true;
-      } catch (e) {
-        alert('Network error. Please try again.');
-      } finally {
-        this.loading = false;
-      }
-    }
-  }}
+  x-data="auditWizard()"
+  data-webhook-url={webhookUrl} 
   class="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden relative min-h-[600px] flex flex-col md:flex-row"
 >
   
@@ -209,3 +177,45 @@ const { webhookUrl } = Astro.props;
 
   </div>
 </div>
+
+<script is:inline>
+  function auditWizard() {
+    return {
+      step: 1,
+      submitted: false,
+      loading: false,
+      data: {
+        name: '', email: '', business: '', industry: '', pain_point: '', 
+        employees: 1, hours: 5, rate: 45, tools: ''
+      },
+      formatCurrency(val) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+      },
+      nextStep() {
+        if (this.step === 1 && (!this.data.name || !this.data.email)) {
+             alert('Please fill in your name and email.');
+             return;
+        }
+        this.step++;
+      },
+      async submitForm() {
+        this.loading = true;
+        // Retrieve webhook URL safely from the data attribute
+        const url = this.$el.dataset.webhookUrl;
+        
+        try {
+          await fetch(url, {
+             method: 'POST',
+             headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify(this.data)
+          });
+          this.submitted = true;
+        } catch (e) {
+          alert('Network error. Please try again.');
+        } finally {
+          this.loading = false;
+        }
+      }
+    }
+  }
+</script>
