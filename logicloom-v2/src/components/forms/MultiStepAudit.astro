@@ -1,0 +1,238 @@
+﻿---
+interface Props {
+  webhookUrl: string;
+}
+const { webhookUrl } = Astro.props;
+---
+
+<div x-data="auditWizard()" class="w-full max-w-3xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden relative min-h-[600px] flex flex-col">
+  
+  <div class="bg-slate-50 border-b border-gray-100 p-6 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+       <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-xs font-bold" x-text="step"></span>
+       <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Feasibility Audit</span>
+    </div>
+    <div class="text-xs font-bold text-blue-600" x-text="'Step ' + step + ' of 6'"></div>
+  </div>
+  
+  <div class="h-1 bg-gray-100 w-full">
+    <div class="h-full bg-blue-600 transition-all duration-500 ease-out" :style="'width: ' + ((step / 6) * 100) + '%'"></div>
+  </div>
+
+  <form @submit.prevent="submitForm" class="flex-grow p-8 md:p-12 relative">
+    
+    <div x-show="submitted" style="display:none;" x-transition.opacity class="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-12">
+      <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+        <i class="ph ph-check-circle text-4xl"></i>
+      </div>
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">Audit Received.</h3>
+      <p class="text-gray-500 max-w-sm mb-8">
+        We are analyzing your workflow. Your personalized feasibility report will be sent via <span class="font-bold text-slate-900" x-text="data.comm_pref"></span> shortly.
+      </p>
+      <button type="button" @click="('open-modal')" class="text-blue-600 font-bold hover:underline cursor-pointer">
+        Fast-track this request by booking a call &rarr;
+      </button>
+    </div>
+
+    <div x-show="step === 1" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-x-8" x-transition:enter-end="opacity-100 translate-x-0">
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">Who are we designing for?</h3>
+      <p class="text-gray-500 mb-8">We need to know who to address the engineering report to.</p>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+          <input type="text" x-model="data.name" class="w-full bg-gray-50 border-gray-200 rounded-xl px-4 py-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Jane Doe">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-1">Business Name</label>
+          <input type="text" x-model="data.business" class="w-full bg-gray-50 border-gray-200 rounded-xl px-4 py-3 focus:ring-blue-500 focus:border-blue-500" placeholder="Acme Inc.">
+        </div>
+      </div>
+    </div>
+
+    <div x-show="step === 2" style="display:none;" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-x-8" x-transition:enter-end="opacity-100 translate-x-0">
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">The Bottleneck</h3>
+      <p class="text-gray-500 mb-8">What is the one repetitive task you absolutely hate doing?</p>
+      
+      <textarea x-model="data.pain_point" rows="4" class="w-full bg-gray-50 border-gray-200 rounded-xl px-4 py-3 focus:ring-blue-500 focus:border-blue-500 resize-none" placeholder="Example: Every time a lead comes in from Zillow, I have to manually copy their info into Follow Up Boss, then create a folder in Drive..."></textarea>
+    </div>
+
+    <div x-show="step === 3" style="display:none;" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-x-8" x-transition:enter-end="opacity-100 translate-x-0">
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">The Cost of Inefficiency</h3>
+      <p class="text-gray-500 mb-8">Be honest. How much time does this steal from your team?</p>
+      
+      <div class="space-y-8">
+        <div>
+          <label class="flex justify-between text-sm font-bold text-gray-700 mb-2">
+            <span>Hours wasted per week</span>
+            <span class="text-blue-600 bg-blue-50 px-2 py-1 rounded" x-text="data.hours + ' hrs'"></span>
+          </label>
+          <input type="range" min="1" max="40" x-model="data.hours" class="w-full accent-blue-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+        
+        <div>
+           <label class="flex justify-between text-sm font-bold text-gray-700 mb-2">
+            <span>Average Team Hourly Rate</span>
+            <span class="text-blue-600 bg-blue-50 px-2 py-1 rounded" x-text="'$' + data.rate + '/hr'"></span>
+          </label>
+          <input type="range" min="15" max="200" step="5" x-model="data.rate" class="w-full accent-blue-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <div class="bg-red-50 border border-red-100 p-6 rounded-xl flex items-center justify-between gap-4">
+           <div>
+             <div class="text-xs text-red-400 uppercase tracking-wide font-bold mb-1">Estimated Annual Loss</div>
+             <div class="text-3xl font-bold text-red-600" x-text="formatCurrency(annualLoss)"></div>
+           </div>
+           <div class="bg-white p-3 rounded-full text-red-500 shadow-sm"><i class="ph ph-trend-down text-2xl"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div x-show="step === 4" style="display:none;" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-x-8" x-transition:enter-end="opacity-100 translate-x-0">
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">The Stack</h3>
+      <p class="text-gray-500 mb-8">Which tools are involved in this workflow?</p>
+      
+      <div class="grid grid-cols-2 gap-3">
+        <template x-for="tool in ['Gmail/Outlook', 'Excel/Sheets', 'Slack/Teams', 'HubSpot/Salesforce', 'QuickBooks/Xero', 'Notion/Airtable', 'OpenAI/ChatGPT', 'Other']">
+          <label class="cursor-pointer border rounded-xl p-4 flex items-center gap-3 transition-all hover:bg-gray-50" 
+                 :class="data.stack.includes(tool) ? 'border-blue-500 bg-blue-50 text-blue-700 ring-1 ring-blue-500' : 'border-gray-200'">
+            <input type="checkbox" :value="tool" x-model="data.stack" class="hidden">
+            <i class="ph ph-check-circle text-xl" :class="data.stack.includes(tool) ? 'text-blue-600' : 'text-gray-300'"></i>
+            <span class="text-sm font-bold" x-text="tool"></span>
+          </label>
+        </template>
+      </div>
+    </div>
+
+    <div x-show="step === 5" style="display:none;" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-x-8" x-transition:enter-end="opacity-100 translate-x-0">
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">How should we reply?</h3>
+      <p class="text-gray-500 mb-8">We will send a detailed breakdown. Where should it go?</p>
+      
+      <div class="space-y-4">
+        <label class="cursor-pointer border rounded-2xl p-5 flex items-start gap-4 transition-all"
+               :class="data.comm_pref === 'Email' ? 'border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-500' : 'border-gray-200 hover:border-blue-300'">
+          <input type="radio" value="Email" x-model="data.comm_pref" class="mt-1 accent-blue-600">
+          <div class="w-full">
+            <span class="font-bold text-slate-900 block text-lg">Email Report</span>
+            <span class="text-sm text-gray-500 block mb-3">Best for detailed PDF breakdowns and diagrams.</span>
+            <div x-show="data.comm_pref === 'Email'" class="mt-2" x-transition>
+               <input type="email" x-model="data.email" placeholder="work@business.com" class="w-full bg-white border-blue-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500">
+            </div>
+          </div>
+        </label>
+
+        <label class="cursor-pointer border rounded-2xl p-5 flex items-start gap-4 transition-all"
+               :class="data.comm_pref === 'SMS' ? 'border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-500' : 'border-gray-200 hover:border-blue-300'">
+          <input type="radio" value="SMS" x-model="data.comm_pref" class="mt-1 accent-blue-600">
+          <div class="w-full">
+            <span class="font-bold text-slate-900 block text-lg">Text Message (SMS)</span>
+            <span class="text-sm text-gray-500 block mb-3">Best for quick feasibility checks ("Yes/No") and estimated pricing.</span>
+            <div x-show="data.comm_pref === 'SMS'" class="mt-2" x-transition>
+               <input type="tel" x-model="data.phone" placeholder="+1 (555) 000-0000" class="w-full bg-white border-blue-200 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500">
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div x-show="step === 6" style="display:none;" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-x-8" x-transition:enter-end="opacity-100 translate-x-0">
+      <span class="text-xs font-bold text-green-600 uppercase tracking-widest mb-2 block">Final Review</span>
+      <h3 class="font-display text-3xl font-bold text-slate-900 mb-6">Ready to automate?</h3>
+      
+      <div class="bg-gray-50 rounded-2xl p-6 space-y-4 mb-8 text-sm border border-gray-200">
+        <div class="flex justify-between border-b border-gray-200 pb-2">
+          <span class="text-gray-500">Task</span>
+          <span class="font-medium text-slate-900 text-right truncate max-w-[200px]" x-text="data.pain_point"></span>
+        </div>
+        <div class="flex justify-between border-b border-gray-200 pb-2">
+          <span class="text-gray-500">Est. Annual Waste</span>
+          <span class="font-bold text-red-500" x-text="formatCurrency(annualLoss)"></span>
+        </div>
+        <div class="flex justify-between border-b border-gray-200 pb-2">
+          <span class="text-gray-500">Stack</span>
+          <span class="font-medium text-slate-900 text-right" x-text="data.stack.join(', ')"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Send Report via</span>
+          <span class="font-medium text-slate-900" x-text="data.comm_pref"></span>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <div x-show="!submitted" class="bg-gray-50 p-6 border-t border-gray-200 flex justify-between items-center">
+    <button type="button" @click="step--" x-show="step > 1" class="text-gray-500 font-bold hover:text-black transition-colors px-4 py-2 cursor-pointer">
+      &larr; Back
+    </button>
+    <div x-show="step === 1" class="flex-grow"></div>
+
+    <button type="button" @click="nextStep()" x-show="step < 6" class="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-all shadow-lg active:scale-95 cursor-pointer">
+      Next Step
+    </button>
+
+    <button type="button" @click="submitForm()" x-show="step === 6" :disabled="loading" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/30 active:scale-95 flex items-center gap-2 cursor-pointer">
+      <span x-show="!loading">Generate Report</span>
+      <span x-show="loading">Analyzing...</span>
+      <i x-show="loading" class="ph ph-spinner animate-spin"></i>
+    </button>
+  </div>
+
+</div>
+
+<script is:inline define:vars={{ webhookUrl }}>
+  function auditWizard() {
+    return {
+      step: 1,
+      submitted: false,
+      loading: false,
+      data: {
+        name: '',
+        business: '',
+        pain_point: '',
+        hours: 5,
+        rate: 45,
+        stack: [],
+        comm_pref: 'Email',
+        email: '',
+        phone: ''
+      },
+
+      get annualLoss() {
+        return this.data.hours * this.data.rate * 52;
+      },
+
+      formatCurrency(val) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+      },
+
+      nextStep() {
+        // Validation
+        if (this.step === 1 && (!this.data.name || !this.data.business)) return alert('Please complete all fields.');
+        if (this.step === 2 && this.data.pain_point.length < 5) return alert('Please describe the task.');
+        if (this.step === 5) {
+            if (this.data.comm_pref === 'Email' && !this.data.email.includes('@')) return alert('Valid email required.');
+            if (this.data.comm_pref === 'SMS' && this.data.phone.length < 10) return alert('Valid phone required.');
+        }
+        this.step++;
+      },
+
+      async submitForm() {
+        this.loading = true;
+        try {
+          // Sending to your n8n
+          await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.data)
+          });
+          this.submitted = true;
+        } catch (e) {
+          alert('Error sending data. Please check your connection.');
+        } finally {
+          this.loading = false;
+        }
+      }
+    }
+  }
+</script>
