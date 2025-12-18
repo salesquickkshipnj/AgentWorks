@@ -200,11 +200,9 @@ const { webhookUrl } = Astro.props;
       },
       async submitForm() {
         this.loading = true;
-        // Retrieve webhook URL safely from the data attribute
-    
-        const url = https://flexaiautomations.app.n8n.cloud/webhook/audit-request
-
-	console.log("HARDCODED URL IS:", ur);
+        
+        // --- FIX IS HERE: We use '=' not ':' ---
+        const url = "https://flexaiautomations.app.n8n.cloud/webhook/audit-request";
 
         try {
           await fetch(url, {
@@ -215,6 +213,7 @@ const { webhookUrl } = Astro.props;
           this.submitted = true;
         } catch (e) {
           alert('Network error. Please try again.');
+          console.error(e);
         } finally {
           this.loading = false;
         }
