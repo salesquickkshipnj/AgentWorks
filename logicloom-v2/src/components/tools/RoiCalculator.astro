@@ -1,10 +1,10 @@
 ﻿<div x-data="roiCalc()" class="bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-700 relative overflow-hidden">
   
-  <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
   <div class="grid md:grid-cols-2 gap-12 relative z-10">
     <div class="space-y-8">
-      <h3 class="font-display text-2xl font-bold">Calculate Your Waste</h3>
+      <h3 class="font-display text-2xl font-bold text-white">Calculate Your Waste</h3>
       
       <div>
         <label class="flex justify-between text-sm text-gray-400 mb-4">
@@ -31,8 +31,9 @@
     </div>
 
     <div class="flex flex-col justify-center items-center bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50">
-      <div class="text-xs text-gray-400 uppercase tracking-widest mb-2 font-bold">Annual Cost of Inefficiency</div>
-      <div class="text-5xl md:text-6xl font-bold text-emerald-400 mb-4 font-display" x-text="formatMoney(annualCost)"></div>
+      <div class="text-xs text-red-400 uppercase tracking-widest mb-2 font-bold">Annual Cost of Inefficiency</div>
+      
+      <div class="text-5xl md:text-6xl font-bold text-red-500 mb-4 font-display" x-text="formatMoney(annualCost)"></div>
       
       <p class="text-center text-gray-400 text-sm mb-8 leading-relaxed">
         This is what manual work costs you every year. LogicLoom can automate 80% of this.
