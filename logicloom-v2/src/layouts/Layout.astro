@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Schema from "../components/seo/Schema.astro"; // Import the new component
 
 interface Props {
   title: string;
@@ -10,7 +11,7 @@ interface Props {
 const { 
   title, 
   description, 
-  image = "/og-default.png" // Recommendation: Add a default share image to your public folder
+  image = "https://www.logicloomsystems.com/og-default.png" // Absolute URL is better for SEO
 } = Astro.props;
 
 const currentUrl = Astro.url.href;
@@ -65,6 +66,9 @@ const currentUrl = Astro.url.href;
       ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
+
+<Schema title={title} description={description} image={image} url={currentUrl} />
+
   </head>
   
   <body 
@@ -156,14 +160,19 @@ const currentUrl = Astro.url.href;
       <div x-show="mobileMenuOpen" 
            style="display: none;"
            x-transition
-           class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl h-screen" 
+           class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl h-screen z-40" 
            @click.outside="mobileMenuOpen = false">
            <div class="space-y-6">
-                <a href="/industries/roofing-automation" class="block text-lg font-semibold">Roofing</a>
-                <a href="/n8n-services" class="block text-lg font-semibold">n8n Services</a>
-                <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold cursor-pointer">Start Project</button>
+                <a href="#process" @click="mobileMenuOpen = false" class="block text-lg font-semibold text-slate-900">The Protocol</a>
+                <a href="#case-studies" @click="mobileMenuOpen = false" class="block text-lg font-semibold text-slate-900">Results</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="block text-lg font-semibold text-slate-900">Audit & ROI</a>
+                
+                <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold cursor-pointer mt-4 shadow-lg active:scale-95 transition-transform">
+                    Start Project
+                </button>
            </div>
       </div>
+
     </nav>
 
     <main>
