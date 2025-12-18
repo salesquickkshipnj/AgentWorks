@@ -160,16 +160,37 @@ const currentUrl = Astro.url.href;
       <div x-show="mobileMenuOpen" 
            style="display: none;"
            x-transition
-           class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl h-screen z-40" 
+           class="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 md:hidden shadow-xl h-[85vh] overflow-y-auto z-40" 
            @click.outside="mobileMenuOpen = false">
            <div class="space-y-6">
-                <a href="#process" @click="mobileMenuOpen = false" class="block text-lg font-semibold text-slate-900">The Protocol</a>
-                <a href="#case-studies" @click="mobileMenuOpen = false" class="block text-lg font-semibold text-slate-900">Results</a>
-                <a href="#contact" @click="mobileMenuOpen = false" class="block text-lg font-semibold text-slate-900">Audit & ROI</a>
-                
-                <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold cursor-pointer mt-4 shadow-lg active:scale-95 transition-transform">
-                    Start Project
-                </button>
+                <div class="space-y-4 pb-4 border-b border-gray-100">
+                    <a href="#process" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">The Protocol</a>
+                    <a href="#case-studies" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">Results</a>
+                </div>
+
+                <div>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Industries</span>
+                    <div class="space-y-3 pl-2">
+                        <a href="/industries/roofing-automation" class="block text-base font-medium text-gray-600">Roofing & Trades</a>
+                        <a href="/industries/dental-automation" class="block text-base font-medium text-gray-600">Dental Practices</a>
+                        <a href="/industries/real-estate-ai" class="block text-base font-medium text-gray-600">Real Estate</a>
+                        <a href="/industries/legal-automation" class="block text-base font-medium text-gray-600">Law Firms</a>
+                    </div>
+                </div>
+
+                <div>
+                     <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">Use Cases</span>
+                     <div class="space-y-3 pl-2">
+                        <a href="/use-cases/lead-to-crm" class="block text-base font-medium text-gray-600">Lead-to-CRM</a>
+                        <a href="/migrations/zapier-to-n8n" class="block text-base font-medium text-gray-600">Zapier Migration</a>
+                     </div>
+                </div>
+
+                <div class="pt-4">
+                    <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold cursor-pointer shadow-lg active:scale-95 transition-transform">
+                        Start Project
+                    </button>
+                </div>
            </div>
       </div>
 
