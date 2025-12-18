@@ -1,6 +1,7 @@
 ﻿---
 import Layout from '../layouts/Layout.astro';
 import MultiStepAudit from '../components/forms/MultiStepAudit.astro';
+import RoiCalculator from '../components/tools/RoiCalculator.astro';
 import TrustLogos from '../components/sections/TrustLogos.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 ---
@@ -74,7 +75,6 @@ import Testimonials from '../components/sections/Testimonials.astro';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
         <div class="bg-gray-50 rounded-2xl p-10 relative overflow-hidden group hover:shadow-lg transition-all duration-500 border border-gray-100">
           <div class="relative z-10">
             <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
@@ -138,7 +138,6 @@ import Testimonials from '../components/sections/Testimonials.astro';
                 </button>
             </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -191,17 +190,21 @@ import Testimonials from '../components/sections/Testimonials.astro';
     </div>
   </section>
 
-  <section id="contact" class="py-24 bg-slate-50 border-t border-gray-200 relative z-10">
+  <section id="contact" class="py-24 bg-white border-t border-gray-200 relative z-10">
     <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="font-display text-4xl font-bold tracking-tight mb-4">Start Your Feasibility Audit</h2>
-            <p class="text-gray-500 max-w-xl mx-auto">
-                Answer 6 questions. Our AI will analyze your inputs, calculate your ROI, and send a personalized automation roadmap to your inbox or phone.
-            </p>
+        
+        <div class="mb-24">
+            <div class="text-center mb-10">
+                <h2 class="font-display text-3xl font-bold tracking-tight mb-2">The Cost of Doing Nothing</h2>
+                <p class="text-gray-500 text-sm">Use our calculator to see how much manual work is actually costing you.</p>
+            </div>
+            <RoiCalculator />
         </div>
 
-        <MultiStepAudit webhookUrl="https://primary.logicloomsystems.com/webhook/audit-request" />
-        
+        <div class="mt-20 border-t border-gray-100 pt-20">
+             <MultiStepAudit webhookUrl="https://primary.logicloomsystems.com/webhook/audit-request" />
+        </div>
+
     </div>
   </section>
 
