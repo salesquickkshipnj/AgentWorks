@@ -201,8 +201,11 @@ const { webhookUrl } = Astro.props;
       async submitForm() {
         this.loading = true;
         // Retrieve webhook URL safely from the data attribute
-        const url = this.$el.dataset.webhookUrl;
-        
+    
+        const url = https://flexaiautomations.app.n8n.cloud/webhook/audit-request
+
+	console.log("HARDCODED URL IS:", ur);
+
         try {
           await fetch(url, {
              method: 'POST',
