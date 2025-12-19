@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import alpinejs from '@astrojs/alpinejs';
+import icon from "astro-icon";
 
 export default defineConfig({
   site: 'https://www.logicloomsystems.com',
@@ -9,6 +10,8 @@ export default defineConfig({
   integrations: [
     tailwind(), // The only Tailwind you need
     alpinejs(), // This handles your mobile menu
+    icon()
+
     sitemap({
         changefreq: 'weekly',
         priority: 0.7,
