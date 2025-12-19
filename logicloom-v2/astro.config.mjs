@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [
     tailwind(), // The only Tailwind you need
     alpinejs(), // This handles your mobile menu
-    icon()
+    icon(),
 
     sitemap({
         changefreq: 'weekly',
