@@ -51,7 +51,7 @@ const { title, description } = Astro.props;
   
   <body 
     class="bg-white font-sans text-slate-900 antialiased" 
-    x-data="{ mobileMenuOpen: false, modalOpen: false }"
+    x-data="{ mobileMenuOpen: false, modalOpen: false, solutionsOpen: false }"
     @open-modal.window="modalOpen = true"
     @keydown.escape="modalOpen = false"
   >
@@ -191,7 +191,7 @@ const { title, description } = Astro.props;
                 </div>
 
                 <div>
-                     <span class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-3 block">Use Cases</span>
+                    <span class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-3 block">Use Cases</span>
                      <div class="space-y-3 pl-2">
                         <a href="/use-cases/lead-to-crm" class="block text-base font-medium text-gray-600">Lead-to-CRM</a>
                         <a href="/migrations/zapier-to-n8n" class="block text-base font-medium text-gray-600">Zapier Migration</a>
