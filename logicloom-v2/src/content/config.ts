@@ -38,10 +38,6 @@ const caseStudies = defineCollection({
 });
 
 export const collections = {
-  "case-studies": caseStudies,
-};
-
-export const collections = {
   'blog': blogCollection,
   'case-studies': caseStudies,
 };
