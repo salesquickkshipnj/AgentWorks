@@ -30,6 +30,8 @@ Support requests piled up and refunds were slow.
 
 
 
+
+
 \## The Solution
 
 AI routing + automation for common requests, order lookups, and refund approvals.
@@ -41,4 +43,6 @@ AI routing + automation for common requests, order lookups, and refund approvals
 Faster responses and fewer angry emails.
 
 
+
+---
 

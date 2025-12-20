@@ -26,6 +26,8 @@ tags:
 
 \## The Problem
 
+
+
 Missed calls + inconsistent follow-ups were leaking appointments.
 
 
@@ -41,4 +43,6 @@ We deployed an AI intake workflow that triages requests, books/reschedules, and 
 More booked chairs, fewer manual callbacks, and cleaner patient records.
 
 
+
+---
 
