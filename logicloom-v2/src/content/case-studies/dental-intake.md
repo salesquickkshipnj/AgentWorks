@@ -1,103 +1,70 @@
 ---
-title: "Dental Intake Automation"
-industry: "Dental"
-metric: "35% faster intake • fewer manual callbacks • cleaner patient records"
-description: "Automated patient intake + reminders + record creation to reduce no-shows and admin overhead."
-client: "Multi-location dental practice"
-tags:
-  - intake
-  - scheduling
-  - reminders
-  - forms
-  - healthcare
-publishDate: 2025-12-01
-services:
-  - Workflow Architecture
-  - Systems Integration
-  - AI Assist + Routing
-stack:
-  - n8n
-  - Google Workspace
-  - Twilio
-  - Webhooks
-  - CRM / EHR
-featured: true
+title: "Autonomous Patient Intake & Retention"
+client: "Acme Dental"
+industry: "Healthcare"
+metric: "35% Faster Intake"
+description: "A HIPAA-compliant intake engine that digitizes patient forms and automates follow-up sequences for missed appointments."
+publishDate: 2025-01-15
+tags: ["n8n", "Dental", "Intake"]
 ---
 
-## Overview
+<div class="not-prose">
 
-This practice had strong demand, but their intake process was slow and inconsistent. Patients were repeating information, staff were copying data between tools, and forms were arriving incomplete.
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<div class="flex items-center gap-4 mb-6 opacity-60">
+<div class="h-px bg-slate-900 flex-grow"></div>
+<span class="uppercase tracking-widest text-sm font-bold text-slate-900">System Architecture</span>
+<div class="h-px bg-slate-900 flex-grow"></div>
+</div>
 
-We built an automated intake pipeline that validates data, creates clean records, and follows up instantly—without adding more staff.
+<h2 class="font-display text-3xl font-bold text-slate-900 mb-3">Recovering Revenue at the Front Desk</h2>
+<p class="text-slate-600 max-w-3xl">
+The front desk was the bottleneck for growth. We replaced paper forms and "phone tag" with a digital-first workflow that captures patient data before they walk in the door.
+</p>
 
-## The Problem
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Bottleneck</div>
+<div class="text-sm text-slate-700">Overwhelmed staff handling physical paperwork and manual appointment reminders.</div>
+</div>
 
-The intake flow looked “fine” on paper, but broke in real life:
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Solution</div>
+<div class="text-sm text-slate-700">Mobile-first digital forms trigger auto-creation of patient files + SMS retention loops.</div>
+</div>
 
-- Form submissions came in incomplete or incorrectly formatted  
-- Staff had to manually call patients to fix missing fields  
-- Appointments were booked without insurance confirmation  
-- No-shows were happening because reminders were inconsistent  
-- Patient records were messy (duplicate entries + mismatched data)
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Twilio SMS</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">HIPAA Storage</span>
+</div>
+</div>
+</div>
+</div>
 
-## What We Built
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">35%</div>
+<div class="text-sm text-slate-400">Increase in intake velocity</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">Zero</div>
+<div class="text-sm text-slate-400">Paper forms managed</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">24/7</div>
+<div class="text-sm text-slate-400">Patient onboarding uptime</div>
+</div>
+</div>
 
-A reliable intake system that runs end-to-end:
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Modernize Your Practice
+</a>
+</div>
+</div>
 
-### 1) Instant intake validation
-When a patient submits a form, the system:
-
-- Checks required fields (phone, email, DOB, insurance)
-- Normalizes formatting (phone numbers, names, dates)
-- Flags risky entries (missing insurance, unclear appointment reason)
-
-### 2) Clean record creation
-If validation passes:
-
-- A patient record is created/updated in the practice system
-- A “new patient” task is created for staff only when needed
-- Supporting documents are stored and linked
-
-### 3) Smart follow-ups (zero chasing)
-If validation fails:
-
-- The patient gets an SMS/email within minutes
-- The message asks for only the missing info
-- Once provided, the record is updated automatically
-
-### 4) Reminder + no-show reduction
-- Confirmation message sent immediately after booking
-- Reminder sequence at the right intervals
-- Easy reschedule link (reduces ghosting)
-
-## Integrations
-
-- Intake form tool (webhooks)
-- Google Workspace (docs/storage + notifications)
-- SMS/email provider (reminders + follow-ups)
-- Practice management / EHR (record sync)
-
-## Results
-
-- 35% faster intake completion time  
-- Fewer manual callbacks (staff only contacts edge cases)  
-- Cleaner records and fewer duplicates  
-- More consistent reminders → fewer no-shows  
-
-## Why It Worked
-
-This wasn’t “automation for automation’s sake.” We focused on:
-
-- Data validation at the edge (right when the form comes in)
-- One source of truth for patient records
-- Clear fallback paths when information is missing
-
-## Next Steps
-
-- Add insurance verification automation
-- Add post-visit review requests and recall campaigns
-- Add analytics dashboard for no-show patterns
-
-## Want this for your practice?
-
-If intake is consuming your front desk, we can audit your flow and show exactly where the delays and no-shows are coming from.
+</div>

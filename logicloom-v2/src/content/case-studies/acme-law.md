@@ -1,95 +1,64 @@
 ﻿---
-title: "Legal Client Intake & Case File Automation"
+title: "Legal Ops Transformation: 50-Person Firm"
+client: "Acme Law Group"
 industry: "Legal"
-metric: "Hours saved weekly • fewer dropped leads • faster case kickoff"
-description: "Automated lead capture, intake, document generation, and case file creation for a busy firm."
-client: "Small law firm"
-tags:
-  - legal
-  - intake
-  - documents
-  - crm
-  - automation
-publishDate: 2025-12-05
-services:
-  - Workflow Architecture
-  - Intake Automation
-  - Document Automation
-stack:
-  - n8n
-  - Google Workspace / Microsoft 365
-  - DocuSign
-  - Clio / PracticePanther
-  - Webhooks
-featured: true
+metric: "20hrs/Week Reclaimed"
+description: "End-to-end intake automation. Parsing unstructured PDFs into validated Clio matters with zero human data entry."
+publishDate: 2025-01-15
+tags: ["n8n", "Clio", "OpenAI"]
 ---
 
-## Overview
+<div class="not-prose">
 
-The firm was losing leads during peak hours. Intake was split across email, calls, and forms—so follow-ups were inconsistent and case files were created late.
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<h2 class="font-display text-3xl font-bold text-slate-900 mb-3">Eliminating the "Data Entry Tax" on Billable Hours</h2>
+<p class="text-slate-600 max-w-3xl">
+High-value attorneys were acting as data clerks—manually transcribing PDFs and emails. We deployed an autonomous intake layer to parse, validate, and sync data instantly.
+</p>
 
-We built a streamlined intake + case kickoff system that captures leads, qualifies them, creates the file structure, and generates documents automatically.
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Input</div>
+<div class="text-sm text-slate-700">Unstructured leads from Web Forms, Email Attachments, and PDF Referrals.</div>
+</div>
 
-## The Problem
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Protocol</div>
+<div class="text-sm text-slate-700">AI Entity Extraction → Automated Conflicts Check → Draft Matter Creation in Clio.</div>
+</div>
 
-- Leads arrived from multiple channels with no consistent tracking  
-- Staff retyped client data into the case management system  
-- Document templates were created manually and inconsistently  
-- Follow-up delays caused lost opportunities  
-- Case kickoff depended on someone “remembering” the next step
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Architecture</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Clio API</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">OpenAI</span>
+</div>
+</div>
+</div>
+</div>
 
-## What We Built
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">20 hrs</div>
+<div class="text-sm text-slate-400">Billable time reclaimed/week</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">100%</div>
+<div class="text-sm text-slate-400">Data accuracy validation</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">0 min</div>
+<div class="text-sm text-slate-400">Manual data entry</div>
+</div>
+</div>
 
-### 1) Centralized intake capture
-Every lead—form, email, or referral—lands in one pipeline with:
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Audit Your Firm's Intake
+</a>
+</div>
+</div>
 
-- Duplicate detection
-- Clean formatting (names, phones, addresses)
-- Source tagging
-
-### 2) Fast qualification + routing
-- Basic qualification questions are handled automatically
-- Leads are categorized (urgent, standard, not a fit)
-- The right person is notified with a complete summary
-
-### 3) Case file creation
-When a lead becomes a client:
-
-- A case is created in the case management system
-- A folder structure is generated automatically
-- Key documents are attached and labeled consistently
-
-### 4) Document automation
-- Engagement letter generated from approved templates
-- Signature request sent automatically
-- Signed docs saved to the correct case folder
-
-## Integrations
-
-- Intake forms (webhooks)
-- Case management platform (Clio / PracticePanther)
-- eSignature (DocuSign)
-- Email + file storage (Google / Microsoft)
-
-## Results
-
-- Faster response time to new inquiries  
-- Fewer dropped leads during busy hours  
-- Cleaner, consistent case files from day one  
-- Less admin overhead for staff  
-
-## Why It Worked
-
-- Clear “states” (new lead → qualified → retained)  
-- No manual copying between tools  
-- Automatic next-step enforcement (no guessing)
-
-## Next Steps
-
-- Add billing triggers + invoice automation
-- Add client status notifications
-- Add referral tracking and reporting
-
-## Want your intake cleaned up?
-
-We can map your current intake process and show you the exact points where leads fall through or admin time gets wasted.
+</div>
