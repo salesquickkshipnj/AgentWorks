@@ -189,68 +189,56 @@ const caseStudies = (await getCollection('case-studies'))
       </div>
     </div>
   </section>
-  <section id="case-studies" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
-  <div>
-    <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
-      Case Studies
-    </h2>
-    <p class="text-gray-500 max-w-2xl mt-2">
-      A few real builds — what we automated, and what improved after launch.
-    </p>
-  </div>
-
-  <a
-    href="/case-studies"
-    class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors"
-  >
-    View all <span aria-hidden="true">→</span>
-  </a>
-</div>
-
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-3">
-            Engineering Outcomes.
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl">
-            Proof over promises — a few real builds and what changed after launch.
-          </p>
-        </div>
-
-        <a
-          href="/case-studies"
-          class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 hover:underline"
-        >
-          View all case studies <span aria-hidden="true">→</span>
-        </a>
+  <section id="case-studies" class="py-24 bg-white border-t border-gray-100">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+      <div>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+          Case Studies
+        </h2>
+        <p class="text-gray-500 max-w-2xl mt-2">
+          A few real builds — what we automated, and what improved after launch.
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {caseStudies.map((study) => (
-          <a
-            href={`/case-studies/${study.slug}`}
-            class="group block bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-500"
-          >
-            <div class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">
-              {study.data.industry}
-            </div>
-
-            <h3 class="font-display text-2xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
-              {study.data.title}
-            </h3>
-
-            <div class="text-sm text-gray-500 mb-6">
-              {study.data.client}
-            </div>
-
-            <div class="mt-6 flex items-center gap-2 text-gray-500 font-mono text-sm">
-              <i class="ph ph-trend-up text-green-500"></i> {study.data.metric}
-            </div>
-          </a>
-        ))}
-      </div>
+      <a
+        href="/case-studies"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors"
+      >
+        View all <span aria-hidden="true">→</span>
+      </a>
     </div>
-  </section>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {caseStudies.map((study) => (
+        <a
+          href={`/case-studies/${study.slug}`}
+          class="group block bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-500"
+        >
+          <div class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">
+            {study.data.industry}
+          </div>
+
+          <h3 class="font-display text-xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
+            {study.data.title}
+          </h3>
+
+          <div class="text-sm text-gray-500">
+            {study.data.client}
+          </div>
+
+          {study.data.metric && (
+            <div class="mt-6 flex items-center gap-2 text-gray-500 font-mono text-sm">
+              <i class="ph ph-trend-up text-green-500"></i>
+              {study.data.metric}
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
 
   <section id="contact" class="py-24 bg-white border-t border-gray-200 relative z-10">
     <div class="max-w-6xl mx-auto px-6">
