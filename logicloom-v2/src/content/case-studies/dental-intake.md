@@ -10,7 +10,15 @@ metric: "38% Fewer No-Shows"
 
 publishDate: 2025-11-10
 
-tags: \["n8n", "GHL", "Twilio", "OpenAI"]
+tags: 
+
+&nbsp; - n8n
+
+&nbsp; - GHL
+
+&nbsp; - Twilio
+
+&nbsp; - OpenAI
 
 ---
 
