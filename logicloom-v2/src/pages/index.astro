@@ -189,15 +189,25 @@ const caseStudies = (await getCollection('case-studies'))
       </div>
     </div>
   </section>
-  <section id="case-studies" class="py-24 px-6 bg-white border-t border-gray-100">
+  <section id="case-studies" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
     <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-        <div>
-          <div class="flex items-center gap-4 mb-6 opacity-60">
-            <div class="h-px bg-slate-900 flex-grow"></div>
-            <span class="uppercase tracking-widest text-sm font-bold text-slate-900">Results</span>
-            <div class="h-px bg-slate-900 flex-grow"></div>
-          </div>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+  <div>
+    <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+      Case Studies
+    </h2>
+    <p class="text-gray-500 max-w-2xl mt-2">
+      A few real builds — what we automated, and what improved after launch.
+    </p>
+  </div>
+
+  <a
+    href="/case-studies"
+    class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors"
+  >
+    View all <span aria-hidden="true">→</span>
+  </a>
+</div>
 
           <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-3">
             Engineering Outcomes.
@@ -219,7 +229,7 @@ const caseStudies = (await getCollection('case-studies'))
         {caseStudies.map((study) => (
           <a
             href={`/case-studies/${study.slug}`}
-            class="group block bg-gray-50 rounded-3xl p-8 hover:bg-white border border-gray-100 hover:shadow-xl transition-all"
+            class="group block bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-500"
           >
             <div class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-3">
               {study.data.industry}
