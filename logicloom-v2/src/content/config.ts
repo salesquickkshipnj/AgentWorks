@@ -1,6 +1,5 @@
 import { defineCollection, z } from 'astro:content';
 
-// 1. Define the Blog Collection
 const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
@@ -12,19 +11,36 @@ const blogCollection = defineCollection({
   }),
 });
 
-// 2. Define the Case Study Collection
 const caseStudies = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    client: z.string(),
-    industry: z.string(),
-    metric: z.string(),
-    publishDate: z.date(),
-    tags: z.array(z.string()),
-  }),
+  type: "content",
+  schema: z
+    .object({
+      title: z.string(),
+      industry: z.string(),
+      metric: z.string(),
+
+      description: z.string().optional().default(""),
+      client: z.string().optional(),
+      tags: z.array(z.string()).optional().default([]),
+
+      publishDate: z.coerce.date().optional(),
+      pubDate: z.coerce.date().optional(),
+
+      services: z.array(z.string()).optional(),
+      stack: z.array(z.string()).optional(),
+      featured: z.boolean().optional().default(false),
+      ogImage: z.string().optional(),
+    })
+    .refine((d) => Boolean(d.publishDate || d.pubDate), {
+      message: "Case study needs publishDate or pubDate",
+      path: ["publishDate"],
+    }),
 });
 
-// 3. Export both
+export const collections = {
+  "case-studies": caseStudies,
+};
+
 export const collections = {
   'blog': blogCollection,
   'case-studies': caseStudies,
