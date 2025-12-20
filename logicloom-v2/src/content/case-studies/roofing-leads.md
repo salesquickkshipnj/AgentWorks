@@ -10,15 +10,7 @@ metric: "4x Faster Lead Response"
 
 publishDate: 2025-10-02
 
-tags: 
-
-&nbsp; - n8n
-
-&nbsp; - Hubspot
-
-&nbsp; - Calendly
-
-&nbsp; - Google Sheets
+tags: ["n8n", "HubSpot", "Calendly", "Google Sheets"]
 
 ---
 

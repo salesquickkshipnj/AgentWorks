@@ -10,15 +10,7 @@ metric: "12hrs/Week Saved"
 
 publishDate: 2025-09-18
 
-tags: 
-
-&nbsp; - n8n
-
-&nbsp; - Shopify
-
-&nbsp; - Gmail
-
-&nbsp; - OpenAI
+tags: ["n8n", "Shopify", "Gmail", "OpenAI"]
 
 ---
 

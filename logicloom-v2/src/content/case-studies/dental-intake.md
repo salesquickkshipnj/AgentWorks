@@ -1,25 +1,15 @@
 ---
-
-title: "Dental Intake + Recall Automation Across 2 Locations"
-
-client: "BrightSmile Dental"
-
+title: "Automating Dental Intake + Follow-Ups"
+client: "Acme Dental"
 industry: "Dental"
-
-metric: "38% Fewer No-Shows"
-
-publishDate: 2025-11-10
-
-tags: 
-
-&nbsp; - n8n
-
-&nbsp; - GHL
-
-&nbsp; - Twilio
-
-&nbsp; - OpenAI
-
+metric: "35% Faster Intake"
+description: "Digital intake, automated reminders, and clean patient data flowing into your PMS."
+publishDate: 2025-01-15
+tags: ["n8n", "Dental", "Intake"]
+integrations:
+  - "OpenDental: PMS"
+  - "Twilio: SMS reminders"
+  - "Google Drive: document storage"
 ---
 
 
