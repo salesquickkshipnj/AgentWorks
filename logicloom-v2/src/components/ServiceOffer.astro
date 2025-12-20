@@ -1,0 +1,58 @@
+---
+// src/components/ServiceOffer.astro
+
+interface Props {
+  title: string;
+  priceRange: string;
+  description: string;
+  deliverables: string[];
+  ctaText?: string;
+  ctaLink?: string;
+  isPrimary?: boolean; // Option to highlight a specific tier
+}
+
+const { 
+  title, 
+  priceRange, 
+  description, 
+  deliverables, 
+  ctaText = "Get Started", 
+  ctaLink = "/contact",
+  isPrimary = false 
+} = Astro.props;
+---
+
+<div class={`flex flex-col p-8 rounded-2xl border ${isPrimary ? 'border-indigo-500 ring-1 ring-indigo-500 bg-slate-50' : 'border-slate-200 bg-white'} shadow-sm transition-all hover:shadow-md`}>
+  
+  <div class="mb-6">
+    <h3 class="text-xl font-semibold text-slate-900">{title}</h3>
+    <p class="mt-2 text-slate-500 text-sm">{description}</p>
+  </div>
+
+  <div class="mb-6">
+    <span class="text-3xl font-bold text-slate-900">{priceRange}</span>
+    <span class="text-slate-500 ml-2 text-sm">/ project</span>
+  </div>
+
+  <ul class="mb-8 space-y-4 flex-1">
+    {deliverables.map((item) => (
+      <li class="flex items-start">
+        <svg class="h-5 w-5 flex-shrink-0 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="ml-3 text-sm text-slate-700">{item}</span>
+      </li>
+    ))}
+  </ul>
+
+  <a 
+    href={ctaLink}
+    class={`w-full block text-center py-3 px-4 rounded-lg text-sm font-semibold transition-colors ${
+      isPrimary 
+        ? 'bg-indigo-600 text-white hover:bg-indigo-700' 
+        : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+    }`}
+  >
+    {ctaText}
+  </a>
+</div>

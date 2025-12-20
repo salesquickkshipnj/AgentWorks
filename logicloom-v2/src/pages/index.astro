@@ -4,9 +4,9 @@ import MultiStepAudit from '../components/forms/MultiStepAudit.astro';
 import RoiCalculator from '../components/tools/RoiCalculator.astro';
 import Testimonials from '../components/sections/Testimonials.astro';
 import TechStack from '../components/TechStack.astro';
+import ServiceOffer from '../components/ServiceOffer.astro';
 
 import { getCollection } from 'astro:content';
-
 const caseStudies = (await getCollection('case-studies'))
   .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
   .slice(0, 3);
@@ -39,7 +39,7 @@ const caseStudies = (await getCollection('case-studies'))
 
         <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
   Best for teams running <span class="font-bold">10k+ automated actions/month</span> or spending <span class="font-bold">$500+/month</span> on Zapier/Make.
-	</p>
+</p>
 
       <div class="flex flex-col md:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.2s;">
         <a href="#contact"
@@ -69,8 +69,8 @@ const caseStudies = (await getCollection('case-studies'))
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">The Automation Infrastructure</h2>
         <p class="text-gray-500 max-w-2xl mx-auto">
           We don't just "zap" things.
-          We build resilient software architecture that handles thousands of operations without breaking.
-        </p>
+We build resilient software architecture that handles thousands of operations without breaking.
+</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -82,7 +82,7 @@ const caseStudies = (await getCollection('case-studies'))
             <h3 class="font-display text-2xl font-bold mb-3">Customer Ops Agents</h3>
             <p class="text-gray-600 leading-relaxed mb-6">
               Deploy AI agents that triage support tickets, draft email replies, and route complex queries to humans only when necessary.
-            </p>
+</p>
             <div class="flex gap-3">
                 <span class="text-xs font-mono bg-white border border-gray-200 px-2 py-1 rounded text-gray-500">GPT-4o</span>
                 <span class="text-xs font-mono bg-white border border-gray-200 px-2 py-1 rounded text-gray-500">Claude 3.5</span>
@@ -107,8 +107,8 @@ const caseStudies = (await getCollection('case-studies'))
           <h3 class="font-display text-2xl font-bold mb-3">Data Orchestration</h3>
           <p class="text-gray-600 leading-relaxed">
             Unify data from fragmented tools.
-            We build pipelines that pull from APIs, clean the data in Python/JS, and push to your dashboard or warehouse.
-          </p>
+We build pipelines that pull from APIs, clean the data in Python/JS, and push to your dashboard or warehouse.
+</p>
         </div>
 
         <div class="bg-gray-50 rounded-2xl p-10 hover:shadow-lg transition-all duration-500 border border-gray-100 flex flex-col justify-start">
@@ -118,9 +118,9 @@ const caseStudies = (await getCollection('case-studies'))
           <h3 class="font-display text-2xl font-bold mb-3">Custom Integrations</h3>
           <p class="text-gray-600 leading-relaxed">
             Internal tool doesn't have a Zapier app?
-            No problem.
+No problem.
             We write custom API wrappers and webhooks to connect the disconnectable.
-          </p>
+</p>
         </div>
 
         <div class="bg-slate-900 text-white rounded-2xl p-10 relative overflow-hidden group flex flex-col justify-center">
@@ -129,7 +129,7 @@ const caseStudies = (await getCollection('case-studies'))
                 <p class="text-gray-400 mb-8">
                   Not sure what's possible?
                   We map your current stack, identify bottlenecks, and calculate ROI before writing code.
-                </p>
+</p>
                 <button
                   @click="$dispatch('open-modal')"
                   class="bg-white text-slate-900 text-sm font-semibold rounded-full px-6 py-3 hover:bg-gray-100 transition-colors cursor-pointer w-full md:w-auto"
@@ -161,8 +161,8 @@ const caseStudies = (await getCollection('case-studies'))
           <h3 class="font-display text-lg font-bold mb-2">Map & Measure</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
             We audit your manual workflows step-by-step.
-            We don't just ask "what do you do?"—we ask "why?" and identify where data breaks.
-          </p>
+We don't just ask "what do you do?"—we ask "why?" and identify where data breaks.
+</p>
         </div>
 
         <div class="relative group">
@@ -172,8 +172,8 @@ const caseStudies = (await getCollection('case-studies'))
           <h3 class="font-display text-lg font-bold mb-2">Architect & Build</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
             I build your agents using n8n and code.
-            We implement error handling, logging, and fallback paths so your business doesn't crash on a bad API call.
-          </p>
+We implement error handling, logging, and fallback paths so your business doesn't crash on a bad API call.
+</p>
         </div>
 
         <div class="relative group">
@@ -183,8 +183,8 @@ const caseStudies = (await getCollection('case-studies'))
           <h3 class="font-display text-lg font-bold mb-2">Deploy & Transfer</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
             We deploy to your private server or cloud.
-            You get full documentation and ownership of the source code. No vendor lock-in.
-          </p>
+You get full documentation and ownership of the source code. No vendor lock-in.
+</p>
         </div>
       </div>
     </div>
@@ -198,7 +198,7 @@ const caseStudies = (await getCollection('case-studies'))
         </h2>
         <p class="text-gray-500 max-w-2xl mt-2">
           A few real builds — what we automated, and what improved after launch.
-        </p>
+</p>
       </div>
 
       <a
@@ -239,13 +239,54 @@ const caseStudies = (await getCollection('case-studies'))
   </div>
 </section>
 
+<section id="offers" class="py-24 bg-slate-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl font-bold text-slate-900">Engagement Models</h2>
+        <p class="mt-4 text-slate-600">Clear deliverables. Transparent pricing. No surprises.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <ServiceOffer 
+          title="Workflow Audit & Strategy"
+          priceRange="$500 - $1,500"
+          description="Perfect for businesses that know they need automation but don't know where to start."
+          deliverables={[
+            "Full business process map analysis",
+            "Identification of high-ROI automation opportunities",
+            "Custom n8n architecture roadmap",
+            "Software stack recommendations"
+          ]}
+          ctaText="Book Audit"
+          ctaLink="#contact"
+        />
+
+        <ServiceOffer 
+          isPrimary={true}
+          title="Custom n8n Automation Build"
+          priceRange="$2,500+"
+          description="End-to-end development of custom AI agents and workflow automations."
+          deliverables={[
+            "Custom n8n workflow development",
+            "API integrations (CRM, Email, Slack, etc.)",
+            "30 days of post-deployment support",
+            "Video training & documentation for your team"
+          ]}
+          ctaText="Start Project"
+          ctaLink="#contact"
+        />
+
+      </div>
+    </div>
+</section>
 
   <section id="contact" class="py-24 bg-white border-t border-gray-200 relative z-10">
     <div class="max-w-6xl mx-auto px-6">
         
         <div class="mb-24">
             <div class="text-center mb-10">
-                <h2 class="font-display text-3xl font-bold tracking-tight mb-2">The Cost of Doing Nothing</h2>
+              <h2 class="font-display text-3xl font-bold tracking-tight mb-2">The Cost of Doing Nothing</h2>
                 <p class="text-gray-500 text-sm">Use our calculator to see how much manual work is actually costing you.</p>
             </div>
             <RoiCalculator />
@@ -257,8 +298,8 @@ const caseStudies = (await getCollection('case-studies'))
                  <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">Technical Feasibility Audit</h2>
                 <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
                     Tell us about your process.
-                    We will review your requirements and tell you if it can be automated reliably.
-                </p>
+We will review your requirements and tell you if it can be automated reliably.
+</p>
             </div>
 
              <MultiStepAudit webhookUrl="https://flexaiautomations.app.n8n.cloud/webhook/audit-request" />
@@ -274,8 +315,7 @@ const caseStudies = (await getCollection('case-studies'))
       100% { transform: translateY(0px); }
     }
     .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
+      animation: float 6s ease-in-out infinite; }
     .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
     .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
