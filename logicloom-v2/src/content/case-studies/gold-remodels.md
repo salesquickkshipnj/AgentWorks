@@ -1,72 +1,69 @@
 ---
-
-title: "Scaling Gold Remodels Inc. with Autonomous Agents"
-
-industry: "Home Renovation"
-
-metric: "20hrs/wk Saved"
-
+title: "Autonomous Lead-to-Estimate Engine"
 client: "Gold Remodels Inc."
-
+industry: "Home Renovation"
+metric: "20hrs/wk Saved"
+description: "A comprehensive n8n workflow that unifies lead sources, qualifies prospects via AI, and syncs to CRM without human input."
 publishDate: 2025-12-15
-
-description: "How we automated the entire lead-to-estimate pipeline, reducing manual data entry by 100% and doubling speed-to-lead."
-
-tags: \["Automation", "Construction", "Lead Gen"]
-
-services: \["Workflow Audit", "n8n Architecture", "CRM Integration"]
-
-stack: \["n8n", "OpenAI", "Twilio", "Google Sheets"]
-
-featured: true
-
+tags: ["n8n", "OpenAI", "Twilio", "Google Sheets"]
 ---
 
+<div class="not-prose">
 
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Context</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+The owner was spending 15+ hours weekly manually copying leads from HomeAdvisor/Email to their CRM. Follow-ups were slow, leading to lost jobs.
+</div>
+</div>
 
-\## The Bottleneck
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Build</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Unified Ingestion Webhook → OpenAI Intent Classification (Kitchen vs Bath) → Instant SMS Acknowledgment → CRM Sync.
+</div>
+</div>
 
-Gold Remodels Inc. is a premier renovation company in Essex County, NJ. Despite high demand, the owner was spending 15-20 hours a week on "admin drag"—manually copying leads from HomeAdvisor and email into their CRM, then manually texting prospects to schedule estimates.
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">OpenAI</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Twilio</span>
+</div>
+</div>
+</div>
+</div>
 
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="flex items-center gap-4 mb-8 opacity-70">
+<div class="h-px bg-white flex-grow"></div>
+<span class="uppercase tracking-widest text-sm font-bold">The Outcome</span>
+<div class="h-px bg-white flex-grow"></div>
+</div>
 
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">20hrs</div>
+<div class="text-sm text-slate-400">Owner time saved/week</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">100%</div>
+<div class="text-sm text-slate-400">Data entry automation</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">2x</div>
+<div class="text-sm text-slate-400">Booking rate increase</div>
+</div>
+</div>
 
-This delay meant leads often went cold before a meeting could be booked.
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Automate My CRM
+</a>
+</div>
+</div>
 
-
-
-\## The LogicLoom Solution
-
-We didn't just "zap" the data. We architected a resilient, self-hosted \*\*n8n workflow\*\* that acts as a 24/7 sales coordinator.
-
-
-
-\### 1. Unified Lead Ingestion
-
-We created a webhook listener that unifies leads from 5 different sources (Website, Email, Lead Vendors) into a standard JSON format.
-
-
-
-\### 2. Intelligent Qualification
-
-Before disturbing the sales team, an OpenAI-powered agent analyzes the lead's request.
-
-\* \*\*Action:\*\* It categorizes the project (Kitchen vs. Bath vs. Roofing).
-
-\* \*\*Action:\*\* It estimates the potential budget tier.
-
-
-
-\### 3. The "Speed-to-Lead" SMS
-
-Within 30 seconds of submission, the system sends a personalized SMS via Twilio to the homeowner, referencing their specific project details and offering 3 available time slots for an estimate.
-
-
-
-\## The Results
-
-\* \*\*Zero Manual Entry:\*\* Leads appear in the CRM fully populated.
-
-\* \*\*2x Booking Rate:\*\* Leads respond to the instant SMS while they are still thinking about the renovation.
-
-\* \*\*20 Hours Saved:\*\* The owner reclaimed his evenings and weekends.
-
+</div>
