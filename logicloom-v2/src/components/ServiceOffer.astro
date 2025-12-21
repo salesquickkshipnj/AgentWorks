@@ -8,7 +8,8 @@ interface Props {
   deliverables: string[];
   ctaText?: string;
   ctaLink?: string;
-  isPrimary?: boolean; // Option to highlight a specific tier
+  isPrimary?: boolean;
+  triggerModal?: boolean; // New prop to toggle button mode
 }
 
 const { 
@@ -18,11 +19,12 @@ const {
   deliverables, 
   ctaText = "Get Started", 
   ctaLink = "/contact",
-  isPrimary = false 
+  isPrimary = false,
+  triggerModal = false // Default to false
 } = Astro.props;
 ---
 
-<div class={`flex flex-col p-8 rounded-2xl border ${isPrimary ? 'border-indigo-500 ring-1 ring-indigo-500 bg-slate-50' : 'border-slate-200 bg-white'} shadow-sm transition-all hover:shadow-md`}>
+<div class={`flex flex-col p-8 rounded-2xl border ${isPrimary ? 'border-indigo-500 ring-1 ring-indigo-500 bg-slate-50' : 'border-slate-200 bg-white'} shadow-sm transition-all hover:shadow-md h-full`}>
   
   <div class="mb-6">
     <h3 class="text-xl font-semibold text-slate-900">{title}</h3>
@@ -45,14 +47,29 @@ const {
     ))}
   </ul>
 
-  <a 
-    href={ctaLink}
-    class={`w-full block text-center py-3 px-4 rounded-lg text-sm font-semibold transition-colors ${
-      isPrimary 
-        ? 'bg-indigo-600 text-white hover:bg-indigo-700' 
-        : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
-    }`}
-  >
-    {ctaText}
-  </a>
+  {/* CONDITIONAL RENDERING: Button for Modal vs Link for Page */}
+  {triggerModal ? (
+    <button 
+      type="button"
+      @click="$dispatch('open-modal')"
+      class={`w-full block text-center py-3 px-4 rounded-lg text-sm font-semibold transition-colors cursor-pointer ${
+        isPrimary 
+          ? 'bg-indigo-600 text-white hover:bg-indigo-700' 
+          : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+      }`}
+    >
+      {ctaText}
+    </button>
+  ) : (
+    <a 
+      href={ctaLink}
+      class={`w-full block text-center py-3 px-4 rounded-lg text-sm font-semibold transition-colors ${
+        isPrimary 
+          ? 'bg-indigo-600 text-white hover:bg-indigo-700' 
+          : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+      }`}
+    >
+      {ctaText}
+    </a>
+  )}
 </div>
