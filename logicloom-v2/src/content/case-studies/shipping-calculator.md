@@ -3,13 +3,9 @@
 title: "Automated Shipping Quote \& Payment Engine"
 
 client: "QuickkShip LLC"
-
 description: "How we reduced quote times from hours to milliseconds using n8n and Stripe."
-
 tags: \["n8n", "Stripe", "Google Sheets", "Webhooks"]
-
-heroImage: "/Shipping Quote Calculator, Stripe Checkout, Update CRM screenshot.png"
-
+heroImage: "/shipping-calculator.png"
 publishDate: "2025-10-24"
 
 ---

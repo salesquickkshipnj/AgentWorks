@@ -8,7 +8,7 @@ description: "How we automated the scraping, filtering, and enriching of high-qu
 
 tags: \["n8n", "OpenAI", "Google Sheets", "Lead Gen"]
 
-heroImage: "/Cold Lead Finder, Send Cold Email screenshot.png"
+heroImage: "/cold-lead-finder.png"
 
 publishDate: "2025-10-28"
 
@@ -36,7 +36,7 @@ For any B2B business, finding quality leads is a volume game, but manual researc
 
 
 
-!\[The Automation Blueprint](/Cold Lead Finder, Send Cold Email screenshot.png)
+!\[The Automation Blueprint](/cold-leads-finder.png)
 
 \*Above: The end-to-end workflow. It scrapes, filters, enriches, and finally drafts the outreach email.\*
 
@@ -50,7 +50,7 @@ For any B2B business, finding quality leads is a volume game, but manual researc
 
 
 
-!\[Quality Control Code](/4.5 star fllter screenshot.png)
+!\[Quality Control Code](/quality-control-code.png)
 
 \*Above: The "Gatekeeper" code. This script ensures we only spend API credits on high-value targets (4.5+ stars, valid website).\*
 
@@ -68,7 +68,7 @@ The output is not just a messy CSV dump. It is a clean, enriched \*\*Google Shee
 
 
 
-!\[Qualified Leads CRM](/CRM leads screenshot.png)
+!\[Qualified Leads CRM](/crm-leads.png)
 
 \*Above: The final output. Notice every lead has a high rating (5.0) and a verified website, ready for the sales team.\*
 

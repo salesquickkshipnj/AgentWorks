@@ -8,7 +8,7 @@ description: "A 24/7 AI agent that reads, classifies, and drafts responses to cu
 
 tags: \["n8n", "OpenAI", "Gmail", "AI Agents"]
 
-heroImage: "/Email Monitor, AI Classifier, Sttripe Checkout screenshot.png"
+heroImage: "/email-monitor-workflow.png"
 
 publishDate: "2025-11-02"
 
@@ -36,7 +36,7 @@ Customer support inboxes are often a chaotic mix of urgent complaints, simple FA
 
 
 
-!\[The AI Workflow](/Email Monitor, AI Classifier, Sttripe Checkout screenshot.png)
+!\[The AI Workflow](/email-monitor-workflow.png)
 
 \*Above: The master workflow. It ingests emails via Gmail, processes them through an AI Agent, and routes them based on urgency.\*
 
