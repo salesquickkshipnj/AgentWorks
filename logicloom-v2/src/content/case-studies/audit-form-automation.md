@@ -8,7 +8,7 @@ description: "How we reduced lead response time from 4 hours to 4 seconds using 
 
 tags: \["n8n", "Slack", "Webhooks", "CRM"]
 
-heroImage: "/Multi-step Audit Form into CRM, Slack Message screenshot.png"
+heroImage: "/audit-form-workflow.png"
 
 publishDate: "2025-11-05"
 
@@ -36,7 +36,7 @@ For a high-ticket consultancy, \*\*speed to lead\*\* is everything. Our client w
 
 
 
-!\[The Automation Blueprint](/Multi-step Audit Form into CRM, Slack Message screenshot.png)
+!\[The Automation Blueprint](/audit-form-workflow.png)
 
 \*Above: The linear workflow. It captures the Webhook, formats the data using JavaScript, updates the CRM, and fires the Slack message.\*
 
@@ -62,7 +62,7 @@ The sales team no longer checks email or refreshes spreadsheets. They simply liv
 
 
 
-!\[Slack Notification](/Slack screenshot.png)
+!\[Slack Notification](/slack-message.png)
 
 \*Above: The actual alert seen by the team. It highlights the "Pain Points" clearly so the sales rep can prep for the call in seconds.\*
 

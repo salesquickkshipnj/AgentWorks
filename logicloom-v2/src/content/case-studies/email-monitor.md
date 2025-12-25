@@ -50,7 +50,7 @@ Customer support inboxes are often a chaotic mix of urgent complaints, simple FA
 
 
 
-!\[AI System Prompt](/AI Agent prompt as customer support screenshot.png)
+!\[AI System Prompt](/ai-agent-prompt.png)
 
 \*Above: The "Personality" configuration. We instructed the AI to use the company's knowledge base to answer questions accurately.\*
 
@@ -68,7 +68,7 @@ While AI handles the text, custom JavaScript handles the business logic. We don'
 
 
 
-!\[Custom Logic Node](/Javascript code of decision making screenshot.png)
+!\[Custom Logic Node](/javascript-logic-node.png)
 
 \*Above: The routing engine. This custom JavaScript ensures that complex scenarios are handled with 100% reliability.\*
 
