@@ -36,7 +36,7 @@ For any B2B business, finding quality leads is a volume game, but manual researc
 
 
 
-!\[The Automation Blueprint](/cold-leads-finder.png)
+!\[The Automation Blueprint](/cold-lead-finder.png)
 
 \*Above: The end-to-end workflow. It scrapes, filters, enriches, and finally drafts the outreach email.\*
 
@@ -79,6 +79,8 @@ The output is not just a messy CSV dump. It is a clean, enriched \*\*Google Shee
 
 
 \### Key Outcomes
+
+
 
 \* \*\*90% Time Saved:\*\* Manual prospecting is completely eliminated.
 
