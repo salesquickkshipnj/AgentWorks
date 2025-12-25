@@ -1,6 +1,6 @@
 ---
 title: "Instant Lead-to-Estimate Pipeline"
-client: "NorthEdge Roofing"
+client: "Commercial Roofing Contractor"
 industry: "Home Services"
 metric: "4x Faster Response"
 description: "A high-velocity lead engine that qualifies homeowners and dispatches the nearest estimator instantly via SMS."

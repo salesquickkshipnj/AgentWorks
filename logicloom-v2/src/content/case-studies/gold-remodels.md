@@ -1,6 +1,6 @@
 ---
 title: "Autonomous Lead-to-Estimate Engine"
-client: "Gold Remodels Inc."
+client: "Premium Design-Build Firm"
 industry: "Home Renovation"
 metric: "20hrs/wk Saved"
 description: "A comprehensive n8n workflow that unifies lead sources, qualifies prospects via AI, and syncs to CRM without human input."

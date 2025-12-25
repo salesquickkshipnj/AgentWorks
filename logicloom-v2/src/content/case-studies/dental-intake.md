@@ -1,6 +1,6 @@
 ---
 title: "Autonomous Patient Intake & Retention"
-client: "Acme Dental"
+client: "Multi-Location Dental Group"
 industry: "Healthcare"
 metric: "35% Faster Intake"
 description: "A HIPAA-compliant intake engine that digitizes patient forms and automates follow-up sequences for missed appointments."

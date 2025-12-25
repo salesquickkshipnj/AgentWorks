@@ -12,9 +12,9 @@ const roiItems = [
 <Layout 
   title="Law Firm Automation & Intake Workflows | Clio & DocuSign | LogicLoom"
   description="Automate client intake, document collection, and retainer renewals. We integrate Clio, DocuSign, and Office 365 to let your attorneys practice law, not data entry."
+  campaignMode={true}
 >
   <div>
-
     <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
       <div class="max-w-4xl mx-auto text-center relative z-10">
         
@@ -34,8 +34,8 @@ const roiItems = [
         </p>
 
         <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
-  Best fit for firms opening <span class="font-bold">30+ new matters/month</span> or billing <span class="font-bold">$50k+/month</span> and losing time to intake/admin.
-	</p>
+          Best fit for firms opening <span class="font-bold">30+ new matters/month</span> or billing <span class="font-bold">$50k+/month</span> and losing time to intake/admin.
+        </p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
           <button @click="$dispatch('open-modal')" class="bg-slate-900 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all shadow-xl shadow-gray-400/20 active:scale-95 border border-slate-700 cursor-pointer">
@@ -117,6 +117,5 @@ const roiItems = [
         </button>
       </div>
     </section>
-
-    </div>
+  </div>
 </Layout>

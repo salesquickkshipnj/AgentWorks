@@ -1,6 +1,6 @@
 ﻿---
 title: "Legal Ops Transformation: 50-Person Firm"
-client: "Acme Law Group"
+client: "Estate Planning Firm (NJ)"
 industry: "Legal"
 metric: "20hrs/Week Reclaimed"
 description: "End-to-end intake automation. Parsing unstructured PDFs into validated Clio matters with zero human data entry."

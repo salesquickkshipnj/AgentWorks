@@ -1,6 +1,6 @@
 ---
 title: "AI-Driven Support Triage & Refund Ops"
-client: "SignalGoods"
+client: "DTC Lifestyle Brand"
 industry: "E-Commerce"
 metric: "12hrs/Week Saved"
 description: "Intelligent inbox triage that autonomously resolves Tier-1 tickets and drafts human-in-the-loop responses for complex issues."
