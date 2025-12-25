@@ -80,3 +80,5 @@ The sales team no longer checks email or refreshes spreadsheets. They simply liv
 
 \* \*\*Team Synergy:\*\* The "Urgent" tag in Slack creates a sense of immediate action for the sales floor.
 
+
+
