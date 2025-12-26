@@ -1,46 +1,70 @@
 ---
 title: "Automated Shipping Quote & Payment Engine"
 client: "QuickkShip LLC"
+industry: "Logistics"
+metric: "Instant Quotes"
 description: "How we reduced quote times from hours to milliseconds using n8n and Stripe."
+publishDate: 2025-10-24
 tags: ["n8n", "Stripe", "Google Sheets", "Webhooks"]
 heroImage: "/shipping-calculator-workflow.png"
-publishDate: "2025-10-24"
 ---
 
-### The Challenge
-**QuickkShip LLC** was losing potential revenue due to a slow, manual quoting process. When a customer requested a quote for a custom shipping route (e.g., specific zip codes and weights), the team had to manually calculate the distance, apply pricing tiers, and send an invoice. This delay often led to customers choosing faster competitors.
+<div class="not-prose">
 
-### The Solution
-**LogicLoom Systems** built a fully automated **Real-Time Quote & Payment Engine**. We removed the human bottleneck completely. Now, when a customer submits a request, our system instantly calculates the complex logic and presents a secure payment link in seconds.
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Context</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Manual quoting via email was taking hours. Customers were choosing faster competitors while the team crunched numbers.
+</div>
+</div>
 
----
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Build</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Zip Code Webhook → Distance Calculation Logic → Pricing Tier Lookup → Stripe Payment Link Generation.
+</div>
+</div>
 
-### How It Works (The Logic)
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Stripe API</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Google Sheets</span>
+</div>
+</div>
+</div>
+</div>
 
-![The Automation Blueprint](/shipping-calculator-workflow.png)
-*Above: The n8n workflow that handles the complex math, determining distance and weight classes instantly.*
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="flex items-center gap-4 mb-8 opacity-70">
+<div class="h-px bg-white flex-grow"></div>
+<span class="uppercase tracking-widest text-sm font-bold">The Outcome</span>
+<div class="h-px bg-white flex-grow"></div>
+</div>
 
-1.  **Instant Calculation:** The workflow receives the pickup/drop-off zip codes via webhook.
-2.  **Distance Logic:** We use custom JavaScript nodes to calculate the precise distance (19.9 miles) and billable weight (45.0 lbs).
-3.  **Dynamic Pricing:** The system applies specific business logic (Economy vs. Priority) to generate the final price ($51.00).
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">&lt; 1s</div>
+<div class="text-sm text-slate-400">Quote Generation</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">100%</div>
+<div class="text-sm text-slate-400">Payment Capture</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">Auto</div>
+<div class="text-sm text-slate-400">CRM Logging</div>
+</div>
+</div>
 
----
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Automate Quotes
+</a>
+</div>
+</div>
 
-### The Customer Experience (The Result)
-
-First, the customer sees an instant, itemized breakdown of their shipment details—no waiting for an email.
-
-![Customer Quote View](/shipping-quote-view.png)
-
-Once the customer confirms the details, they are immediately redirected to a secure payment gateway. We integrated directly with **Stripe** to ensure the financial transaction is seamless and trustworthy.
-
-![Stripe Secure Checkout](/stripe-checkout-view.png)
-*Above: The branded Stripe checkout page with the exact calculated amount pre-filled.*
-
----
-
-### Key Outcomes
-
-* **Zero Latency:** Quote time reduced from hours to milliseconds.
-* **100% Payment Capture:** Payment is secured *before* the shipping order is processed.
-* **Automated CRM:** All successful payments automatically log the customer data into Google Sheets for future marketing.
+</div>

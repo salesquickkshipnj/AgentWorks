@@ -1,84 +1,70 @@
 ---
-
 title: "Instant Lead Audit & Slack Notification System"
-
 client: "Business Consultancy Firm"
-
+industry: "Professional Services"
+metric: "< 5 Min Response"
 description: "How we reduced lead response time from 4 hours to 4 seconds using n8n and Slack Webhooks."
-
+publishDate: 2025-11-05
 tags: ["n8n", "Slack", "Webhooks", "CRM"]
-
 heroImage: "/audit-form-workflow.png"
-
-publishDate: "2025-11-05"
-
 ---
 
+<div class="not-prose">
 
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Context</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Leads were sitting in CSV files for hours. By the time sales reps called, prospects had moved on. Speed-to-lead was the bottleneck.
+</div>
+</div>
 
-\### The Challenge
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Build</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Typeform Webhook → Data Formatting (Phone/Name) → Instant Slack "Red Alert" to Sales Team → Backup to CRM.
+</div>
+</div>
 
-For a high-ticket consultancy, \*\*speed to lead\*\* is everything. Our client was capturing leads via a Typeform audit on their website, but the data would sit in a CSV file for hours before a sales rep noticed it. By the time they called, the prospect had already moved on.
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Slack API</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Webhooks</span>
+</div>
+</div>
+</div>
+</div>
 
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="flex items-center gap-4 mb-8 opacity-70">
+<div class="h-px bg-white flex-grow"></div>
+<span class="uppercase tracking-widest text-sm font-bold">The Outcome</span>
+<div class="h-px bg-white flex-grow"></div>
+</div>
 
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">&lt; 5m</div>
+<div class="text-sm text-slate-400">Response time</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">100%</div>
+<div class="text-sm text-slate-400">Leads captured</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">Urgent</div>
+<div class="text-sm text-slate-400">Instant Team Alerts</div>
+</div>
+</div>
 
-\### The Solution
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Automate My Leads
+</a>
+</div>
+</div>
 
-\*\*LogicLoom Systems\*\* built a \*\*Real-Time Notification Pipeline\*\*. We replaced the manual export process with a direct Webhook integration. Now, the moment a potential client hits "Submit" on the audit form, the data flows instantly into the CRM and triggers a "Red Alert" notification to the sales team's Slack channel.
-
-
-
----
-
-
-
-\### How It Works (The Logic)
-
-
-
-!\[The Automation Blueprint](/audit-form-workflow.png)
-
-\*Above: The linear workflow. It captures the Webhook, formats the data using JavaScript, updates the CRM, and fires the Slack message.\*
-
-
-
-1\.  \*\*Instant Capture:\*\* The workflow starts with a `Webhook` node that listens for the form submission 24/7.
-
-2\.  \*\*Data Formatting:\*\* A `Code` node cleans up the user's answers (e.g., formatting the phone number, standardizing the business name).
-
-3\.  \*\*Broadcasting:\*\* The system splits the data: one copy goes to the Google Sheet archive, and the second copy is formatted for the sales team.
-
-
-
----
-
-
-
-\### The Result (Instant Visibility)
-
-
-
-The sales team no longer checks email or refreshes spreadsheets. They simply live in Slack. When a high-value audit comes in, the whole team sees it instantly with all the critical context (Pain Points, Timeline, Budget) pre-formatted.
-
-
-
-!\[Slack Notification](/slack-message.png)
-
-\*Above: The actual alert seen by the team. It highlights the "Pain Points" clearly so the sales rep can prep for the call in seconds.\*
-
-
-
----
-
-
-
-\### Key Outcomes
-
-\* \*\*Speed to Lead:\*\* Response time dropped to \*\*< 5 minutes\*\*, drastically increasing closing rates.
-
-\* \*\*No Lost Data:\*\* Every single submission is logged in both the CRM and Slack; nothing falls through the cracks.
-
-\* \*\*Team Synergy:\*\* The "Urgent" tag in Slack creates a sense of immediate action for the sales floor.
-
-
-
+</div>

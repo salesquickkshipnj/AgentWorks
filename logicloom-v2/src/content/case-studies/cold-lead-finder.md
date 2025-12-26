@@ -1,92 +1,70 @@
 ---
-
 title: "AI-Powered Cold Lead Finder & Outreach"
-
 client: "Growth Marketing Agency"
-
+industry: "B2B Marketing"
+metric: "90% Time Saved"
 description: "How we automated the scraping, filtering, and enriching of high-quality leads using n8n and AI."
-
+publishDate: 2025-10-28
 tags: ["n8n", "OpenAI", "Google Sheets", "Lead Gen"]
-
 heroImage: "/cold-lead-finder.png"
-
-publishDate: "2025-10-28"
-
 ---
 
+<div class="not-prose">
 
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Context</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Manual prospecting on Google Maps was slow and produced low-quality data. The sales team wasted hours on dead ends.
+</div>
+</div>
 
-\### The Challenge
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Build</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Maps Scraper → AI Verification Agent (Check Website/Reviews) → Filter Logic (Must be >4.5 Stars) → Enriched CSV.
+</div>
+</div>
 
-For any B2B business, finding quality leads is a volume game, but manual research is a bottleneck. Sales teams spend hours copy-pasting data from maps and directories, often ending up with low-quality leads (bad emails, low ratings, or dead businesses). The result: \*\*High effort, low conversion.\*\*
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">OpenAI</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Apify</span>
+</div>
+</div>
+</div>
+</div>
 
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="flex items-center gap-4 mb-8 opacity-70">
+<div class="h-px bg-white flex-grow"></div>
+<span class="uppercase tracking-widest text-sm font-bold">The Outcome</span>
+<div class="h-px bg-white flex-grow"></div>
+</div>
 
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">90%</div>
+<div class="text-sm text-slate-400">Time saved</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">4.5+</div>
+<div class="text-sm text-slate-400">Star Rating Filter</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">Verified</div>
+<div class="text-sm text-slate-400">Enriched Contact Data</div>
+</div>
+</div>
 
-\### The Solution
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Start Prospecting
+</a>
+</div>
+</div>
 
-\*\*LogicLoom Systems\*\* engineered an autonomous \*\*Cold Lead Finder\*\*. Instead of just "scraping" everything, our system acts like a discerning sales agent. It finds businesses, analyzes their reputation, validates their contact info, and only adds them to the CRM if they meet strict quality criteria.
-
-
-
----
-
-
-
-\### How It Works (The Logic)
-
-
-
-!\[The Automation Blueprint](/cold-lead-finder.png)
-
-\*Above: The end-to-end workflow. It scrapes, filters, enriches, and finally drafts the outreach email.\*
-
-
-
-1\.  \*\*Data Extraction:\*\* The system ingests a target niche (e.g., "Roofers in New Jersey") and retrieves raw data.
-
-2\.  \*\*AI Verification:\*\* We don't just take the data raw. We use a custom JavaScript filter to analyze the business's digital footprint.
-
-3\.  \*\*Smart Filtering:\*\* If a business has a rating below 4.5 stars or lacks a professional website, it is automatically discarded.
-
-
-
-!\[Quality Control Code](/quality-control-code.png)
-
-\*Above: The "Gatekeeper" code. This script ensures we only spend API credits on high-value targets (4.5+ stars, valid website).\*
-
-
-
----
-
-
-
-\### The Result (Verified Data)
-
-
-
-The output is not just a messy CSV dump. It is a clean, enriched \*\*Google Sheet\*\* populated only with leads that have passed our quality checks. The sales team wakes up to a list of "Gold Tier" prospects ready for outreach.
-
-
-
-!\[Qualified Leads CRM](/crm-leads.png)
-
-\*Above: The final output. Notice every lead has a high rating (5.0) and a verified website, ready for the sales team.\*
-
-
-
----
-
-
-
-\### Key Outcomes
-
-
-
-\* \*\*90% Time Saved:\*\* Manual prospecting is completely eliminated.
-
-\* \*\*Higher Conversion:\*\* Because we filter for "4.5+ Stars," the leads are reputable businesses with budgets, not struggling shops.
-
-\* \*\*Auto-Enrichment:\*\* Emails and phone numbers are verified before they ever hit the CRM.
-
-
-
+</div>

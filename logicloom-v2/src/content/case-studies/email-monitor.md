@@ -1,90 +1,70 @@
 ---
-
 title: "Intelligent AI Email Monitor & Dispatcher"
-
 client: "E-Commerce Support Team"
-
+industry: "Retail / E-Com"
+metric: "80% Auto-Triage"
 description: "A 24/7 AI agent that reads, classifies, and drafts responses to customer support emails automatically."
-
+publishDate: 2025-11-02
 tags: ["n8n", "OpenAI", "Gmail", "AI Agents"]
-
 heroImage: "/email-monitor-workflow.png"
-
-publishDate: "2025-11-02"
-
 ---
 
+<div class="not-prose">
 
+<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Context</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Urgent customer issues were getting lost in a flood of spam and FAQs. Response times were suffering, especially on weekends.
+</div>
+</div>
 
-\### The Challenge
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Build</div>
+<div class="text-sm text-slate-700 leading-relaxed">
+Gmail Watcher → LLM Intent Analysis (Refund vs Question) → Draft Response → Route to Human if Urgent.
+</div>
+</div>
 
-Customer support inboxes are often a chaotic mix of urgent complaints, simple FAQs, and spam. For our client, valuable time was being wasted just \*\*reading and sorting\*\* emails before anyone could even start solving the problem. Response times were slow, and weekends were a blackout period.
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">OpenAI (GPT-4)</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Gmail API</span>
+</div>
+</div>
+</div>
+</div>
 
+<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
+<div class="flex items-center gap-4 mb-8 opacity-70">
+<div class="h-px bg-white flex-grow"></div>
+<span class="uppercase tracking-widest text-sm font-bold">The Outcome</span>
+<div class="h-px bg-white flex-grow"></div>
+</div>
 
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">24/7</div>
+<div class="text-sm text-slate-400">Inbox Coverage</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">80%</div>
+<div class="text-sm text-slate-400">Reduction in Noise</div>
+</div>
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+<div class="text-3xl font-bold">Zero</div>
+<div class="text-sm text-slate-400">Missed Urgent Emails</div>
+</div>
+</div>
 
-\### The Solution
+<div class="mt-8">
+<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
+Fix My Inbox
+</a>
+</div>
+</div>
 
-\*\*LogicLoom Systems\*\* deployed an \*\*AI-Powered Email Monitor\*\*. Unlike a standard "auto-responder" that sends the same generic message to everyone, this system uses a Large Language Model (LLM) to "read" the incoming email, understand the intent, and decide the best course of action dynamically.
-
-
-
----
-
-
-
-\### How It Works (The "Brain")
-
-
-
-!\[The AI Workflow](/email-monitor-workflow.png)
-
-\*Above: The master workflow. It ingests emails via Gmail, processes them through an AI Agent, and routes them based on urgency.\*
-
-
-
-1\.  \*\*Ingestion:\*\* The system watches the inbox for new threads.
-
-2\.  \*\*AI Classification:\*\* We configured an AI Agent with a specific "System Prompt" to act as a Tier 1 Support Rep. It analyzes the tone and content of the message.
-
-3\.  \*\*Contextual Decision Making:\*\* Is this a refund request? A shipping question? Or a thank you note? The AI tags it accordingly.
-
-
-
-!\[AI System Prompt](/ai-agent-prompt.png)
-
-\*Above: The "Personality" configuration. We instructed the AI to use the company's knowledge base to answer questions accurately.\*
-
-
-
----
-
-
-
-\### The Logic (Code-Level Control)
-
-
-
-While AI handles the text, custom JavaScript handles the business logic. We don't rely on guesswork. We wrote custom decision nodes to ensure that \*\*Refund Requests\*\* go to the Finance Department, while \*\*General Inquiries\*\* get an instant AI-drafted reply.
-
-
-
-!\[Custom Logic Node](/javascript-logic-node.png)
-
-\*Above: The routing engine. This custom JavaScript ensures that complex scenarios are handled with 100% reliability.\*
-
-
-
----
-
-
-
-\### Key Outcomes
-
-
-
-\* \*\*24/7 Coverage:\*\* The "AI Employee" never sleeps, ensuring customers get acknowledged instantly, even on Sundays.
-
-\* \*\*80% Reduction in Triage:\*\* Human agents only see emails that actually require human intervention.
-
-\* \*\*Instant Context:\*\* When a human does take over, the email is already tagged with "Urgent" or "Refund," saving them reading time.
-
+</div>
