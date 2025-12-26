@@ -6,7 +6,7 @@ client: "E-Commerce Support Team"
 
 description: "A 24/7 AI agent that reads, classifies, and drafts responses to customer support emails automatically."
 
-tags: \["n8n", "OpenAI", "Gmail", "AI Agents"]
+tags: ["n8n", "OpenAI", "Gmail", "AI Agents"]
 
 heroImage: "/email-monitor-workflow.png"
 

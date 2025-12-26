@@ -6,7 +6,7 @@ client: "Business Consultancy Firm"
 
 description: "How we reduced lead response time from 4 hours to 4 seconds using n8n and Slack Webhooks."
 
-tags: \["n8n", "Slack", "Webhooks", "CRM"]
+tags: ["n8n", "Slack", "Webhooks", "CRM"]
 
 heroImage: "/audit-form-workflow.png"
 

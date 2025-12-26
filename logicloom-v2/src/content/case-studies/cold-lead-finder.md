@@ -6,7 +6,7 @@ client: "Growth Marketing Agency"
 
 description: "How we automated the scraping, filtering, and enriching of high-quality leads using n8n and AI."
 
-tags: \["n8n", "OpenAI", "Google Sheets", "Lead Gen"]
+tags: ["n8n", "OpenAI", "Google Sheets", "Lead Gen"]
 
 heroImage: "/cold-lead-finder.png"
 
