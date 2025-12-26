@@ -1,6 +1,6 @@
 ---
 
-title: "Intelligent AI Email Monitor \& Dispatcher"
+title: "Intelligent AI Email Monitor & Dispatcher"
 
 client: "E-Commerce Support Team"
 

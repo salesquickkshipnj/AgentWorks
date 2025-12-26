@@ -1,6 +1,6 @@
 ---
 
-title: "Instant Lead Audit \& Slack Notification System"
+title: "Instant Lead Audit & Slack Notification System"
 
 client: "Business Consultancy Firm"
 

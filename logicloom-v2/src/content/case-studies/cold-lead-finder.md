@@ -1,6 +1,6 @@
 ---
 
-title: "AI-Powered Cold Lead Finder \& Outreach"
+title: "AI-Powered Cold Lead Finder & Outreach"
 
 client: "Growth Marketing Agency"
 
