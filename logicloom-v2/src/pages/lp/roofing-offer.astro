@@ -3,17 +3,15 @@ import Layout from '../../layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 
-// 1. Fetch the existing case study data to use as "Proof"
+// 1. Fetch data
 const caseStudy = await getEntry('case-studies', 'roofing-leads');
 const { title, metric, heroImage, industry } = caseStudy ? caseStudy.data : { 
-  // Fallback data just in case the file is missing, to prevent build crash
   title: "Roofing Automation System", 
   metric: "4x Faster Response",
   heroImage: "/roofing-workflow.png",
   industry: "Home Services"
 };
 
-// 2. Define page metadata
 const pageTitle = "Automated Roofing Sales System | LogicLoom";
 const pageDesc = "Stop chasing leads. Let AI qualify homeowners and book estimates instantly.";
 ---
@@ -21,68 +19,76 @@ const pageDesc = "Stop chasing leads. Let AI qualify homeowners and book estimat
 <Layout title={pageTitle} description={pageDesc} campaignMode={true}>
   
   {/* HERO SECTION */}
-  <section class="relative pt-20 pb-32 overflow-hidden">
-    <div class="absolute inset-0 bg-slate-50 -z-10"></div>
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+  <section class="relative pt-20 pb-32 overflow-hidden bg-white">
+    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
       
       {/* Left: The Pitch */}
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wide mb-6 border border-blue-100">
           <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
           For Commercial & Residential Roofers
         </div>
         
-        <h1 class="text-5xl md:text-6xl font-display font-bold text-slate-900 leading-tight mb-6">
-          Your Crews Should Be on Roofs, <span class="text-blue-600">Not Chasing Leads.</span>
+        <h1 class="text-5xl md:text-6xl font-display font-bold text-slate-900 leading-[1.1] mb-6">
+          Your Crews Should Be on Roofs, <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Not Chasing Leads.</span>
         </h1>
         
-        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">
           We build autonomous sales systems that capture homeowners, qualify them via SMS, and book estimates on your calendar instantly.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <button @click="$dispatch('open-modal')" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 hover:shadow-lg hover:-translate-y-1 active:scale-95 cursor-pointer">
+          {/* FIXED BUTTON: Matches the 'Start Project' nav button exactly (Black, Shadow, Font) */}
+          <button @click="$dispatch('open-modal')" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-black rounded-full hover:bg-gray-800 shadow-xl shadow-gray-200 hover:-translate-y-1 active:scale-95 cursor-pointer">
             Get My Automation Build
             <Icon name="ph:arrow-right-bold" class="ml-2 w-5 h-5" />
           </button>
           
           <div class="flex items-center gap-4 px-6 py-4 bg-white rounded-full border border-gray-100 shadow-sm">
-            <div class="flex -space-x-2">
-               <div class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
-               <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
-               <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-white"></div>
+            <div class="flex -space-x-3">
+               <div class="w-9 h-9 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-gray-500">JP</div>
+               <div class="w-9 h-9 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-[10px] font-bold text-gray-500">MK</div>
+               <div class="w-9 h-9 rounded-full bg-slate-800 border-2 border-white flex items-center justify-center text-[10px] font-bold text-white">+40</div>
             </div>
-            <span class="text-sm font-medium text-slate-600">Trusted by {industry} Pros</span>
+            <span class="text-sm font-medium text-slate-600">Used by {industry} Pros</span>
           </div>
         </div>
       </div>
 
-      {/* Right: The Proof (Dynamic from Markdown) */}
-      <div class="relative">
-        <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-3xl blur-2xl opacity-50"></div>
-        <div class="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+      {/* Right: The Proof */}
+      <div class="relative mt-12 lg:mt-0">
+        <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-indigo-50 rounded-[2rem] blur-2xl opacity-60"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-500">
             
-            {/* Top Bar simulating browser */}
             <div class="bg-slate-50 border-b border-gray-100 px-4 py-3 flex items-center gap-2">
                 <div class="flex gap-1.5">
-                    <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
-                    <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
-                    <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
                 </div>
                 <div class="text-xs text-gray-400 font-mono ml-2">logicloom-roofing-bot.js</div>
             </div>
 
-            {/* The Case Study Image */}
-            <img src={heroImage} alt="Automation Workflow" class="w-full h-auto object-cover opacity-90" />
+            {/* ERROR HANDLING: Added fallback if image is missing so it doesn't look broken */}
+            <div class="relative aspect-video bg-slate-50 flex items-center justify-center overflow-hidden group">
+               {heroImage ? (
+                 <img src={heroImage} alt="Automation Workflow" class="w-full h-full object-cover" />
+               ) : (
+                 <div class="text-slate-400 flex flex-col items-center">
+                    <Icon name="ph:image-broken" class="w-12 h-12 mb-2" />
+                    <span class="text-sm">Image not found: {heroImage}</span>
+                 </div>
+               )}
+            </div>
             
-            {/* Floating Metric Card */}
-            <div class="absolute bottom-6 left-6 right-6 bg-slate-900/95 backdrop-blur text-white p-4 rounded-xl border border-white/10 shadow-2xl">
+            <div class="absolute bottom-6 left-6 right-6 bg-slate-900/95 backdrop-blur text-white p-5 rounded-xl border border-white/10 shadow-2xl">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-xs text-slate-400 uppercase tracking-widest font-bold">Proven Result</p>
-                        <p class="text-2xl font-bold text-white mt-1">{metric}</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Live Results</p>
+                        <p class="text-2xl font-bold text-white">{metric}</p>
                     </div>
-                    <div class="h-10 w-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center">
+                    <div class="h-10 w-10 rounded-full bg-green-500 text-white flex items-center justify-center shadow-lg shadow-green-900/20">
                         <Icon name="ph:trend-up-bold" class="w-6 h-6" />
                     </div>
                 </div>
@@ -94,35 +100,32 @@ const pageDesc = "Stop chasing leads. Let AI qualify homeowners and book estimat
   </section>
 
   {/* FEATURE GRID */}
-  <section class="py-24 bg-white">
+  <section class="py-24 bg-white border-t border-slate-100">
       <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-2xl mx-auto mb-16">
-              <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How It Works</h2>
-              <p class="text-slate-600">We replace your "Contact Us" form with an intelligent logic engine.</p>
+              <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">How It Works</h2>
+              <p class="text-slate-600 text-lg">We replace your "Contact Us" form with an intelligent logic engine.</p>
           </div>
 
           <div class="grid md:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-100 transition-colors">
-                  <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 group">
+                  <div class="w-12 h-12 bg-white border border-slate-200 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
                       <Icon name="ph:lightning-bold" class="w-6 h-6" />
                   </div>
                   <h3 class="text-xl font-bold text-slate-900 mb-3">Instant Capture</h3>
                   <p class="text-sm text-slate-600 leading-relaxed">Leads from Facebook, Google, or your site are ingested instantly via Webhook. No more CSV exports.</p>
               </div>
 
-              {/* Card 2 */}
-              <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-100 transition-colors">
-                  <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+              <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-900/5 transition-all duration-300 group">
+                  <div class="w-12 h-12 bg-white border border-slate-200 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
                       <Icon name="ph:robot-bold" class="w-6 h-6" />
                   </div>
                   <h3 class="text-xl font-bold text-slate-900 mb-3">AI Qualification</h3>
                   <p class="text-sm text-slate-600 leading-relaxed">Our AI agent texts the homeowner immediately: "Is this for a repair or full replacement?" and tags the lead.</p>
               </div>
 
-              {/* Card 3 */}
-              <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-blue-100 transition-colors">
-                  <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6">
+              <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-green-200 hover:shadow-xl hover:shadow-green-900/5 transition-all duration-300 group">
+                  <div class="w-12 h-12 bg-white border border-slate-200 text-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
                       <Icon name="ph:calendar-check-bold" class="w-6 h-6" />
                   </div>
                   <h3 class="text-xl font-bold text-slate-900 mb-3">Auto-Dispatch</h3>
@@ -133,11 +136,12 @@ const pageDesc = "Stop chasing leads. Let AI qualify homeowners and book estimat
   </section>
 
   {/* CTA SECTION */}
-  <section class="py-20 bg-slate-900 text-white text-center">
-      <div class="max-w-3xl mx-auto px-6">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Automate Your Roofing Sales?</h2>
+  <section class="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
+      <div class="max-w-3xl mx-auto px-6 relative z-10">
+          <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Ready to Automate Your Roofing Sales?</h2>
           <p class="text-slate-400 mb-10 text-lg">We build this entire system for you in 7 days or less.</p>
-          <button @click="$dispatch('open-modal')" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-slate-900 transition-transform bg-white rounded-full hover:scale-105 active:scale-95 shadow-xl shadow-white/10 cursor-pointer">
+          <button @click="$dispatch('open-modal')" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-slate-900 transition-all bg-white rounded-full hover:scale-105 active:scale-95 shadow-2xl shadow-white/10 cursor-pointer">
               Book Your Build Call
           </button>
       </div>
