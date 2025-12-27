@@ -68,5 +68,174 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
+<section class="py-24 bg-indigo-50 border-t border-gray-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div>
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-indigo-100 text-indigo-800">
+            <i class="ph ph-bell-ringing"></i>
+            <span class="text-xs font-bold uppercase tracking-widest">Instant Notification</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">Leads rot in CSVs.<br/>They convert in Slack.</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            The moment a prospect hits "Submit" on your Facebook Ad, your sales team gets a ping. No refreshing the CRM. No waiting for the daily export.
+        </p>
+        
+        <div class="space-y-4">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-indigo-600 border border-indigo-100 mt-1">
+                    <i class="ph ph-users-three"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900">Round-Robin Assignment</h4>
+                    <p class="text-sm text-gray-500">The system auto-assigns the lead to the next available rep.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-indigo-600 border border-indigo-100 mt-1">
+                    <i class="ph ph-phone-call"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900">One-Click Dialing</h4>
+                    <p class="text-sm text-gray-500">The Slack alert includes a tel:// link. Reps click and talk instantly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden max-w-md mx-auto transform rotate-1 hover:rotate-0 transition-transform duration-500">
+        <div class="bg-[#350d36] px-4 py-3 flex items-center justify-between">
+            <div class="text-white font-bold text-sm flex items-center gap-2">
+                <span class="opacity-70">#</span> inbound-leads
+            </div>
+            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+        </div>
+
+        <div class="p-6">
+            <div class="flex gap-3">
+                <div class="w-10 h-10 rounded bg-indigo-600 flex items-center justify-center text-white shrink-0">
+                    <i class="ph ph-robot text-xl"></i>
+                </div>
+                <div class="w-full">
+                    <div class="flex items-baseline gap-2 mb-1">
+                        <span class="font-bold text-slate-900 text-sm">LogicLoom Bot</span>
+                        <span class="text-[10px] text-gray-400 bg-gray-100 px-1 rounded">APP</span>
+                        <span class="text-xs text-gray-400">10:42 AM</span>
+                    </div>
+                    
+                    <div class="border-l-4 border-green-500 pl-3 mt-1">
+                        <p class="text-sm font-bold text-green-700 mb-1">🔥 New High-Value Lead</p>
+                        <p class="text-sm text-gray-800 mb-3"><strong>John Smith</strong> just submitted the "Q4 Pricing" form on Facebook.</p>
+                        
+                        <div class="grid grid-cols-2 gap-y-2 text-xs text-gray-600 mb-4 bg-gray-50 p-2 rounded">
+                            <span class="font-bold">Email:</span> <span>john@company.com</span>
+                            <span class="font-bold">Company:</span> <span>TechCorp Inc.</span>
+                            <span class="font-bold">Budget:</span> <span>$10k - $25k</span>
+                            <span class="font-bold">Source:</span> <span>FB_Campaign_v2</span>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button class="bg-green-600 text-white text-xs font-bold px-3 py-2 rounded hover:bg-green-700 w-full">
+                                📞 Call Now
+                            </button>
+                            <button class="bg-white border border-gray-300 text-gray-700 text-xs font-bold px-3 py-2 rounded hover:bg-gray-50 w-full">
+                                View in HubSpot
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4">The "Clean Data" Pipeline</h2>
+      <p class="text-slate-400">We don't just sync leads. We validate, format, and enrich them first.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transform -translate-y-1/2 opacity-30"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-400 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-blue-400">
+            <i class="ph ph-funnel text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1">1. Ingest</h3>
+          <p class="text-xs text-slate-400">Catches webhooks from Typeform, Facebook, LinkedIn, or Website.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-indigo-400 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-indigo-400">
+            <i class="ph ph-magic-wand text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1">2. Format</h3>
+          <p class="text-xs text-slate-400">Capitalizes names. Formats phone numbers (E.164). Validates email syntax.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-purple-400 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-purple-400">
+            <i class="ph ph-copy text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1">3. Dedupe</h3>
+          <p class="text-xs text-slate-400">Checks CRM for existing email. If found, updates the record. If new, creates one.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-400 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-green-400">
+            <i class="ph ph-rocket-launch text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1">4. Alert</h3>
+          <p class="text-xs text-slate-400">Pushes high-priority leads to Slack and enrolls them in email drip sequences.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">FAQ</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Does this create duplicate contacts?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          No. Our n8n workflow always performs a "Search" step first. If a contact exists with that email, we update their record with the new form data. We only create a new contact if no match is found.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Can we filter out bad leads (e.g., Gmail addresses)?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. We can add a "Filter" node that checks if the email domain is `@gmail.com` or `@yahoo.com`. If it is, we can route it to a different list or skip the Slack alert entirely.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>What CRMs do you support?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          We have native support for HubSpot, Salesforce, Pipedrive, Zoho, and HighLevel. If your CRM has an API or Webhook support, we can connect to it.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
 </Layout>
