@@ -58,5 +58,187 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
+    <section class="py-24 bg-sky-50 border-t border-gray-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div>
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-sky-100 text-sky-800">
+            <i class="ph ph-pen-nib"></i>
+            <span class="text-xs font-bold uppercase tracking-widest">Draft Mode</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">It writes. You send.</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            The AI doesn't hit "Send" automatically. It places a polished draft in your folder. You just review, tweak if needed, and click send.
+        </p>
+        
+        <div class="space-y-4">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-sky-600 border border-sky-100 mt-1">
+                    <i class="ph ph-tag"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900">Auto-Tagging</h4>
+                    <p class="text-sm text-gray-500">AI labels emails as "Urgent," "Finance," or "Spam" instantly.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-sky-600 border border-sky-100 mt-1">
+                    <i class="ph ph-kanban"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900">Task Extraction</h4>
+                    <p class="text-sm text-gray-500">"Please send the Q3 report" becomes a Jira ticket automatically.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+        <div class="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+            <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+            <div class="ml-4 text-xs text-gray-500 font-medium">Gmail - Inbox (1)</div>
+        </div>
+
+        <div class="flex">
+            <div class="w-16 bg-gray-50 border-r border-gray-200 p-3 flex flex-col items-center gap-4">
+                <div class="w-8 h-8 rounded bg-red-100 text-red-600 flex items-center justify-center"><i class="ph ph-envelope-simple"></i></div>
+                <div class="w-8 h-8 rounded hover:bg-gray-200 text-gray-400 flex items-center justify-center"><i class="ph ph-star"></i></div>
+                <div class="w-8 h-8 rounded hover:bg-gray-200 text-gray-400 flex items-center justify-center"><i class="ph ph-paper-plane-tilt"></i></div>
+            </div>
+
+            <div class="flex-1 p-6">
+                <div class="mb-8">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="font-bold text-slate-900">Jason S.</span>
+                            <span class="text-gray-500 text-xs ml-2">&lt;jason@client.com&gt;</span>
+                        </div>
+                        <span class="text-xs text-gray-400">10:42 AM</span>
+                    </div>
+                    <h3 class="font-bold text-gray-800 mb-2">Re: Project Timeline?</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Hey, just checking in on the Q4 roadmap. Are we still on track for the beta launch next week? Also, can you forward me the invoice?
+                    </p>
+                </div>
+
+                <div class="bg-sky-50 rounded-xl border border-sky-200 p-4 relative">
+                    <div class="absolute -top-3 left-4 bg-sky-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide flex items-center gap-1">
+                        <i class="ph ph-sparkle"></i> AI Draft
+                    </div>
+                    
+                    <div class="mb-3 flex gap-2">
+                        <span class="bg-white text-sky-700 border border-sky-100 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Topic: Status Update</span>
+                         <span class="bg-white text-orange-700 border border-orange-100 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Action: Invoice</span>
+                    </div>
+
+                    <p class="text-sm text-gray-700 leading-relaxed font-serif">
+                        Hi Jason,<br><br>
+                        Yes, we are on track for the beta launch on Tuesday. I've attached the Q4 roadmap below for your reference.<br><br>
+                        Regarding the invoice, I've looped in Finance to send that over by EOD.<br><br>
+                        Best,
+                    </p>
+
+                    <div class="mt-4 flex gap-2">
+                        <button class="bg-sky-600 text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-sky-700">Send Now</button>
+                        <button class="bg-white text-gray-600 border border-gray-200 text-xs font-bold px-3 py-1.5 rounded hover:bg-gray-50">Edit Draft</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4">The Triage Protocol</h2>
+      <p class="text-slate-400">How we turn chaos into structured data.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-sky-500 to-indigo-500 transform -translate-y-1/2 opacity-20"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+        
+        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
+          <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
+            <i class="ph ph-envelope-open text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-2">1. Ingest</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">IMAP/Gmail API triggers instantly on new email arrival.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
+          <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
+            <i class="ph ph-brain text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-2">2. Analyze</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">GPT-4o reads context. Is it a complaint? A lead? An invoice?</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
+          <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
+            <i class="ph ph-git-fork text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-2">3. Route</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Logic gates apply labels and move email to specific folders.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
+          <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
+            <i class="ph ph-check-square-offset text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-2">4. Execute</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Create Jira ticket, update HubSpot deal, or draft reply.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">FAQ</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
+          <span>Will the AI ever send an email without me?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          No. By default, we set the system to <strong>"Draft Mode."</strong> It prepares the email and saves it to your Drafts folder. You must click send. We only enable auto-sending for specific, low-risk scenarios (like "Receipt Acknowledgement") if you request it.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
+          <span>Is my inbox data private?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. We use the OpenAI Enterprise API, which does not train models on your data. Your emails are processed in transient memory and never stored on our servers.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
+          <span>Can it create tasks in my project management tool?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. We integrate with Jira, Trello, Asana, ClickUp, and Monday.com. If an email contains an action item (e.g., "Fix the login bug"), the AI will extract the details and create a ticket automatically.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
 </Layout>
