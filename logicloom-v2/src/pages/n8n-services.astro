@@ -136,6 +136,172 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+<section class="py-24 bg-slate-950 border-t border-slate-800 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div class="text-white">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+            <i class="ph ph-code"></i>
+            <span class="text-xs font-bold uppercase tracking-widest">Turing Complete</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold mb-6">When "No-Code" hits a wall, <br/>we write the code.</h2>
+        <p class="text-lg text-slate-400 mb-8">
+            Most agencies give up when a standard integration doesn't exist. We open the <code>Code Node</code> and write custom Python or JavaScript to parse, transform, and route your data exactly how you need it.
+        </p>
+        
+        <div class="grid grid-cols-2 gap-6">
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                <div class="flex items-center gap-2 mb-2 text-blue-400">
+                    <i class="ph ph-file-py"></i>
+                    <span class="font-bold">Python Support</span>
+                </div>
+                <p class="text-xs text-slate-500">We use Pandas for heavy data transformation and Regex for complex parsing.</p>
+            </div>
+            <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
+                <div class="flex items-center gap-2 mb-2 text-yellow-400">
+                    <i class="ph ph-file-js"></i>
+                    <span class="font-bold">Node.js Support</span>
+                </div>
+                <p class="text-xs text-slate-500">Custom cryptographic signing, HMAC verification, and advanced API handling.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative bg-[#1e1e1e] rounded-xl shadow-2xl border border-slate-700 font-mono text-sm leading-relaxed overflow-hidden">
+        <div class="bg-[#252526] px-4 py-2 flex items-center justify-between border-b border-black/20">
+            <div class="flex gap-2">
+                <span class="text-xs text-slate-400 bg-[#1e1e1e] px-2 py-1 rounded">transform_data.py</span>
+                <span class="text-xs text-slate-500 px-2 py-1">config.json</span>
+            </div>
+            <div class="flex gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+            </div>
+        </div>
+
+        <div class="p-6 text-gray-300">
+            <div class="flex">
+                <div class="text-gray-600 select-none pr-4 text-right">
+                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11
+                </div>
+                <div>
+                    <span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd<br>
+                    <span class="text-purple-400">import</span> json<br><br>
+                    <span class="text-green-600"># 1. Ingest raw CSV data from webhook</span><br>
+                    <span class="text-blue-400">def</span> <span class="text-yellow-300">main</span>(items):<br>
+                    &nbsp;&nbsp;df = pd.DataFrame(items[0].json['rows'])<br><br>
+                    <span class="text-green-600">&nbsp;&nbsp;# 2. Clean phone numbers (E.164 format)</span><br>
+                    &nbsp;&nbsp;df['phone'] = df['phone'].apply(<span class="text-blue-400">lambda</span> x: <span class="text-orange-300">f"+1{x.replace('-', '')}"</span>)<br><br>
+                    <span class="text-green-600">&nbsp;&nbsp;# 3. Return JSON for next node</span><br>
+                    &nbsp;&nbsp;<span class="text-purple-400">return</span> json.loads(df.to_json(orient=<span class="text-orange-300">'records'</span>))
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-slate-700">
+                <div class="flex justify-between text-xs mb-2">
+                    <span class="text-slate-400 uppercase font-bold">Console Output</span>
+                    <span class="text-green-400">Success (14ms)</span>
+                </div>
+                <div class="text-xs text-slate-500">
+                    [<br>
+                    &nbsp;&nbsp;{ "name": "John Doe", "phone": "+15550199", "valid": true },<br>
+                    &nbsp;&nbsp;{ "name": "Jane Smith", "phone": "+15550200", "valid": true }<br>
+                    ]
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4 text-slate-900">The "No-Break" Deployment Cycle</h2>
+      <p class="text-gray-500">We treat automation like software engineering. Version controlled, tested, and staged.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-purple-600 transform -translate-y-1/2 opacity-20"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-500 transition-all text-center group shadow-sm">
+          <div class="w-12 h-12 mx-auto bg-orange-50 rounded-lg flex items-center justify-center border border-orange-100 mb-4 group-hover:scale-110 transition-transform text-orange-500">
+            <i class="ph ph-desktop text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1 text-slate-900">1. Local Dev</h3>
+          <p class="text-xs text-gray-500">We build and test logic on a local instance, ensuring no disruption to your live data.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-black transition-all text-center group shadow-sm">
+          <div class="w-12 h-12 mx-auto bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200 mb-4 group-hover:scale-110 transition-transform text-slate-900">
+            <i class="ph ph-git-commit text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1 text-slate-900">2. Git Commit</h3>
+          <p class="text-xs text-gray-500">Workflow JSON is committed to GitHub. We have a full history of every change ever made.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all text-center group shadow-sm">
+          <div class="w-12 h-12 mx-auto bg-blue-50 rounded-lg flex items-center justify-center border border-blue-100 mb-4 group-hover:scale-110 transition-transform text-blue-500">
+            <i class="ph ph-check-circle text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1 text-slate-900">3. Staging Test</h3>
+          <p class="text-xs text-gray-500">Automated tests run against a sandbox environment to verify logic gates.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-500 transition-all text-center group shadow-sm">
+          <div class="w-12 h-12 mx-auto bg-purple-50 rounded-lg flex items-center justify-center border border-purple-100 mb-4 group-hover:scale-110 transition-transform text-purple-600">
+            <i class="ph ph-rocket-launch text-2xl"></i>
+          </div>
+          <h3 class="font-bold mb-1 text-slate-900">4. Prod Push</h3>
+          <p class="text-xs text-gray-500">The approved workflow is pulled to your live server. Zero downtime.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Engineering FAQs</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-50">
+          <span>What happens if we stop working with you? (Vendor Lock-in)</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          You own everything. Because n8n is self-hosted on <strong>your</strong> VPS (DigitalOcean/AWS), you hold the root keys. If we part ways, you keep the server, the code, and the workflows. We simply hand over the documentation.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-50">
+          <span>How do you handle API Rate Limits?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          We build "Split In Batches" logic directly into the workflow. If an API allows 100 requests/minute, we configure the node to throttle execution automatically, queuing tasks in Redis to prevent failures.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-50">
+          <span>Can you build a custom UI for my team to trigger workflows?</span>
+          <i class="ph ph-caret-down text-gray-500"></i>
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. We can build "n8n Forms" or connect the workflow to a custom Retool/Bubble dashboard. Your team fills out a simple form, and n8n handles the heavy lifting in the background.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     <section class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="font-display text-4xl font-bold mb-6 text-slate-900">Stop renting. Start building.</h2>
