@@ -192,7 +192,7 @@ import Layout from '../layouts/Layout.astro';
                     <span class="text-blue-400">def</span> <span class="text-yellow-300">main</span>(items):<br>
                     &nbsp;&nbsp;df = pd.DataFrame(items[0].json['rows'])<br><br>
                     <span class="text-green-600">&nbsp;&nbsp;# 2. Clean phone numbers (E.164 format)</span><br>
-                    &nbsp;&nbsp;df['phone'] = df['phone'].apply(<span class="text-blue-400">lambda</span> x: <span class="text-orange-300">f"+1{x.replace('-', '')}"</span>)<br><br>
+                    &nbsp;&nbsp;df['phone'] = df['phone'].apply(<span class="text-blue-400">lambda</span> x: <span class="text-orange-300">f"+1&#123;x.replace('-', '')&#125;"</span>)<br><br>
                     <span class="text-green-600">&nbsp;&nbsp;# 3. Return JSON for next node</span><br>
                     &nbsp;&nbsp;<span class="text-purple-400">return</span> json.loads(df.to_json(orient=<span class="text-orange-300">'records'</span>))
                 </div>
@@ -205,8 +205,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
                 <div class="text-xs text-slate-500">
                     [<br>
-                    &nbsp;&nbsp;{ "name": "John Doe", "phone": "+15550199", "valid": true },<br>
-                    &nbsp;&nbsp;{ "name": "Jane Smith", "phone": "+15550200", "valid": true }<br>
+                    &nbsp;&nbsp;&#123; "name": "John Doe", "phone": "+15550199", "valid": true &#125;,<br>
+                    &nbsp;&nbsp;&#123; "name": "Jane Smith", "phone": "+15550200", "valid": true &#125;<br>
                     ]
                 </div>
             </div>
