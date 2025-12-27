@@ -1,34 +1,45 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import RoiGrid from '../../components/sections/RoiGrid.astro';
+
+// ROI Stats specific to Infrastructure/Cost Savings
+const roiItems = [
+  { value: "90%", label: "Cheaper than Zapier" },
+  { value: "∞", label: "Unlimited Executions" },
+  { value: "100%", label: "Data Ownership" }
+];
 ---
 
 <Layout 
-  title="Zapier to n8n Migration Services | LogicLoom Systems"
-  description="Stop paying the 'Action Tax'. We migrate expensive Zapier setups to self-hosted n8n workflows."
+  title="Private Automation Infrastructure & n8n Hosting | LogicLoom Systems"
+  description="Escape the Zapier tax. We deploy enterprise-grade, self-hosted n8n nodes that handle millions of executions for a flat server fee."
+  campaignMode={true}
 >
-    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10 text-center">
-      <div class="max-w-4xl mx-auto relative z-10">
+  <div>
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
         
-        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50/60 text-orange-700">
-          <i class="ph ph-lightning-fill"></i>
-          <span class="text-xs font-bold uppercase tracking-widest">Certified n8n Architects</span>
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+          <span class="text-xs font-semibold text-blue-700 uppercase tracking-widest">Platform: Infrastructure</span>
         </div>
 
-        <h1 class="font-display text-5xl md:text-7xl font-bold text-slate-900 mb-6 leading-[1.05]">
-          Escape the <br /> <span class="text-[#FF6D5A]">"Zapier Tax."</span>
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+          Escape the <br />
+          <span class="text-gray-400">"Zapier Tax."</span>
         </h1>
-        
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-          We build enterprise-grade, self-hosted n8n nodes that handle millions of executions for a flat server fee. Stop paying per task.
+
+        <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          Stop paying per task. We build enterprise-grade, self-hosted n8n nodes that handle millions of executions for a flat server fee.
         </p>
 
-	<p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
-  Best fit for teams spending <span class="font-bold">$300+/month on Zapier</span> or running <span class="font-bold">1,000+ tasks/week</span>.
-	</p>
-        
-        <div class="flex justify-center gap-4">
-          <button @click="$dispatch('open-modal')" class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl cursor-pointer">
-              Calculate My Savings
+        <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
+          Best fit for teams spending <span class="font-bold">$300+/month on Zapier</span> or running <span class="font-bold">1,000+ tasks/week</span>.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <button @click="$dispatch('open-modal')" class="bg-blue-600 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer">
+            Deploy My Node
           </button>
         </div>
       </div>
@@ -36,62 +47,126 @@ import Layout from '../../layouts/Layout.astro';
 
     <section class="py-20 bg-white border-y border-gray-100">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-8 items-stretch">
-            
-            <div class="bg-gray-50 p-10 rounded-3xl border border-gray-200 relative overflow-hidden">
-                <div class="flex items-center gap-2 mb-6 opacity-60">
-                    <span class="text-xs font-bold uppercase tracking-widest text-red-500">Legacy SaaS (Zapier)</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          
+          <div>
+            <h2 class="font-display text-3xl font-bold mb-6">Why renting automation hurts</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                  <i class="ph ph-chart-line-up text-xl"></i>
                 </div>
-                <h3 class="font-display text-2xl font-bold mb-4 text-slate-900">The "Pay-Per-Breath" Model</h3>
-                <ul class="space-y-4 text-sm text-gray-600">
-                    <li class="flex gap-3"><i class="ph ph-x text-red-500 text-lg"></i> <span>Costs explode with volume ($1,500+/mo).</span></li>
-                     <li class="flex gap-3"><i class="ph ph-x text-red-500 text-lg"></i> <span>Data lives on public servers (Privacy Risk).</span></li>
-                    <li class="flex gap-3"><i class="ph ph-x text-red-500 text-lg"></i> <span>No access to file system or custom packages.</span></li>
-                </ul>
-            </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Punished for Scaling</h3>
+                  <p class="text-sm text-gray-500">
+                    On Zapier, if your marketing campaign succeeds and you get 10,000 leads, your bill jumps to $589/mo. 
+                    Success shouldn't cost more.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                  <i class="ph ph-clock-countdown text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Timeout Limits</h3>
+                  <p class="text-sm text-gray-500">
+                    Complex AI agents need time to "think." Public platforms kill your workflow if it takes longer than 2 minutes.
+                  </p>
+                </div>
+              </div>
 
-            <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden shadow-2xl">
-                <div class="flex items-center gap-2 mb-6">
-                    <span class="text-xs font-bold uppercase tracking-widest text-green-400">The LogicLoom Stack (n8n)</span>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                  <i class="ph ph-database text-xl"></i>
                 </div>
-                <h3 class="font-display text-2xl font-bold mb-4">Fixed-Cost Infrastructure</h3>
-                <ul class="space-y-4 text-sm text-gray-300">
-                    <li class="flex gap-3"><i class="ph ph-check text-green-400 text-lg"></i> <span>Flat Server Fee (~$40/mo) for unlimited tasks.</span></li>
-                    <li class="flex gap-3"><i class="ph ph-check text-green-400 text-lg"></i> <span>Self-Hosted: Data stays in your private cloud.</span></li>
-                    <li class="flex gap-3"><i class="ph ph-check text-green-400 text-lg"></i> <span>Git Version Control & Full Python Support.</span></li>
-                </ul>
+                <div>
+                  <h3 class="font-bold text-gray-900">Data Privacy Risk</h3>
+                  <p class="text-sm text-gray-500">
+                    Your customer data is stored on shared public servers. You don't own the infrastructure.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+          
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden font-mono">
+            <div class="relative z-10">
+              <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+                <h3 class="font-display text-2xl font-bold text-white">LogicLoom Node</h3>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-bold uppercase">Online</span>
+              </div>
+              
+              <div class="space-y-6 text-sm">
+                <div>
+                  <div class="text-gray-400 mb-1">// Execution Cost</div>
+                  <div class="text-2xl font-bold text-blue-400">$0.00 / task</div>
+                  <div class="text-xs text-gray-500">Flat server fee (~$20/mo) covers everything.</div>
+                </div>
+
+                <div>
+                  <div class="text-gray-400 mb-1">// Architecture</div>
+                  <div class="grid grid-cols-2 gap-4 mt-2">
+                     <div class="flex items-center gap-2">
+                        <i class="ph ph-hard-drives text-lg text-blue-400"></i>
+                        <span>Docker Container</span>
+                     </div>
+                     <div class="flex items-center gap-2">
+                        <i class="ph ph-shield-check text-lg text-blue-400"></i>
+                        <span>Self-Hosted</span>
+                     </div>
+                     <div class="flex items-center gap-2">
+                        <i class="ph ph-lightning text-lg text-blue-400"></i>
+                        <span>No Throttling</span>
+                     </div>
+                     <div class="flex items-center gap-2">
+                        <i class="ph ph-lock-key text-lg text-blue-400"></i>
+                        <span>E2E Encryption</span>
+                     </div>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-700">
+                   <div class="flex items-center gap-3 text-green-400">
+                      <i class="ph ph-check-circle"></i> 
+                      <span>Full n8n Source Code Access</span>
+                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-slate-900"></div>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <section class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="font-display text-3xl font-bold mb-12 text-slate-900">The Migration Protocol</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                <div class="p-6 border border-gray-100 rounded-2xl bg-gray-50">
-                    <div class="text-4xl font-bold text-gray-200 mb-4">01</div>
-                    <h3 class="font-bold text-lg mb-2">Audit</h3>
-                    <p class="text-sm text-gray-500">We map every Zap, webhook, and filter in your current account.</p>
-                </div>
-                <div class="p-6 border border-gray-100 rounded-2xl bg-gray-50">
-                    <div class="text-4xl font-bold text-gray-200 mb-4">02</div>
-                    <h3 class="font-bold text-lg mb-2">Re-Architect</h3>
-                     <p class="text-sm text-gray-500">We rebuild workflows in n8n, optimizing logic to reduce steps.</p>
-                </div>
-                <div class="p-6 border border-gray-100 rounded-2xl bg-gray-50">
-                    <div class="text-4xl font-bold text-gray-200 mb-4">03</div>
-                    <h3 class="font-bold text-lg mb-2">Handover</h3>
-                    <p class="text-sm text-gray-500">We deploy to your server and hand you the admin keys.</p>
-                </div>
-            </div>
-            
-            <div class="mt-16">
-                 <button @click="$dispatch('open-modal')" class="bg-[#0071E3] text-white text-lg px-10 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl active:scale-95 cursor-pointer">
-                    Start Migration
-                 </button>
-            </div>
+    <section class="py-16 bg-[#F5F5F7]">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Built on Open Source Standards</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-arrows-left-right"></i> n8n</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-hard-drives"></i> Docker</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-database"></i> PostgreSQL</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-cloud"></i> DigitalOcean</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-globe"></i> Caddy</div>
         </div>
+      </div>
     </section>
+
+    <RoiGrid items={roiItems} accentColor="blue" />
+
+    <section class="py-24 bg-slate-900 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold mb-6">Own your data.</h2>
+        <p class="text-gray-400 mb-10">
+          We'll migrate your most expensive Zaps to a private server and show you the immediate cost savings.
+        </p>
+        <button @click="$dispatch('open-modal')" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50 cursor-pointer">
+          Calculate My Savings
+        </button>
+      </div>
+    </section>
+  </div>
 </Layout>
