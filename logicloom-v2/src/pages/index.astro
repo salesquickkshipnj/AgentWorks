@@ -249,46 +249,128 @@ const caseStudies = (await getCollection('case-studies'))
     </div>
   </section>
 
-  <section id="offers" class="py-24 bg-slate-50 border-t border-gray-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-3xl font-bold text-slate-900">Engagement Models</h2>
-        <p class="mt-4 text-slate-600">Clear deliverables. Transparent pricing. No surprises.</p>
+ <section id="pricing" class="py-20 bg-gray-50 dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">
+            Whether you need a quick fix, a long-term partner, or a master plan.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          
+          <div class="flex flex-col rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800">
+            <div class="p-8">
+              <h3 class="text-lg font-semibold leading-8 text-gray-900 dark:text-white">The Sprint</h3>
+              <p class="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">The Specific Fix. Best for solving a single, burning pain point immediately.</p>
+              <p class="mt-8 flex items-baseline gap-x-1">
+                <span class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">$2,497</span>
+                <span class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">/ one-time</span>
+              </p>
+              <a href="#contact" class="mt-8 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get Started</a>
+            </div>
+            <div class="flex-1 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-800/50 p-8 rounded-b-2xl">
+              <ul role="list" class="space-y-4 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  1 Fully Built n8n Workflow
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  2 Integrations (e.g. Gmail to Sheets)
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Rigorous Error Handling
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  1-Hour Handover & Training Video
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex flex-col rounded-2xl border-2 border-indigo-600 bg-white shadow-xl relative dark:bg-slate-800">
+            <div class="absolute -top-5 left-0 right-0 mx-auto w-32 rounded-full bg-indigo-600 px-3 py-1 text-center text-sm font-medium text-white">Most Popular</div>
+            
+            <div class="p-8">
+              <h3 class="text-lg font-semibold leading-8 text-indigo-600 dark:text-indigo-400">The Partner</h3>
+              <p class="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">The Growth Engine. Continuous optimization and total peace of mind.</p>
+              <p class="mt-8 flex items-baseline gap-x-1">
+                <span class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">$1,497</span>
+                <span class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">/ month</span>
+              </p>
+              <a href="#contact" class="mt-8 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Subscribe</a>
+            </div>
+            
+            <div class="flex-1 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-800/50 p-8 rounded-b-2xl">
+              <ul role="list" class="space-y-4 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Server Maintenance & Uptime Monitoring
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Priority Error Handling & Bug Fixes
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Monthly Performance Report
+                </li>
+                
+                <li class="mt-4 pt-4 border-t border-indigo-100 dark:border-indigo-900/50">
+                  <div class="rounded-lg bg-indigo-50 dark:bg-indigo-900/20 p-3">
+                    <p class="font-semibold text-indigo-700 dark:text-indigo-300 text-xs uppercase tracking-wide">Included Bonus</p>
+                    <p class="mt-1 text-sm text-indigo-900 dark:text-indigo-100 font-medium">
+                      3 hours/mo of dedicated retainer time for ad-hoc tweaks & new features.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex flex-col rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800">
+            <div class="p-8">
+              <h3 class="text-lg font-semibold leading-8 text-gray-900 dark:text-white">The Blueprint</h3>
+              <p class="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">The Master Plan. A full systems audit and roadmap before you build.</p>
+              <p class="mt-8 flex items-baseline gap-x-1">
+                <span class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">$4,997</span>
+                <span class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">/ one-time</span>
+              </p>
+              <a href="#contact" class="mt-8 block rounded-md bg-indigo-50 px-3 py-2 text-center text-sm font-semibold leading-6 text-indigo-600 shadow-sm hover:bg-indigo-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Book Audit</a>
+            </div>
+            <div class="flex-1 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-slate-800/50 p-8 rounded-b-2xl">
+              <ul role="list" class="space-y-4 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Complete Business Systems Audit
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Visual Process Mapping
+                </li>
+                <li class="flex gap-x-3">
+                  <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Tech Stack Recommendations
+                </li>
+                 <li class="flex gap-x-3 text-gray-400">
+                  <svg class="h-6 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  Strategy Only (No Build Code)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <ServiceOffer 
-          title="Workflow Audit & Strategy"
-          priceRange="$500 - $1,500"
-          description="Perfect for businesses that know they need automation but don't know where to start."
-          deliverables={[
-            "Full business process map analysis",
-            "Identification of high-ROI automation opportunities",
-            "Custom n8n architecture roadmap",
-            "Software stack recommendations"
-          ]}
-          ctaText="Book Audit"
-          triggerModal={true}
-        />
-
-        <ServiceOffer 
-          isPrimary={true}
-          title="Custom n8n Automation Build"
-          priceRange="$2,500+"
-          description="The exact 'Infrastructure-as-a-Service' framework we used to scale Gold Remodels Inc."
-          deliverables={[
-            "Custom n8n workflow development",
-            "API integrations (CRM, Email, Slack, etc.)",
-            "30 days of post-deployment support",
-            "Video training & documentation for your team"
-          ]}
-          ctaText="Start Project"
-          triggerModal={true}
-        />
-      </div>
-    </div>
-  </section>
-
+    </section>
+    ```
+    
   <section id="contact" class="py-24 bg-white border-t border-gray-200 relative z-10">
     <div class="max-w-6xl mx-auto px-6">
         <div class="mb-24">
