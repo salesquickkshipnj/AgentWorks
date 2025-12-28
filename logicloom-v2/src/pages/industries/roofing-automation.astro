@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
 
 const roiItems = [
   { value: "100%", label: "Lead Response Rate" },
@@ -23,7 +24,8 @@ const roiItems = [
         </div>
 
         <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
-          You're on the roof. <br />
+          You're on the roof.
+          <br />
           <span class="text-gray-400">The phone rings.</span>
         </h1>
 
@@ -49,7 +51,7 @@ const roiItems = [
     
     <div>
         <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-orange-100 text-orange-800">
-            <i class="ph ph-phone-missed"></i>
+            <Icon name="ph:phone-slash" />
             <span class="text-xs font-bold uppercase tracking-widest">The "Safety Net" System</span>
         </div>
         <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">You miss the call. <br/>You keep the lead.</h2>
@@ -62,6 +64,7 @@ const roiItems = [
                 <span class="font-bold text-slate-900">Revenue Saved Calculator</span>
                 <span class="text-xs text-gray-500">Based on industry avg</span>
             </div>
+         
             <div class="space-y-3 font-mono text-sm">
                 <div class="flex justify-between">
                     <span class="text-gray-500">Avg Job Size:</span>
@@ -136,7 +139,7 @@ const roiItems = [
         
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-orange-500 transition-all text-center group">
           <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-orange-500">
-            <i class="ph ph-phone-incoming text-2xl"></i>
+            <Icon name="ph:phone-incoming" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1">1. Capture</h3>
           <p class="text-xs text-slate-400">Missed calls converted to text. Web forms synced to CRM.</p>
@@ -144,7 +147,7 @@ const roiItems = [
 
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-yellow-500 transition-all text-center group">
           <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-yellow-500">
-            <i class="ph ph-calendar-check text-2xl"></i>
+            <Icon name="ph:calendar-check" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1">2. Schedule</h3>
           <p class="text-xs text-slate-400">AI negotiates a time and puts it on your Google Calendar.</p>
@@ -152,7 +155,7 @@ const roiItems = [
 
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-500 transition-all text-center group">
           <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-green-500">
-            <i class="ph ph-file-text text-2xl"></i>
+            <Icon name="ph:file-text" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1">3. Quote</h3>
           <p class="text-xs text-slate-400">Auto-generate PDF estimates and send via DocuSign.</p>
@@ -160,7 +163,7 @@ const roiItems = [
 
         <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500 transition-all text-center group">
           <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-emerald-500">
-            <i class="ph ph-currency-dollar text-2xl"></i>
+            <Icon name="ph:currency-dollar" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1">4. Invoice</h3>
           <p class="text-xs text-slate-400">Job done? System texts the QuickBooks invoice link automatically.</p>
@@ -179,7 +182,7 @@ const roiItems = [
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
           <span>Do I have to change my phone number?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           No. We can forward your existing calls to the AI, or we can provide a dedicated "Sales Number" for your ads that forwards to you. You keep your business line.
@@ -189,7 +192,7 @@ const roiItems = [
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
           <span>Can it handle accents or loud backgrounds?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           Yes. The AI models we use (OpenAI Whisper) are incredibly good at understanding accents, slang, and background noise (like construction sites).
@@ -199,7 +202,7 @@ const roiItems = [
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
           <span>What if the job is too complicated for AI?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           You set the rules. If a customer asks something complex, the AI is trained to say: "Let me have [Your Name] call you back on that," and it instantly sends you a notification with the transcript.
@@ -216,21 +219,28 @@ const roiItems = [
             <h2 class="font-display text-3xl font-bold mb-6">The "Busy Contractor" Trap</h2>
             <div class="space-y-6">
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-phone-missed text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:phone-slash" class="text-xl" />
+                </div>
                 <div>
                   <h3 class="font-bold text-gray-900">The Missed Call</h3>
                   <p class="text-sm text-gray-500">60% of homeowners hire the first contractor to pick up. If you send them to voicemail, you lost the job.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-clock text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:clock" class="text-xl" />
+                </div>
                 <div>
                   <h3 class="font-bold text-gray-900">The 9 PM Paperwork</h3>
                   <p class="text-sm text-gray-500">Creating estimates and invoices manually after a 10-hour day on site leads to burnout and errors.</p>
                 </div>
               </div>
+             
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-users-three text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:users-three" class="text-xl" />
+                </div>
                 <div>
                   <h3 class="font-bold text-gray-900">Leaky Follow-ups</h3>
                   <p class="text-sm text-gray-500">You sent the bid, but never followed up. The customer forgot you. That's money left on the table.</p>
@@ -243,10 +253,22 @@ const roiItems = [
             <div class="relative z-10">
               <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
               <div class="space-y-4 font-mono text-sm">
-                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Missed Call &rarr; AI SMS instantly</span></div>
-                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Form Fill &rarr; CRM &rarr; Auto-Call</span></div>
-                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Job Done &rarr; Auto-Invoice via QuickBooks</span></div>
-                <div class="flex items-center gap-3 text-green-400"><i class="ph ph-check-circle"></i> <span>Rain Delay &rarr; Bulk SMS to clients</span></div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Missed Call &rarr; AI SMS instantly</span>
+                </div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Form Fill &rarr; CRM &rarr; Auto-Call</span>
+                </div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Job Done &rarr; Auto-Invoice via QuickBooks</span>
+                </div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Rain Delay &rarr; Bulk SMS to clients</span>
+                </div>
               </div>
             </div>
             <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-slate-900"></div>
@@ -259,11 +281,11 @@ const roiItems = [
       <div class="max-w-6xl mx-auto px-6 text-center">
         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your toolbelt</p>
         <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-house-line"></i> Jobber</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-squares-four"></i> CompanyCam</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-receipt"></i> QuickBooks</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-envelope-simple"></i> Gmail</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-phone"></i> Twilio</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:house-line" /> Jobber</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:squares-four" /> CompanyCam</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:receipt" /> QuickBooks</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:envelope-simple" /> Gmail</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:phone" /> Twilio</div>
         </div>
       </div>
     </section>
