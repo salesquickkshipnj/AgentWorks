@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
 
 // ROI Stats specific to Infrastructure/Cost Savings
 const roiItems = [
@@ -50,7 +51,7 @@ const roiItems = [
     
     <div class="font-sans text-white">
       <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
-        <i class="ph ph-terminal-window"></i>
+        <Icon name="ph:terminal-window" />
         <span class="text-xs font-bold uppercase tracking-widest">Live Node Status</span>
       </div>
       <h2 class="font-display text-3xl font-bold mb-6">Total Transparency. <br/>Zero "Black Boxes".</h2>
@@ -59,24 +60,25 @@ const roiItems = [
       </p>
       <ul class="space-y-4 text-slate-300">
         <li class="flex items-center gap-3">
-            <i class="ph ph-cpu text-emerald-400 text-xl"></i>
+            <Icon name="ph:cpu" class="text-emerald-400 text-xl" />
             <span>Optimized for low CPU usage (avg 12%)</span>
         </li>
         <li class="flex items-center gap-3">
-            <i class="ph ph-shield-check text-emerald-400 text-xl"></i>
+            <Icon name="ph:shield-check" class="text-emerald-400 text-xl" />
             <span>Automated Docker health checks</span>
         </li>
       </ul>
     </div>
 
-    <div class="w-full rounded-lg bg-[#0d1117] border border-slate-800 shadow-2xl p-4 leading-relaxed">
-      <div class="flex gap-2 mb-4 border-b border-slate-800 pb-2">
+    <div class="w-full rounded-2xl bg-[#0d1117] border border-slate-800 shadow-2xl p-6 leading-relaxed font-mono relative overflow-hidden">
+       <div class="flex gap-2 mb-6 border-b border-slate-800 pb-4">
         <div class="w-3 h-3 rounded-full bg-red-500"></div>
         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
         <div class="w-3 h-3 rounded-full bg-green-500"></div>
         <span class="ml-2 text-slate-500 text-xs">root@logicloom-node-01:~</span>
       </div>
-      <div class="space-y-2 opacity-90">
+  
+      <div class="space-y-4 opacity-90 text-sm">
         <div>
             <span class="text-blue-400">➜</span> <span class="text-white">docker stats --no-stream</span>
         </div>
@@ -115,14 +117,13 @@ const roiItems = [
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             
-            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10">
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10 transition-transform hover:-translate-y-1">
                 <div class="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-4 border border-blue-100">
-                    <i class="ph ph-globe"></i>
+                    <Icon name="ph:globe" />
                 </div>
                 <h3 class="font-bold text-slate-900">1. Encrypted Ingress</h3>
                 <p class="text-xs text-gray-500 mt-2">
-                    Traffic enters via HTTPS (TLS 1.3).
-                    <br/><span class="font-mono text-blue-600 bg-blue-50 px-1 rounded">Reverse Proxy (Caddy)</span>
+                    Traffic enters via HTTPS (TLS 1.3). <br/><span class="font-mono text-blue-600 bg-blue-50 px-1 rounded">Reverse Proxy (Caddy)</span>
                 </p>
             </div>
 
@@ -131,23 +132,21 @@ const roiItems = [
                     Your Server
                 </div>
                 <div class="w-16 h-16 mx-auto bg-slate-800 text-orange-500 rounded-xl flex items-center justify-center text-2xl mb-4 border border-slate-600">
-                    <i class="ph ph-lightning-fill"></i>
+                    <Icon name="ph:lightning-fill" />
                 </div>
                 <h3 class="font-bold text-white">2. Logic Execution</h3>
                 <p class="text-xs text-slate-400 mt-2">
-                    n8n Workflow Engine runs in Docker.
-                    <br/><span class="font-mono text-orange-400 bg-orange-400/10 px-1 rounded">Isolated Container</span>
+                    n8n Workflow Engine runs in Docker. <br/><span class="font-mono text-orange-400 bg-orange-400/10 px-1 rounded">Isolated Container</span>
                 </p>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10">
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10 transition-transform hover:-translate-y-1">
                 <div class="w-16 h-16 mx-auto bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-4 border border-purple-100">
-                    <i class="ph ph-database"></i>
+                    <Icon name="ph:database" />
                 </div>
                 <h3 class="font-bold text-slate-900">3. Private Storage</h3>
                 <p class="text-xs text-gray-500 mt-2">
-                    Logs & Credentials stored locally.
-                    <br/><span class="font-mono text-purple-600 bg-purple-50 px-1 rounded">PostgreSQL (Encrypted)</span>
+                    Logs & Credentials stored locally. <br/><span class="font-mono text-purple-600 bg-purple-50 px-1 rounded">PostgreSQL (Encrypted)</span>
                 </p>
             </div>
 
@@ -161,30 +160,30 @@ const roiItems = [
     <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Engineering FAQs</h2>
     
     <div class="space-y-4">
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden">
-        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
           <span>What happens if the server crashes?</span>
-          <i class="ph ph-caret-down text-gray-400" :class="{'rotate-180': open}"></i>
+          <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
         </button>
         <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
           We configure <strong>Docker Restart Policies</strong> (<code>restart: always</code>). If the n8n process fails, the daemon automatically reboots it in milliseconds. For total failures, we rely on daily snapshot backups to restore your instance to a fresh droplet within 15 minutes.
         </div>
       </div>
 
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden">
-        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
           <span>Do I need to manage Linux updates?</span>
-          <i class="ph ph-caret-down text-gray-400" :class="{'rotate-180': open}"></i>
+          <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
         </button>
         <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
           If you choose our <strong>Managed Retainer</strong>, no. We handle all OS patching (Ubuntu/Debian), n8n version upgrades, and security monitoring. If you choose the "One-Time Setup," we hand you the root keys, and maintenance becomes your responsibility.
         </div>
       </div>
 
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden">
-        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
           <span>Is my API Key data safe?</span>
-          <i class="ph ph-caret-down text-gray-400" :class="{'rotate-180': open}"></i>
+          <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
         </button>
         <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
           Yes. n8n encrypts all credentials in the database using a unique encryption key generated during installation. We do not have access to your keys once the handover is complete.
@@ -203,20 +202,19 @@ const roiItems = [
             <div class="space-y-6">
               <div class="flex gap-4">
                 <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
-                  <i class="ph ph-chart-line-up text-xl"></i>
+                  <Icon name="ph:chart-line-up" class="text-xl" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900">Punished for Scaling</h3>
                   <p class="text-sm text-gray-500">
-                    On Zapier, if your marketing campaign succeeds and you get 10,000 leads, your bill jumps to $589/mo. 
-                    Success shouldn't cost more.
+                    On Zapier, if your marketing campaign succeeds and you get 10,000 leads, your bill jumps to $589/mo. Success shouldn't cost more.
                   </p>
                 </div>
               </div>
               
               <div class="flex gap-4">
                 <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
-                  <i class="ph ph-clock-countdown text-xl"></i>
+                   <Icon name="ph:clock-countdown" class="text-xl" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900">Timeout Limits</h3>
@@ -228,7 +226,7 @@ const roiItems = [
 
               <div class="flex gap-4">
                 <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
-                  <i class="ph ph-database text-xl"></i>
+                  <Icon name="ph:database" class="text-xl" />
                 </div>
                 <div>
                   <h3 class="font-bold text-gray-900">Data Privacy Risk</h3>
@@ -240,7 +238,7 @@ const roiItems = [
             </div>
           </div>
           
-          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden font-mono">
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden font-mono shadow-2xl">
             <div class="relative z-10">
               <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
                 <h3 class="font-display text-2xl font-bold text-white">LogicLoom Node</h3>
@@ -258,19 +256,19 @@ const roiItems = [
                   <div class="text-gray-400 mb-1">// Architecture</div>
                   <div class="grid grid-cols-2 gap-4 mt-2">
                      <div class="flex items-center gap-2">
-                        <i class="ph ph-hard-drives text-lg text-blue-400"></i>
+                         <Icon name="ph:hard-drives" class="text-lg text-blue-400" />
                         <span>Docker Container</span>
                      </div>
                      <div class="flex items-center gap-2">
-                        <i class="ph ph-shield-check text-lg text-blue-400"></i>
+                         <Icon name="ph:shield-check" class="text-lg text-blue-400" />
                         <span>Self-Hosted</span>
                      </div>
                      <div class="flex items-center gap-2">
-                        <i class="ph ph-lightning text-lg text-blue-400"></i>
+                         <Icon name="ph:lightning" class="text-lg text-blue-400" />
                         <span>No Throttling</span>
                      </div>
                      <div class="flex items-center gap-2">
-                        <i class="ph ph-lock-key text-lg text-blue-400"></i>
+                         <Icon name="ph:lock-key" class="text-lg text-blue-400" />
                         <span>E2E Encryption</span>
                      </div>
                   </div>
@@ -278,7 +276,7 @@ const roiItems = [
 
                 <div class="pt-4 border-t border-gray-700">
                    <div class="flex items-center gap-3 text-green-400">
-                      <i class="ph ph-check-circle"></i> 
+                      <Icon name="ph:check-circle" /> 
                       <span>Full n8n Source Code Access</span>
                    </div>
                 </div>
@@ -295,11 +293,11 @@ const roiItems = [
       <div class="max-w-6xl mx-auto px-6 text-center">
         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Built on Open Source Standards</p>
         <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-arrows-left-right"></i> n8n</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-hard-drives"></i> Docker</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-database"></i> PostgreSQL</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-cloud"></i> DigitalOcean</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-globe"></i> Caddy</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:arrows-left-right" /> n8n</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:hard-drives" /> Docker</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:database" /> PostgreSQL</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:cloud" /> DigitalOcean</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:globe" /> Caddy</div>
         </div>
       </div>
     </section>

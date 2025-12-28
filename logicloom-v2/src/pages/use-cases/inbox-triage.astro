@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <Layout 
@@ -22,7 +23,7 @@ import Layout from '../../layouts/Layout.astro';
 
 	<p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
   Best fit for operators receiving <span class="font-bold">50+ emails/day</span> or managing <span class="font-bold">multiple inboxes</span>.
-	</p>
+</p>
       <button @click="$dispatch('open-modal')" class="bg-sky-600 text-white px-8 py-4 rounded-full font-bold hover:bg-sky-700 transition-all shadow-xl shadow-sky-500/20 cursor-pointer">
         Build My AI Agent
       </button>
@@ -33,6 +34,7 @@ import Layout from '../../layouts/Layout.astro';
         <h2 class="font-display text-3xl font-bold mb-12 text-center">How It Works</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
+          
            <div class="p-6 bg-gray-50 rounded-2xl border border-gray-200">
                 <div class="text-4xl mb-4">📥</div>
                 <h3 class="font-bold text-lg mb-2">1. Analyze</h3>
@@ -63,7 +65,7 @@ import Layout from '../../layouts/Layout.astro';
     
     <div>
         <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-sky-100 text-sky-800">
-            <i class="ph ph-pen-nib"></i>
+            <Icon name="ph:pen-nib" />
             <span class="text-xs font-bold uppercase tracking-widest">Draft Mode</span>
         </div>
         <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">It writes. You send.</h2>
@@ -74,16 +76,17 @@ import Layout from '../../layouts/Layout.astro';
         <div class="space-y-4">
             <div class="flex items-start gap-4">
                 <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-sky-600 border border-sky-100 mt-1">
-                    <i class="ph ph-tag"></i>
+                    <Icon name="ph:tag" />
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900">Auto-Tagging</h4>
                     <p class="text-sm text-gray-500">AI labels emails as "Urgent," "Finance," or "Spam" instantly.</p>
                 </div>
             </div>
+      
             <div class="flex items-start gap-4">
                 <div class="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-sky-600 border border-sky-100 mt-1">
-                    <i class="ph ph-kanban"></i>
+                    <Icon name="ph:kanban" />
                 </div>
                 <div>
                     <h4 class="font-bold text-slate-900">Task Extraction</h4>
@@ -94,6 +97,7 @@ import Layout from '../../layouts/Layout.astro';
     </div>
 
     <div class="relative bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+    
         <div class="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
             <div class="flex gap-1.5">
                 <div class="w-3 h-3 rounded-full bg-red-400"></div>
@@ -105,9 +109,9 @@ import Layout from '../../layouts/Layout.astro';
 
         <div class="flex">
             <div class="w-16 bg-gray-50 border-r border-gray-200 p-3 flex flex-col items-center gap-4">
-                <div class="w-8 h-8 rounded bg-red-100 text-red-600 flex items-center justify-center"><i class="ph ph-envelope-simple"></i></div>
-                <div class="w-8 h-8 rounded hover:bg-gray-200 text-gray-400 flex items-center justify-center"><i class="ph ph-star"></i></div>
-                <div class="w-8 h-8 rounded hover:bg-gray-200 text-gray-400 flex items-center justify-center"><i class="ph ph-paper-plane-tilt"></i></div>
+                <div class="w-8 h-8 rounded bg-red-100 text-red-600 flex items-center justify-center"><Icon name="ph:envelope-simple" /></div>
+                <div class="w-8 h-8 rounded hover:bg-gray-200 text-gray-400 flex items-center justify-center"><Icon name="ph:star" /></div>
+                <div class="w-8 h-8 rounded hover:bg-gray-200 text-gray-400 flex items-center justify-center"><Icon name="ph:paper-plane-tilt" /></div>
             </div>
 
             <div class="flex-1 p-6">
@@ -127,7 +131,8 @@ import Layout from '../../layouts/Layout.astro';
 
                 <div class="bg-sky-50 rounded-xl border border-sky-200 p-4 relative">
                     <div class="absolute -top-3 left-4 bg-sky-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide flex items-center gap-1">
-                        <i class="ph ph-sparkle"></i> AI Draft
+                        <Icon name="ph:sparkle" /> 
+                        AI Draft
                     </div>
                     
                     <div class="mb-3 flex gap-2">
@@ -167,7 +172,7 @@ import Layout from '../../layouts/Layout.astro';
         
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
-            <i class="ph ph-envelope-open text-2xl"></i>
+            <Icon name="ph:envelope-open" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2">1. Ingest</h3>
           <p class="text-xs text-slate-400 leading-relaxed">IMAP/Gmail API triggers instantly on new email arrival.</p>
@@ -175,7 +180,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
-            <i class="ph ph-brain text-2xl"></i>
+            <Icon name="ph:brain" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2">2. Analyze</h3>
           <p class="text-xs text-slate-400 leading-relaxed">GPT-4o reads context. Is it a complaint? A lead? An invoice?</p>
@@ -183,7 +188,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
-            <i class="ph ph-git-fork text-2xl"></i>
+            <Icon name="ph:git-fork" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2">3. Route</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Logic gates apply labels and move email to specific folders.</p>
@@ -191,7 +196,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-sky-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-sky-400">
-            <i class="ph ph-check-square-offset text-2xl"></i>
+            <Icon name="ph:check-square-offset" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2">4. Execute</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Create Jira ticket, update HubSpot deal, or draft reply.</p>
@@ -210,7 +215,7 @@ import Layout from '../../layouts/Layout.astro';
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
           <span>Will the AI ever send an email without me?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           No. By default, we set the system to <strong>"Draft Mode."</strong> It prepares the email and saves it to your Drafts folder. You must click send. We only enable auto-sending for specific, low-risk scenarios (like "Receipt Acknowledgement") if you request it.
@@ -220,7 +225,7 @@ import Layout from '../../layouts/Layout.astro';
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
           <span>Is my inbox data private?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           Yes. We use the OpenAI Enterprise API, which does not train models on your data. Your emails are processed in transient memory and never stored on our servers.
@@ -230,7 +235,7 @@ import Layout from '../../layouts/Layout.astro';
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
           <span>Can it create tasks in my project management tool?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           Yes. We integrate with Jira, Trello, Asana, ClickUp, and Monday.com. If an email contains an action item (e.g., "Fix the login bug"), the AI will extract the details and create a ticket automatically.

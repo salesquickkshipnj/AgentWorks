@@ -1,74 +1,249 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
 
 const roiItems = [
-  { value: "10+", label: "Hours Saved / Week" },
-  { value: "2x", label: "Showings Booked" },
-  { value: "Zero", label: "Missed Follow-ups" }
+  { value: "100%", label: "Lead Response Rate" },
+  { value: "10 hrs", label: "Saved Weekly on Admin" },
+  { value: "3x", label: "Faster Quote Speed" }
 ];
 ---
 
 <Layout 
-  title="Real Estate AI Automation & Realtor Workflows | LogicLoom"
-  description="Automate Zillow lead qualification, open house follow-ups, and transaction checklists. We build AI agents that qualify leads while you show homes."
+  title="Real Estate & Roofing Automation | LogicLoom Systems"
+  description="Stop missing bids while you're on the roof. We automate lead capture, quoting, and follow-ups."
   campaignMode={true}
 >
-  <div>
     <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
       <div class="max-w-4xl mx-auto text-center relative z-10">
         
-        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-emerald-200 bg-emerald-50/60 backdrop-blur-sm shadow-sm">
-          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-          <span class="text-xs font-semibold text-emerald-700 uppercase tracking-widest">Industry: Real Estate</span>
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+          <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Industry: Real Estate & Construction</span>
         </div>
 
         <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
-          The Open House <br />
-          <span class="text-gray-400">that never ends.</span>
+          You're on site.
+          <br />
+          <span class="text-gray-400">The phone rings.</span>
         </h1>
 
         <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
-          While you're showing a home, your AI assistant is qualifying Zillow leads, scheduling viewings, and sending contract reminders automatically.
+          You miss the call. You miss the commission. <br class="hidden md:block">
+          We build <strong>AI Voice Agents and n8n automations</strong> that answer calls, book viewings, and chase leads while you work.
         </p>
 
         <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
-          Best fit for agents getting <span class="font-bold">30+ leads/month</span> or managing <span class="font-bold">5+ active transactions</span> at once.
+          Best fit for teams handling <span class="font-bold">20+ inbound leads/week</span> or doing <span class="font-bold">$50k+/month</span>.
         </p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-          <button @click="$dispatch('open-modal')" class="bg-emerald-600 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-500/20 active:scale-95 cursor-pointer">
-            Automate My Listings
+          <button @click="$dispatch('open-modal')" class="bg-[#0071E3] text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer">
+            Automate My Leads
           </button>
         </div>
       </div>
     </section>
 
+<section class="py-24 bg-slate-50 border-t border-gray-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div>
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-orange-100 text-orange-800">
+            <Icon name="ph:phone-missed" />
+            <span class="text-xs font-bold uppercase tracking-widest">The "Safety Net" System</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">You miss the call. <br/>You keep the lead.</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            60% of clients hire the first agent who replies. If you don't answer, they call the next guy on Zillow. Our system stops them in their tracks.
+        </p>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-bold text-slate-900">Revenue Saved Calculator</span>
+                <span class="text-xs text-gray-500">Based on industry avg</span>
+            </div>
+         
+            <div class="space-y-3 font-mono text-sm">
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Avg Commision:</span>
+                    <span>$12,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Missed Calls/Week:</span>
+                    <span>5</span>
+                </div>
+                <div class="border-t border-gray-100 pt-3 flex justify-between font-bold text-green-600 text-lg">
+                    <span>Potential Lost Revenue:</span>
+                    <span>$60,000 / week</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+        <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+        <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+        <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white relative flex flex-col">
+            <div class="bg-slate-100 p-4 pt-8 border-b border-gray-200 text-center pb-2">
+                <p class="text-[10px] uppercase text-gray-400 font-bold tracking-widest">Messages</p>
+                <p class="font-bold text-slate-900">New Lead (555-0123)</p>
+            </div>
+            
+            <div class="p-4 space-y-4 flex-1 bg-white overflow-y-auto">
+                
+                <div class="text-center my-4">
+                    <span class="text-[10px] text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Missed Call 2:45 PM</span>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        Sorry I missed you! I'm showing a house right now. Are you looking to buy or sell? 🏡
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Sent automatically 2:45 PM</span>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <div class="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm max-w-[90%]">
+                        Hi, I wanted to see the property on Maple St.
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Read 2:46 PM</span>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        Got it. I can fit you in tomorrow between 8am-10am. Does that work for you?
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Sent automatically 2:46 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4">The "Autopilot" Cycle</h2>
+      <p class="text-slate-400">Stop doing paperwork at 9 PM. Let the system handle the admin.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 transform -translate-y-1/2 opacity-20"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-orange-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-orange-500">
+            <Icon name="ph:phone-incoming" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">1. Capture</h3>
+          <p class="text-xs text-slate-400">Missed calls converted to text. Zillow leads synced to CRM.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-yellow-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-yellow-500">
+            <Icon name="ph:calendar-check" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">2. Schedule</h3>
+          <p class="text-xs text-slate-400">AI negotiates a time and puts showings on your Calendar.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-green-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-green-500">
+            <Icon name="ph:file-text" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">3. Agreements</h3>
+          <p class="text-xs text-slate-400">Auto-generate PDF contracts and send via DocuSign.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-emerald-500">
+            <Icon name="ph:currency-dollar" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">4. Close</h3>
+          <p class="text-xs text-slate-400">Deal closed? System updates CRM and requests a review.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Common Questions</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Do I have to change my phone number?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          No. We can forward your existing calls to the AI, or we can provide a dedicated "Sales Number" for your ads that forwards to you. You keep your business line.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Can it handle accents or loud backgrounds?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. The AI models we use (OpenAI Whisper) are incredibly good at understanding accents, slang, and background noise.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>What if the client asks something complex?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          You set the rules. If a customer asks something complex, the AI is trained to say: "Let me have [Your Name] call you back on that," and it instantly sends you a notification with the transcript.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     <section class="py-20 bg-white border-y border-gray-100">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="font-display text-3xl font-bold mb-6">The "Always On" Realtor</h2>
+            <h2 class="font-display text-3xl font-bold mb-6">The "Busy Agent" Trap</h2>
             <div class="space-y-6">
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-user-focus text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:phone-missed" class="text-xl" />
+                </div>
                 <div>
-                  <h3 class="font-bold text-gray-900">Tire Kickers</h3>
-                  <p class="text-sm text-gray-500">You waste hours texting leads from Zillow who aren't pre-qualified or aren't ready to buy for 6 months.</p>
+                  <h3 class="font-bold text-gray-900">The Missed Call</h3>
+                  <p class="text-sm text-gray-500">60% of leads hire the first agent to pick up. If you send them to voicemail, you lost the deal.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-signature text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:clock" class="text-xl" />
+                </div>
                 <div>
-                  <h3 class="font-bold text-gray-900">The Document Chase</h3>
-                  <p class="text-sm text-gray-500">Manually chasing clients for signatures on disclosures and offers takes you away from finding new business.</p>
+                  <h3 class="font-bold text-gray-900">The 9 PM Paperwork</h3>
+                  <p class="text-sm text-gray-500">Creating contracts and updating the CRM manually after a 10-hour day leads to burnout.</p>
                 </div>
               </div>
+             
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-ghost text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:users-three" class="text-xl" />
+                </div>
                 <div>
-                  <h3 class="font-bold text-gray-900">Post-Close Ghosting</h3>
-                  <p class="text-sm text-gray-500">You forget to ask for referrals 6 months after closing because you're too busy with current deals. That's lost GCI.</p>
+                  <h3 class="font-bold text-gray-900">Leaky Follow-ups</h3>
+                  <p class="text-sm text-gray-500">You met the lead, but never followed up. The customer forgot you. That's money left on the table.</p>
                 </div>
               </div>
             </div>
@@ -78,207 +253,53 @@ const roiItems = [
             <div class="relative z-10">
               <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
               <div class="space-y-4 font-mono text-sm">
-                <div class="flex items-center gap-3 text-emerald-300"><i class="ph ph-check-circle"></i> <span>Zillow Lead &rarr; AI Qualification SMS</span></div>
-                <div class="flex items-center gap-3 text-emerald-300"><i class="ph ph-check-circle"></i> <span>"Interested" &rarr; Calendly Booking Link</span></div>
-                <div class="flex items-center gap-3 text-emerald-300"><i class="ph ph-check-circle"></i> <span>Offer Accepted &rarr; Transaction Checklist</span></div>
-                <div class="flex items-center gap-3 text-emerald-300"><i class="ph ph-check-circle"></i> <span>Closing + 1 Year &rarr; Auto-Gift & Referral Ask</span></div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Missed Call &rarr; AI SMS instantly</span>
+                </div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Form Fill &rarr; CRM &rarr; Auto-Call</span>
+                </div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Viewing Done &rarr; Auto-Request Feedback</span>
+                </div>
+                <div class="flex items-center gap-3 text-green-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Price Drop &rarr; Bulk SMS to leads</span>
+                </div>
               </div>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-slate-900"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-slate-900"></div>
           </div>
         </div>
       </div>
     </section>
-    
-    <section class="py-20 bg-slate-50 border-y border-gray-200 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-    
-    <div>
-      <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700">
-        <i class="ph ph-chat-text"></i>
-        <span class="text-xs font-bold uppercase tracking-widest">Live Demo</span>
-      </div>
-      <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">See the AI in action.</h2>
-      <p class="text-lg text-gray-600 mb-8">
-        This isn't a "Press 1 for Sales" menu. Our agents understand context, handle objections, and book meetings naturally.
-      </p>
-      
-      <div class="space-y-6">
-        <div class="flex gap-4">
-            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">⚡</div>
-            <div>
-                <h4 class="font-bold text-slate-900">Instant Response</h4>
-                <p class="text-sm text-gray-500">Leads get a text within 10 seconds of hitting "Submit" on Zillow.</p>
-            </div>
-        </div>
-        <div class="flex gap-4">
-            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl">🧠</div>
-            <div>
-                <h4 class="font-bold text-slate-900">Budget Qualification</h4>
-                <p class="text-sm text-gray-500">The AI politely asks about price range and pre-approval status before booking.</p>
-            </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
-        <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
-        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
-        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
-        <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
-        <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white relative">
-            <div class="bg-gray-100 p-4 border-b border-gray-200 text-center">
-                <p class="text-xs text-gray-500">Incoming Zillow Lead</p>
-                <p class="font-bold text-slate-900">John Doe</p>
-            </div>
-            <div class="p-4 space-y-4 text-sm font-medium">
-                <div class="flex gap-2">
-                    <div class="bg-emerald-100 text-emerald-900 p-3 rounded-2xl rounded-tl-none max-w-[85%]">
-                        Hi John! This is Sarah with LogicLoom Realty. saw you liked the property on Maple Ave. When are you looking to move? 🏠
-                    </div>
-                </div>
-                <div class="text-[10px] text-gray-400 pl-2">Delivered 10:02 AM</div>
-
-                <div class="flex gap-2 justify-end">
-                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none max-w-[85%]">
-                        Hoping to be in before September. Need 3 bedrooms.
-                    </div>
-                </div>
-
-                <div class="flex gap-2">
-                    <div class="bg-emerald-100 text-emerald-900 p-3 rounded-2xl rounded-tl-none max-w-[85%]">
-                        Got it! We have two other off-market listings with 3 beds nearby. Are you pre-approved for a mortgage yet?
-                    </div>
-                </div>
-
-                 <div class="flex gap-2 justify-end">
-                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none max-w-[85%]">
-                        Yes, verified for $650k.
-                    </div>
-                </div>
-
-                 <div class="flex gap-2">
-                    <div class="bg-emerald-100 text-emerald-900 p-3 rounded-2xl rounded-tl-none max-w-[85%]">
-                        Perfect. Here is a link to my calendar to see the homes this Saturday: [Link]
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="py-24 bg-slate-900 text-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="font-display text-3xl font-bold mb-4">How we build your engine</h2>
-      <p class="text-slate-400">We map custom logic to your specific brokerage rules.</p>
-    </div>
-
-    <div class="relative">
-      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 transform -translate-y-1/2 opacity-30"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-        
-        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-emerald-500 transition-all text-center group">
-          <div class="w-16 h-16 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">📥</span>
-          </div>
-          <h3 class="font-bold mb-2">Lead Capture</h3>
-          <p class="text-xs text-slate-400">Webhook catches lead from Zillow, FB Ads, or Website.</p>
-        </div>
-
-        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-all text-center group">
-          <div class="w-16 h-16 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">🤖</span>
-          </div>
-          <h3 class="font-bold mb-2">AI Reasoning</h3>
-          <p class="text-xs text-slate-400">GPT-4o analyzes intent. Is it spam? A buyer? A renter?</p>
-        </div>
-
-        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-purple-500 transition-all text-center group">
-          <div class="w-16 h-16 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">💬</span>
-          </div>
-          <h3 class="font-bold mb-2">Conversational SMS</h3>
-          <p class="text-xs text-slate-400">Agent engages via SMS to qualify budget and timeline.</p>
-        </div>
-
-        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-orange-500 transition-all text-center group">
-          <div class="w-16 h-16 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">📅</span>
-          </div>
-          <h3 class="font-bold mb-2">Sync & Book</h3>
-          <p class="text-xs text-slate-400">Qualified leads are pushed to FUB/KVCore and booked.</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-20 bg-white">
-  <div class="max-w-4xl mx-auto px-6">
-    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Frequently Asked Questions</h2>
-    
-    <div class="space-y-4">
-      <div x-data="{ open: false }" class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-        <button @click="open = !open" class="flex justify-between items-center w-full text-left font-bold text-slate-900">
-          <span>Will the AI sound like a robot?</span>
-          <i class="ph ph-caret-down"></i>
-        </button>
-        <div x-show="open" class="mt-4 text-gray-600 text-sm">
-          No. We prompt the AI to use casual language, emojis, and varied sentence structures. Most leads never realize they are speaking to software.
-        </div>
-      </div>
-
-      <div x-data="{ open: false }" class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-        <button @click="open = !open" class="flex justify-between items-center w-full text-left font-bold text-slate-900">
-          <span>Does it integrate with Follow Up Boss?</span>
-          <i class="ph ph-caret-down"></i>
-        </button>
-        <div x-show="open" class="mt-4 text-gray-600 text-sm">
-          Yes. We have native integrations for Follow Up Boss, KVCore, LionDesk, and HubSpot. We push the notes directly into the contact record.
-        </div>
-      </div>
-
-      <div x-data="{ open: false }" class="border border-gray-200 rounded-lg p-4 bg-gray-50">
-        <button @click="open = !open" class="flex justify-between items-center w-full text-left font-bold text-slate-900">
-          <span>What happens if the lead asks a complex question?</span>
-          <i class="ph ph-caret-down"></i>
-        </button>
-        <div x-show="open" class="mt-4 text-gray-600 text-sm">
-          The AI is trained to recognize when it is out of its depth. It will politely tell the lead, "Let me check with the agent on that specific detail," and then alert you immediately.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section class="py-16 bg-ios-bg">
+    <section class="py-16 bg-[#F5F5F7]">
       <div class="max-w-6xl mx-auto px-6 text-center">
-        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your brokerage tools</p>
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your toolbelt</p>
         <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-house-line"></i> Zillow</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-users-three"></i> Follow Up Boss</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-pen-nib"></i> Dotloop</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-signature"></i> DocuSign</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-calendar"></i> Calendly</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:house-line" /> Zillow</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:squares-four" /> KvCore</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:receipt" /> FollowUpBoss</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:envelope-simple" /> Gmail</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:phone" /> Twilio</div>
         </div>
       </div>
     </section>
 
-    <RoiGrid items={roiItems} accentColor="emerald" />
+    <RoiGrid items={roiItems} accentColor="blue" />
 
     <section class="py-24 bg-slate-900 text-white text-center">
       <div class="max-w-2xl mx-auto px-6">
-        <h2 class="font-display text-4xl font-bold mb-6">Sell homes, not admin.</h2>
-        <p class="text-gray-400 mb-10">We'll map your lead flow and show you exactly how to automate your follow-up and transaction coordination.</p>
+        <h2 class="font-display text-4xl font-bold mb-6">Stop playing phone tag.</h2>
+        <p class="text-gray-400 mb-10">Get a free audit of your lead handling process. We'll show you exactly where you're losing money.</p>
+        
         <button @click="$dispatch('open-modal')" class="bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all cursor-pointer">
           Audit My Workflow
         </button>
       </div>
     </section>
-  </div>
 </Layout>

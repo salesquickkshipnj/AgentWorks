@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
 
 const roiItems = [
   { value: "20%", label: "Fewer No-Shows" },
@@ -23,18 +24,18 @@ const roiItems = [
         </div>
 
         <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
-          Fill your chair. <br />
+          Fill your chair.
+          <br />
           <span class="text-gray-400">Not your inbox.</span>
         </h1>
 
         <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
-          Missed calls cost $300+.
-          We automate patient confirmations, reactivate dormant patients, and sync forms to OpenDental—without adding front-desk staff.
+          Missed calls cost $300+. We automate patient confirmations, reactivate dormant patients, and sync forms to OpenDental—without adding front-desk staff.
         </p>
 
        <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-8">
           Best fit for practices doing <span class="font-bold">300+ appointments/month</span> or managing <span class="font-bold">1,000+ active patients</span>.
-       </p>
+        </p>
 
         <div class="flex justify-center">
           <button @click="$dispatch('open-modal')" class="bg-[#0071E3] text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer">
@@ -49,7 +50,7 @@ const roiItems = [
     
     <div>
         <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-teal-100 text-teal-800">
-            <i class="ph ph-arrows-clockwise"></i>
+            <Icon name="ph:arrows-clockwise" />
             <span class="text-xs font-bold uppercase tracking-widest">Revenue Recovery</span>
         </div>
         <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">The "Hidden Revenue" Engine</h2>
@@ -81,7 +82,7 @@ const roiItems = [
                 <p class="text-xs text-gray-500">LogicLoom Dental</p>
             </div>
             
-            <div class="p-4 space-y-4 flex-1 bg-white overflow-y-auto">
+             <div class="p-4 space-y-4 flex-1 bg-white overflow-y-auto">
                 
                 <div class="text-center my-2">
                     <span class="text-[10px] text-gray-300">Today 9:15 AM</span>
@@ -129,7 +130,7 @@ const roiItems = [
         
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-teal-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-teal-400">
-            <i class="ph ph-calendar-plus text-2xl"></i>
+            <Icon name="ph:calendar-plus" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2 text-lg">1. Scheduling</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Patient books online or via SMS. Appt synced instantly to Dentrix/OpenDental.</p>
@@ -137,7 +138,7 @@ const roiItems = [
 
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-teal-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-teal-400">
-            <i class="ph ph-clipboard-text text-2xl"></i>
+            <Icon name="ph:clipboard-text" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2 text-lg">2. Paperwork</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Digital forms sent 24hrs prior. Data auto-extracted and entered into patient file.</p>
@@ -145,7 +146,7 @@ const roiItems = [
 
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-teal-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-teal-400">
-            <i class="ph ph-bell-ringing text-2xl"></i>
+            <Icon name="ph:bell-ringing" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2 text-lg">3. Reminders</h3>
           <p class="text-xs text-slate-400 leading-relaxed">2-Way SMS confirmations. If they don't reply, the system calls them automatically.</p>
@@ -153,7 +154,7 @@ const roiItems = [
 
         <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-teal-400 transition-all text-center group">
           <div class="w-14 h-14 mx-auto bg-slate-900 rounded-full flex items-center justify-center border border-slate-600 mb-4 group-hover:scale-110 transition-transform text-teal-400">
-            <i class="ph ph-heartbeat text-2xl"></i>
+            <Icon name="ph:heartbeat" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-2 text-lg">4. Post-Op</h3>
           <p class="text-xs text-slate-400 leading-relaxed">Automated check-in text 24hrs after procedure: "How is your tooth feeling?"</p>
@@ -172,7 +173,7 @@ const roiItems = [
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
           <span>Is this HIPAA Compliant?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           Yes. All patient data is encrypted in transit and at rest. We sign a Business Associate Agreement (BAA) with your practice ensuring full compliance with federal regulations.
@@ -182,7 +183,7 @@ const roiItems = [
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
           <span>Does it write back to OpenDental / Dentrix?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           Yes. We use standard APIs and SQL bridges to read your schedule and write confirmed appointments directly into the calendar block. No double-entry required.
@@ -192,7 +193,7 @@ const roiItems = [
       <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900">
           <span>What happens if a patient wants to cancel?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           The AI handles it. If they text "Cancel," the system offers to reschedule immediately. If they confirm the cancellation, it alerts your front desk and opens the slot for the waitlist.
@@ -209,21 +210,28 @@ const roiItems = [
             <h2 class="font-display text-3xl font-bold mb-6">The Front Desk Bottleneck</h2>
             <div class="space-y-6">
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-calendar-x text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:calendar-x" class="text-xl" />
+                </div>
                 <div>
                   <h3 class="font-bold text-gray-900">The Silent Chair</h3>
                   <p class="text-sm text-gray-500">Patients forget appointments. Manual confirmation calls take hours. Chairs sit empty, costing you revenue.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-user-minus text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:user-minus" class="text-xl" />
+                </div>
+                
                 <div>
                   <h3 class="font-bold text-gray-900">The 'Recall' Void</h3>
                   <p class="text-sm text-gray-500">You have 1,000 patients due for cleaning, but no one has time to call them. That's dormant goldmine.</p>
                 </div>
               </div>
               <div class="flex gap-4">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0"><i class="ph ph-files text-xl"></i></div>
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:files" class="text-xl" />
+                </div>
                 <div>
                   <h3 class="font-bold text-gray-900">The Paperwork Chase</h3>
                   <p class="text-sm text-gray-500">Manually verifying insurance eligibility and typing handwritten forms into the EHR is a massive time sink.</p>
@@ -236,10 +244,22 @@ const roiItems = [
             <div class="relative z-10">
               <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
               <div class="space-y-4 font-mono text-sm">
-                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>Booking &rarr; Auto-SMS Reminders</span></div>
-                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>6 Months No Visit &rarr; AI Reactivation Text</span></div>
-                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>New Patient &rarr; Digital Forms to EHR</span></div>
-                <div class="flex items-center gap-3 text-teal-400"><i class="ph ph-check-circle"></i> <span>Post-Op &rarr; Automated Check-in Sequence</span></div>
+                <div class="flex items-center gap-3 text-teal-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Booking &rarr; Auto-SMS Reminders</span>
+                </div>
+                <div class="flex items-center gap-3 text-teal-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>6 Months No Visit &rarr; AI Reactivation Text</span>
+                </div>
+                <div class="flex items-center gap-3 text-teal-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>New Patient &rarr; Digital Forms to EHR</span>
+                </div>
+                <div class="flex items-center gap-3 text-teal-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Post-Op &rarr; Automated Check-in Sequence</span>
+                </div>
               </div>
             </div>
             <div class="absolute inset-0 bg-gradient-to-br from-teal-900/40 to-slate-900"></div>
@@ -252,11 +272,11 @@ const roiItems = [
       <div class="max-w-6xl mx-auto px-6 text-center">
         <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your practice software</p>
         <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-tooth"></i> OpenDental</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-first-aid-kit"></i> Dentrix</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-bird"></i> Eaglesoft</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-chat-circle-text"></i> Podium</div>
-          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><i class="ph ph-phone-call"></i> Twilio</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:tooth" /> OpenDental</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:first-aid-kit" /> Dentrix</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:bird" /> Eaglesoft</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:chat-circle-text" /> Podium</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:phone-call" /> Twilio</div>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <Layout 
@@ -10,12 +11,13 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-5xl mx-auto relative z-10">
         
         <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50/50 backdrop-blur-sm shadow-sm text-orange-700">
-          <i class="ph ph-lightning-fill text-orange-500"></i>
+          <Icon name="ph:lightning-fill" class="text-orange-500" />
           <span class="text-xs font-semibold uppercase tracking-widest">Certified n8n Architects</span>
         </div>
 
         <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
-          Escape the "Action" Tax. <br />
+          Escape the "Action" Tax.
+          <br />
           <span class="text-[#FF6D5A]">Own Your Infrastructure.</span>
         </h1>
 
@@ -25,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
           <button @click="$dispatch('open-modal')" class="bg-slate-900 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all shadow-xl shadow-gray-300/50 flex items-center gap-2 cursor-pointer">
-            Calculate My Savings <i class="ph ph-calculator"></i>
+            Calculate My Savings <Icon name="ph:calculator" />
           </button>
           <a href="#migration" class="text-gray-500 hover:text-black text-sm font-medium px-4 py-2 hover:underline">
              View Migration Process &darr;
@@ -45,52 +47,53 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           
-          <div class="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          <div class="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden backdrop-blur-sm">
             <div class="flex items-center gap-2 mb-6 opacity-70">
-               <i class="ph ph-warning-circle text-red-400 text-xl"></i>
+                <Icon name="ph:warning-circle" class="text-red-400 text-xl" />
               <span class="text-xs font-bold uppercase tracking-widest text-red-400">Legacy SaaS (Zapier/Make)</span>
             </div>
             <h3 class="font-display text-2xl font-bold mb-4">The "Pay-Per-Breath" Model</h3>
             <ul class="space-y-4 text-gray-400 text-sm mb-8">
               <li class="flex items-start gap-3">
-                 <i class="ph ph-x text-red-500 mt-0.5"></i>
+                 <Icon name="ph:x" class="text-red-500 mt-0.5" />
                 <span>Costs explode as you scale ($1,500+/mo for high volume).</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-x text-red-500 mt-0.5"></i>
-                 <span>Data passes through shared, public servers (Privacy risk).</span>
+                <Icon name="ph:x" class="text-red-500 mt-0.5" />
+                <span>Data passes through shared, public servers (Privacy risk).</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-x text-red-500 mt-0.5"></i>
+                <Icon name="ph:x" class="text-red-500 mt-0.5" />
                 <span>Limited logic (struggles with complex loops/Python).</span>
-              </li>
+             </li>
            </ul>
           </div>
 
           <div class="bg-white text-slate-900 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl">
             <div class="flex items-center gap-2 mb-6">
-              <i class="ph ph-check-circle text-green-600 text-xl"></i>
+              <Icon name="ph:check-circle" class="text-green-600 text-xl" />
               <span class="text-xs font-bold uppercase tracking-widest text-green-600">The n8n Architecture</span>
             </div>
             <h3 class="font-display text-2xl font-bold mb-4">Fixed-Cost Infrastructure</h3>
             <ul class="space-y-4 text-gray-600 text-sm mb-8">
                <li class="flex items-start gap-3">
-                <i class="ph ph-check-bold text-green-600 mt-0.5"></i>
+                <Icon name="ph:check-bold" class="text-green-600 mt-0.5" />
                 <span><strong>Flat Server Fee (~$40/mo)</strong> regardless of volume.</span>
                </li>
                <li class="flex items-start gap-3">
-                <i class="ph ph-check-bold text-green-600 mt-0.5"></i>
+                <Icon name="ph:check-bold" class="text-green-600 mt-0.5" />
                 <span><strong>Self-Hosted:</strong> Data never leaves your private cloud (GDPR/HIPAA friendly).</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-bold text-green-600 mt-0.5"></i>
+                <Icon name="ph:check-bold" class="text-green-600 mt-0.5" />
                 <span><strong>Turing Complete:</strong> We write custom JavaScript/Python nodes.</span>
               </li>
             </ul>
           </div>
 
         </div>
-      </div>
+      
+</div>
       <div class="absolute inset-0 bg-slate-900 opacity-10 mix-blend-soft-light pointer-events-none"></div>
     </section>
 
@@ -105,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
           
           <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group">
               <div class="w-12 h-12 bg-orange-50 text-[#FF6D5A] rounded-xl flex items-center justify-center mb-6 border border-orange-100">
-                  <i class="ph ph-server text-2xl"></i>
+                  <Icon name="ph:server" class="text-2xl" />
               </div>
               <h3 class="font-display text-lg font-bold mb-3 text-slate-900">Private Server Deployment</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -115,7 +118,7 @@ import Layout from '../layouts/Layout.astro';
 
           <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group">
               <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 border border-blue-100">
-                  <i class="ph ph-arrows-merge text-2xl"></i>
+                  <Icon name="ph:arrows-merge" class="text-2xl" />
               </div>
                <h3 class="font-display text-lg font-bold mb-3 text-slate-900">Zapier-to-n8n Migration</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -125,7 +128,7 @@ import Layout from '../layouts/Layout.astro';
 
           <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 group">
               <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 border border-purple-100">
-                  <i class="ph ph-code text-2xl"></i>
+                  <Icon name="ph:code" class="text-2xl" />
               </div>
               <h3 class="font-display text-lg font-bold mb-3 text-slate-900">Custom Node Development</h3>
               <p class="text-sm text-gray-500 leading-relaxed">
@@ -141,7 +144,7 @@ import Layout from '../layouts/Layout.astro';
     
     <div class="text-white">
         <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-            <i class="ph ph-code"></i>
+            <Icon name="ph:code" />
             <span class="text-xs font-bold uppercase tracking-widest">Turing Complete</span>
         </div>
         <h2 class="font-display text-3xl font-bold mb-6">When "No-Code" hits a wall, <br/>we write the code.</h2>
@@ -152,14 +155,14 @@ import Layout from '../layouts/Layout.astro';
         <div class="grid grid-cols-2 gap-6">
             <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                 <div class="flex items-center gap-2 mb-2 text-blue-400">
-                    <i class="ph ph-file-py"></i>
+                    <Icon name="ph:file-py" />
                     <span class="font-bold">Python Support</span>
                 </div>
                 <p class="text-xs text-slate-500">We use Pandas for heavy data transformation and Regex for complex parsing.</p>
             </div>
             <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                 <div class="flex items-center gap-2 mb-2 text-yellow-400">
-                    <i class="ph ph-file-js"></i>
+                    <Icon name="ph:file-js" />
                     <span class="font-bold">Node.js Support</span>
                 </div>
                 <p class="text-xs text-slate-500">Custom cryptographic signing, HMAC verification, and advanced API handling.</p>
@@ -186,26 +189,26 @@ import Layout from '../layouts/Layout.astro';
                     1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11
                 </div>
                 <div>
-                    <span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd<br>
+                     <span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd<br>
                     <span class="text-purple-400">import</span> json<br><br>
                     <span class="text-green-600"># 1. Ingest raw CSV data from webhook</span><br>
                     <span class="text-blue-400">def</span> <span class="text-yellow-300">main</span>(items):<br>
-                    &nbsp;&nbsp;df = pd.DataFrame(items[0].json['rows'])<br><br>
+                     &nbsp;&nbsp;df = pd.DataFrame(items[0].json['rows'])<br><br>
                     <span class="text-green-600">&nbsp;&nbsp;# 2. Clean phone numbers (E.164 format)</span><br>
                     &nbsp;&nbsp;df['phone'] = df['phone'].apply(<span class="text-blue-400">lambda</span> x: <span class="text-orange-300">f"+1&#123;x.replace('-', '')&#125;"</span>)<br><br>
                     <span class="text-green-600">&nbsp;&nbsp;# 3. Return JSON for next node</span><br>
-                    &nbsp;&nbsp;<span class="text-purple-400">return</span> json.loads(df.to_json(orient=<span class="text-orange-300">'records'</span>))
+                   &nbsp;&nbsp;<span class="text-purple-400">return</span> json.loads(df.to_json(orient=<span class="text-orange-300">'records'</span>))
                 </div>
             </div>
             
             <div class="mt-6 pt-4 border-t border-slate-700">
                 <div class="flex justify-between text-xs mb-2">
-                    <span class="text-slate-400 uppercase font-bold">Console Output</span>
+                   <span class="text-slate-400 uppercase font-bold">Console Output</span>
                     <span class="text-green-400">Success (14ms)</span>
                 </div>
                 <div class="text-xs text-slate-500">
                     [<br>
-                    &nbsp;&nbsp;&#123; "name": "John Doe", "phone": "+15550199", "valid": true &#125;,<br>
+                   &nbsp;&nbsp;&#123; "name": "John Doe", "phone": "+15550199", "valid": true &#125;,<br>
                     &nbsp;&nbsp;&#123; "name": "Jane Smith", "phone": "+15550200", "valid": true &#125;<br>
                     ]
                 </div>
@@ -229,7 +232,7 @@ import Layout from '../layouts/Layout.astro';
         
         <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-500 transition-all text-center group shadow-sm">
           <div class="w-12 h-12 mx-auto bg-orange-50 rounded-lg flex items-center justify-center border border-orange-100 mb-4 group-hover:scale-110 transition-transform text-orange-500">
-            <i class="ph ph-desktop text-2xl"></i>
+            <Icon name="ph:desktop" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1 text-slate-900">1. Local Dev</h3>
           <p class="text-xs text-gray-500">We build and test logic on a local instance, ensuring no disruption to your live data.</p>
@@ -237,7 +240,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-black transition-all text-center group shadow-sm">
           <div class="w-12 h-12 mx-auto bg-gray-50 rounded-lg flex items-center justify-center border border-gray-200 mb-4 group-hover:scale-110 transition-transform text-slate-900">
-            <i class="ph ph-git-commit text-2xl"></i>
+            <Icon name="ph:git-commit" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1 text-slate-900">2. Git Commit</h3>
           <p class="text-xs text-gray-500">Workflow JSON is committed to GitHub. We have a full history of every change ever made.</p>
@@ -245,7 +248,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all text-center group shadow-sm">
           <div class="w-12 h-12 mx-auto bg-blue-50 rounded-lg flex items-center justify-center border border-blue-100 mb-4 group-hover:scale-110 transition-transform text-blue-500">
-            <i class="ph ph-check-circle text-2xl"></i>
+            <Icon name="ph:check-circle" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1 text-slate-900">3. Staging Test</h3>
           <p class="text-xs text-gray-500">Automated tests run against a sandbox environment to verify logic gates.</p>
@@ -253,7 +256,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-purple-500 transition-all text-center group shadow-sm">
           <div class="w-12 h-12 mx-auto bg-purple-50 rounded-lg flex items-center justify-center border border-purple-100 mb-4 group-hover:scale-110 transition-transform text-purple-600">
-            <i class="ph ph-rocket-launch text-2xl"></i>
+            <Icon name="ph:rocket-launch" class="text-2xl" />
           </div>
           <h3 class="font-bold mb-1 text-slate-900">4. Prod Push</h3>
           <p class="text-xs text-gray-500">The approved workflow is pulled to your live server. Zero downtime.</p>
@@ -269,30 +272,30 @@ import Layout from '../layouts/Layout.astro';
     <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Engineering FAQs</h2>
     
     <div class="space-y-4">
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-50">
           <span>What happens if we stop working with you? (Vendor Lock-in)</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           You own everything. Because n8n is self-hosted on <strong>your</strong> VPS (DigitalOcean/AWS), you hold the root keys. If we part ways, you keep the server, the code, and the workflows. We simply hand over the documentation.
         </div>
       </div>
 
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-50">
           <span>How do you handle API Rate Limits?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           We build "Split In Batches" logic directly into the workflow. If an API allows 100 requests/minute, we configure the node to throttle execution automatically, queuing tasks in Redis to prevent failures.
         </div>
       </div>
 
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300">
         <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-50">
           <span>Can you build a custom UI for my team to trigger workflows?</span>
-          <i class="ph ph-caret-down text-gray-500"></i>
+          <Icon name="ph:caret-down" class="text-gray-500" />
         </button>
         <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
           Yes. We can build "n8n Forms" or connect the workflow to a custom Retool/Bubble dashboard. Your team fills out a simple form, and n8n handles the heavy lifting in the background.
