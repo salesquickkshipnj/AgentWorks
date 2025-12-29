@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout 
+  title="404: System Error | LogicLoom Systems"
+  description="The requested protocol could not be found."
+>
+  <div class="min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-100 rounded-full blur-3xl opacity-50 -z-10 pointer-events-none"></div>
+
+    <div class="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mb-8 border border-gray-200 shadow-sm animate-fade-in">
+        <Icon name="ph:warning-octagon" class="text-4xl text-slate-400" />
+    </div>
+
+    <h1 class="font-display text-4xl md:text-6xl font-bold text-slate-900 mb-4 animate-slide-up">
+      System Error: 404
+    </h1>
+    
+    <p class="text-lg text-gray-500 max-w-lg mx-auto mb-10 animate-slide-up" style="animation-delay: 0.1s;">
+      The protocol you are trying to access does not exist or has been deprecated. 
+      Please return to the main dashboard.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 0.2s;">
+      <a 
+        href="/"
+        class="bg-slate-900 text-white text-base px-8 py-3 rounded-full font-medium hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 active:scale-95 flex items-center justify-center gap-2"
+      >
+        <Icon name="ph:house" />
+        Return Home
+      </a>
+
+      <a 
+        href="/n8n-services"
+        class="bg-white text-slate-700 border border-gray-200 text-base px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-all active:scale-95 flex items-center justify-center gap-2"
+      >
+        View Services
+      </a>
+    </div>
+
+  </div>
+</Layout>
