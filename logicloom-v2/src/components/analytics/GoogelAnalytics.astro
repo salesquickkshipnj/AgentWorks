@@ -1,22 +1,10 @@
----
-interface Props {
-  id?: string;
-}
 
-const id = "G-0BLXZLSNX8";
----
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BLXZLSNX8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-{id && (
-  <>
-    <script 
-      async 
-      src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
-    ></script>
-    <script define:vars={{ id }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', id);
-    </script>
-  </>
-)}
+  gtag('config', 'G-0BLXZLSNX8');
+</script>
