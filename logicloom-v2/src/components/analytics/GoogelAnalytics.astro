@@ -1,22 +1,9 @@
----
-interface Props {
-  id?: string;
-}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0BLXZLSNX8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-const { id = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID } = Astro.props;
----
-
-{id && (
-  <>
-    <script 
-      async 
-      src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
-    ></script>
-    <script define:vars={{ id }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', id);
-    </script>
-  </>
-)}
+  gtag('config', 'G-0BLXZLSNX8');
+</script>
