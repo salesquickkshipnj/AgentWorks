@@ -1,70 +1,94 @@
 ---
-title: "Autonomous Patient Intake & Retention"
+title: "Autonomous Patient Intake System"
 client: "Multi-Location Dental Group"
 industry: "Healthcare"
 metric: "35% Faster Intake"
 description: "A HIPAA-compliant intake engine that digitizes patient forms and automates follow-up sequences for missed appointments."
 publishDate: 2025-01-15
 tags: ["n8n", "Dental", "Intake"]
+heroImage: "/dental-hero.png"
 ---
 
-<div class="not-prose">
-
-<div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
-<div class="flex items-center gap-4 mb-6 opacity-60">
-<div class="h-px bg-slate-900 flex-grow"></div>
-<span class="uppercase tracking-widest text-sm font-bold text-slate-900">System Architecture</span>
-<div class="h-px bg-slate-900 flex-grow"></div>
+<div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Intake Velocity</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">+35%</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Paper Forms</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">Zero</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">No-Shows</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">-40%</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Uptime</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">99.9%</div>
+</div>
 </div>
 
-<h2 class="font-display text-3xl font-bold text-slate-900 mb-3">Recovering Revenue at the Front Desk</h2>
-<p class="text-slate-600 max-w-3xl">
-The front desk was the bottleneck for growth. We replaced paper forms and "phone tag" with a digital-first workflow that captures patient data before they walk in the door.
+## Recovering Revenue at the Front Desk
+
+The bottleneck for this group wasn't the dentists—it was the front desk. Patients were spending 20 minutes filling out clipboards in the waiting room, backing up the entire schedule.
+
+**The Solution:** We replaced paper forms with a mobile-first "Pre-Visit" workflow that captures data days before the appointment.
+
+---
+
+## The Digital Intake Flow
+
+This workflow runs on a HIPAA-compliant self-hosted n8n instance, ensuring patient data never touches public AI models without redaction.
+
+<div class="not-prose my-16">
+<div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+
+<div class="grid md:grid-cols-3 gap-8 relative z-10">
+
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<div class="text-3xl mb-4">📲</div>
+<h3 class="font-bold text-slate-900 text-lg mb-2">1. Digital Trigger</h3>
+<p class="text-sm text-slate-500 leading-relaxed">
+48 hours before the visit, the patient receives an SMS link to a secure, mobile-friendly Typeform.
 </p>
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-<div class="bg-white rounded-2xl border border-gray-100 p-6">
-<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Bottleneck</div>
-<div class="text-sm text-slate-700">Overwhelmed staff handling physical paperwork and manual appointment reminders.</div>
 </div>
 
-<div class="bg-white rounded-2xl border border-gray-100 p-6">
-<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Solution</div>
-<div class="text-sm text-slate-700">Mobile-first digital forms trigger auto-creation of patient files + SMS retention loops.</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<div class="text-3xl mb-4">📄</div>
+<h3 class="font-bold text-slate-900 text-lg mb-2">2. PDF Generation</h3>
+<p class="text-sm text-slate-500 leading-relaxed">
+Upon submission, n8n populates a standardized PDF medical history form and stores it in a secure, encrypted drive.
+</p>
 </div>
 
-<div class="bg-white rounded-2xl border border-gray-100 p-6">
-<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Tech Stack</div>
-<div class="flex flex-wrap gap-2 mt-2">
-<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
-<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Twilio SMS</span>
-<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">HIPAA Storage</span>
-</div>
-</div>
-</div>
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<div class="text-3xl mb-4">🩺</div>
+<h3 class="font-bold text-slate-900 text-lg mb-2">3. Staff Alert</h3>
+<p class="text-sm text-slate-500 leading-relaxed">
+The front desk gets a "File Ready" notification. They simply click to attach it to the patient's record in the PMS.
+</p>
 </div>
 
-<div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-<div class="text-3xl font-bold">35%</div>
-<div class="text-sm text-slate-400">Increase in intake velocity</div>
 </div>
-<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-<div class="text-3xl font-bold">Zero</div>
-<div class="text-sm text-slate-400">Paper forms managed</div>
-</div>
-<div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-<div class="text-3xl font-bold">24/7</div>
-<div class="text-sm text-slate-400">Patient onboarding uptime</div>
 </div>
 </div>
 
-<div class="mt-8">
-<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
-Modernize Your Practice
+## The Result
+Patients now walk in and go straight to the chair. The front desk staff is no longer doing data entry, allowing them to focus on billing and scheduling.
+
+<div class="not-prose mt-20 p-10 bg-slate-50 rounded-[2rem] border border-gray-100 relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+<div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl shadow-sm border border-gray-100">
+🦷
+</div>
+<div class="flex-grow">
+<h3 class="font-display font-bold text-slate-900 text-2xl">Modernize your waiting room.</h3>
+<p class="text-slate-500 mt-2 text-base max-w-lg">
+Eliminate clipboards and data entry errors with a secure digital intake pipeline.
+</p>
+</div>
+<a href="/audit?context=Dental&symptom=Paperwork" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+Audit My Intake Process
 </a>
 </div>
-</div>
-
 </div>
