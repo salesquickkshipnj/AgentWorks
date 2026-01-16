@@ -2,27 +2,27 @@
 import "../styles/global.css";
 import { Icon } from 'astro-icon/components';
 import Navbar from '../components/Navbar.astro';
-// 1. Import the new component
-import StickyAuditBar from '../components/cta/StickyAuditBar.astro'; 
+// Phase 5: Import Retargeting Bar
+import StickyAuditBar from '../components/cta/StickyAuditBar.astro';
 
 interface Props {
   title: string;
   description: string;
   // strict prop to control navigation visibility
   campaignMode?: boolean;
-  // Phase 5: Retargeting Context (Optional)
+  // Retargeting Context (Optional)
   industry?: string;
   symptom?: string;
-  showStickyBar?: boolean; // New prop to control visibility per page
+  showStickyBar?: boolean; 
 }
 
 const { 
   title, 
   description, 
   campaignMode = false,
-  industry,         // Will default to "Business" inside the component if undefined
-  symptom,          // Will default to "Inefficiency" inside the component if undefined
-  showStickyBar = true // Default to true: Show it everywhere unless told otherwise
+  industry,
+  symptom,
+  showStickyBar = true // Default to true
 } = Astro.props;
 ---
 
@@ -42,7 +42,6 @@ const {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-0BLXZLSNX8');
     </script>
 
@@ -83,11 +82,10 @@ const {
     @keydown.escape="modalOpen = false"
   >
     
-    {/* LOGIC: If campaignMode is TRUE, show simplified Logo-only nav */}
+    {/* LOGIC: If campaignMode is TRUE, show simplified Header (Logo + CTA only) */}
     {campaignMode ? (
       <nav class="fixed w-full z-50 top-0 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
-         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-center">
-            <a href="/" aria-label="LogicLoom Systems Home" class="group focus:outline-none">
+         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"> <a href="/" aria-label="LogicLoom Systems Home" class="group focus:outline-none">
                 <div class="relative w-auto h-10">
                    <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto">
                       <g stroke="#94A3B8" stroke-width="2" stroke-opacity="0.5" fill="none" stroke-linecap="round">
@@ -114,6 +112,14 @@ const {
                    </svg>
                 </div>
             </a>
+
+            <a 
+              href="/audit"
+              class="text-sm font-bold bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20 active:scale-95 flex items-center gap-2"
+            >
+              Book Audit
+            </a>
+
          </div>
       </nav>
     ) : (
@@ -192,6 +198,7 @@ const {
              </p>
           </div>
           
+          {/* CAMPAIGN MODE: If true, HIDE external links to keep them focused on the landing page */}
           {!campaignMode && (
              <div class="flex gap-6 text-sm text-slate-400">
                 <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
