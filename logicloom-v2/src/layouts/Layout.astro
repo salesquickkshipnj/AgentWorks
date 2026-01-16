@@ -2,15 +2,28 @@
 import "../styles/global.css";
 import { Icon } from 'astro-icon/components';
 import Navbar from '../components/Navbar.astro';
+// 1. Import the new component
+import StickyAuditBar from '../components/cta/StickyAuditBar.astro'; 
 
 interface Props {
   title: string;
   description: string;
   // strict prop to control navigation visibility
   campaignMode?: boolean;
+  // Phase 5: Retargeting Context (Optional)
+  industry?: string;
+  symptom?: string;
+  showStickyBar?: boolean; // New prop to control visibility per page
 }
 
-const { title, description, campaignMode = false } = Astro.props;
+const { 
+  title, 
+  description, 
+  campaignMode = false,
+  industry,         // Will default to "Business" inside the component if undefined
+  symptom,          // Will default to "Inefficiency" inside the component if undefined
+  showStickyBar = true // Default to true: Show it everywhere unless told otherwise
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -104,9 +117,6 @@ const { title, description, campaignMode = false } = Astro.props;
          </div>
       </nav>
     ) : (
-      /* This single line replaces the 40+ lines of duplicate nav code. 
-         All the dropdowns and links are now safe inside the <Navbar /> component file.
-      */
       <Navbar />
     )}
 
@@ -118,7 +128,7 @@ const { title, description, campaignMode = false } = Astro.props;
        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div class="text-center md:text-left">
              <a href="/" aria-label="LogicLoom Systems Home" class="inline-flex items-center justify-center md:justify-start mb-4">
-                  <div class="relative w-auto h-10">
+               <div class="relative w-auto h-10">
                   <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto">
                     <g stroke="#CBD5E1" stroke-width="2" stroke-opacity="0.45" fill="none" stroke-linecap="round">
                       <path d="M50 135 L80 143 L110 157 L140 165 L170 158 L200 144" />
@@ -176,12 +186,12 @@ const { title, description, campaignMode = false } = Astro.props;
              </a>
 
              <p class="text-slate-400 text-sm">
-                <strong class="text-slate-200">New Jersey AI Automation Agency</strong> | Serving Essex County & NYC Metro.<br/>
+                <strong class="text-slate-200">New Jersey AI Automation Agency</strong> |
+                Serving Essex County & NYC Metro.<br/>
                 Automating the American workforce, one workflow at a time.
              </p>
           </div>
           
-          {/* CAMPAIGN MODE: If true, HIDE external links to keep them focused on the landing page */}
           {!campaignMode && (
              <div class="flex gap-6 text-sm text-slate-400">
                 <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
@@ -190,6 +200,10 @@ const { title, description, campaignMode = false } = Astro.props;
           )}
        </div>
     </footer>
+
+    {showStickyBar && (
+      <StickyAuditBar industry={industry} symptom={symptom} />
+    )}
 
     <div 
         x-show="modalOpen" 
