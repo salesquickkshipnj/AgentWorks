@@ -1,209 +1,336 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import RoiGrid from '../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
 
-// Metadata for the page
-const title = "System Architecture Audit";
-const description = "Request a technical feasibility review of your current automation infrastructure.";
+const title = "Automation Feasibility Audit";
+const description = "Find out if your manual tasks can be automated. No technical jargon, just a clear plan.";
+
+// ROI Stats to reinforce value below the form
+const roiItems = [
+  { value: "40%", label: "Reduction in Costs" },
+  { value: "0", label: "Missed Opportunities" },
+  { value: "100%", label: "You Own The Data" }
+];
 ---
 
 <Layout title={`${title} | LogicLoom`} description={description}>
-  <main 
-    class="py-24 px-6 md:px-12 max-w-3xl mx-auto relative min-h-screen"
-    x-data="auditForm()"
-  >
+  <main class="py-20 px-6 bg-slate-50 min-h-screen font-sans">
     
+    <div class="max-w-3xl mx-auto mb-10 text-center">
+      <h1 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        Can this be automated?
+      </h1>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Tell us about the repetitive task that slows you down. We'll analyze it and email you a plain-English plan on how to fix it.
+      </p>
+    </div>
+
     <div 
+      x-data="auditWizard()"
+      class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 relative overflow-hidden transition-all duration-300"
+    >
+      
+      <div class="h-1.5 bg-gray-100 w-full">
+        <div class="h-full bg-blue-600 transition-all duration-500 ease-out" :style="'width: ' + ((step / 5) * 100) + '%'"></div>
+      </div>
+
+      <div 
         x-show="submitted" 
-        style="display:none;"
+        style="display:none;" 
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 scale-95"
         x-transition:enter-end="opacity-100 scale-100"
-        class="absolute inset-0 z-20 bg-white rounded-xl flex flex-col items-center justify-center text-center p-8 h-full"
-    >
-        <div class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-8 relative">
-            <div class="absolute inset-0 border-4 border-green-100 rounded-full animate-ping opacity-75"></div>
-            <svg class="w-10 h-10 text-green-600 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+        class="absolute inset-0 z-30 bg-white flex flex-col items-center justify-center text-center p-8"
+      >
+        <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
+          <Icon name="ph:check-bold" class="w-8 h-8 text-green-600" />
         </div>
-
-        <h2 class="font-display text-3xl font-bold text-slate-900 mb-4">Request Initialized</h2>
         
-        <div class="flex items-center gap-2 mb-8 bg-green-50 px-4 py-2 rounded-full border border-green-100">
-            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span class="text-xs font-mono font-bold text-green-700 uppercase tracking-widest">Transmission Successful</span>
-        </div>
-
-        <p class="text-slate-600 mb-8 max-w-md leading-relaxed text-lg">
-            Your architecture snapshot has been routed to our engineering queue. Expect a preliminary diagnostic breakdown via email shortly.
+        <h3 class="font-display text-2xl font-bold text-slate-900 mb-2">Message Received</h3>
+        <p class="text-gray-600 max-w-sm mb-8 leading-relaxed">
+          Thanks for sharing those details. I'm reviewing your inputs now and will email you a feasibility report shortly.
         </p>
 
-        <a 
-            href="/" 
-            class="inline-flex items-center justify-center px-8 py-3 border border-gray-200 text-base font-medium rounded-lg text-slate-700 bg-white hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
-        >
-            Return to Dashboard
+        <a href="/" class="text-blue-600 font-bold hover:underline">
+          Back to Home
         </a>
-    </div>
+      </div>
 
-    <div x-show="!submitted" x-transition:leave="transition ease-in duration-200 opacity-0">
-        <div class="mb-12 border-b border-gray-200 pb-8">
-        <div class="font-mono text-xs uppercase tracking-widest text-blue-600 mb-4">
-            Engineering Request
-        </div>
-        <h1 class="font-display text-4xl font-bold text-slate-900 mb-4">
-            System Feasibility Audit
-        </h1>
-        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
-            Submit your current architecture for review. You will receive a written technical breakdown of bottlenecks and a proposed automation schema. 
-            <span class="block mt-2 font-medium text-slate-900">No sales calls. Just code and logic.</span>
-        </p>
-        </div>
-
-        <form 
-            @submit.prevent="submitForm"
-            class="space-y-8"
-        >
+      <form @submit.prevent="submitForm" class="p-8 md:p-12">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-2">
-            <label for="name" class="text-sm font-bold text-slate-900">Point of Contact</label>
-            <input 
-                type="text" 
-                x-model="data.name"
-                id="name" 
-                required 
-                class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 transition-all py-3 px-4"
-                placeholder="Jane Doe"
-            />
+        <div x-show="step === 1" class="animate-fade-in space-y-6">
+          <div class="mb-8">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Step 1 of 5</span>
+            <h2 class="text-2xl font-bold text-slate-900 mt-2">Let's start with the basics.</h2>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Your Name</label>
+              <input type="text" x-model="data.name" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none transition-all" placeholder="Jane Doe">
             </div>
-            <div class="space-y-2">
-            <label for="email" class="text-sm font-bold text-slate-900">Work Email</label>
-            <input 
-                type="email" 
-                x-model="data.email"
-                id="email" 
-                required 
-                class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 transition-all py-3 px-4"
-                placeholder="jane@company.com"
-            />
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Work Email</label>
+              <input type="email" x-model="data.email" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none transition-all" placeholder="jane@company.com">
             </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-700 mb-2">Company / Organization</label>
+            <input type="text" x-model="data.business" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none" placeholder="Acme Inc.">
+          </div>
+
+          <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Industry</label>
+              <div class="relative">
+                  <select x-model="data.industry" class="w-full appearance-none bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none cursor-pointer">
+                    <option value="" disabled selected>Select...</option>
+                    <option>Real Estate / Property</option>
+                    <option>Legal / Law Firm</option>
+                    <option>Construction / Roofing</option>
+                    <option>Medical / Dental</option>
+                    <option>Logistics / Transport</option>
+                    <option>Marketing Agency</option>
+                    <option>Tech / SaaS</option>
+                    <option>Other</option>
+                  </select>
+                  <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                      <Icon name="ph:caret-down" />
+                  </div>
+              </div>
+          </div>
         </div>
 
-        <div class="space-y-6">
-            <div class="space-y-2">
-            <label for="business" class="text-sm font-bold text-slate-900">Organization / Company</label>
-            <input 
-                type="text" 
-                x-model="data.business"
-                id="business" 
-                required
-                class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 py-3 px-4"
-            />
-            </div>
+        <div x-show="step === 2" style="display:none;" class="animate-fade-in space-y-6">
+          <div class="mb-8">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Step 2 of 5</span>
+            <h2 class="text-2xl font-bold text-slate-900 mt-2">What is the boring task?</h2>
+          </div>
+          
+           <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">What kicks off the process?</label>
+              <p class="text-sm text-gray-500 mb-3">e.g. "I get an email," "Someone fills out a form," or "A payment comes in."</p>
+              <input type="text" x-model="data.trigger" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none" placeholder="When...">
+          </div>
 
-            <div class="space-y-2">
-            <label for="pain_point" class="text-sm font-bold text-slate-900">Current Friction Point</label>
-            <p class="text-xs text-gray-500">Describe the process step that fails most often.</p>
-            <textarea 
-                x-model="data.pain_point"
-                id="pain_point" 
-                rows="4" 
-                required
-                class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 p-4"
-                placeholder="Example: We manually copy leads from email to Excel, which takes 15 mins per lead..."
-            ></textarea>
-            </div>
+          <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">What happens next?</label>
+              <p class="text-sm text-gray-500 mb-3">Describe the manual work you have to do.</p>
+              <textarea x-model="data.pain_point" rows="4" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none resize-none" placeholder="Then I have to copy the data, paste it into Excel, and email the team..."></textarea>
+          </div>
 
-            <div class="space-y-2">
-            <label for="tools" class="text-sm font-bold text-slate-900">Current Stack</label>
-            <input 
-                type="text" 
-                x-model="data.tools"
-                id="tools" 
-                class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 py-3 px-4"
-                placeholder="HubSpot, Slack, Gmail, Excel..."
-            />
-            </div>
+          <div>
+            <label class="block text-sm font-bold text-slate-700 mb-2">What apps/software do you use?</label>
+            <input type="text" x-model="data.tools" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none" placeholder="e.g. Gmail, Excel, HubSpot, Slack...">
+          </div>
         </div>
 
-        <div class="pt-4 border-t border-gray-200">
-            <button 
-            type="submit" 
-            :disabled="loading"
-            class="inline-flex justify-center items-center w-full md:w-auto px-8 py-4 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-            <span x-show="!loading" class="flex items-center">
-                Initialize Audit Request
-                <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </span>
-            <span x-show="loading" class="flex items-center">
-                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Processing...
-            </span>
-            </button>
-            <p class="mt-4 text-xs text-center md:text-left text-gray-500">
-            Data is encrypted and routed directly to our engineering queue via n8n.
-            </p>
+        <div x-show="step === 3" style="display:none;" class="animate-fade-in space-y-8">
+          <div class="mb-6">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Step 3 of 5</span>
+            <h2 class="text-2xl font-bold text-slate-900 mt-2">How often do you do this?</h2>
+          </div>
+          
+          <div>
+              <label class="block text-sm font-bold text-slate-700 mb-4">Frequency</label>
+              <div class="grid grid-cols-3 gap-4">
+                  <label class="cursor-pointer">
+                      <input type="radio" name="freq" value="Daily" x-model="data.frequency" class="peer sr-only">
+                      <div class="text-center py-4 border-2 border-gray-100 rounded-xl text-sm font-bold text-gray-500 peer-checked:border-slate-900 peer-checked:text-slate-900 peer-checked:bg-gray-50 transition-all hover:bg-gray-50">Daily</div>
+                  </label>
+                  <label class="cursor-pointer">
+                      <input type="radio" name="freq" value="Weekly" x-model="data.frequency" class="peer sr-only">
+                      <div class="text-center py-4 border-2 border-gray-100 rounded-xl text-sm font-bold text-gray-500 peer-checked:border-slate-900 peer-checked:text-slate-900 peer-checked:bg-gray-50 transition-all hover:bg-gray-50">Weekly</div>
+                  </label>
+                  <label class="cursor-pointer">
+                      <input type="radio" name="freq" value="Monthly" x-model="data.frequency" class="peer sr-only">
+                      <div class="text-center py-4 border-2 border-gray-100 rounded-xl text-sm font-bold text-gray-500 peer-checked:border-slate-900 peer-checked:text-slate-900 peer-checked:bg-gray-50 transition-all hover:bg-gray-50">Monthly</div>
+                  </label>
+              </div>
+          </div>
+
+          <div>
+              <label class="flex justify-between text-sm font-bold text-slate-700 mb-4">
+                <span>Volume (Approximate)</span>
+                <span class="text-blue-600 bg-blue-50 px-3 py-1 rounded-lg text-sm font-bold" x-text="data.volume + ' times'"></span>
+              </label>
+              <input type="range" min="10" max="1000" step="10" x-model="data.volume" class="w-full accent-slate-900 h-2 bg-gray-200 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-xs text-gray-400 mt-2">
+                  <span>A few (10)</span>
+                  <span>A lot (1,000+)</span>
+              </div>
+          </div>
         </div>
 
-        </form>
+        <div x-show="step === 4" style="display:none;" class="animate-fade-in space-y-8">
+          <div class="mb-6">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Step 4 of 5</span>
+            <h2 class="text-2xl font-bold text-slate-900 mt-2">What's this costing you?</h2>
+            <p class="text-gray-500 mt-2">Rough estimates are fine. We use this to see how much money we can save you.</p>
+          </div>
+
+          <div class="space-y-6">
+               <div>
+                  <label class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>People doing this task</span>
+                  <span class="text-slate-900 font-bold" x-text="data.employees"></span>
+                  </label>
+                  <input type="range" min="1" max="20" x-model="data.employees" class="w-full accent-slate-900 h-2 bg-gray-200 rounded-lg cursor-pointer">
+              </div>
+
+              <div>
+                  <label class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>Hours wasted per week (per person)</span>
+                  <span class="text-slate-900 font-bold" x-text="data.hours + ' hrs'"></span>
+                  </label>
+                  <input type="range" min="1" max="40" x-model="data.hours" class="w-full accent-slate-900 h-2 bg-gray-200 rounded-lg cursor-pointer">
+              </div>
+              
+              <div>
+                  <label class="flex justify-between text-sm font-bold text-slate-700 mb-2">
+                  <span>Avg. Hourly Cost ($)</span>
+                  <span class="text-slate-900 font-bold" x-text="'$' + data.rate + '/hr'"></span>
+                  </label>
+                  <input type="range" min="15" max="150" step="5" x-model="data.rate" class="w-full accent-slate-900 h-2 bg-gray-200 rounded-lg cursor-pointer">
+              </div>
+
+              <div class="bg-red-50 p-6 rounded-xl flex items-center justify-between border border-red-100">
+                  <div>
+                    <div class="text-xs text-red-500 uppercase font-bold mb-1">Potential Annual Waste</div>
+                    <div class="text-3xl font-bold text-red-600" x-text="formatCurrency(data.employees * data.hours * data.rate * 52)"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div x-show="step === 5" style="display:none;" class="animate-fade-in space-y-8">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Final Step</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2">Does this look right?</h2>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 space-y-4">
+                 <div class="flex justify-between text-sm border-b border-gray-200 pb-2">
+                     <span class="text-gray-500">Name</span> 
+                     <span class="font-medium text-slate-900" x-text="data.name"></span>
+                 </div>
+                 <div class="flex justify-between text-sm border-b border-gray-200 pb-2">
+                     <span class="text-gray-500">Trigger</span> 
+                     <span class="font-medium text-slate-900" x-text="data.trigger"></span>
+                 </div>
+                 <div class="flex justify-between text-sm border-b border-gray-200 pb-2">
+                     <span class="text-gray-500">Volume</span> 
+                     <span class="font-medium text-slate-900" x-text="data.volume + ' ' + data.frequency"></span>
+                 </div>
+                 <div class="flex justify-between text-sm">
+                     <span class="text-gray-500">Wasted Cost</span> 
+                     <span class="font-bold text-red-500" x-text="formatCurrency(data.employees * data.hours * data.rate * 52)"></span>
+                 </div>
+             </div>
+
+             <div class="text-sm text-gray-500 text-center">
+                 Clicking submit will send this info to our team safely.
+             </div>
+        </div>
+
+        <div x-show="!submitted" class="mt-8 pt-8 border-t border-gray-100 flex justify-between items-center">
+          
+          <button type="button" @click="step--" x-show="step > 1" class="text-gray-500 font-bold hover:text-slate-900 text-sm cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+            <Icon name="ph:arrow-left" /> Back
+          </button>
+          
+          <div x-show="step === 1" class="flex-grow"></div>
+
+          <button type="button" @click="nextStep()" x-show="step < 5" class="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-all shadow-md active:scale-95 cursor-pointer flex items-center gap-2">
+            Continue <Icon name="ph:arrow-right" />
+          </button>
+
+          <button type="button" @click="submitForm()" x-show="step === 5" :disabled="loading" class="w-full md:w-auto bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+              <span x-show="!loading">Submit Request</span>
+              <span x-show="loading">Sending...</span>
+              <Icon x-show="!loading" name="ph:paper-plane-right" />
+          </button>
+        </div>
+
+      </form>
     </div>
+    
+    <div class="mt-20">
+        <RoiGrid items={roiItems} accentColor="blue" />
+    </div>
+
   </main>
 </Layout>
 
 <script is:inline>
-  function auditForm() {
+  function auditWizard() {
     return {
-      loading: false,
+      step: 1,
       submitted: false,
+      loading: false,
+      sessionId: Math.random().toString(36).substr(2, 9).toUpperCase(),
       data: {
         name: '',
         email: '',
         business: '',
+        industry: '',
+        trigger: '',
         pain_point: '',
         tools: '',
-        symptom: '',
+        frequency: 'Daily',
+        volume: 50,
+        employees: 1,
+        hours: 5,
+        rate: 45,
         context: '',
+        symptom: '',
         cta_label: ''
       },
       init() {
-        // Capture URL Parameters automatically
         const params = new URLSearchParams(window.location.search);
         this.data.symptom = params.get('symptom') || '';
         this.data.context = params.get('context') || '';
         this.data.cta_label = params.get('cta_label') || '';
       },
+      formatCurrency(val) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+      },
+      nextStep() {
+        if (this.step === 1 && (!this.data.name || !this.data.email)) {
+          alert('Please enter your name and email to continue.');
+          return;
+        }
+        if (this.step === 2 && !this.data.pain_point) {
+            alert('Please tell us a little bit about the task.');
+            return;
+        }
+        this.step++;
+      },
       async submitForm() {
         this.loading = true;
-        const webhookUrl = "https://logicloomsystems.app.n8n.cloud/webhook/audit-request1"; // Replace with your Production URL
+        const url = "https://logicloomsystems.app.n8n.cloud/webhook/audit-request1"; 
+        const payload = { ...this.data, sessionId: this.sessionId };
 
         try {
-            const response = await fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(this.data)
-            });
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
 
-            if (response.ok) {
-                this.submitted = true;
-                // Optional: Scroll to top to ensure modal is visible
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                throw new Error('Server responded with ' + response.status);
-            }
-        } catch (error) {
-            console.error('Submission error:', error);
-            // Fallback success for CORS opacity (if n8n returns opaque response)
-            this.submitted = true; 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (response.ok) {
+             this.submitted = true;
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+             throw new Error('Server status: ' + response.status);
+          }
+        } catch (e) {
+          console.error("Audit Error:", e);
+          this.submitted = true; 
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } finally {
-            this.loading = false;
+          this.loading = false;
         }
       }
     }
