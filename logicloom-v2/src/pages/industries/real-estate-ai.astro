@@ -8,6 +8,9 @@ const roiItems = [
   { value: "10 hrs", label: "Saved Weekly on Admin" },
   { value: "3x", label: "Faster Quote Speed" }
 ];
+
+// Phase 2: Diagnostic Parameters
+const auditUrl = "/audit?symptom=Missed+Showings&context=Real+Estate+Agent&cta_label=Audit+Lead+Routing";
 ---
 
 <Layout 
@@ -39,9 +42,12 @@ const roiItems = [
         </p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-          <button @click="$dispatch('open-modal')" class="bg-[#0071E3] text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer">
-            Automate My Leads
-          </button>
+          <a 
+            href={auditUrl}
+            class="bg-[#0071E3] text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer"
+          >
+            Audit Lead Routing
+          </a>
         </div>
       </div>
     </section>
@@ -295,11 +301,15 @@ const roiItems = [
     <section class="py-24 bg-slate-900 text-white text-center">
       <div class="max-w-2xl mx-auto px-6">
         <h2 class="font-display text-4xl font-bold mb-6">Stop playing phone tag.</h2>
+        
         <p class="text-gray-400 mb-10">Get a free audit of your lead handling process. We'll show you exactly where you're losing money.</p>
         
-        <button @click="$dispatch('open-modal')" class="bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all cursor-pointer">
-          Audit My Workflow
-        </button>
+        <a 
+          href={auditUrl}
+          class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all cursor-pointer"
+        >
+          Start Architecture Review
+        </a>
       </div>
     </section>
 </Layout>

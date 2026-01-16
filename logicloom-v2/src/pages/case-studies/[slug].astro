@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import DiagnosticBlock from '../../components/DiagnosticBlock.astro';
 
 export async function getStaticPaths() {
   const studies = await getCollection('case-studies');
-
   return studies.map((study) => ({
     params: { slug: study.slug },
     props: study,
@@ -19,6 +19,9 @@ const description =
   study.data.description ??
   study.data.metric ??
   'Real results from our automation architectures.';
+
+// Extract diagnostic data for cleaner access
+const { diagnostic } = study.data;
 ---
 
 <Layout title={`${title} | Case Study | LogicLoom`} description={description}>
@@ -42,6 +45,16 @@ const description =
 
     <div class="prose prose-lg prose-slate max-w-none">
       <Content />
+
+      {diagnostic && (
+        <div class="not-prose mt-16">
+          <DiagnosticBlock 
+            symptom={diagnostic.symptom}
+            context={diagnostic.context}
+            ctaLabel={diagnostic.ctaLabel}
+          />
+        </div>
+      )}
     </div>
   </article>
 </Layout>

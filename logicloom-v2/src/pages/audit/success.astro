@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Audit Request Confirmed | LogicLoom">
+  <div class="min-h-screen flex items-center justify-center bg-slate-50 px-6">
+    <div class="max-w-md w-full text-center">
+      
+      <div class="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+        <svg class="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h1 class="font-display text-3xl font-bold text-slate-900 mb-4">
+        Request Initialized
+      </h1>
+      
+      <p class="text-slate-600 mb-8 leading-relaxed">
+        Your architecture snapshot has been routed to our engineering queue. Expect a preliminary diagnostic breakdown via email within 24 hours.
+      </p>
+
+      <a 
+        href="/" 
+        class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-slate-900 hover:bg-slate-800 transition-all shadow-lg"
+      >
+        Return to Dashboard
+      </a>
+    </div>
+  </div>
+</Layout>

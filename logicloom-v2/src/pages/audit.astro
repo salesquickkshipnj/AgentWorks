@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Metadata for the page
+const title = "System Architecture Audit";
+const description = "Request a technical feasibility review of your current automation infrastructure.";
+---
+
+<Layout title={`${title} | LogicLoom`} description={description}>
+  <main class="py-24 px-6 md:px-12 max-w-3xl mx-auto">
+    
+    <div class="mb-12 border-b border-gray-200 pb-8">
+      <div class="font-mono text-xs uppercase tracking-widest text-blue-600 mb-4">
+        Engineering Request
+      </div>
+      <h1 class="font-display text-4xl font-bold text-slate-900 mb-4">
+        System Feasibility Audit
+      </h1>
+      <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+        Submit your current architecture for review. You will receive a written technical breakdown of bottlenecks and a proposed automation schema. 
+        <span class="block mt-2 font-medium text-slate-900">No sales calls. Just code and logic.</span>
+      </p>
+    </div>
+
+    <form 
+      action="https://logicloomsystems.app.n8n.cloud/webhook/audit-request1" 
+      method="POST" 
+      class="space-y-8"
+    >
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label for="name" class="text-sm font-bold text-slate-900">Point of Contact</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            required 
+            class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 transition-all"
+            placeholder="Jane Doe"
+          />
+        </div>
+        <div class="space-y-2">
+          <label for="email" class="text-sm font-bold text-slate-900">Work Email</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            required 
+            class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500 transition-all"
+            placeholder="jane@company.com"
+          />
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="space-y-2">
+          <label for="business" class="text-sm font-bold text-slate-900">Organization / Company</label>
+          <input 
+            type="text" 
+            name="business" 
+            id="business" 
+            required
+            class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500"
+          />
+        </div>
+
+        <div class="space-y-2">
+          <label for="pain_point" class="text-sm font-bold text-slate-900">Current Friction Point</label>
+          <p class="text-xs text-gray-500">Describe the process step that fails most often.</p>
+          <textarea 
+            name="pain_point" 
+            id="pain_point" 
+            rows="3" 
+            required
+            class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500"
+            placeholder="Example: We manually copy leads from email to Excel, which takes 15 mins per lead..."
+          ></textarea>
+        </div>
+
+        <div class="space-y-2">
+          <label for="tools" class="text-sm font-bold text-slate-900">Current Stack</label>
+          <input 
+            type="text" 
+            name="tools" 
+            id="tools" 
+            class="w-full rounded-lg border-gray-300 bg-gray-50 focus:border-blue-500 focus:ring-blue-500"
+            placeholder="HubSpot, Slack, Gmail, Excel..."
+          />
+        </div>
+      </div>
+
+      <input type="hidden" name="symptom" id="symptom" value="" />
+      <input type="hidden" name="context" id="context" value="" />
+      <input type="hidden" name="cta_label" id="cta_label" value="" />
+
+      <div class="pt-4 border-t border-gray-200">
+        <button 
+          type="submit" 
+          class="inline-flex justify-center items-center w-full md:w-auto px-8 py-4 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl"
+        >
+          Initialize Audit Request
+          <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+        <p class="mt-4 text-xs text-center md:text-left text-gray-500">
+          Data is encrypted and routed directly to our engineering queue via n8n.
+        </p>
+      </div>
+
+    </form>
+  </main>
+</Layout>
+
+<script is:inline>
+  // Runs immediately in the browser to grab data from the URL
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    
+    // Helper to safely set value
+    const setField = (id, paramName) => {
+      const field = document.getElementById(id);
+      const val = params.get(paramName);
+      if (field && val) {
+        field.value = val;
+      }
+    };
+
+    // Populate hidden fields
+    setField('symptom', 'symptom');
+    setField('context', 'context');
+    setField('cta_label', 'cta_label'); // Note: URL param is 'cta_label', matches hidden ID
+  });
+</script>

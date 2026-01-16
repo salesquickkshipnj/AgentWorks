@@ -1,0 +1,43 @@
+---
+interface Props {
+  symptom: string;
+  context: string;
+  ctaLabel: string;
+}
+
+const { symptom, context, ctaLabel } = Astro.props;
+
+// 1. Construct the Query Parameters
+// We use URLSearchParams to ensure special characters (spaces, <, >) are safely encoded.
+const queryParams = new URLSearchParams({
+  symptom: symptom,
+  context: context,
+  cta_label: ctaLabel // Matches the n8n 'trigger' expectation
+});
+
+const targetUrl = `/audit?${queryParams.toString()}`;
+---
+
+<div class="my-12 border-l-4 border-neutral-900 bg-neutral-50 pl-6 py-4 pr-4">
+  <div class="font-mono text-xs uppercase tracking-widest text-neutral-500 mb-2">
+    System Diagnostic
+  </div>
+  
+  <h3 class="text-lg font-medium text-neutral-900 mb-1">
+    Symptom: {symptom}
+  </h3>
+  
+  <p class="text-neutral-600 text-sm mb-4">
+    {context}
+  </p>
+
+  <a 
+    href={targetUrl}
+    class="inline-flex items-center text-sm font-bold text-neutral-900 border-b-2 border-transparent hover:border-neutral-900 transition-colors"
+  >
+    {ctaLabel}
+    <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </a>
+</div>

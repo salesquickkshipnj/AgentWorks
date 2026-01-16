@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+// Phase 2: Diagnostic Parameters
+const auditUrl = "/audit?symptom=Slow+Onboarding&context=Admin+Ops&cta_label=Audit+Onboarding+Logic";
 ---
 
 <Layout 
@@ -21,11 +24,15 @@ import Layout from '../../layouts/Layout.astro';
       </p>
 
 	<p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
-  Best fit for teams onboarding <span class="font-bold">5+ clients/month</span> or managing <span class="font-bold">10+ active projects</span>.
-	</p>
-      <button @click="$dispatch('open-modal')" class="bg-violet-600 text-white px-8 py-4 rounded-full font-bold hover:bg-violet-700 transition-all shadow-xl shadow-violet-500/20 cursor-pointer">
-        Automate Onboarding
-      </button>
+      Best fit for teams onboarding <span class="font-bold">5+ clients/month</span> or managing <span class="font-bold">10+ active projects</span>.
+    </p>
+      
+      <a 
+        href={auditUrl}
+        class="inline-block bg-violet-600 text-white px-8 py-4 rounded-full font-bold hover:bg-violet-700 transition-all shadow-xl shadow-violet-500/20 cursor-pointer"
+      >
+        Audit Onboarding Logic
+      </a>
     </section>
 
     <section class="py-20 bg-slate-900 text-white">
@@ -40,7 +47,7 @@ import Layout from '../../layouts/Layout.astro';
             <div class="flex gap-6 items-center">
                 <div class="w-1 bg-green-500 h-12 rounded-full"></div>
                 <div>
-                     <span class="text-green-400 block mb-1">Trigger: DocuSign / PandaDoc</span>
+                    <span class="text-green-400 block mb-1">Trigger: DocuSign / PandaDoc</span>
                     <span class="text-gray-400">Client signs "Retainer Agreement".</span>
                 </div>
             </div>
@@ -61,7 +68,7 @@ import Layout from '../../layouts/Layout.astro';
             <div class="flex gap-6 items-center">
                 <div class="w-1 bg-violet-500 h-12 rounded-full"></div>
                 <div>
-                     <span class="text-violet-400 block mb-1">Action: Quickbooks / Stripe</span>
+                    <span class="text-violet-400 block mb-1">Action: Quickbooks / Stripe</span>
                     <span class="text-gray-400">Generate first invoice and create customer profile.</span>
                 </div>
             </div>

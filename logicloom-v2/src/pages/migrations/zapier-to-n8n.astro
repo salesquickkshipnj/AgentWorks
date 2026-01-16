@@ -9,6 +9,10 @@ const roiItems = [
   { value: "∞", label: "Unlimited Executions" },
   { value: "100%", label: "Data Ownership" }
 ];
+
+// Phase 2: Diagnostic Parameters
+const heroAuditUrl = "/audit?symptom=Zapier+Scale+Limits&context=Infrastructure+Migration&cta_label=Deploy+Private+Node";
+const bottomAuditUrl = "/audit?symptom=High+Monthly+Bill&context=Zapier+Migration&cta_label=Calculate+Savings";
 ---
 
 <Layout 
@@ -39,159 +43,162 @@ const roiItems = [
         </p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-          <button @click="$dispatch('open-modal')" class="bg-blue-600 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer">
+          <a 
+            href={heroAuditUrl}
+            class="bg-blue-600 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 active:scale-95 cursor-pointer"
+          >
             Deploy My Node
-          </button>
+          </a>
         </div>
       </div>
     </section>
 
     <section class="py-20 bg-slate-950 text-emerald-400 font-mono text-sm border-y border-slate-800 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-    
-    <div class="font-sans text-white">
-      <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
-        <Icon name="ph:terminal-window" />
-        <span class="text-xs font-bold uppercase tracking-widest">Live Node Status</span>
-      </div>
-      <h2 class="font-display text-3xl font-bold mb-6">Total Transparency. <br/>Zero "Black Boxes".</h2>
-      <p class="text-slate-400 mb-6 text-lg">
-        Unlike Zapier, where your data disappears into a void, we give you full visibility. You can audit every execution, check server health, and view raw JSON logs.
-      </p>
-      <ul class="space-y-4 text-slate-300">
-        <li class="flex items-center gap-3">
-            <Icon name="ph:cpu" class="text-emerald-400 text-xl" />
-            <span>Optimized for low CPU usage (avg 12%)</span>
-        </li>
-        <li class="flex items-center gap-3">
-            <Icon name="ph:shield-check" class="text-emerald-400 text-xl" />
-            <span>Automated Docker health checks</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="w-full rounded-2xl bg-[#0d1117] border border-slate-800 shadow-2xl p-6 leading-relaxed font-mono relative overflow-hidden">
-       <div class="flex gap-2 mb-6 border-b border-slate-800 pb-4">
-        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-        <span class="ml-2 text-slate-500 text-xs">root@logicloom-node-01:~</span>
-      </div>
-  
-      <div class="space-y-4 opacity-90 text-sm">
-        <div>
-            <span class="text-blue-400">➜</span> <span class="text-white">docker stats --no-stream</span>
+      <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="font-sans text-white">
+          <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+            <Icon name="ph:terminal-window" />
+            <span class="text-xs font-bold uppercase tracking-widest">Live Node Status</span>
+          </div>
+          <h2 class="font-display text-3xl font-bold mb-6">Total Transparency. <br/>Zero "Black Boxes".</h2>
+          <p class="text-slate-400 mb-6 text-lg">
+            Unlike Zapier, where your data disappears into a void, we give you full visibility. You can audit every execution, check server health, and view raw JSON logs.
+          </p>
+          <ul class="space-y-4 text-slate-300">
+            <li class="flex items-center gap-3">
+                <Icon name="ph:cpu" class="text-emerald-400 text-xl" />
+                <span>Optimized for low CPU usage (avg 12%)</span>
+            </li>
+            <li class="flex items-center gap-3">
+                <Icon name="ph:shield-check" class="text-emerald-400 text-xl" />
+                <span>Automated Docker health checks</span>
+            </li>
+          </ul>
         </div>
-        <div class="text-slate-400 text-xs">
-            CONTAINER ID &nbsp;&nbsp; NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CPU % &nbsp;&nbsp;&nbsp;&nbsp; MEM USAGE / LIMIT <br/>
-            a1b2c3d4e5f6 &nbsp;&nbsp; logicloom_n8n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.04% &nbsp;&nbsp;&nbsp;&nbsp; 245MiB / 4.0GiB <br/>
-            9876543210ab &nbsp;&nbsp; logicloom_postgres &nbsp;&nbsp; 0.01% &nbsp;&nbsp;&nbsp;&nbsp; 88MiB / 1.0GiB <br/>
-            f1e2d3c4b5a6 &nbsp;&nbsp; logicloom_redis &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.01% &nbsp;&nbsp;&nbsp;&nbsp; 12MiB / 500MiB
-        </div>
-        <br/>
-        <div>
-            <span class="text-blue-400">➜</span> <span class="text-white">curl -I https://automation.client-server.com</span>
-        </div>
-        <div class="text-slate-400 text-xs">
-            HTTP/2 200 <br/>
-            server: Caddy <br/>
-            content-type: text/html; charset=utf-8 <br/>
-            <span class="text-emerald-400">security-headers: enabled</span>
-        </div>
-        <div class="animate-pulse mt-2">_</div>
-      </div>
-    </div>
 
-  </div>
-</section>
-
-<section class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="font-display text-3xl font-bold text-slate-900 mb-4">Your Private Cloud Topology</h2>
-      <p class="text-gray-500">Data never touches a shared environment. It flows strictly through encrypted tunnels.</p>
-    </div>
-
-    <div class="relative max-w-4xl mx-auto">
-        <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -z-10 transform -translate-y-1/2"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            
-            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10 transition-transform hover:-translate-y-1">
-                <div class="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-4 border border-blue-100">
-                    <Icon name="ph:globe" />
-                </div>
-                <h3 class="font-bold text-slate-900">1. Encrypted Ingress</h3>
-                <p class="text-xs text-gray-500 mt-2">
-                    Traffic enters via HTTPS (TLS 1.3). <br/><span class="font-mono text-blue-600 bg-blue-50 px-1 rounded">Reverse Proxy (Caddy)</span>
-                </p>
+        <div class="w-full rounded-2xl bg-[#0d1117] border border-slate-800 shadow-2xl p-6 leading-relaxed font-mono relative overflow-hidden">
+           <div class="flex gap-2 mb-6 border-b border-slate-800 pb-4">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <span class="ml-2 text-slate-500 text-xs">root@logicloom-node-01:~</span>
+          </div>
+      
+          <div class="space-y-4 opacity-90 text-sm">
+            <div>
+                <span class="text-blue-400">➜</span> <span class="text-white">docker stats --no-stream</span>
             </div>
-
-            <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 shadow-xl relative z-10 transform md:scale-110">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                    Your Server
-                </div>
-                <div class="w-16 h-16 mx-auto bg-slate-800 text-orange-500 rounded-xl flex items-center justify-center text-2xl mb-4 border border-slate-600">
-                    <Icon name="ph:lightning-fill" />
-                </div>
-                <h3 class="font-bold text-white">2. Logic Execution</h3>
-                <p class="text-xs text-slate-400 mt-2">
-                    n8n Workflow Engine runs in Docker. <br/><span class="font-mono text-orange-400 bg-orange-400/10 px-1 rounded">Isolated Container</span>
-                </p>
+            <div class="text-slate-400 text-xs">
+                CONTAINER ID &nbsp;&nbsp; NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CPU % &nbsp;&nbsp;&nbsp;&nbsp; MEM USAGE / LIMIT <br/>
+                a1b2c3d4e5f6 &nbsp;&nbsp; logicloom_n8n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.04% &nbsp;&nbsp;&nbsp;&nbsp; 245MiB / 4.0GiB <br/>
+                9876543210ab &nbsp;&nbsp; logicloom_postgres &nbsp;&nbsp; 0.01% &nbsp;&nbsp;&nbsp;&nbsp; 88MiB / 1.0GiB <br/>
+                f1e2d3c4b5a6 &nbsp;&nbsp; logicloom_redis &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.01% &nbsp;&nbsp;&nbsp;&nbsp; 12MiB / 500MiB
             </div>
-
-            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10 transition-transform hover:-translate-y-1">
-                <div class="w-16 h-16 mx-auto bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-4 border border-purple-100">
-                    <Icon name="ph:database" />
-                </div>
-                <h3 class="font-bold text-slate-900">3. Private Storage</h3>
-                <p class="text-xs text-gray-500 mt-2">
-                    Logs & Credentials stored locally. <br/><span class="font-mono text-purple-600 bg-purple-50 px-1 rounded">PostgreSQL (Encrypted)</span>
-                </p>
+            <br/>
+            <div>
+                <span class="text-blue-400">➜</span> <span class="text-white">curl -I https://automation.client-server.com</span>
             </div>
-
+            <div class="text-slate-400 text-xs">
+                HTTP/2 200 <br/>
+                server: Caddy <br/>
+                content-type: text/html; charset=utf-8 <br/>
+                <span class="text-emerald-400">security-headers: enabled</span>
+            </div>
+            <div class="animate-pulse mt-2">_</div>
+          </div>
         </div>
-    </div>
-  </div>
-</section>
 
-<section class="py-20 bg-gray-50 border-t border-gray-200">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Engineering FAQs</h2>
-    
-    <div class="space-y-4">
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
-        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
-          <span>What happens if the server crashes?</span>
-          <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
-        </button>
-        <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
-          We configure <strong>Docker Restart Policies</strong> (<code>restart: always</code>). If the n8n process fails, the daemon automatically reboots it in milliseconds. For total failures, we rely on daily snapshot backups to restore your instance to a fresh droplet within 15 minutes.
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl font-bold text-slate-900 mb-4">Your Private Cloud Topology</h2>
+          <p class="text-gray-500">Data never touches a shared environment. It flows strictly through encrypted tunnels.</p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+            <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -z-10 transform -translate-y-1/2"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10 transition-transform hover:-translate-y-1">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-4 border border-blue-100">
+                        <Icon name="ph:globe" />
+                    </div>
+                    <h3 class="font-bold text-slate-900">1. Encrypted Ingress</h3>
+                    <p class="text-xs text-gray-500 mt-2">
+                        Traffic enters via HTTPS (TLS 1.3). <br/><span class="font-mono text-blue-600 bg-blue-50 px-1 rounded">Reverse Proxy (Caddy)</span>
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 shadow-xl relative z-10 transform md:scale-110">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                        Your Server
+                    </div>
+                    <div class="w-16 h-16 mx-auto bg-slate-800 text-orange-500 rounded-xl flex items-center justify-center text-2xl mb-4 border border-slate-600">
+                        <Icon name="ph:lightning-fill" />
+                    </div>
+                    <h3 class="font-bold text-white">2. Logic Execution</h3>
+                    <p class="text-xs text-slate-400 mt-2">
+                        n8n Workflow Engine runs in Docker. <br/><span class="font-mono text-orange-400 bg-orange-400/10 px-1 rounded">Isolated Container</span>
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-lg relative z-10 transition-transform hover:-translate-y-1">
+                    <div class="w-16 h-16 mx-auto bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-4 border border-purple-100">
+                        <Icon name="ph:database" />
+                    </div>
+                    <h3 class="font-bold text-slate-900">3. Private Storage</h3>
+                    <p class="text-xs text-gray-500 mt-2">
+                        Logs & Credentials stored locally. <br/><span class="font-mono text-purple-600 bg-purple-50 px-1 rounded">PostgreSQL (Encrypted)</span>
+                    </p>
+                </div>
+
+            </div>
         </div>
       </div>
+    </section>
 
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
-        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
-          <span>Do I need to manage Linux updates?</span>
-          <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
-        </button>
-        <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
-          If you choose our <strong>Managed Retainer</strong>, no. We handle all OS patching (Ubuntu/Debian), n8n version upgrades, and security monitoring. If you choose the "One-Time Setup," we hand you the root keys, and maintenance becomes your responsibility.
+    <section class="py-20 bg-gray-50 border-t border-gray-200">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Engineering FAQs</h2>
+        
+        <div class="space-y-4">
+          <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+            <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
+              <span>What happens if the server crashes?</span>
+              <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
+            </button>
+            <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
+              We configure <strong>Docker Restart Policies</strong> (<code>restart: always</code>). If the n8n process fails, the daemon automatically reboots it in milliseconds. For total failures, we rely on daily snapshot backups to restore your instance to a fresh droplet within 15 minutes.
+            </div>
+          </div>
+
+          <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+            <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
+              <span>Do I need to manage Linux updates?</span>
+              <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
+            </button>
+            <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
+              If you choose our <strong>Managed Retainer</strong>, no. We handle all OS patching (Ubuntu/Debian), n8n version upgrades, and security monitoring. If you choose the "One-Time Setup," we hand you the root keys, and maintenance becomes your responsibility.
+            </div>
+          </div>
+
+          <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+            <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
+              <span>Is my API Key data safe?</span>
+              <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
+            </button>
+            <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
+              Yes. n8n encrypts all credentials in the database using a unique encryption key generated during installation. We do not have access to your keys once the handover is complete.
+            </div>
+          </div>
         </div>
       </div>
-
-      <div x-data="{ open: false }" class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
-        <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left font-bold text-slate-900 hover:bg-gray-50 transition-colors">
-          <span>Is my API Key data safe?</span>
-          <Icon name="ph:caret-down" class="text-gray-400 transition-transform duration-300" :class="{'rotate-180': open}" />
-        </button>
-        <div x-show="open" class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-3">
-          Yes. n8n encrypts all credentials in the database using a unique encryption key generated during installation. We do not have access to your keys once the handover is complete.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="py-20 bg-white border-y border-gray-100">
       <div class="max-w-6xl mx-auto px-6">
@@ -256,11 +263,11 @@ const roiItems = [
                   <div class="text-gray-400 mb-1">// Architecture</div>
                   <div class="grid grid-cols-2 gap-4 mt-2">
                      <div class="flex items-center gap-2">
-                         <Icon name="ph:hard-drives" class="text-lg text-blue-400" />
+                          <Icon name="ph:hard-drives" class="text-lg text-blue-400" />
                         <span>Docker Container</span>
                      </div>
                      <div class="flex items-center gap-2">
-                         <Icon name="ph:shield-check" class="text-lg text-blue-400" />
+                          <Icon name="ph:shield-check" class="text-lg text-blue-400" />
                         <span>Self-Hosted</span>
                      </div>
                      <div class="flex items-center gap-2">
@@ -268,7 +275,7 @@ const roiItems = [
                         <span>No Throttling</span>
                      </div>
                      <div class="flex items-center gap-2">
-                         <Icon name="ph:lock-key" class="text-lg text-blue-400" />
+                          <Icon name="ph:lock-key" class="text-lg text-blue-400" />
                         <span>E2E Encryption</span>
                      </div>
                   </div>
@@ -310,9 +317,12 @@ const roiItems = [
         <p class="text-gray-400 mb-10">
           We'll migrate your most expensive Zaps to a private server and show you the immediate cost savings.
         </p>
-        <button @click="$dispatch('open-modal')" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50 cursor-pointer">
+        <a 
+          href={bottomAuditUrl}
+          class="inline-block bg-blue-600 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50 cursor-pointer"
+        >
           Calculate My Savings
-        </button>
+        </a>
       </div>
     </section>
   </div>

@@ -3,9 +3,13 @@ title: "Instant Lead-to-Estimate Pipeline"
 client: "Commercial Roofing Contractor"
 industry: "Home Services"
 metric: "4x Faster Response"
-description: "A high-velocity lead engine that qualifies homeowners and dispatches the nearest estimator instantly via SMS."
+description: "High-velocity lead engine. Qualifies homeowners and dispatches nearest estimator instantly via SMS."
 publishDate: 2025-10-02
 tags: ["n8n", "HubSpot", "Calendly", "Google Sheets"]
+diagnostic:
+  symptom: "Leads go cold in <5 minutes while crews are on roofs."
+  context: "Standard architecture for teams handling >20 inbound calls/week."
+  ctaLabel: "Audit Lead Dispatch Logic"
 ---
 
 <div class="not-prose">
@@ -13,16 +17,16 @@ tags: ["n8n", "HubSpot", "Calendly", "Google Sheets"]
 <div class="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-10 mb-10">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-white rounded-2xl border border-gray-100 p-6">
-<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Context</div>
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">Problem State</div>
 <div class="text-sm text-slate-700 leading-relaxed">
-In roofing, speed is everything. Leads were sitting cold while crews were on rooftops, resulting in lost bids.
+High latency in lead response caused bid leakage. Manual dispatch meant leads sat idle while estimators were physically on rooftops.
 </div>
 </div>
 
 <div class="bg-white rounded-2xl border border-gray-100 p-6">
-<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Build</div>
+<div class="text-xs font-bold uppercase tracking-widest text-slate-600 mb-2">The Architecture</div>
 <div class="text-sm text-slate-700 leading-relaxed">
-Multi-step Logic: Lead Capture → Geo-Location Matching → Instant SMS Dispatch to Estimator → Client Confirmation.
+Sequential Logic: Webhook Capture → Geocoding API (Lead vs Fleet) → Round-Robin Dispatch → SMS Gateway (Twilio).
 </div>
 </div>
 
@@ -31,39 +35,35 @@ Multi-step Logic: Lead Capture → Geo-Location Matching → Instant SMS Dispatc
 <div class="flex flex-wrap gap-2 mt-2">
 <span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">n8n</span>
 <span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">HubSpot</span>
-<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Geo-Maps</span>
+<span class="text-xs font-mono bg-slate-100 border border-slate-200 px-2 py-1 rounded text-slate-700">Maps API</span>
 </div>
 </div>
 </div>
 </div>
 
+
 <div class="bg-slate-900 text-white rounded-3xl p-10 mb-10">
 <div class="flex items-center gap-4 mb-8 opacity-70">
 <div class="h-px bg-white flex-grow"></div>
-<span class="uppercase tracking-widest text-sm font-bold">The Outcome</span>
+<span class="uppercase tracking-widest text-sm font-bold">System Performance</span>
 <div class="h-px bg-white flex-grow"></div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
 <div class="text-3xl font-bold">4x</div>
-<div class="text-sm text-slate-400">Faster speed-to-lead</div>
+<div class="text-sm text-slate-400">Faster Speed-to-Lead</div>
 </div>
 <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
 <div class="text-3xl font-bold">100%</div>
-<div class="text-sm text-slate-400">Follow-up consistency</div>
+<div class="text-sm text-slate-400">Dispatch Consistency</div>
 </div>
 <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
 <div class="text-3xl font-bold">+20%</div>
-<div class="text-sm text-slate-400">Close rate improvement</div>
+<div class="text-sm text-slate-400">Close Rate Delta</div>
 </div>
 </div>
 
-<div class="mt-8">
-<a href="/#contact" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gray-100 transition-colors">
-Capture More Leads
-</a>
-</div>
 </div>
 
 </div>

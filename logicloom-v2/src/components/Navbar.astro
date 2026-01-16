@@ -39,8 +39,8 @@ import { Icon } from 'astro-icon/components';
 
     <nav class="hidden md:flex items-center gap-6">
       
-      <a href="#capabilities" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Capabilities</a>
-      <a href="#process" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Process</a>
+      <a href="/#capabilities" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Capabilities</a>
+      <a href="/#process" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Process</a>
 
       <div class="relative" @click.outside="solutionsOpen = false">
         <button 
@@ -114,17 +114,18 @@ import { Icon } from 'astro-icon/components';
             </div>
         </div>
       </div>
-      <a href="#pricing" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Pricing</a>
+      <a href="/#pricing" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Pricing</a>
     </nav>
 
     <div class="hidden md:flex items-center gap-4">
       <a href="/n8n-services" class="text-sm font-medium text-gray-500 hover:text-slate-900">n8n Experts</a>
-      <button 
-        @click="$dispatch('open-modal')"
+      
+      <a 
+        href="/audit"
         class="text-sm font-semibold bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20 active:scale-95"
       >
         Book Audit
-      </button>
+      </a>
     </div>
 
     <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-slate-900 p-2">
@@ -141,9 +142,9 @@ import { Icon } from 'astro-icon/components';
   >
        <div class="space-y-6">
             <div class="space-y-4 pb-4 border-b border-gray-100">
-                <a href="#capabilities" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">Capabilities</a>
-                <a href="#process" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">The Protocol</a>
-                <a href="#pricing" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">Pricing</a>
+                <a href="/#capabilities" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">Capabilities</a>
+                <a href="/#process" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">The Protocol</a>
+                <a href="/#pricing" @click="mobileMenuOpen = false" class="block text-lg font-bold text-slate-900">Pricing</a>
             </div>
 
             <div>
@@ -157,9 +158,12 @@ import { Icon } from 'astro-icon/components';
             </div>
 
             <div class="pt-4">
-                <button @click="mobileMenuOpen = false; $dispatch('open-modal')" class="w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold shadow-lg">
-                    Start Project
-                </button>
+                <a 
+                  href="/audit" 
+                  class="flex items-center justify-center w-full bg-slate-900 text-white text-lg py-4 rounded-xl font-bold shadow-lg hover:bg-slate-800 transition-colors"
+                >
+                    Book Audit
+                </a>
             </div>
        </div>
   </div>
