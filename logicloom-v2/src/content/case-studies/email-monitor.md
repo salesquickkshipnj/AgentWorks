@@ -38,6 +38,16 @@ This meant high-value customers waited 24+ hours for a reply because the team wa
 
 ---
 
+## Why this was hard to automate
+
+Standard helpdesk tools rely on simple keywords, which fail when customers are vague.
+
+* **The Context Problem:** A customer saying *"My order is broken"* requires a refund. A customer saying *"My order is lost"* requires a tracking check. Keyword matching "Order" for both fails. We needed an LLM to understand *intent*.
+* **The Database Gap:** To answer "Where is my order?", the bot needs to check Shopify *real-time*. Zapier can't easily fetch data from Shopify and then inject it into a Gmail draft in a conversational way without massive complexity.
+* **The Hallucination Risk:** You can't let AI just "guess" a tracking number. We needed a strict code layer that forces the AI to use *only* the data returned from the API.
+
+---
+
 ## The "Traffic Controller" Logic
 
 We built an AI agent that sits between Gmail and the Support Team. It doesn't just "guess"—it acts as a triage nurse.

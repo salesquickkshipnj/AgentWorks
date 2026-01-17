@@ -43,12 +43,22 @@ QuickkShip had a solid fleet but a slow front desk. Customers would email: *"How
 
 ---
 
+## Why this was hard to automate
+
+Logistics pricing is too dynamic for standard form builders.
+
+* **The Math Problem:** Zapier can handle basic addition, but it struggles with "Distance * Variable Rate + Dynamic Fuel Surcharge %." We needed a robust JavaScript engine to handle the floating-point math reliably.
+* **The Latency Requirement:** Customers waiting on a website need a quote in under 2 seconds. Chaining 5 different Zaps together creates a 5-10 second delay, which feels "broken" to the user. We needed a low-latency endpoint.
+* **Edge Case Logic:** If the distance is > 500 miles, the price per mile drops. If it's a residential address, a fee is added. This conditional logic tree is impossible to maintain in linear automation tools.
+
+---
+
 ## The Pricing Engine Logic
 
 We built a **Calculator API** that sits between their intake form and their bank account. It turns a manual math problem into an instant transaction.
 
 <div class="not-prose my-16">
-<div class="bg-slate-50 border border-gray-200 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+<div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
 
 <div class="grid md:grid-cols-4 gap-6 text-center items-center relative z-10">
 

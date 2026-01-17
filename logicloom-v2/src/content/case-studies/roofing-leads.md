@@ -43,6 +43,15 @@ The old workflow was linear and slow:
 
 ---
 
+## Why this was hard to automate
+
+A standard "Zap" could not handle the complexity of real-world logistics.
+
+* **The Geolocation Gap:** Standard automation tools cannot calculate "Driving Distance." You need a custom API call to Google Maps to determine which estimator is *actually* closest, not just linearly closest.
+* **The "Human" Timeout:** We needed the system to wait 90 seconds for a driver to reply "CLAIM". If they didn't, it had to loop to the next driver. This **State Management** (Wait/Retry logic) causes simple automation tools to time out or break.
+
+---
+
 ## The Engineering Solution
 
 We replaced the human admin with an **Event-Driven Architecture**. We don't "check email"—we listen for webhooks.

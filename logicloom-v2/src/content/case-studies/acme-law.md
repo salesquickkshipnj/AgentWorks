@@ -36,6 +36,15 @@ High-value attorneys were acting as expensive data clerks. Leads arrived as PDF 
 
 ---
 
+## Why this was hard to automate
+
+Legal intake isn't just data entry; it's risk management. Standard tools fail to account for the nuance of legal ethics.
+
+* **The Unstructured Input:** Referrals often come as scanned PDF letters. Standard OCR tools make mistakes. We needed an LLM (Large Language Model) to "read" the context and distinguish between a "Plaintiff" and a "Defendant."
+* **The Logic Loop:** You cannot blindly add contacts to Clio. You must search for the name first (Conflict Check). If they exist, you append a note. If they don't, you create a contact. This "Search → Decision → Action" loop is brittle in drag-and-drop builders but robust in custom logic.
+
+---
+
 ## The Intake Protocol
 
 We deployed an autonomous agent that acts as a paralegal. It reads documents, understands legal context, and drafts matters.

@@ -36,6 +36,15 @@ This design-build firm was receiving leads from everywhere: HomeAdvisor, Angi, W
 
 ---
 
+## Why this was hard to automate
+
+Standard integration tools expect clean, matching data. Home improvement leads are messy.
+
+* **The Format Fragmentation:** Angi sends an email notification; the website sends a JSON payload; HomeAdvisor sends a text. A basic Zapier setup requires a different "Zap" for every single source, creating a maintenance nightmare.
+* **The Normalization Gap:** One lead says "Kitchen," another says "Cabinetry." To a CRM, these are different values. We needed an AI layer to map varied human language into standardized CRM dropdown values *before* the data entered the database.
+
+---
+
 ## The Unified Ingestion Engine
 
 We built a single "Master Pipeline" that swallows leads from any source, cleans them, and routes them instantly.

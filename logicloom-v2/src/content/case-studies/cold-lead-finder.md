@@ -36,6 +36,16 @@ The agency's sales team was spending 4 hours a day manually browsing Google Maps
 
 ---
 
+## Why this was hard to automate
+
+You cannot simply "Zap" Google Maps.
+
+* **The Anti-Scraping Hurdle:** Google aggressively blocks standard scrapers. We needed **Apify** actors running on rotating residential proxies to gather data reliably.
+* **The Quality Filter:** Scraping gives you *quantity*, not quality. A simple scraper would pull 1,000 "Plumbers," but half of them might be new construction subcontractors (who don't need marketing).
+* **The Logic Gap:** We needed an AI agent to actually *visit* the prospect's website and answer: *"Do they offer residential services?"* Standard automation tools cannot perform this visual verification step.
+
+---
+
 ## The Scraping & Enrichment Pipeline
 
 We built a headless browser automation that acts as a "virtual researcher," working 24/7.

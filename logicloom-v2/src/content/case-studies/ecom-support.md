@@ -36,6 +36,16 @@ For a DTC brand doing $50k/mo, customer support shouldn't be a crisis. Yet, this
 
 ---
 
+## Why this was hard to automate
+
+Standard helpdesk tools (Gorgias/Zendesk) rely on **keywords**, which fail when customers are vague.
+
+* **The Zapier Limit:** You cannot easily build a "Look up Shopify Order → Check Status → Draft Email" loop in Zapier without paying a fortune for tasks or hitting timeout limits on complex logic.
+* **The Logic Gap:** A simple keyword match for "refund" would auto-reply with a policy link. But if the customer said *"I want a refund because the glass arrived broken,"* that requires empathy and a replacement, not a policy link.
+* **The Solution:** We needed **n8n** to run a custom "Reasoning Chain" that checks the *sentiment* and *shipping status* before deciding what to write.
+
+---
+
 ## The Intelligence Layer
 
 We didn't just build an auto-responder. We built a **Reasoning Engine** that reads emails like a human agent would.

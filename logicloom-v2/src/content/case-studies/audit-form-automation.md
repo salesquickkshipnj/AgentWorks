@@ -36,6 +36,16 @@ This consultancy was generating leads via a Typeform quiz, but the data was just
 
 ---
 
+## Why this was hard to automate
+
+A basic "Zapier Slack Notification" wasn't enough.
+
+* **The Visualization Problem:** Standard Slack messages are ugly text dumps. The sales team ignored them because they were hard to read. We needed **Slack Block Kit** to create rich, interactive cards with buttons.
+* **The Logic Gap:** We needed to check for **duplicates** in the CRM *before* alerting the team. If an existing client filled out the form, we needed to route it to their Account Manager, not the general sales pool. Zapier's linear logic struggles with these conditional "If/Else" checks without becoming a tangled mess.
+* **The Formatting:** Phone numbers came in as `(555) 123-4567` but the CRM required `+15551234567`. We needed custom Javascript to clean the data instantly.
+
+---
+
 ## The "Red Alert" Architecture
 
 We built a real-time bridge using Webhooks. The moment a user hits "Submit," a bell rings in the sales office (digitally speaking).

@@ -36,6 +36,15 @@ The bottleneck for this group wasn't the dentists—it was the front desk. Patie
 
 ---
 
+## Why this was hard to automate
+
+Medical data requires a higher standard of security and precision than a standard marketing funnel.
+
+* **The HIPAA Hurdle:** You cannot send patient health history through a standard public automation tool without risking a compliance violation. We needed a **Self-Hosted** architecture where we controlled the server logs.
+* **The PDF Complexity:** Mapping a web form to a government-standard PDF isn't just "copy-paste." It requires precise coordinate mapping. If a patient checks "Diabetes," the system needs to check a specific X/Y box on the PDF, which simple tools can't handle dynamically.
+
+---
+
 ## The Digital Intake Flow
 
 This workflow runs on a HIPAA-compliant self-hosted n8n instance, ensuring patient data never touches public AI models without redaction.
