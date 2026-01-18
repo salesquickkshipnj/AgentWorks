@@ -1,0 +1,319 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
+
+const roiItems = [
+  { value: "0", label: "Site Visits for Quotes" },
+  { value: "20 hrs", label: "Saved Weekly on Logistics" },
+  { value: "Instant", label: "Quote Velocity" }
+];
+
+// Phase 2: Diagnostic Parameters
+const auditUrl = "/audit?symptom=Driving+To+Estimates&context=Cleaning+Business&cta_label=Audit+Operations";
+---
+
+<Layout 
+  title="Cleaning Business Automation | LogicLoom Systems"
+  description="Stop driving to give free estimates. We automate quoting, crew dispatch, and quality control for cleaning companies."
+  campaignMode={true}
+>
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+          <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Industry: Residential & Commercial Cleaning</span>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+          You're stuck in traffic.
+          <br />
+          <span class="text-gray-400">The quote is waiting.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          You drive 20 miles to give a "free estimate" and they say no. <br class="hidden md:block">
+          We build <strong>Remote Estimation Engines and Dispatch Automations</strong> that price jobs instantly, assign crews, and handle quality checks without you leaving the office.
+        </p>
+
+        <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
+          Best fit for Maid Services/Janitorial teams with <span class="font-bold">5+ crews</span> or doing <span class="font-bold">$20k+/month</span> and drowning in logistics.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <a 
+            href={auditUrl}
+            class="bg-blue-600 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 active:scale-95 cursor-pointer"
+          >
+            Audit My Operations
+          </a>
+        </div>
+      </div>
+    </section>
+
+<section class="py-24 bg-blue-50/30 border-t border-gray-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div>
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-blue-100 text-blue-800">
+            <Icon name="ph:car" />
+            <span class="text-xs font-bold uppercase tracking-widest">The "Remote Quote" System</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">Stop guessing.<br/>Start scaling.</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            Homeowners want a price <em>now</em>, not next Tuesday. Our logic engine calculates accurate pricing based on square footage, bedrooms, and floor type—instantly via SMS.
+        </p>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-bold text-slate-900">Efficiency Calculator</span>
+                <span class="text-xs text-gray-500">Based on standard drive times</span>
+            </div>
+         
+            <div class="space-y-3 font-mono text-sm">
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Avg Drive Time/Quote:</span>
+                    <span>45 Mins</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Quotes/Week:</span>
+                    <span>10</span>
+                </div>
+                <div class="border-t border-gray-100 pt-3 flex justify-between font-bold text-slate-900 text-lg">
+                    <span>Hours Saved:</span>
+                    <span>7.5 Hours / week</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+        <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+        <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white relative flex flex-col">
+            <div class="bg-slate-100 p-4 pt-8 border-b border-gray-200 text-center pb-2">
+                <p class="text-[10px] uppercase text-gray-400 font-bold tracking-widest">SMS</p>
+                <p class="font-bold text-slate-900">New Lead</p>
+            </div>
+            
+            <div class="p-4 space-y-4 flex-1 bg-white overflow-y-auto">
+                
+                <div class="text-center my-4">
+                    <span class="text-[10px] text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Website Widget 10:00 AM</span>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <div class="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm max-w-[90%]">
+                        I need a deep clean for a 4 bed, 2.5 bath home. Approx 2500 sqft.
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        Thanks! Based on that size, our Deep Clean package is $385. Includes baseboards and windows.
+                        <br/><br/>
+                        We have an opening Thursday at 9 AM. Want to book? 🧹
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Sent automatically 10:01 AM</span>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <div class="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm max-w-[90%]">
+                        That works. How do I pay?
+                    </div>
+                </div>
+
+                 <div class="flex flex-col items-end">
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        Link sent! Once deposit is paid, Crew #4 will be assigned.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4">The "Autopilot" Cleaning Cycle</h2>
+      <p class="text-slate-400">From quote to 5-star review, without you touching a keyboard.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-sky-500 to-indigo-500 transform -translate-y-1/2 opacity-20"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-blue-500">
+            <Icon name="ph:calculator" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">1. Calculator</h3>
+          <p class="text-xs text-slate-400">Instant SMS quote based on room count & sqft.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-sky-500">
+            <Icon name="ph:map-pin" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">2. Dispatch</h3>
+          <p class="text-xs text-slate-400">Assigns nearest crew. Sends gate codes & notes automatically.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-indigo-500">
+            <Icon name="ph:check-square-offset" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">3. QA Loop</h3>
+          <p class="text-xs text-slate-400">Crew marks "Done". Client gets a "Rate Us" text instantly.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-teal-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-teal-500">
+            <Icon name="ph:star" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">4. Review</h3>
+          <p class="text-xs text-slate-400">5-star rating? Auto-redirects to Google Reviews.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Common Questions</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>How accurate is the calculator?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          We work with you to dial in your "Price Per SqFt" and "Time Per Room" logic. Most clients find the automated quotes are within 95% of their manual bids, but save them 10 hours a week.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Can it handle Lockbox codes?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. The dispatch SMS sends the specific access code for that property *only* to the assigned crew on the morning of the job. Secure and automated.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Does it work with Jobber/Housecall Pro?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. We use n8n to sync the automated booking directly into your field service software so your calendar is always up to date.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="py-20 bg-white border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl font-bold mb-6">The "Busy Owner" Trap</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:steering-wheel" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The 20-Mile Estimate</h3>
+                  <p class="text-sm text-gray-500">Driving 45 minutes to look at a house, only to have them say "too expensive." It's a waste of fuel and time.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:chats-teardrop" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The 6 AM Text Blast</h3>
+                  <p class="text-sm text-gray-500">Manually texting 10 cleaners their routes every morning. One calls in sick, and your whole day is ruined.</p>
+                </div>
+              </div>
+             
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:warning-circle" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The "Callback"</h3>
+                  <p class="text-sm text-gray-500">A client complains about a missed spot 3 days later. By then, it's a refund. Instant QA catches this immediately.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
+              <div class="space-y-4 font-mono text-sm">
+                <div class="flex items-center gap-3 text-blue-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Inquiry &rarr; Auto-Calculator &rarr; Booked</span>
+                </div>
+                <div class="flex items-center gap-3 text-blue-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Job Booked &rarr; Auto-Assign Crew (Geo-logic)</span>
+                </div>
+                <div class="flex items-center gap-3 text-blue-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Job Done &rarr; "Rate Us" SMS</span>
+                </div>
+                <div class="flex items-center gap-3 text-blue-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>4-Star or lower &rarr; Instant Manager Alert</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 to-slate-900"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-[#F5F5F7]">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your stack</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:house" /> Jobber</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:truck" /> Housecall Pro</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:currency-dollar" /> QuickBooks</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:chat-text" /> Twilio</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:table" /> Airtable</div>
+        </div>
+      </div>
+    </section>
+
+    <RoiGrid items={roiItems} accentColor="blue" />
+
+    <section class="py-24 bg-slate-900 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold mb-6">Clean houses, not spreadsheets.</h2>
+        
+        <p class="text-gray-400 mb-10">Get a free audit of your cleaning operations. We'll show you exactly where you're losing hours.</p>
+        
+        <a 
+          href={auditUrl}
+          class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all cursor-pointer"
+        >
+          Audit My Operations
+        </a>
+      </div>
+    </section>
+</Layout>
