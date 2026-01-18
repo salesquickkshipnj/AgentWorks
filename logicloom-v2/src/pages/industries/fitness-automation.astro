@@ -1,0 +1,313 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
+
+const roiItems = [
+  { value: "40%", label: "Reduction in Churn" },
+  { value: "65%", label: "Higher Show Rate" },
+  { value: "Auto", label: "Referral Generation" }
+];
+
+// Phase 2: Diagnostic Parameters
+const auditUrl = "/audit?symptom=Member+Churn&context=Fitness+Gym&cta_label=Audit+Retention+Flow";
+---
+
+<Layout 
+  title="Gym & Fitness Automation | LogicLoom Systems"
+  description="Turn dead leads into members and stop churn before it happens. We build automated accountability systems for gyms and trainers."
+  campaignMode={true}
+>
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-red-500"></span>
+          <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Industry: Fitness & Wellness</span>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+          You're training clients.
+          <br />
+          <span class="text-gray-400">The leads are cooling.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          You miss the lead. They skip the workout. <br class="hidden md:block">
+          We build <strong>Accountability Engines and n8n automations</strong> that text new leads instantly, track attendance, and reactivate members who stop showing up.
+        </p>
+
+        <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
+          Best fit for Gyms/Studios with <span class="font-bold">200+ members</span> or handling <span class="font-bold">50+ leads/month</span> and struggling with retention.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <a 
+            href={auditUrl}
+            class="bg-red-600 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 active:scale-95 cursor-pointer"
+          >
+            Audit Retention Flow
+          </a>
+        </div>
+      </div>
+    </section>
+
+<section class="py-24 bg-red-50/30 border-t border-gray-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div>
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-red-100 text-red-800">
+            <Icon name="ph:heartbeat" />
+            <span class="text-xs font-bold uppercase tracking-widest">The "Churn-Proof" System</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">They stop showing up. <br/>You don't notice.</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            Most members quit mentally 3 weeks before they cancel. If you wait for the cancellation email, it's too late. Our system catches them when they miss their first workout.
+        </p>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-bold text-slate-900">Retention Calculator</span>
+                <span class="text-xs text-gray-500">Based on gym averages</span>
+            </div>
+         
+            <div class="space-y-3 font-mono text-sm">
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Monthly Churn:</span>
+                    <span>8%</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Avg Member Value (LTV):</span>
+                    <span>$1,200</span>
+                </div>
+                <div class="border-t border-gray-100 pt-3 flex justify-between font-bold text-slate-900 text-lg">
+                    <span>Lost Revenue:</span>
+                    <span>-$9,600 / month</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+        <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+        <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white relative flex flex-col">
+            <div class="bg-slate-100 p-4 pt-8 border-b border-gray-200 text-center pb-2">
+                <p class="text-[10px] uppercase text-gray-400 font-bold tracking-widest">SMS</p>
+                <p class="font-bold text-slate-900">Coach Mike</p>
+            </div>
+            
+            <div class="p-4 space-y-4 flex-1 bg-white overflow-y-auto">
+                
+                <div class="text-center my-4">
+                    <span class="text-[10px] text-gray-400 bg-gray-100 px-2 py-1 rounded-full">System Alert: Member Absent 7 Days</span>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        Hey Sarah! Haven't seen you crush a workout this week. Everything okay? 💪
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Sent automatically 9:00 AM</span>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <div class="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm max-w-[90%]">
+                        Hey Mike! Yeah just busy with work. I needed that push lol.
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Read 9:15 AM</span>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        No worries. I have a spot in the 6pm class tomorrow. Want me to book you in?
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Sent automatically 9:16 AM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4">The "Autopilot" Member Journey</h2>
+      <p class="text-slate-400">From the first ad click to the 100th workout.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 transform -translate-y-1/2 opacity-20"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-red-500">
+            <Icon name="ph:lightning" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">1. Speed-to-Lead</h3>
+          <p class="text-xs text-slate-400">Leads contacted via SMS within 2 minutes of ad click.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-pink-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-pink-500">
+            <Icon name="ph:calendar-plus" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">2. Booking</h3>
+          <p class="text-xs text-slate-400">AI negotiates a trial time and sends reminders so they show up.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-purple-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-purple-500">
+            <Icon name="ph:eye" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">3. Accountability</h3>
+          <p class="text-xs text-slate-400">Monitors check-ins. If they ghost for 7 days, it texts them.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-blue-500">
+            <Icon name="ph:gift" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">4. Referral</h3>
+          <p class="text-xs text-slate-400">Hit 100 classes? System auto-sends a "Gift a Friend" offer.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Common Questions</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Does it integrate with Mindbody?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. We use webhooks to listen to your gym management software (Mindbody, Glofox, ZenPlanner). When a member checks in (or doesn't), that triggers the automation.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Will the texts sound robotic?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          No. We train the AI on your specific tone ("Coach Voice"). It uses slang, emojis, and casual language so it feels like a real text from a friend, not a bot.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Can I turn it off for certain members?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Absolutely. You can tag members as "Do Not Disturb" in your CRM, and the automation will respect that tag instantly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="py-20 bg-white border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl font-bold mb-6">The "Leaky Bucket" Trap</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:user-minus" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Silent Quitters</h3>
+                  <p class="text-sm text-gray-500">Members stop coming, but don't cancel yet. This is the "Save Zone." If you ignore them here, they are gone forever.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:snowflake" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Cold Leads</h3>
+                  <p class="text-sm text-gray-500">You take 4 hours to call a new lead. By then, they've already joined the gym down the street.</p>
+                </div>
+              </div>
+             
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:battery-warning" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Admin Burnout</h3>
+                  <p class="text-sm text-gray-500">Your coaches hate sales. Forcing them to make cold calls kills their morale and training quality.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
+              <div class="space-y-4 font-mono text-sm">
+                <div class="flex items-center gap-3 text-red-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Ad Click &rarr; SMS (2 mins) &rarr; Booked</span>
+                </div>
+                <div class="flex items-center gap-3 text-red-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Absent 7 Days &rarr; Auto-Check-in Text</span>
+                </div>
+                <div class="flex items-center gap-3 text-red-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Milestone Hit &rarr; Auto-Review Request</span>
+                </div>
+                <div class="flex items-center gap-3 text-red-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Lead Ghosting &rarr; Long-term Nurture</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-br from-red-900/50 to-slate-900"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-[#F5F5F7]">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your stack</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:barbell" /> Mindbody</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:users" /> Glofox</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:calendar" /> ZenPlanner</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:facebook-logo" /> Meta Ads</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:chat-circle-text" /> Twilio</div>
+        </div>
+      </div>
+    </section>
+
+    <RoiGrid items={roiItems} accentColor="red" />
+
+    <section class="py-24 bg-slate-900 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold mb-6">Build a Churn-Proof Gym.</h2>
+        
+        <p class="text-gray-400 mb-10">Get a free audit of your retention process. We'll show you exactly how much revenue is walking out the door.</p>
+        
+        <a 
+          href={auditUrl}
+          class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all cursor-pointer"
+        >
+          Audit Retention Flow
+        </a>
+      </div>
+    </section>
+</Layout>

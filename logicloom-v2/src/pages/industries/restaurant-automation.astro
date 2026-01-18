@@ -1,0 +1,315 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RoiGrid from '../../components/sections/RoiGrid.astro';
+import { Icon } from 'astro-icon/components';
+
+const roiItems = [
+  { value: "45s", label: "Avg Response Time" },
+  { value: "215%", label: "Increase in Bookings" },
+  { value: "8 hrs", label: "Saved Weekly on Admin" }
+];
+
+// Phase 2: Diagnostic Parameters
+const auditUrl = "/audit?symptom=Missed+Catering+Leads&context=Restaurant&cta_label=Audit+Booking+Flow";
+---
+
+<Layout 
+  title="Restaurant & Catering Automation | LogicLoom Systems"
+  description="Stop losing private events because you're too busy running the floor. We automate catering inquiries, reservations, and deposit collection."
+  campaignMode={true}
+>
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden z-10">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        
+        <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-amber-500"></span>
+          <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Industry: Hospitality & Dining</span>
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+          You're running the pass.
+          <br />
+          <span class="text-gray-400">The inbox is full.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed">
+          You miss the email. You miss the $5k wedding rehearsal. <br class="hidden md:block">
+          We build <strong>AI Concierges and n8n automations</strong> that answer catering inquiries, check your calendar, and collect deposits while you serve guests.
+        </p>
+
+        <p class="text-sm text-gray-400 max-w-2xl mx-auto mb-10">
+          Best fit for venues handling <span class="font-bold">10+ event inquiries/week</span> or doing <span class="font-bold">$1M+/year</span> and missing leads during service hours.
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <a 
+            href={auditUrl}
+            class="bg-slate-900 text-white text-base px-8 py-4 rounded-full font-medium hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95 cursor-pointer"
+          >
+            Audit Booking Flow
+          </a>
+        </div>
+      </div>
+    </section>
+
+<section class="py-24 bg-amber-50/30 border-t border-gray-200 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    
+    <div>
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-amber-100 text-amber-800">
+            <Icon name="ph:clock-countdown" />
+            <span class="text-xs font-bold uppercase tracking-widest">The "Zero-Latency" System</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">You miss the email. <br/>They book next door.</h2>
+        <p class="text-lg text-gray-600 mb-8">
+            40% of event leads hire the first venue that replies. If you wait until Monday to answer a Friday night inquiry, you've already lost.
+        </p>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-bold text-slate-900">Revenue Recovery Calculator</span>
+                <span class="text-xs text-gray-500">Based on client data</span>
+            </div>
+         
+            <div class="space-y-3 font-mono text-sm">
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Avg Event Value:</span>
+                    <span>$3,500</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Slow Responses/Week:</span>
+                    <span>4</span>
+                </div>
+                <div class="border-t border-gray-100 pt-3 flex justify-between font-bold text-red-600 text-lg">
+                    <span>Potential Lost Revenue:</span>
+                    <span>$14,000 / week</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+        <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+        <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+        <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white relative flex flex-col">
+            <div class="bg-slate-100 p-4 pt-8 border-b border-gray-200 text-center pb-2">
+                <p class="text-[10px] uppercase text-gray-400 font-bold tracking-widest">Email</p>
+                <p class="font-bold text-slate-900">New Inquiry: Sarah J.</p>
+            </div>
+            
+            <div class="p-4 space-y-4 flex-1 bg-white overflow-y-auto">
+                
+                <div class="text-center my-4">
+                    <span class="text-[10px] text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Received Fri 7:15 PM</span>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <div class="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm max-w-[90%]">
+                        Hi, do you have availability for a rehearsal dinner for 40 people on June 12th?
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <div class="bg-slate-900 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[90%] shadow-sm">
+                        Hi Sarah! Yes, June 12th is open. I've attached our Private Dining Menu. 
+                        <br/><br/>
+                        For 40 guests, the "Gold Package" fits best. Want to schedule a quick tasting?
+                        🍷
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Sent automatically 7:16 PM</span>
+                </div>
+
+                <div class="flex flex-col items-start">
+                    <div class="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm max-w-[90%]">
+                        Wow, that was fast! Yes, let's lock it in.
+                    </div>
+                    <span class="text-[10px] text-gray-400 mt-1">Read 7:18 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl font-bold mb-4">The "Autopilot" Event Cycle</h2>
+      <p class="text-slate-400">Stop drafting quotes at midnight. Let the system handle the booking.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-500 transform -translate-y-1/2 opacity-20"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-amber-500">
+            <Icon name="ph:envelope-open" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">1. Capture</h3>
+          <p class="text-xs text-slate-400">Website forms & emails parsed instantly by AI.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-yellow-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-yellow-500">
+            <Icon name="ph:calendar-check" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">2. Check</h3>
+          <p class="text-xs text-slate-400">System checks your live calendar for conflicts before replying.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-orange-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-orange-500">
+            <Icon name="ph:file-pdf" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">3. Proposal</h3>
+          <p class="text-xs text-slate-400">Sends the correct Menu PDF and Quote based on guest count.</p>
+        </div>
+
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition-all text-center group">
+          <div class="w-12 h-12 mx-auto bg-slate-900 rounded-lg flex items-center justify-center border border-slate-700 mb-4 group-hover:scale-110 transition-transform text-red-500">
+            <Icon name="ph:credit-card" class="text-2xl" />
+          </div>
+          <h3 class="font-bold mb-1">4. Deposit</h3>
+          <p class="text-xs text-slate-400">Auto-generates Stripe invoice to lock in the date.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display text-3xl font-bold mb-12 text-center text-slate-900">Common Questions</h2>
+    
+    <div class="space-y-4">
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Will it double-book my calendar?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Never. The automation performs a "Look-Up" on your Google Calendar, OpenTable, or Resy system before sending any availability to a client. If the date is taken, it politely offers alternative dates.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Can it handle different menus?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          Yes. The AI reads the inquiry details. If they ask for a "Lunch," it sends the Lunch Menu. If they say "Wedding," it sends the Wedding Package. It's context-aware.
+        </div>
+      </div>
+
+      <div x-data="{ open: false }" class="bg-slate-50 border border-gray-200 rounded-lg overflow-hidden">
+        <button @click="open = !open" class="flex justify-between items-center w-full p-4 text-left font-bold text-slate-900 hover:bg-gray-100">
+          <span>Does it work with Toast/Square?</span>
+          <Icon name="ph:caret-down" class="text-gray-500" />
+        </button>
+        <div x-show="open" class="p-4 pt-0 text-gray-600 text-sm">
+          We integrate with most POS systems via API or webhooks to sync customer data, though the primary automation usually lives in your Inbox and Calendar.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="py-20 bg-white border-y border-gray-100">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-3xl font-bold mb-6">The "Busy Manager" Trap</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:envelope-simple-open" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">The Inbox backlog</h3>
+                  <p class="text-sm text-gray-500">You check emails once a day. By then, the client has already booked a venue that replied in 10 minutes.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:user-focus" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Split Focus</h3>
+                  <p class="text-sm text-gray-500">Trying to type quotes on your phone while expediting food leads to mistakes and burnout.</p>
+                </div>
+              </div>
+             
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <Icon name="ph:money" class="text-xl" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900">Chasing Deposits</h3>
+                  <p class="text-sm text-gray-500">"Did they pay yet?" Stop wondering. The system chases them for you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="font-display text-2xl font-bold mb-4">The LogicLoom Fix</h3>
+              <div class="space-y-4 font-mono text-sm">
+                <div class="flex items-center gap-3 text-amber-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Inquiry &rarr; AI Check &rarr; Reply (45s)</span>
+                </div>
+                <div class="flex items-center gap-3 text-amber-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Low Budget &rarr; Auto-Suggest Lunch Menu</span>
+                </div>
+                <div class="flex items-center gap-3 text-amber-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Accepted &rarr; Auto-Invoice via Stripe</span>
+                </div>
+                <div class="flex items-center gap-3 text-amber-400">
+                    <Icon name="ph:check-circle" /> 
+                    <span>Unpaid &rarr; Auto-Nudge (48hrs)</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-900/50 to-slate-900"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-[#F5F5F7]">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Works with your stack</p>
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 grayscale opacity-60 hover:grayscale-0 transition-all">
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:calendar" /> Resy</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:squares-four" /> OpenTable</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:receipt" /> Toast</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:envelope-simple" /> Gmail</div>
+          <div class="flex items-center gap-2 font-bold text-xl text-gray-600"><Icon name="ph:credit-card" /> Stripe</div>
+        </div>
+      </div>
+    </section>
+
+    <RoiGrid items={roiItems} accentColor="amber" />
+
+    <section class="py-24 bg-slate-900 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="font-display text-4xl font-bold mb-6">Serve guests, not emails.</h2>
+        
+        <p class="text-gray-400 mb-10">Get a free audit of your event booking process. We'll show you exactly where leads are leaking.</p>
+        
+        <a 
+          href={auditUrl}
+          class="inline-block bg-white text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition-all cursor-pointer"
+        >
+          Audit My Booking Flow
+        </a>
+      </div>
+    </section>
+</Layout>
