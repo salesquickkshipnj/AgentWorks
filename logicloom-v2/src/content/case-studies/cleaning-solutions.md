@@ -1,73 +1,103 @@
 ---
-layout: ../../layouts/CaseStudyLayout.astro
-title: "The 'Invisible' Dispatcher"
+title: "The Invisible Dispatcher"
 client: "Apex Facility Services"
-industry: "Commercial & Residential Cleaning"
-pubDate: 2026-01-18
-description: "Eliminating the 'In-Person Estimate' trap to automate 90% of bookings and reduce admin time by 20 hours a week."
-author: "LogicLoom Systems"
-image:
-  url: "/images/case-studies/cleaning-automation.png"
-  alt: "An automated scheduling dashboard showing cleaning routes and staff dispatch."
-tags: ["Automation", "Field Service", "Logistics", "AI Operations"]
+industry: "Field Service"
+metric: "20 Hrs/Wk Saved"
+description: "Eliminating the 'In-Person Estimate' trap to automate 90% of bookings and dispatch crews via SMS."
+publishDate: 2026-01-18
+tags: ["n8n", "Twilio", "Logistics"]
+heroImage: "/cleaning-hero.png"
 ---
 
-## Client Profile
+<div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Quote Speed</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">Instant</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Site Visits</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">Zero</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Reviews</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">+400%</div>
+</div>
+<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Admin Saved</div>
+<div class="text-3xl font-bold text-slate-900 tracking-tight">20hrs/wk</div>
+</div>
+</div>
 
-| **Metric** | **Detail** |
-| :--- | :--- |
-| **Client** | Apex Facility Services |
-| **Location** | Short Hills, NJ |
-| **Industry** | Commercial & Residential Cleaning |
-| **Scale** | 15 Crews / $1.8M Annual Revenue |
+## Escaping the "Free Estimate" Trap
 
----
+Apex was burning fuel and time. For every residential inquiry, the owner drove to the property to give a quote. Combine that with a chaotic 6:00 AM group text to dispatch 15 crews, and the business was unscalable.
 
-## The Bottleneck (The "Before")
-
-Apex was stuck in the **"In-Person Estimate" Trap**. 
-
-For every residential inquiry (e.g., *"How much for a 4-bedroom deep clean?"*), the owner felt compelled to visit the site or spend 20 minutes on the phone to give an accurate price. This created a massive administrative bottleneck:
-* **Lead Decay:** Quotes took 24-48 hours to finalize.
-* **Wasted Fuel:** The owner drove ~200 miles/week just to look at houses that didn't convert.
-* **Scheduling Chaos:** Dispatching 15 crews was done via a chaotic group text message every morning at 6:00 AM.
-
----
-
-## The LogicLoom Solution
-
-We engineered a **Remote Estimation & Automated Dispatch Engine** that standardizes pricing and logistics without a single site visit.
-
-### 1. The "Calculator" Chatbot
-We implemented an intelligent intake form that acts as a virtual estimator. It captures variables (Square Footage, # of Bathrooms, Pets, Flooring Type) and applies a custom pricing logic to generate an **instant, binding quote** via SMS and Email. 
-* *Result:* The customer gets a price in 30 seconds, not 2 days.
-
-### 2. The "Uber-Style" Dispatch
-Once a job is booked, LogicLoom takes over the logistics. 
-* **Route Optimization:** The system assigns the job to the crew geographically closest to that neighborhood.
-* **Automated Briefings:** At 5:00 PM the day before, the assigned crew receives an automated SMS containing the address, gate codes, specific client notes (e.g., *"Don't let the cat out"*), and a checklist tailored to that specific package.
-
-### 3. Quality Assurance Loop
-When the crew marks the job "Complete" on their mobile link, the system automatically texts the homeowner: *"The team just finished up! Please rate your service 1-5."*
-* **5 Stars:** Triggers a Google Review request.
-* **1-3 Stars:** Instantly alerts the Operations Manager to call the client before they post publicly.
+**The Solution:** A Remote Estimation Engine that standardizes pricing and handles logistics without a single phone call or site visit.
 
 ---
 
-## The Results (The "After")
+## Why this was hard to automate
 
-> *"I haven't driven to a residential estimate in six months. The system prices it perfectly, books the crew, and sends me the invoice. I finally have my weekends back."*
-> — **Marcus D., Owner**
+Cleaning pricing is variable, and dispatching is logistical chaos. A simple form cannot handle the complexity of "Route Density."
 
-* **Admin Time:** Reduced by **20 hours/week** (Owner no longer acts as dispatcher).
-* **Booking Velocity:** 70% of residential jobs are now booked and paid without human interaction.
-* **Customer Satisfaction:** Google Review volume increased by **400%** due to the automated QA loop.
+* **The "Sight Unseen" Risk:** How do you price a house without seeing it? We built a calculator logic that uses proxies (Square Footage + # of Baths) to generate a binding quote that is 95% accurate to the final labor cost.
+* **Geospatial Dispatch:** Assigning a job to a random crew kills efficiency. We needed logic that checks the zip code of the new job and assigns it to the crew *already* working in that sector to minimize drive time.
 
 ---
 
-## System Architecture
+## The Automated Dispatch Flow
 
-* **Core Orchestration:** [n8n](https://n8n.io)
-* **Communication:** Twilio (SMS Dispatch)
-* **Database:** Airtable (Crew Logic & Pricing Formulas)
-* **Field Software:** Jobber API
+This workflow connects a web calculator to Twilio SMS, handling the conversation with both the client and the crew.
+
+<div class="not-prose my-16">
+<div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+
+<div class="grid md:grid-cols-3 gap-8 relative z-10">
+
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<div class="text-3xl mb-4">🧮</div>
+<h3 class="font-bold text-slate-900 text-lg mb-2">1. Smart Calculator</h3>
+<p class="text-sm text-slate-500 leading-relaxed">
+Clients input their home details. The system applies a "Price-Per-SqFt" formula and texts them an instant, bookable quote.
+</p>
+</div>
+
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<div class="text-3xl mb-4">🚚</div>
+<h3 class="font-bold text-slate-900 text-lg mb-2">2. Geo-Dispatch</h3>
+<p class="text-sm text-slate-500 leading-relaxed">
+Upon booking, the system identifies the nearest crew and texts them the address, gate codes, and "Cat Alerts" for the next morning.
+</p>
+</div>
+
+<div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
+<div class="text-3xl mb-4">⭐</div>
+<h3 class="font-bold text-slate-900 text-lg mb-2">3. Auto-QA Loop</h3>
+<p class="text-sm text-slate-500 leading-relaxed">
+When the job is marked complete, the client gets a "Rate Us" text. 5-stars triggers a Google Review link; 1-star alerts the owner.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+## The Result
+70% of residential jobs are now booked and paid without human interaction. The owner has stopped driving to estimates and reclaimed his weekends.
+
+<div class="not-prose mt-20 p-10 bg-slate-50 rounded-[2rem] border border-gray-100 relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+<div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl shadow-sm border border-gray-100">
+🧹
+</div>
+<div class="flex-grow">
+<h3 class="font-display font-bold text-slate-900 text-2xl">Scale your service business.</h3>
+<p class="text-slate-500 mt-2 text-base max-w-lg">
+Stop driving to estimates. Automate your quoting, dispatching, and quality control.
+</p>
+</div>
+<a href="/audit?context=Cleaning&symptom=Logistics" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+Audit My Operations
+</a>
+</div>
+</div>
