@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import SolutionsDropdown from './navigation/SolutionsDropdown.astro'; // <--- NEW IMPORT
+import SolutionsDropdown from './navigation/SolutionsDropdown.astro';
 ---
 
 <header
@@ -8,7 +8,6 @@ import SolutionsDropdown from './navigation/SolutionsDropdown.astro'; // <--- NE
   class="fixed w-full z-50 top-0 transition-all duration-300 border-b border-transparent"
   x-data="{ 
     mobileMenuOpen: false, 
-    // REMOVED: solutionsOpen: false (Component handles itself)
     toggleMobile() {
         this.mobileMenuOpen = !this.mobileMenuOpen;
         document.body.style.overflow = this.mobileMenuOpen ? 'hidden' : '';
@@ -46,18 +45,13 @@ import SolutionsDropdown from './navigation/SolutionsDropdown.astro'; // <--- NE
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
-      
-      <a href="/#capabilities" class="text-sm font-medium text-gray-600 hover:text-slate-900 transition-colors">Capabilities</a>
-      <a href="/#process" class="text-sm font-medium text-gray-600 hover:text-slate-900 transition-colors">Protocol</a>
-
       <SolutionsDropdown />
-
+      <a href="/#process" class="text-sm font-medium text-gray-600 hover:text-slate-900 transition-colors">Protocol</a>
+      <a href="/case-studies" class="text-sm font-medium text-gray-600 hover:text-slate-900 transition-colors">Case Studies</a>
       <a href="/#pricing" class="text-sm font-medium text-gray-600 hover:text-slate-900 transition-colors">Pricing</a>
     </nav>
 
     <div class="hidden md:flex items-center gap-6">
-      <a href="/n8n-services" class="text-sm font-bold text-gray-500 hover:text-slate-900 transition-colors">n8n Experts</a>
-      
       <a 
         href="/audit"
         class="text-sm font-bold bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/20 active:scale-95 flex items-center gap-2"
@@ -81,21 +75,25 @@ import SolutionsDropdown from './navigation/SolutionsDropdown.astro'; // <--- NE
       class="absolute top-0 left-0 w-full bg-white border-b border-gray-200 pt-24 pb-8 px-6 md:hidden shadow-2xl h-screen overflow-y-auto" 
   >
        <div class="space-y-8">
-            <div class="space-y-4 pb-4 border-b border-gray-100">
-                <a href="/#capabilities" @click="toggleMobile()" class="block text-xl font-bold text-slate-900">Capabilities</a>
-                <a href="/#process" @click="toggleMobile()" class="block text-xl font-bold text-slate-900">The Protocol</a>
-                <a href="/#pricing" @click="toggleMobile()" class="block text-xl font-bold text-slate-900">Pricing</a>
-                <a href="/n8n-services" @click="toggleMobile()" class="block text-xl font-bold text-slate-900">n8n Experts</a>
+            <div>
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 block">Core Architectures</span>
+                <div class="grid grid-cols-1 gap-4">
+                    <a href="/case-studies" class="flex items-center gap-3 text-base font-medium text-slate-900">
+                        <Icon name="ph:rocket-launch" class="text-blue-600 text-xl" /> The Growth Engine
+                    </a>
+                    <a href="/case-studies" class="flex items-center gap-3 text-base font-medium text-slate-900">
+                        <Icon name="ph:gear-six" class="text-orange-600 text-xl" /> Operations Autopilot
+                    </a>
+                    <a href="/case-studies" class="flex items-center gap-3 text-base font-medium text-slate-900">
+                        <Icon name="ph:brain" class="text-purple-600 text-xl" /> Service Concierge
+                    </a>
+                </div>
             </div>
 
-            <div>
-                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 block">Industries</span>
-                <div class="grid grid-cols-1 gap-3">
-                    <a href="/industries/roofing-automation" class="block text-base font-medium text-gray-600">Roofing & Trades</a>
-                    <a href="/industries/restaurant-automation" class="block text-base font-medium text-gray-600">Restaurants & Catering</a>
-                    <a href="/industries/fitness-automation" class="block text-base font-medium text-gray-600">Gyms & Fitness</a>
-                    <a href="/industries/dental-automation" class="block text-base font-medium text-gray-600">Dental Practices</a>
-                </div>
+            <div class="space-y-4 pb-4 border-t border-gray-100 pt-6">
+                <a href="/#process" @click="toggleMobile()" class="block text-lg font-bold text-gray-600">The Protocol</a>
+                <a href="/#pricing" @click="toggleMobile()" class="block text-lg font-bold text-gray-600">Pricing</a>
+                <a href="/case-studies" @click="toggleMobile()" class="block text-lg font-bold text-gray-600">Case Studies</a>
             </div>
 
             <div class="pt-4">
@@ -106,20 +104,17 @@ import SolutionsDropdown from './navigation/SolutionsDropdown.astro'; // <--- NE
                     Start Feasibility Audit
                 </a>
             </div>
-       </div>
+      </div>
   </div>
 </header>
 
 <script>
   const header = document.getElementById('main-header');
-  
   window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
-      // Scrolled State
       header.classList.add('bg-white/80', 'backdrop-blur-md', 'border-gray-200', 'shadow-sm');
       header.classList.remove('border-transparent');
     } else {
-      // Top State
       header.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-gray-200', 'shadow-sm');
       header.classList.add('border-transparent');
     }

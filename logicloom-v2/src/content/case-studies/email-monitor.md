@@ -9,6 +9,14 @@ tags: ["n8n", "OpenAI", "Gmail", "AI Agents"]
 heroImage: "/email-monitor-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Support team walked into 300+ unread tickets every Monday morning.</li>
+    <li><strong>🛠 The Fix:</strong> An AI "Traffic Controller" that performs real-time Shopify lookups.</li>
+    <li><strong>🟢 The Result:</strong> 80% of tickets auto-triaged; response time dropped from 24h to 3s.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Inbox Coverage</div>
@@ -45,6 +53,11 @@ Standard helpdesk tools rely on simple keywords, which fail when customers are v
 * **The Context Problem:** A customer saying *"My order is broken"* requires a refund. A customer saying *"My order is lost"* requires a tracking check. Keyword matching "Order" for both fails. We needed an LLM to understand *intent*.
 * **The Database Gap:** To answer "Where is my order?", the bot needs to check Shopify *real-time*. Zapier can't easily fetch data from Shopify and then inject it into a Gmail draft in a conversational way without massive complexity.
 * **The Hallucination Risk:** You can't let AI just "guess" a tracking number. We needed a strict code layer that forces the AI to use *only* the data returned from the API.
+
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Service Concierge</strong> architecture.</span>
+  <a href="/audit?context=ServiceConcierge" class="underline hover:text-blue-700">Audit your Inbox Strategy →</a>
+</div>
 
 ---
 
@@ -116,8 +129,13 @@ Most "AI Customer Service" bots hallucinate because they lack grounded data. Our
 We can install this AI filter on your inbox in 48 hours.
 </p>
 </div>
-<a href="/audit?context=Support+Ops&symptom=Inbox+Overload" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=ServiceConcierge" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Inbox
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need advanced E-Com support?</p>
+  <a href="/case-studies/ecom-support" class="text-slate-600 font-semibold hover:text-slate-900">See our Refund Ops Logic →</a>
 </div>

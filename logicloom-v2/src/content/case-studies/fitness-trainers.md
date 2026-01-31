@@ -9,6 +9,14 @@ tags: ["n8n", "Retention", "CRM"]
 heroImage: "/fitness-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> 60% of trial leads were "ghosting" before their first workout.</li>
+    <li><strong>🛠 The Fix:</strong> Integration with Mindbody API to detect absence & trigger texts.</li>
+    <li><strong>🟢 The Result:</strong> Churn dropped by 40%; $5k/mo retained revenue.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Lead Conversion</div>
@@ -43,9 +51,14 @@ Fitness requires "Personal Accountability," not spam. Sending generic "We miss y
 * **The "Ghost" Detection:** We couldn't just email everyone. We had to integrate with the gym's check-in hardware (Mindbody API) to identify specific users who had been active 3x/week but suddenly dropped to 0.
 * **The Coach Tone:** The automated texts couldn't *sound* automated. We trained the model to mimic the specific voice and slang of the member's assigned coach so the check-in felt genuine and personal.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Service Concierge</strong> architecture.</span>
+  <a href="/audit?context=ServiceConcierge" class="underline hover:text-blue-700">Audit your Retention Strategy →</a>
+</div>
+
 ---
 
-## The Accountability Flow
+## The Accountability Flow 
 
 This workflow runs on n8n, sitting between the Check-In Kiosk and the SMS gateway to act as a 24/7 accountability partner.
 
@@ -96,8 +109,13 @@ Churn dropped from 8% to 4.5% monthly. Members feel "seen" because they get inst
 Turn "dead leads" into active members and stop churn before it happens.
 </p>
 </div>
-<a href="/audit?context=Fitness&symptom=Churn" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=ServiceConcierge" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Retention
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need help with Email Overload?</p>
+  <a href="/case-studies/email-monitor" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Support →</a>
 </div>

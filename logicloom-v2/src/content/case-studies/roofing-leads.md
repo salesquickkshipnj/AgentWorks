@@ -9,6 +9,14 @@ tags: ["n8n", "HubSpot", "Twilio", "Google Maps API"]
 heroImage: "/roofing-leads-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> 40% of leads booked elsewhere because of a 60-minute admin delay.</li>
+    <li><strong>🛠 The Fix:</strong> Event-Driven Dispatch using Google Maps API + Twilio.</li>
+    <li><strong>🟢 The Result:</strong> 12s response time; 0% lead leakage; $15k ad spend protected.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Response Time</div>
@@ -50,9 +58,17 @@ A standard "Zap" could not handle the complexity of real-world logistics.
 * **The Geolocation Gap:** Standard automation tools cannot calculate "Driving Distance." You need a custom API call to Google Maps to determine which estimator is *actually* closest, not just linearly closest.
 * **The "Human" Timeout:** We needed the system to wait 90 seconds for a driver to reply "CLAIM". If they didn't, it had to loop to the next driver. This **State Management** (Wait/Retry logic) causes simple automation tools to time out or break.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Growth Engine</strong> architecture.</span>
+  <a href="/audit?context=GrowthEngine" class="underline hover:text-blue-700">Audit your Dispatch Logic →</a>
+</div>
+
 ---
 
-## The Engineering Solution
+## The Engineering Solution 
+
+[Image of workflow]
+
 
 We replaced the human admin with an **Event-Driven Architecture**. We don't "check email"—we listen for webhooks.
 
@@ -146,8 +162,13 @@ Simple automations fail because they lack state management. Our system handles "
 Most dispatch systems are manual. We can automate yours in less than a week.
 </p>
 </div>
-<a href="/audit?context=Roofing+Dispatch&symptom=Slow+Lead+Response" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=GrowthEngine" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Dispatch Logic
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need instant pricing for logistics?</p>
+  <a href="/case-studies/shipping-calculator" class="text-slate-600 font-semibold hover:text-slate-900">See our Quoting Engine →</a>
 </div>

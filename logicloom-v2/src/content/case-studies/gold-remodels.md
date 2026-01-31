@@ -9,6 +9,14 @@ tags: ["n8n", "OpenAI", "Twilio", "Google Sheets"]
 heroImage: "/gold-remodels-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Owner spent 15 hrs/week manually copying leads from Angi/HomeAdvisor.</li>
+    <li><strong>🛠 The Fix:</strong> A Unified Ingestion Engine using n8n + GPT-4o for data normalization.</li>
+    <li><strong>🟢 The Result:</strong> 100% automated entry; 2x booking rate due to instant follow-up.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Time Saved</div>
@@ -43,9 +51,14 @@ Standard integration tools expect clean, matching data. Home improvement leads a
 * **The Format Fragmentation:** Angi sends an email notification; the website sends a JSON payload; HomeAdvisor sends a text. A basic Zapier setup requires a different "Zap" for every single source, creating a maintenance nightmare.
 * **The Normalization Gap:** One lead says "Kitchen," another says "Cabinetry." To a CRM, these are different values. We needed an AI layer to map varied human language into standardized CRM dropdown values *before* the data entered the database.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Operations Autopilot</strong> architecture.</span>
+  <a href="/audit?context=OpsAutopilot" class="underline hover:text-blue-700">Audit your CRM Hygiene →</a>
+</div>
+
 ---
 
-## The Unified Ingestion Engine
+## The Unified Ingestion Engine 
 
 We built a single "Master Pipeline" that swallows leads from any source, cleans them, and routes them instantly.
 
@@ -136,8 +149,13 @@ Input: "Hi, looking to redo my master bath, maybe spend like 20k."
 We can unify your HomeAdvisor, Thumbtack, and Website leads into one clean stream.
 </p>
 </div>
-<a href="/audit?context=Construction&symptom=Lead+Entry" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=OpsAutopilot" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My CRM
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need help with field logistics?</p>
+  <a href="/case-studies/cleaning-solutions" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Service Dispatching →</a>
 </div>

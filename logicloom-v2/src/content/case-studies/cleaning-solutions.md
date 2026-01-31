@@ -9,6 +9,14 @@ tags: ["n8n", "Twilio", "Logistics"]
 heroImage: "/cleaning-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Owner was driving 10+ hours/week just to give free quotes.</li>
+    <li><strong>🛠 The Fix:</strong> A "Sight Unseen" proxy calculator linked to Twilio dispatch.</li>
+    <li><strong>🟢 The Result:</strong> 90% of bookings automated; Owner reclaimed their weekends.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Quote Speed</div>
@@ -43,9 +51,14 @@ Cleaning pricing is variable, and dispatching is logistical chaos. A simple form
 * **The "Sight Unseen" Risk:** How do you price a house without seeing it? We built a calculator logic that uses proxies (Square Footage + # of Baths) to generate a binding quote that is 95% accurate to the final labor cost.
 * **Geospatial Dispatch:** Assigning a job to a random crew kills efficiency. We needed logic that checks the zip code of the new job and assigns it to the crew *already* working in that sector to minimize drive time.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Operations Autopilot</strong> architecture.</span>
+  <a href="/audit?context=OpsAutopilot" class="underline hover:text-blue-700">Audit your Field Ops →</a>
+</div>
+
 ---
 
-## The Automated Dispatch Flow
+## The Automated Dispatch Flow 
 
 This workflow connects a web calculator to Twilio SMS, handling the conversation with both the client and the crew.
 
@@ -96,8 +109,13 @@ When the job is marked complete, the client gets a "Rate Us" text. 5-stars trigg
 Stop driving to estimates. Automate your quoting, dispatching, and quality control.
 </p>
 </div>
-<a href="/audit?context=Cleaning&symptom=Logistics" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=OpsAutopilot" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Operations
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need to automate document intake instead?</p>
+  <a href="/case-studies/acme-law" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Legal Ops →</a>
 </div>

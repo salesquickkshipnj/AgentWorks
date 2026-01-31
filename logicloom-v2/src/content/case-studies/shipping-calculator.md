@@ -9,6 +9,14 @@ tags: ["n8n", "Stripe", "Google Sheets", "Webhooks"]
 heroImage: "/shipping-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Quotes took 4 hours to calculate manually; losing loads to speed.</li>
+    <li><strong>🛠 The Fix:</strong> A low-latency JS Calculation Engine + Stripe Payment link.</li>
+    <li><strong>🟢 The Result:</strong> Instant quotes (0.8s) and 18% higher conversion.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Quote Speed</div>
@@ -50,6 +58,11 @@ Logistics pricing is too dynamic for standard form builders.
 * **The Math Problem:** Zapier can handle basic addition, but it struggles with "Distance * Variable Rate + Dynamic Fuel Surcharge %." We needed a robust JavaScript engine to handle the floating-point math reliably.
 * **The Latency Requirement:** Customers waiting on a website need a quote in under 2 seconds. Chaining 5 different Zaps together creates a 5-10 second delay, which feels "broken" to the user. We needed a low-latency endpoint.
 * **Edge Case Logic:** If the distance is > 500 miles, the price per mile drops. If it's a residential address, a fee is added. This conditional logic tree is impossible to maintain in linear automation tools.
+
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Growth Engine</strong> architecture.</span>
+  <a href="/audit?context=GrowthEngine" class="underline hover:text-blue-700">Audit your Pricing Logic →</a>
+</div>
 
 ---
 
@@ -110,8 +123,13 @@ A calculator is useless if it's wrong. We implemented strict logic filters to pr
 If you can do the math in Excel, we can code it into an instant quote engine.
 </p>
 </div>
-<a href="/audit?context=Logistics&symptom=Slow+Quoting" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=GrowthEngine" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Pricing Logic
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need to fill the pipeline first?</p>
+  <a href="/case-studies/cold-lead-finder" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Prospecting →</a>
 </div>

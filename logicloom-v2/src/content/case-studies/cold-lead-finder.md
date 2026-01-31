@@ -9,6 +9,14 @@ tags: ["n8n", "OpenAI", "Google Sheets", "Lead Gen"]
 heroImage: "/cold-lead-finder.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Sales reps wasted 4 hours/day manually copying data from Google Maps.</li>
+    <li><strong>🛠 The Fix:</strong> An Apify Scraper + AI Qualifier + Waterfall Enrichment pipeline.</li>
+    <li><strong>🟢 The Result:</strong> 500 verified leads/day; 90% reduction in research time.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Time Savings</div>
@@ -43,6 +51,11 @@ You cannot simply "Zap" Google Maps.
 * **The Anti-Scraping Hurdle:** Google aggressively blocks standard scrapers. We needed **Apify** actors running on rotating residential proxies to gather data reliably.
 * **The Quality Filter:** Scraping gives you *quantity*, not quality. A simple scraper would pull 1,000 "Plumbers," but half of them might be new construction subcontractors (who don't need marketing).
 * **The Logic Gap:** We needed an AI agent to actually *visit* the prospect's website and answer: *"Do they offer residential services?"* Standard automation tools cannot perform this visual verification step.
+
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Growth Engine</strong> architecture.</span>
+  <a href="/audit?context=GrowthEngine" class="underline hover:text-blue-700">See if this fits your business →</a>
+</div>
 
 ---
 
@@ -125,8 +138,13 @@ quality_filter.js
 We can build a scraper that fills your CRM with 500+ verified leads every morning.
 </p>
 </div>
-<a href="/audit?context=Lead+Gen&symptom=Manual+Prospecting" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=GrowthEngine" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Lead Gen
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Once you have leads, how do you alert your team?</p>
+  <a href="/case-studies/audit-form-automation" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Sales Alerts →</a>
 </div>

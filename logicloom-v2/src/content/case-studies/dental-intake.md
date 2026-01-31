@@ -9,6 +9,14 @@ tags: ["n8n", "Dental", "Intake"]
 heroImage: "/dental-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Patients spent 20 mins filling out clipboards, backing up the daily schedule.</li>
+    <li><strong>🛠 The Fix:</strong> A digital "Pre-Visit" workflow that runs on a HIPAA-compliant self-hosted server.</li>
+    <li><strong>🟢 The Result:</strong> 35% faster intake; 40% reduction in no-shows.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Intake Velocity</div>
@@ -43,9 +51,14 @@ Medical data requires a higher standard of security and precision than a standar
 * **The HIPAA Hurdle:** You cannot send patient health history through a standard public automation tool without risking a compliance violation. We needed a **Self-Hosted** architecture where we controlled the server logs.
 * **The PDF Complexity:** Mapping a web form to a government-standard PDF isn't just "copy-paste." It requires precise coordinate mapping. If a patient checks "Diabetes," the system needs to check a specific X/Y box on the PDF, which simple tools can't handle dynamically.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Operations Autopilot</strong> architecture.</span>
+  <a href="/audit?context=OpsAutopilot" class="underline hover:text-blue-700">Audit your Intake Compliance →</a>
+</div>
+
 ---
 
-## The Digital Intake Flow
+## The Digital Intake Flow 
 
 This workflow runs on a HIPAA-compliant self-hosted n8n instance, ensuring patient data never touches public AI models without redaction.
 
@@ -55,7 +68,7 @@ This workflow runs on a HIPAA-compliant self-hosted n8n instance, ensuring patie
 <div class="grid md:grid-cols-3 gap-8 relative z-10">
 
 <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-<div class="text-3xl mb-4">📲</div>
+<div class="text-3xl mb-4">📨</div>
 <h3 class="font-bold text-slate-900 text-lg mb-2">1. Digital Trigger</h3>
 <p class="text-sm text-slate-500 leading-relaxed">
 48 hours before the visit, the patient receives an SMS link to a secure, mobile-friendly Typeform.
@@ -71,7 +84,7 @@ Upon submission, n8n populates a standardized PDF medical history form and store
 </div>
 
 <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-<div class="text-3xl mb-4">🩺</div>
+<div class="text-3xl mb-4">🔔</div>
 <h3 class="font-bold text-slate-900 text-lg mb-2">3. Staff Alert</h3>
 <p class="text-sm text-slate-500 leading-relaxed">
 The front desk gets a "File Ready" notification. They simply click to attach it to the patient's record in the PMS.
@@ -88,7 +101,7 @@ Patients now walk in and go straight to the chair. The front desk staff is no lo
 <div class="not-prose mt-20 p-10 bg-slate-50 rounded-[2rem] border border-gray-100 relative overflow-hidden">
 <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
 <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl shadow-sm border border-gray-100">
-🦷
+🩺
 </div>
 <div class="flex-grow">
 <h3 class="font-display font-bold text-slate-900 text-2xl">Modernize your waiting room.</h3>
@@ -96,8 +109,13 @@ Patients now walk in and go straight to the chair. The front desk staff is no lo
 Eliminate clipboards and data entry errors with a secure digital intake pipeline.
 </p>
 </div>
-<a href="/audit?context=Dental&symptom=Paperwork" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=OpsAutopilot" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Intake Process
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need to normalize lead data?</p>
+  <a href="/case-studies/gold-remodels" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Construction CRM →</a>
 </div>

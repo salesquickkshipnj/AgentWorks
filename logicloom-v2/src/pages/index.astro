@@ -22,20 +22,20 @@ const caseStudies = (await getCollection('case-studies'))
       
       <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-gray-200 bg-white/60 backdrop-blur-sm shadow-sm animate-fade-in">
         <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-900 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-slate-900"></span>
         </span>
-        <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Booking Q1 2026 Builds - 48hr Audit Turnaround</span>
+        <span class="text-xs font-semibold text-gray-600 uppercase tracking-widest">Enterprise Architecture Audits Open</span>
       </div>
 
       <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05] animate-slide-up">
-        We Build the Systems <br />
-        <span class="text-gray-400">That Scale Your Business.</span>
+        We Don't Sell Templates. <br />
+        <span class="text-gray-400">We Install Infrastructure.</span>
       </h1>
 
       <p class="text-lg md:text-xl text-gray-500 font-normal max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style="animation-delay: 0.1s;">
-        Stop hiring for repetitive tasks.
-        We architect self-hosted <span class="text-slate-900 font-medium">n8n workflows</span> that handle your leads, operations, and support—24/7.
+        Stop stitching together random Zapier tasks.
+        We architect self-hosted <span class="text-slate-900 font-medium">n8n logic layers</span> that run your sales, operations, and support—autonomously.
       </p>
 
       <div class="flex items-center justify-center gap-2 mb-10 animate-slide-up" style="animation-delay: 0.15s;">
@@ -52,17 +52,17 @@ const caseStudies = (await getCollection('case-studies'))
            href="/audit"
            class="bg-[#0071E3] text-white text-base px-8 py-4 rounded-full font-medium hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/20 active:scale-95 flex items-center gap-2 w-full md:w-auto justify-center"
         >
-          Start ROI Audit
+          Audit My Infrastructure
           <Icon name="ph:arrow-right" />
         </a>
         
-        <a href="#case-studies"
+        <a href="#capabilities"
            class="bg-white text-slate-700 border border-gray-200 text-base px-8 py-4 rounded-full font-medium hover:bg-gray-50 transition-all active:scale-95 w-full md:w-auto flex items-center justify-center"
         >
-          View Case Studies
+          View Architectures
         </a>
       </div>
-  
+      
     </div>
      
     <div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
@@ -73,78 +73,92 @@ const caseStudies = (await getCollection('case-studies'))
   <section id="capabilities" class="py-24 bg-white relative z-10 border-y border-gray-100">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-20">
-        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">The Automation Infrastructure</h2>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">The 3 Core Architectures</h2>
         <p class="text-gray-500 max-w-2xl mx-auto">
-          We don't just "zap" things.
-          We build resilient software architecture that handles thousands of operations without breaking.
+          We don't guess. We deploy proven logic systems that cover 80% of your needs, then custom-engineer the final 20% to fit your business.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-gray-50 rounded-2xl p-10 relative overflow-hidden group hover:shadow-lg transition-all duration-500 border border-gray-100">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <a href="/case-studies" class="bg-gray-50 rounded-2xl p-10 relative overflow-hidden group hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-500 border border-gray-100 hover:border-blue-200">
           <div class="relative z-10">
-            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
-              <Icon name="ph:users-three" class="text-2xl text-[#0071E3]" />
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🚀</span>
             </div>
-            <h3 class="font-display text-2xl font-bold mb-3">Customer Ops Agents</h3>
-            <p class="text-gray-600 leading-relaxed mb-6">
-              Deploy AI agents that triage support tickets, draft email replies, and route complex queries to humans only when necessary.
+            <h3 class="font-display text-2xl font-bold mb-3 text-slate-900">The Growth Engine</h3>
+            <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+              An autonomous sales pipeline that finds, qualifies, and quotes leads while your team sleeps.
             </p>
-            <div class="flex gap-3">
-                <span class="text-xs font-mono bg-white border border-gray-200 px-2 py-1 rounded text-gray-500">GPT-4o</span>
-                <span class="text-xs font-mono bg-white border border-gray-200 px-2 py-1 rounded text-gray-500">Claude 3.5</span>
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-blue-500" /> Lead Scraping & Enrichment
+                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-blue-500" /> Instant Calculator Quoting
+                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-blue-500" /> Speed-to-Lead SMS Routing
+                </li>
+            </ul>
+            <div class="flex items-center text-blue-600 text-sm font-bold group-hover:gap-2 transition-all">
+                See Growth Builds <Icon name="ph:arrow-right" class="ml-1" />
             </div>
           </div>
-          <div class="absolute right-[-40px] bottom-[-40px] w-64 h-48 bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex flex-col gap-3 opacity-50 group-hover:opacity-100 group-hover:translate-y-[-10px] transition-all duration-500">
-             <div class="flex items-center gap-2 border-b border-gray-100 pb-2">
-                 <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                 <span class="text-[10px] text-gray-400 font-mono">Incoming Ticket #9201</span>
-             </div>
-             <div class="space-y-2">
-                 <div class="bg-gray-100 h-2 w-full rounded-full"></div>
-                 <div class="bg-blue-50 h-2 w-2/3 rounded-full"></div>
-             </div>
-          </div>
-        </div>
+        </a>
 
-        <div class="bg-gray-50 rounded-2xl p-10 hover:shadow-lg transition-all duration-500 border border-gray-100 flex flex-col justify-start">
-          <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
-            <Icon name="ph:chart-polar" class="text-2xl text-slate-800" />
-          </div>
-          <h3 class="font-display text-2xl font-bold mb-3">Data Orchestration</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Unify data from fragmented tools.
-            We build pipelines that pull from APIs, clean the data in Python/JS, and push to your dashboard or warehouse.
-          </p>
-        </div>
-
-        <div class="bg-gray-50 rounded-2xl p-10 hover:shadow-lg transition-all duration-500 border border-gray-100 flex flex-col justify-start">
-          <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-gray-100">
-            <Icon name="ph:plugs" class="text-2xl text-[#0071E3]" />
-          </div>
-          <h3 class="font-display text-2xl font-bold mb-3">Custom Integrations</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Internal tool doesn't have a Zapier app?
-            No problem.
-            We write custom API wrappers and webhooks to connect the disconnectable.
-          </p>
-        </div>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-10 relative overflow-hidden group flex flex-col justify-center">
-            <div class="relative z-10">
-                <h3 class="font-display text-2xl font-bold mb-4">The Architecture Audit</h3>
-                <p class="text-gray-400 mb-8">
-                  Not sure what's possible?
-                  We map your current stack, identify bottlenecks, and calculate ROI before writing code.
-                </p>
-                <a
-                  href="/audit"
-                  class="bg-white text-slate-900 text-sm font-semibold rounded-full px-6 py-3 hover:bg-gray-100 transition-colors cursor-pointer w-full md:w-auto inline-block text-center"
-                >
-                  Start Audit Strategy
-                </a>
+        <a href="/case-studies" class="bg-gray-50 rounded-2xl p-10 relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-500 border border-gray-100 hover:border-orange-200">
+          <div class="relative z-10">
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">⚙️</span>
             </div>
-        </div>
+            <h3 class="font-display text-2xl font-bold mb-3 text-slate-900">Operations Autopilot</h3>
+            <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+              A logic layer that handles the dirty work of data entry, scheduling, and logistics without human error.
+            </p>
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-orange-500" /> Document & PDF Intake
+                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-orange-500" /> Geo-Spatial Dispatching
+                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-orange-500" /> CRM Data Hygiene
+                </li>
+            </ul>
+            <div class="flex items-center text-orange-600 text-sm font-bold group-hover:gap-2 transition-all">
+                See Ops Builds <Icon name="ph:arrow-right" class="ml-1" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/case-studies" class="bg-gray-50 rounded-2xl p-10 relative overflow-hidden group hover:shadow-xl hover:shadow-purple-500/5 transition-all duration-500 border border-gray-100 hover:border-purple-200">
+          <div class="relative z-10">
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🧠</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-3 text-slate-900">Service Concierge</h3>
+            <p class="text-gray-600 leading-relaxed mb-6 text-sm">
+              An AI agent that reads, understands, and resolves customer requests instantly—zero headcount required.
+            </p>
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-purple-500" /> Inbox Triage & Drafts
+                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-purple-500" /> Refund & Status Logic
+                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-500">
+                    <Icon name="ph:check-circle" class="text-purple-500" /> Churn Prevention Flows
+                </li>
+            </ul>
+            <div class="flex items-center text-purple-600 text-sm font-bold group-hover:gap-2 transition-all">
+                See Service Builds <Icon name="ph:arrow-right" class="ml-1" />
+            </div>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
@@ -163,12 +177,11 @@ const caseStudies = (await getCollection('case-studies'))
         
         <div class="relative group">
           <div class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center text-xl font-bold shadow-sm mb-6 relative z-10 mx-auto md:mx-0 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors">
-              <span class="font-display">01</span>
+               <span class="font-display">01</span>
           </div>
           <h3 class="font-display text-lg font-bold mb-2">Map & Measure</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            We audit your manual workflows step-by-step.
-            We don't just ask "what do you do?"—we ask "why?" and identify where data breaks.
+            We audit your manual workflows step-by-step. We don't just ask "what do you do?"—we ask "why?" and identify where data breaks.
           </p>
         </div>
 
@@ -178,8 +191,7 @@ const caseStudies = (await getCollection('case-studies'))
           </div>
           <h3 class="font-display text-lg font-bold mb-2">Architect & Build</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            I build your agents using n8n and code.
-            We implement error handling, logging, and fallback paths so your business doesn't crash on a bad API call.
+            I build your agents using n8n and code. We implement error handling, logging, and fallback paths so your business doesn't crash on a bad API call.
           </p>
         </div>
 
@@ -189,8 +201,7 @@ const caseStudies = (await getCollection('case-studies'))
           </div>
           <h3 class="font-display text-lg font-bold mb-2">Deploy & Transfer</h3>
           <p class="text-sm text-gray-500 leading-relaxed">
-            We deploy to your private server or cloud.
-            You get full documentation and ownership of the source code. No vendor lock-in.
+            We deploy to your private server or cloud. You get full documentation and ownership of the source code. No vendor lock-in.
           </p>
         </div>
       </div>
@@ -215,7 +226,7 @@ const caseStudies = (await getCollection('case-studies'))
           </div>
           <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
           <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-      </div>
+        </div>
 
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest">
@@ -232,15 +243,13 @@ const caseStudies = (await getCollection('case-studies'))
               Hi, I'm the Lead Systems Architect at LogicLoom.
             </p>
             <p>
-              When you hire an agency, you usually get a salesperson who passes your project off to a junior developer.
-              <strong>That is not how I operate.</strong>
+              When you hire an agency, you usually get a salesperson who passes your project off to a junior developer. <strong>That is not how I operate.</strong>
             </p>
             <p>
               I founded LogicLoom in New Jersey with a simple philosophy: <strong>Software should be an asset, not a subscription.</strong> I don't just "set up tools"—I architect workflows that run your business autonomously, with the same rigorous error handling I use for enterprise clients.
             </p>
             <p>
-              I personally oversee every architecture we deploy.
-              No outsourcing, no black boxes, just clean, reliable code that works while you sleep.
+              I personally oversee every architecture we deploy. No outsourcing, no black boxes, just clean, reliable code that works while you sleep.
             </p>
           </div>
 
@@ -265,7 +274,7 @@ const caseStudies = (await getCollection('case-studies'))
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
         <div>
           <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
-            Case Studies
+            Recent Deployments
           </h2>
           <p class="text-gray-500 max-w-2xl mt-2">
              A few real builds — what we automated, and what improved after launch.
@@ -306,7 +315,7 @@ const caseStudies = (await getCollection('case-studies'))
             )}
           </a>
         ))}
-       </div>
+      </div>
     </div>
   </section>
 
@@ -335,10 +344,6 @@ const caseStudies = (await getCollection('case-studies'))
               "Strategy Only (No Build Code)"
             ]}
             bonus="100% of this fee is credited toward your implementation."
-            ctaText="Subscribe"
-            ctaLink="#contact"
-            triggerModal={true}
-          
             ctaText="Initialize Audit"
             ctaLink="/audit"
             triggerModal={false}
@@ -347,7 +352,7 @@ const caseStudies = (await getCollection('case-studies'))
           <ServiceOffer 
             title="The Sprint"
             price="$1,497"
-            frequency="/ & up"
+            frequency="/ starting"
             description="The Specific Fix. Best for solving a single, burning pain point immediately."
             features={[
               "1 Fully Built n8n Workflow",
@@ -355,6 +360,7 @@ const caseStudies = (await getCollection('case-studies'))
               "Error Handling Setup",
               "Walkthrough Video"
             ]}
+            bonus="Pay once, own the code forever. Includes full source transfer and documentation."
             ctaText="Get Started"
             ctaLink="#contact"
             popular={true} 
@@ -403,9 +409,7 @@ const caseStudies = (await getCollection('case-studies'))
            </span>
         </summary>
             <div class="mt-4 leading-relaxed text-gray-600 text-sm sm:text-base">
-              <p><strong>Yes, 100%.</strong> Unlike other agencies that "rent" you their software, we build assets for you.
-              Once the invoice is paid, you own the n8n workflows, the code, and the documentation.
-              We simply transfer the keys to you.</p>
+              <p><strong>Yes, 100%.</strong> Unlike other agencies that "rent" you their software, we build assets for you. Once the invoice is paid, you own the n8n workflows, the code, and the documentation. We simply transfer the keys to you.</p>
             </div>
           </details>
     
@@ -419,9 +423,7 @@ const caseStudies = (await getCollection('case-studies'))
               </span>
             </summary>
             <div class="mt-4 leading-relaxed text-gray-600 text-sm sm:text-base">
-              <p>Software evolves, and APIs update.
-              This is why we recommend the <strong>Partner Plan</strong>. It acts as an insurance policy where we monitor uptime and fix any API breaks immediately.
-              If you choose not to subscribe, we offer ad-hoc fixes at our standard hourly rate.</p>
+              <p>Software evolves, and APIs update. This is why we recommend the <strong>Partner Plan</strong>. It acts as an insurance policy where we monitor uptime and fix any API breaks immediately. If you choose not to subscribe, we offer ad-hoc fixes at our standard hourly rate.</p>
             </div>
           </details>
     
@@ -435,9 +437,7 @@ const caseStudies = (await getCollection('case-studies'))
               </span>
             </summary>
             <div class="mt-4 leading-relaxed text-gray-600 text-sm sm:text-base">
-              <p>We believe in transparency.
-              You will pay for your own server/hosting costs (usually ~$20-$50/month for a robust n8n setup) and any API usage fees for paid tools (like OpenAI or specialized CRMs).
-              We help you set these up on your own credit card so you retain full control.</p>
+              <p>We believe in transparency. You will pay for your own server/hosting costs (usually ~$20-$50/month for a robust n8n setup) and any API usage fees for paid tools (like OpenAI or specialized CRMs). We help you set these up on your own credit card so you retain full control.</p>
             </div>
           </details>
     
@@ -451,9 +451,7 @@ const caseStudies = (await getCollection('case-studies'))
               </span>
             </summary>
             <div class="mt-4 leading-relaxed text-gray-600 text-sm sm:text-base">
-              <p>Most Sprints are completed within <strong>5-7 business days</strong> from our kickoff call.
-              We spend the first 2 days mapping and testing, and the remainder building and refining.
-              Complex integrations may vary, which we will identify during the audit phase.</p>
+              <p>Most Sprints are completed within <strong>5-7 business days</strong> from our kickoff call. We spend the first 2 days mapping and testing, and the remainder building and refining. Complex integrations may vary, which we will identify during the audit phase.</p>
             </div>
           </details>
     
@@ -469,10 +467,8 @@ const caseStudies = (await getCollection('case-studies'))
                 <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm text-[#0071E3]">
                     <Icon name="ph:envelope-simple" class="text-2xl" />
                 </div>
-                
                 <h3 class="font-display text-xl font-bold text-slate-900 mb-2">Direct Email</h3>
-                <p class="text-gray-500 text-sm mb-6">Skip the forms.
-                Email us directly to start your sprint or ask questions.</p>
+                <p class="text-gray-500 text-sm mb-6">Skip the forms. Email us directly to start your sprint or ask questions.</p>
                 <a href="mailto:info@logicloomsystems.com" class="inline-flex items-center gap-2 text-[#0071E3] font-semibold hover:text-blue-600">
                     info@logicloomsystems.com <Icon name="ph:arrow-right" />
                 </a>
@@ -482,8 +478,7 @@ const caseStudies = (await getCollection('case-studies'))
                     <Icon name="ph:calendar-plus" class="text-2xl" />
                 </div>
                 <h3 class="font-display text-xl font-bold text-slate-900 mb-2">Book a Strategy Call</h3>
-                <p class="text-gray-500 text-sm mb-6">Not sure which plan fits?
-                Let's chat for 15 minutes about your bottleneck.</p>
+                <p class="text-gray-500 text-sm mb-6">Not sure which plan fits? Let's chat for 15 minutes about your bottleneck.</p>
                 <button @click="$dispatch('open-modal')" class="inline-flex items-center gap-2 text-[#0071E3] font-semibold hover:text-blue-600 cursor-pointer">
                     View Calendar Availability <Icon name="ph:arrow-right" />
                 </button>
@@ -502,8 +497,7 @@ const caseStudies = (await getCollection('case-studies'))
              <div class="text-center mb-12">
                  <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4 text-slate-900">Technical Feasibility Audit</h2>
                 <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                    Tell us about your process.
-                    We will review your requirements and tell you if it can be automated reliably.
+                    Tell us about your process. We will review your requirements and tell you if it can be automated reliably.
                 </p>
             </div>
             <MultiStepAudit webhookUrl="https://logicloomsystems.app.n8n.cloud/webhook/audit-request" />

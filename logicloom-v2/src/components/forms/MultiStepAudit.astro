@@ -1,4 +1,6 @@
 ﻿---
+import { Icon } from 'astro-icon/components'; // <--- THIS WAS MISSING
+
 interface Props {
   webhookUrl: string;
 }
@@ -7,6 +9,7 @@ const { webhookUrl } = Astro.props;
 
 <div
   x-data="auditWizard()"
+  x-init="init()"
   data-webhook-url={webhookUrl}
   class="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden relative min-h-[600px] flex flex-col md:flex-row"
 >
@@ -22,15 +25,15 @@ const { webhookUrl } = Astro.props;
 
       <ul class="space-y-4">
         <li class="flex items-start gap-3 text-sm text-gray-700">
-          <i class="ph ph-check-circle text-green-600 text-lg shrink-0"></i>
+          <Icon name="ph:check-circle" class="text-green-600 text-lg shrink-0" />
           <span>If it can be automated reliably.</span>
         </li>
         <li class="flex items-start gap-3 text-sm text-gray-700">
-          <i class="ph ph-check-circle text-green-600 text-lg shrink-0"></i>
+          <Icon name="ph:check-circle" class="text-green-600 text-lg shrink-0" />
           <span>Which tools (n8n, Python, AI) are best suited.</span>
         </li>
         <li class="flex items-start gap-3 text-sm text-gray-700">
-          <i class="ph ph-check-circle text-green-600 text-lg shrink-0"></i>
+          <Icon name="ph:check-circle" class="text-green-600 text-lg shrink-0" />
           <span>Estimated development timeline and cost.</span>
         </li>
       </ul>
@@ -48,30 +51,30 @@ const { webhookUrl } = Astro.props;
 
     <div x-show="submitted" style="display:none;" x-transition class="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-12">
       <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6 text-green-600 border border-green-100">
-        <i class="ph ph-check-circle text-4xl"></i>
+        <Icon name="ph:check-circle" class="text-4xl" />
       </div>
       <h3 class="font-display text-3xl font-bold text-slate-900 mb-2">Message Received.</h3>
       <p class="text-gray-600 max-w-xs mb-8">
         Our agents are analyzing your workflow. We will email you shortly.
       </p>
 
-      <!-- FIX: this should close the modal, not re-open it -->
-      <button type="button" @click="$dispatch('close-modal')" class="text-blue-600 font-bold hover:underline text-sm cursor-pointer">
-        Close Window
-      </button>
+      <a href="/" class="text-blue-600 font-bold hover:underline text-sm cursor-pointer">
+        Return Home
+      </a>
     </div>
 
     <form @submit.prevent="submitForm" class="flex-grow p-8 md:p-12 flex flex-col justify-center bg-white h-full">
+      
       <div x-show="step === 1" class="animate-fade-in">
         <h2 class="font-display text-3xl font-bold text-slate-900 mb-6">Let's start with the basics.</h2>
         <div class="space-y-4">
           <div>
             <label class="block text-sm font-bold text-slate-700 mb-1">Full Name</label>
-            <input type="text" x-model="data.name" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none transition-all placeholder-gray-400" placeholder="Justin Mason">
+            <input type="text" x-model="data.name" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none transition-all placeholder-gray-400" placeholder="Jane Doe">
           </div>
           <div>
             <label class="block text-sm font-bold text-slate-700 mb-1">Work Email</label>
-            <input type="email" x-model="data.email" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none transition-all placeholder-gray-400" placeholder="justin@example.com">
+            <input type="email" x-model="data.email" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none transition-all placeholder-gray-400" placeholder="jane@company.com">
           </div>
         </div>
       </div>
@@ -93,6 +96,7 @@ const { webhookUrl } = Astro.props;
               <option>Medical / Dental</option>
               <option>E-Commerce</option>
               <option>Agency / Marketing</option>
+              <option>Logistics / Transport</option>
               <option>Other</option>
             </select>
           </div>
@@ -101,6 +105,17 @@ const { webhookUrl } = Astro.props;
 
       <div x-show="step === 3" style="display:none;" class="animate-fade-in">
         <h2 class="font-display text-3xl font-bold text-slate-900 mb-2">The Bottleneck</h2>
+        
+        <div x-show="data.context === 'GrowthEngine'" class="mb-4 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-lg inline-block">
+            🚀 Auditing Growth Infrastructure
+        </div>
+        <div x-show="data.context === 'OpsAutopilot'" class="mb-4 text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-lg inline-block">
+            ⚙️ Auditing Operations Logic
+        </div>
+        <div x-show="data.context === 'ServiceConcierge'" class="mb-4 text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-lg inline-block">
+            🧠 Auditing Support Systems
+        </div>
+
         <p class="text-gray-500 mb-6">Describe the repetitive task you want to automate.</p>
         <textarea x-model="data.pain_point" rows="5" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-slate-900 focus:ring-2 focus:ring-blue-600 outline-none resize-none placeholder-gray-400" placeholder="Example: When a lead comes in, I have to manually copy data to the CRM, then email them..."></textarea>
       </div>
@@ -138,7 +153,7 @@ const { webhookUrl } = Astro.props;
               <div class="text-xs text-red-500 uppercase tracking-wide font-bold mb-1">Estimated Annual Waste</div>
               <div class="text-3xl font-bold text-red-600" x-text="formatCurrency(data.employees * data.hours * data.rate * 52)"></div>
             </div>
-            <i class="ph ph-warning-circle text-red-300 text-3xl"></i>
+            <Icon name="ph:warning-circle" class="text-red-300 text-3xl" />
           </div>
         </div>
       </div>
@@ -150,15 +165,15 @@ const { webhookUrl } = Astro.props;
         <input type="text" x-model="data.tools" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-slate-900 mb-6 focus:ring-2 focus:ring-blue-600 outline-none placeholder-gray-400" placeholder="e.g. Gmail, HubSpot, Excel, Slack...">
 
         <div class="bg-blue-50 rounded-xl p-4 text-sm text-blue-800 border border-blue-100">
-          <p class="font-bold mb-1"><i class="ph ph-info"></i> Next Steps:</p>
+          <p class="font-bold mb-1"><Icon name="ph:info" class="inline" /> Next Steps:</p>
           <p>Our engineering team will analyze this workflow and email a feasibility report to <span class="font-bold underline" x-text="data.email || 'your email'"></span>.</p>
         </div>
       </div>
     </form>
 
     <div x-show="!submitted" class="p-8 border-t border-gray-100 flex justify-between items-center bg-white rounded-b-2xl">
-      <button type="button" @click="step--" x-show="step > 1" class="text-gray-500 font-bold hover:text-slate-900 text-sm cursor-pointer">
-        &larr; Back
+      <button type="button" @click="step--" x-show="step > 1" class="text-gray-500 font-bold hover:text-slate-900 text-sm cursor-pointer flex items-center gap-1">
+        <Icon name="ph:arrow-left" /> Back
       </button>
       <div x-show="step === 1" class="flex-grow"></div>
 
@@ -169,7 +184,7 @@ const { webhookUrl } = Astro.props;
       <button type="button" @click="submitForm()" x-show="step === 5" :disabled="loading" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/30 active:scale-95 flex items-center gap-2 cursor-pointer disabled:opacity-50">
         <span x-show="!loading">Request Audit</span>
         <span x-show="loading">Sending...</span>
-        <i x-show="loading" class="ph ph-paper-plane-right"></i>
+        <Icon x-show="!loading" name="ph:paper-plane-right" />
       </button>
     </div>
   </div>
@@ -190,8 +205,26 @@ const { webhookUrl } = Astro.props;
         employees: 1,
         hours: 5,
         rate: 45,
-        tools: ''
+        tools: '',
+        context: '', 
+        symptom: ''
       },
+      
+      init() {
+        const params = new URLSearchParams(window.location.search);
+        this.data.context = params.get('context') || '';
+        this.data.symptom = params.get('symptom') || '';
+
+        if (this.data.context === 'GrowthEngine') {
+            this.data.industry = 'Agency / Marketing';
+            this.data.pain_point = "I need to automate lead scraping and cold outreach. Currently I spend too much time...";
+        } else if (this.data.context === 'OpsAutopilot') {
+            this.data.pain_point = "I need to automate client onboarding and logistics. Currently I spend too much time...";
+        } else if (this.data.context === 'ServiceConcierge') {
+            this.data.pain_point = "I need to automate customer support and email triage. Currently I spend too much time...";
+        }
+      },
+
       formatCurrency(val) {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
       },
@@ -204,10 +237,8 @@ const { webhookUrl } = Astro.props;
       },
       async submitForm() {
         this.loading = true;
-
-        // FIX: use the passed webhookUrl instead of hardcoding it
         const url = this.$root?.dataset?.webhookUrl;
-
+        
         if (!url) {
           this.loading = false;
           alert('Missing webhook URL configuration.');
@@ -221,6 +252,7 @@ const { webhookUrl } = Astro.props;
             body: JSON.stringify(this.data),
           });
           this.submitted = true;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (e) {
           alert('Network error. Please try again.');
           console.error(e);

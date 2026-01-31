@@ -9,6 +9,14 @@ tags: ["n8n", "Slack", "Webhooks", "CRM"]
 heroImage: "/audit-form-workflow.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Leads were sitting in a CSV export for 24 hours before being called.</li>
+    <li><strong>🛠 The Fix:</strong> Real-time Webhook -> Slack Block Kit -> HubSpot Sync.</li>
+    <li><strong>🟢 The Result:</strong> Response time dropped to 4 seconds; Sales team claims leads instantly.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Response Lag</div>
@@ -44,9 +52,14 @@ A basic "Zapier Slack Notification" wasn't enough.
 * **The Logic Gap:** We needed to check for **duplicates** in the CRM *before* alerting the team. If an existing client filled out the form, we needed to route it to their Account Manager, not the general sales pool. Zapier's linear logic struggles with these conditional "If/Else" checks without becoming a tangled mess.
 * **The Formatting:** Phone numbers came in as `(555) 123-4567` but the CRM required `+15551234567`. We needed custom Javascript to clean the data instantly.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Growth Engine</strong> architecture.</span>
+  <a href="/audit?context=GrowthEngine" class="underline hover:text-blue-700">Audit your Speed-to-Lead →</a>
+</div>
+
 ---
 
-## The "Red Alert" Architecture
+## The "Red Alert" Architecture 
 
 We built a real-time bridge using Webhooks. The moment a user hits "Submit," a bell rings in the sales office (digitally speaking).
 
@@ -55,7 +68,7 @@ We built a real-time bridge using Webhooks. The moment a user hits "Submit," a b
 <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
 
 <div class="p-8 text-center group hover:bg-gray-50 transition-colors">
-<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📝</div>
+<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📨</div>
 <h3 class="font-bold text-slate-900 mb-2">1. Catch Hook</h3>
 <p class="text-sm text-gray-500 leading-relaxed">
 n8n listens for the Typeform <code>form_submit</code> event. It parses the complex JSON payload to find the email, name, and budget answers.
@@ -63,7 +76,7 @@ n8n listens for the Typeform <code>form_submit</code> event. It parses the compl
 </div>
 
 <div class="p-8 text-center group hover:bg-gray-50 transition-colors">
-<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🚨</div>
+<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔔</div>
 <h3 class="font-bold text-slate-900 mb-2">2. Slack Alert</h3>
 <p class="text-sm text-gray-500 leading-relaxed">
 We format a "Block Kit" message. It pings the #sales-leads channel with a "Claim Lead" button. Clicking it assigns that rep in the CRM instantly.
@@ -100,7 +113,7 @@ We don't send ugly text dumps. We send **Actionable UI cards** directly into Sla
   <span class="text-[#9cdcfe]">"type"</span>: <span class="text-[#ce9178]">"section"</span>,
   <span class="text-[#9cdcfe]">"text"</span>: {
     <span class="text-[#9cdcfe]">"type"</span>: <span class="text-[#ce9178]">"mrkdwn"</span>,
-    <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"🔥 *New High-Value Lead!*"</span>
+    <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"🚨 *New High-Value Lead!*"</span>
   },
   <span class="text-[#9cdcfe]">"fields"</span>: [
     { <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"*Budget:*\n$10k+"</span> },
@@ -126,8 +139,13 @@ We don't send ugly text dumps. We send **Actionable UI cards** directly into Sla
 If your leads are sitting in an email inbox, you are losing deals. We can wire them to Slack in 24 hours.
 </p>
 </div>
-<a href="/audit?context=Sales+Ops&symptom=Slow+Response+Time" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=GrowthEngine" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Speed-to-Lead
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">What happens when the lead replies?</p>
+  <a href="/case-studies/roofing-leads" class="text-slate-600 font-semibold hover:text-slate-900">See how we automate Dispatch →</a>
 </div>

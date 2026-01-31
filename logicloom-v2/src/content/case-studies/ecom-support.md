@@ -9,6 +9,14 @@ tags: ["n8n", "Shopify", "Gmail", "OpenAI"]
 heroImage: "/email-monitor-hero.png"
 ---
 
+<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
+  <ul class="space-y-2 text-slate-700 font-medium">
+    <li><strong>🔴 The Problem:</strong> Founder spent 2 hours/day answering repetitive "Where is my order?" emails.</li>
+    <li><strong>🛠 The Fix:</strong> An n8n "Reasoning Engine" with Shopify API Integration.</li>
+    <li><strong>🟢 The Result:</strong> 12 hours/week saved; 65% of tickets resolved without humans.</li>
+  </ul>
+</div>
+
 <div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
 <div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
 <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Admin Saved</div>
@@ -44,9 +52,14 @@ Standard helpdesk tools (Gorgias/Zendesk) rely on **keywords**, which fail when 
 * **The Logic Gap:** A simple keyword match for "refund" would auto-reply with a policy link. But if the customer said *"I want a refund because the glass arrived broken,"* that requires empathy and a replacement, not a policy link.
 * **The Solution:** We needed **n8n** to run a custom "Reasoning Chain" that checks the *sentiment* and *shipping status* before deciding what to write.
 
+<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
+  <span>💡 Part of the <strong>Service Concierge</strong> architecture.</span>
+  <a href="/audit?context=ServiceConcierge" class="underline hover:text-blue-700">Audit your Support Stack →</a>
+</div>
+
 ---
 
-## The Intelligence Layer
+## The Intelligence Layer 
 
 We didn't just build an auto-responder. We built a **Reasoning Engine** that reads emails like a human agent would.
 
@@ -141,8 +154,13 @@ Your goal is to classify the user's intent and extract order details.
 We can deploy this AI triage agent to your Gmail or Outlook in under 48 hours.
 </p>
 </div>
-<a href="/audit?context=Ecom+Support&symptom=Inbox+Overwhelm" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+<a href="/audit?context=ServiceConcierge" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
 Audit My Support Stack
 </a>
 </div>
+</div>
+
+<div class="mt-12 text-center">
+  <p class="text-slate-400 text-sm">Need to automate booking inquiries?</p>
+  <a href="/case-studies/restaurant-inquiries" class="text-slate-600 font-semibold hover:text-slate-900">See how we automated Reservations →</a>
 </div>
