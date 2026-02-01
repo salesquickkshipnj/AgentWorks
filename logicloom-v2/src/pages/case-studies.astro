@@ -1,7 +1,7 @@
 ---
-// src/pages/case-studies.astro
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
 
 // 1. Get all studies
 const allStudies = await getCollection('case-studies');
@@ -19,40 +19,43 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
 
 <Layout title="Case Studies | LogicLoom" description="Real results from our automation architectures.">
   
-  <section class="py-24 px-6 max-w-7xl mx-auto">
-    <div class="text-center max-w-3xl mx-auto mb-24">
+  <section class="pt-32 pb-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
       <h1 class="font-display text-5xl md:text-6xl font-bold mb-6 text-slate-900">Engineering Outcomes.</h1>
-      <p class="text-xl text-slate-500">
+      <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
         We don't sell templates. We install <span class="text-slate-900 font-semibold">Enterprise Infrastructure</span> customized to your business logic.
       </p>
     </div>
+  </section>
 
-    <div class="mb-32">
-      <div class="mb-12 border-b border-gray-200 pb-8">
-        <div class="flex items-center gap-4 mb-2">
-          <span class="text-4xl">🚀</span>
-          <h2 class="font-display text-3xl font-bold text-slate-900">The Growth Engine</h2>
+  <section id="growth-engine" class="py-24 px-6 bg-white border-t border-gray-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row gap-8 mb-16 items-start md:items-center">
+        <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100 shrink-0">
+          <Icon name="ph:rocket-launch" class="text-4xl" />
         </div>
-        <p class="text-lg text-slate-500 max-w-2xl">
-          Automated workflows for <strong>Lead Capture, Cold Outreach, and Instant Quoting</strong>. Never let a lead go cold again.
-        </p>
+        <div>
+          <h2 class="font-display text-4xl font-bold text-slate-900 mb-3">The Growth Engine</h2>
+          <p class="text-lg text-slate-600 max-w-2xl">
+            Automated workflows for <strong>Lead Capture, Cold Outreach, and Instant Quoting</strong>. Never let a lead go cold again.
+          </p>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {growthStudies.map(study => (
           <a href={`/case-studies/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 h-full">
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-1 rounded-full">{study.data.industry}</span>
-              <span class="text-gray-300 group-hover:text-blue-500 transition-colors">↗</span>
+              <Icon name="ph:arrow-right" class="text-gray-300 group-hover:text-blue-500 transition-colors" />
             </div>
-            
             <h3 class="font-display text-xl font-bold mb-3 text-slate-900 leading-tight group-hover:text-blue-600 transition-colors">
               {study.data.title}
             </h3>
-            
             <div class="mt-auto pt-6 border-t border-gray-100">
               <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
-                 <span class="text-green-500">▲</span> {study.data.metric}
+                 <Icon name="ph:trend-up" class="text-green-500" /> {study.data.metric}
               </div>
               <div class="flex flex-wrap gap-2">
                 {study.data.tags && study.data.tags.slice(0, 3).map(tag => (
@@ -63,34 +66,38 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
           </a>
         ))}
       </div>
-    </div>
 
-    <div class="mb-32">
-      <div class="mb-12 border-b border-gray-200 pb-8">
-        <div class="flex items-center gap-4 mb-2">
-          <span class="text-4xl">⚙️</span>
-          <h2 class="font-display text-3xl font-bold text-slate-900">Operations Autopilot</h2>
+    </div>
+  </section>
+
+  <section id="ops-autopilot" class="py-24 px-6 bg-slate-50 border-y border-gray-200 scroll-mt-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row gap-8 mb-16 items-start md:items-center">
+        <div class="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 border border-orange-100 shrink-0">
+          <Icon name="ph:gear-six" class="text-4xl" />
         </div>
-        <p class="text-lg text-slate-500 max-w-2xl">
-          Logic layers for <strong>Logistics, Fulfillment, and Client Onboarding</strong>. Run your business without the friction.
-        </p>
+        <div>
+          <h2 class="font-display text-4xl font-bold text-slate-900 mb-3">Operations Autopilot</h2>
+          <p class="text-lg text-slate-600 max-w-2xl">
+            Logic layers for <strong>Logistics, Fulfillment, and Client Onboarding</strong>. Run your business without the friction.
+          </p>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {opsStudies.map(study => (
           <a href={`/case-studies/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-orange-500 hover:shadow-xl transition-all duration-300 h-full">
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-2 py-1 rounded-full">{study.data.industry}</span>
-              <span class="text-gray-300 group-hover:text-orange-500 transition-colors">↗</span>
+              <Icon name="ph:arrow-right" class="text-gray-300 group-hover:text-orange-500 transition-colors" />
             </div>
-            
             <h3 class="font-display text-xl font-bold mb-3 text-slate-900 leading-tight group-hover:text-orange-600 transition-colors">
               {study.data.title}
             </h3>
-            
             <div class="mt-auto pt-6 border-t border-gray-100">
               <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
-                 <span class="text-green-500">▲</span> {study.data.metric}
+                 <Icon name="ph:trend-up" class="text-green-500" /> {study.data.metric}
               </div>
               <div class="flex flex-wrap gap-2">
                 {study.data.tags && study.data.tags.slice(0, 3).map(tag => (
@@ -101,34 +108,38 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
           </a>
         ))}
       </div>
-    </div>
 
-    <div class="mb-32">
-      <div class="mb-12 border-b border-gray-200 pb-8">
-        <div class="flex items-center gap-4 mb-2">
-          <span class="text-4xl">🧠</span>
-          <h2 class="font-display text-3xl font-bold text-slate-900">Service Concierge</h2>
+    </div>
+  </section>
+
+  <section id="service-concierge" class="py-24 px-6 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row gap-8 mb-16 items-start md:items-center">
+        <div class="w-20 h-20 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 border border-purple-100 shrink-0">
+          <Icon name="ph:brain" class="text-4xl" />
         </div>
-        <p class="text-lg text-slate-500 max-w-2xl">
-          AI Agents for <strong>Inbox Triage, Support, and Booking Management</strong>. 24/7 responsiveness with zero headcount.
-        </p>
+        <div>
+          <h2 class="font-display text-4xl font-bold text-slate-900 mb-3">Service Concierge</h2>
+          <p class="text-lg text-slate-600 max-w-2xl">
+            AI Agents for <strong>Inbox Triage, Support, and Booking Management</strong>. 24/7 responsiveness with zero headcount.
+          </p>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {serviceStudies.map(study => (
           <a href={`/case-studies/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-purple-500 hover:shadow-xl transition-all duration-300 h-full">
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 bg-purple-50 px-2 py-1 rounded-full">{study.data.industry}</span>
-              <span class="text-gray-300 group-hover:text-purple-500 transition-colors">↗</span>
+              <Icon name="ph:arrow-right" class="text-gray-300 group-hover:text-purple-500 transition-colors" />
             </div>
-            
             <h3 class="font-display text-xl font-bold mb-3 text-slate-900 leading-tight group-hover:text-purple-600 transition-colors">
               {study.data.title}
             </h3>
-            
             <div class="mt-auto pt-6 border-t border-gray-100">
               <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
-                 <span class="text-green-500">▲</span> {study.data.metric}
+                 <Icon name="ph:trend-up" class="text-green-500" /> {study.data.metric}
               </div>
               <div class="flex flex-wrap gap-2">
                 {study.data.tags && study.data.tags.slice(0, 3).map(tag => (
@@ -139,7 +150,8 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
           </a>
         ))}
       </div>
-    </div>
 
+    </div>
   </section>
+
 </Layout>
