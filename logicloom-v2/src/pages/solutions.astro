@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
 
-// 1. Get all studies
+// 1. Get all studies (We keep the collection name 'case-studies' to avoid breaking your content folder)
 const allStudies = await getCollection('case-studies');
 
 // 2. Define the Architecture Groups (By Slug)
@@ -17,13 +17,15 @@ const opsStudies = allStudies.filter(study => opsSlugs.includes(study.slug));
 const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.slug));
 ---
 
-<Layout title="Case Studies | LogicLoom" description="Real results from our automation architectures.">
+<Layout title="Solutions | LogicLoom" description="Pre-engineered automation architectures for scaling businesses.">
   
   <section class="pt-32 pb-20 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <h1 class="font-display text-5xl md:text-6xl font-bold mb-6 text-slate-900">Engineering Outcomes.</h1>
+      <h1 class="font-display text-5xl md:text-6xl font-bold mb-6 text-slate-900">System Blueprints.</h1>
       <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-        We don't sell templates. We install <span class="text-slate-900 font-semibold">Enterprise Infrastructure</span> customized to your business logic.
+        We don't sell templates. We deploy 
+        <span class="text-slate-900 font-semibold">Enterprise Architectures</span> 
+        customized to your business logic. Explore our library of pre-built workflows.
       </p>
     </div>
   </section>
@@ -38,14 +40,15 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
         <div>
           <h2 class="font-display text-4xl font-bold text-slate-900 mb-3">The Growth Engine</h2>
           <p class="text-lg text-slate-600 max-w-2xl">
-            Automated workflows for <strong>Lead Capture, Cold Outreach, and Instant Quoting</strong>. Never let a lead go cold again.
+            Automated workflows for <strong>Lead Capture, Cold Outreach, and Instant Quoting</strong>.
+            Never let a lead go cold again.
           </p>
         </div>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {growthStudies.map(study => (
-          <a href={`/case-studies/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 h-full">
+          <a href={`/solutions/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 h-full">
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-1 rounded-full">{study.data.industry}</span>
               <Icon name="ph:arrow-right" class="text-gray-300 group-hover:text-blue-500 transition-colors" />
@@ -54,12 +57,12 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
               {study.data.title}
             </h3>
             <div class="mt-auto pt-6 border-t border-gray-100">
-              <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
+               <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
                  <Icon name="ph:trend-up" class="text-green-500" /> {study.data.metric}
               </div>
               <div class="flex flex-wrap gap-2">
                 {study.data.tags && study.data.tags.slice(0, 3).map(tag => (
-                  <span class="text-[10px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100">{tag}</span>
+                   <span class="text-[10px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100">{tag}</span>
                 ))}
               </div>
             </div>
@@ -80,14 +83,15 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
         <div>
           <h2 class="font-display text-4xl font-bold text-slate-900 mb-3">Operations Autopilot</h2>
           <p class="text-lg text-slate-600 max-w-2xl">
-            Logic layers for <strong>Logistics, Fulfillment, and Client Onboarding</strong>. Run your business without the friction.
+            Logic layers for <strong>Logistics, Fulfillment, and Client Onboarding</strong>.
+            Run your business without the friction.
           </p>
         </div>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {opsStudies.map(study => (
-          <a href={`/case-studies/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-orange-500 hover:shadow-xl transition-all duration-300 h-full">
+          <a href={`/solutions/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-orange-500 hover:shadow-xl transition-all duration-300 h-full">
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-2 py-1 rounded-full">{study.data.industry}</span>
               <Icon name="ph:arrow-right" class="text-gray-300 group-hover:text-orange-500 transition-colors" />
@@ -96,7 +100,7 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
               {study.data.title}
             </h3>
             <div class="mt-auto pt-6 border-t border-gray-100">
-              <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
+               <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
                  <Icon name="ph:trend-up" class="text-green-500" /> {study.data.metric}
               </div>
               <div class="flex flex-wrap gap-2">
@@ -122,14 +126,15 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
         <div>
           <h2 class="font-display text-4xl font-bold text-slate-900 mb-3">Service Concierge</h2>
           <p class="text-lg text-slate-600 max-w-2xl">
-            AI Agents for <strong>Inbox Triage, Support, and Booking Management</strong>. 24/7 responsiveness with zero headcount.
+           AI Agents for <strong>Inbox Triage, Support, and Booking Management</strong>.
+           24/7 responsiveness with zero headcount.
           </p>
         </div>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {serviceStudies.map(study => (
-          <a href={`/case-studies/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-purple-500 hover:shadow-xl transition-all duration-300 h-full">
+          <a href={`/solutions/${study.slug}`} class="group flex flex-col bg-white rounded-3xl p-6 border border-gray-200 hover:border-purple-500 hover:shadow-xl transition-all duration-300 h-full">
             <div class="flex items-center justify-between mb-4">
               <span class="text-[10px] font-bold uppercase tracking-widest text-purple-600 bg-purple-50 px-2 py-1 rounded-full">{study.data.industry}</span>
               <Icon name="ph:arrow-right" class="text-gray-300 group-hover:text-purple-500 transition-colors" />
@@ -138,12 +143,12 @@ const serviceStudies = allStudies.filter(study => serviceSlugs.includes(study.sl
               {study.data.title}
             </h3>
             <div class="mt-auto pt-6 border-t border-gray-100">
-              <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
+               <div class="flex items-center gap-2 text-slate-600 font-mono text-xs font-bold mb-3">
                  <Icon name="ph:trend-up" class="text-green-500" /> {study.data.metric}
               </div>
               <div class="flex flex-wrap gap-2">
                 {study.data.tags && study.data.tags.slice(0, 3).map(tag => (
-                  <span class="text-[10px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100">{tag}</span>
+                 <span class="text-[10px] text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100">{tag}</span>
                 ))}
               </div>
             </div>

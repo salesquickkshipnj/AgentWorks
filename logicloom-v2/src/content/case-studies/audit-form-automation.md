@@ -6,146 +6,76 @@ metric: "< 5 Min Response"
 description: "How we reduced lead response time from 4 hours to 4 seconds using n8n and Slack Webhooks."
 publishDate: 2025-11-05
 tags: ["n8n", "Slack", "Webhooks", "CRM"]
-heroImage: "/audit-form-workflow.png"
+
+# FUNNEL LINK
+related: "roofing-leads"
+ctaText: "Alerts are fast. Now let's automate the dispatch."
+
+# 1. THE VISUAL
+visualType: "phone"
+visualData:
+  messages:
+    - text: "🚨 New High-Value Lead! \nCompany: Acme Corp\nBudget: $10k+"
+      sender: "them"
+      time: "Just Now"
+    - text: "Source: LinkedIn Ads. \nClick CLAIM to assign to yourself in HubSpot."
+      sender: "them"
+      time: "Just Now"
+    - text: "CLAIMED by @Mike"
+      sender: "me"
+      time: "1s ago"
+
+# 2. THE STATS
+stats:
+  - label: "Response Lag"
+    value: "4 Seconds"
+  - label: "Capture Rate"
+    value: "100%"
+  - label: "Team Alerts"
+    value: "Instant"
+  - label: "Manual Entry"
+    value: "Zero"
+
+# 3. THE LOGIC
+codeSnippet:
+  filename: "slack_blocks.json"
+  lang: "UI Payload"
+  code: |
+    // SLACK BLOCK KIT PAYLOAD
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "🚨 *New High-Value Lead!*"
+      },
+      "fields": [
+        { "text": "*Budget:*\n$10k+" },
+        { "text": "*Timeline:*\nASAP" }
+      ],
+      "accessory": {
+        "type": "button",
+        "text": { "text": "Claim Lead" },
+        "action_id": "claim_lead_123"
+      }
+    }
 ---
 
-<div class="not-prose mt-8 mb-8 p-6 bg-slate-100 rounded-2xl border-l-4 border-slate-900">
-  <ul class="space-y-2 text-slate-700 font-medium">
-    <li><strong>🔴 The Problem:</strong> Leads were sitting in a CSV export for 24 hours before being called.</li>
-    <li><strong>🛠 The Fix:</strong> Real-time Webhook -> Slack Block Kit -> HubSpot Sync.</li>
-    <li><strong>🟢 The Result:</strong> Response time dropped to 4 seconds; Sales team claims leads instantly.</li>
-  </ul>
-</div>
+## The Operational Shift
+We connected the marketing funnel directly to the sales team's pockets.
 
-<div class="not-prose my-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
-<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Response Lag</div>
-<div class="text-3xl font-bold text-slate-900 tracking-tight">4s</div>
-</div>
-<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
-<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Capture Rate</div>
-<div class="text-3xl font-bold text-slate-900 tracking-tight">100%</div>
-</div>
-<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
-<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Team Alerts</div>
-<div class="text-3xl font-bold text-slate-900 tracking-tight">Instant</div>
-</div>
-<div class="p-6 bg-gray-50 rounded-3xl border border-gray-100">
-<div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Manual Data Entry</div>
-<div class="text-3xl font-bold text-slate-900 tracking-tight">Zero</div>
-</div>
-</div>
+| The Old Way (Manual) | The LogicLoom Way (Automated) |
+| :--- | :--- |
+| **The Trigger:** Lead sits in a CSV export. | **The Trigger:** Webhook fires instantly. |
+| **The Notification:** Sales team checks email daily. | **The Notification:** Phones buzz immediately. |
+| **The Action:** Manual assignment in CRM. | **The Action:** One-click "Claim" button. |
+| **The Result:** 24hr delay; leads go cold. | **The Result:** 4-second response time. |
 
-## The "Black Hole" CSV
+<br>
 
-This consultancy was generating leads via a Typeform quiz, but the data was just sitting in a CSV export that was only checked once a day. By the time the sales team called, prospects had moved on or forgotten they even filled out the form.
+## How The Logic Works
+We built a real-time bridge using Webhooks. The moment a user hits "Submit," a bell rings in the sales office.
 
-**The Mission:** Connect the intake form directly to the sales team's eyeballs in real-time.
-
----
-
-## Why this was hard to automate
-
-A basic "Zapier Slack Notification" wasn't enough.
-
-* **The Visualization Problem:** Standard Slack messages are ugly text dumps. The sales team ignored them because they were hard to read. We needed **Slack Block Kit** to create rich, interactive cards with buttons.
-* **The Logic Gap:** We needed to check for **duplicates** in the CRM *before* alerting the team. If an existing client filled out the form, we needed to route it to their Account Manager, not the general sales pool. Zapier's linear logic struggles with these conditional "If/Else" checks without becoming a tangled mess.
-* **The Formatting:** Phone numbers came in as `(555) 123-4567` but the CRM required `+15551234567`. We needed custom Javascript to clean the data instantly.
-
-<div class="my-8 p-4 bg-blue-50 text-blue-900 rounded-xl text-sm font-semibold flex items-center gap-3">
-  <span>💡 Part of the <strong>Growth Engine</strong> architecture.</span>
-  <a href="/audit?context=GrowthEngine" class="underline hover:text-blue-700">Audit your Speed-to-Lead →</a>
-</div>
-
----
-
-## The "Red Alert" Architecture 
-
-We built a real-time bridge using Webhooks. The moment a user hits "Submit," a bell rings in the sales office (digitally speaking).
-
-<div class="not-prose my-16">
-<div class="bg-white rounded-[2rem] border border-gray-200 shadow-xl overflow-hidden">
-<div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
-
-<div class="p-8 text-center group hover:bg-gray-50 transition-colors">
-<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📨</div>
-<h3 class="font-bold text-slate-900 mb-2">1. Catch Hook</h3>
-<p class="text-sm text-gray-500 leading-relaxed">
-n8n listens for the Typeform <code>form_submit</code> event. It parses the complex JSON payload to find the email, name, and budget answers.
-</p>
-</div>
-
-<div class="p-8 text-center group hover:bg-gray-50 transition-colors">
-<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔔</div>
-<h3 class="font-bold text-slate-900 mb-2">2. Slack Alert</h3>
-<p class="text-sm text-gray-500 leading-relaxed">
-We format a "Block Kit" message. It pings the #sales-leads channel with a "Claim Lead" button. Clicking it assigns that rep in the CRM instantly.
-</p>
-</div>
-
-<div class="p-8 text-center group hover:bg-gray-50 transition-colors">
-<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">💾</div>
-<h3 class="font-bold text-slate-900 mb-2">3. CRM Sync</h3>
-<p class="text-sm text-gray-500 leading-relaxed">
-Simultaneously, the lead is created in HubSpot. If they are a repeat lead, the system appends a note instead of creating a duplicate.
-</p>
-</div>
-
-</div>
-</div>
-</div>
-
-## The Notification Payload
-
-We don't send ugly text dumps. We send **Actionable UI cards** directly into Slack.
-
-<div class="not-prose bg-[#1e1e1e] rounded-3xl overflow-hidden shadow-2xl my-12 ring-1 ring-white/10">
-<div class="flex items-center px-6 py-4 border-b border-white/5 bg-[#252525]">
-<div class="flex gap-2">
-<div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-<div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-<div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-</div>
-<div class="ml-4 text-xs text-gray-500 font-mono">slack_blocks.json</div>
-</div>
-<pre class="p-8 overflow-x-auto text-sm font-mono leading-relaxed text-gray-300">
-{
-  <span class="text-[#9cdcfe]">"type"</span>: <span class="text-[#ce9178]">"section"</span>,
-  <span class="text-[#9cdcfe]">"text"</span>: {
-    <span class="text-[#9cdcfe]">"type"</span>: <span class="text-[#ce9178]">"mrkdwn"</span>,
-    <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"🚨 *New High-Value Lead!*"</span>
-  },
-  <span class="text-[#9cdcfe]">"fields"</span>: [
-    { <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"*Budget:*\n$10k+"</span> },
-    { <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"*Timeline:*\nASAP"</span> }
-  ],
-  <span class="text-[#9cdcfe]">"accessory"</span>: {
-    <span class="text-[#9cdcfe]">"type"</span>: <span class="text-[#ce9178]">"button"</span>,
-    <span class="text-[#9cdcfe]">"text"</span>: { <span class="text-[#9cdcfe]">"text"</span>: <span class="text-[#ce9178]">"Claim Lead"</span> },
-    <span class="text-[#9cdcfe]">"style"</span>: <span class="text-[#ce9178]">"primary"</span>,
-    <span class="text-[#9cdcfe]">"action_id"</span>: <span class="text-[#ce9178]">"claim_lead_123"</span>
-  }
-}</pre>
-</div>
-
-<div class="not-prose mt-20 p-10 bg-slate-50 rounded-[2rem] border border-gray-100 relative overflow-hidden">
-<div class="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-<div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl shadow-sm border border-gray-100">
-⚡
-</div>
-<div class="flex-grow">
-<h3 class="font-display font-bold text-slate-900 text-2xl">Speed is money.</h3>
-<p class="text-slate-500 mt-2 text-base max-w-lg">
-If your leads are sitting in an email inbox, you are losing deals. We can wire them to Slack in 24 hours.
-</p>
-</div>
-<a href="/audit?context=GrowthEngine" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-slate-900 rounded-full hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
-Audit My Speed-to-Lead
-</a>
-</div>
-</div>
-
-<div class="mt-12 text-center">
-  <p class="text-slate-400 text-sm">What happens when the lead replies?</p>
-  <a href="/case-studies/roofing-leads" class="text-slate-600 font-semibold hover:text-slate-900">See how we automate Dispatch →</a>
-</div>
+1.  **Catch Hook:** n8n listens for the Typeform `form_submit` event. It parses the JSON payload to find the email, name, and budget.
+2.  **Slack Alert:** We format a rich "Block Kit" card for Slack. It pings the `#sales-leads` channel with a dedicated **"Claim Lead" button**.
+3.  **CRM Sync:** Simultaneously, the lead is created in HubSpot. If they are a repeat lead, the system appends a note instead of creating a duplicate.
+4.  **Assignment:** When a rep clicks "Claim," the system updates the CRM owner field instantly.

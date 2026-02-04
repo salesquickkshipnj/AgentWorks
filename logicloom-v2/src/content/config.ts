@@ -8,6 +8,10 @@ const blogCollection = defineCollection({
     author: z.string().default('LogicLoom Team'),
     tags: z.array(z.string()),
     image: z.string().optional(),
+    visualType: z.enum(['phone', 'dashboard', 'logic']).optional(),
+    visualData: z.any().optional(),
+    related: z.string().optional(),
+    ctaText: z.string().optional(),
   }),
 });
 
@@ -32,19 +36,33 @@ const caseStudies = defineCollection({
       services: z.array(z.string()).optional(),
       stack: z.array(z.string()).optional(),
       featured: z.boolean().optional().default(false),
-      ogImage: z.string().optional(),
+      heroImage: z.string().optional(), // Kept for OpenGraph/Social previews
 
-      // Phase 2: Diagnostic Logic (New Implementation)
+      // NEW: The Spec Sheet Data
+      stats: z.array(z.object({
+        label: z.string(),
+        value: z.string(),
+      })).optional(),
+
+      // NEW: The Code Snippet
+      codeSnippet: z.object({
+        filename: z.string(),
+        lang: z.string(),
+        code: z.string(),
+      }).optional(),
+
+      // NEW: The Visual Engine
+      visualType: z.enum(['phone', 'dashboard', 'logic']).optional(),
+      visualData: z.any().optional(),
+
+      // Phase 2: Diagnostic Logic
       diagnostic: z.object({
-        // The "Pain Hook" - e.g., "Manual entry is causing 20% drop-off"
         symptom: z.string(),
-        
-        // The "Qualifier" - e.g., "Common in teams processing >50 leads/mo"
         context: z.string(),
-        
-        // The "Bridge" - specific anchor text for the Audit button
         ctaLabel: z.string().default("Run Feasibility Audit"),
       }).optional(),
+      related: z.string().optional(),
+      ctaText: z.string().optional(),
     })
     .refine((d) => Boolean(d.publishDate || d.pubDate), {
       message: "Case study needs publishDate or pubDate",
@@ -54,5 +72,5 @@ const caseStudies = defineCollection({
 
 export const collections = {
   'blog': blogCollection,
-  'case-studies': caseStudies,
+  'solutions': caseStudies,
 };

@@ -1,0 +1,152 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { type, data } = Astro.props;
+
+// Mock Data Defaults
+const phoneMessages = data?.messages || [
+  { text: "Hey, I missed you. Everything ok?", sender: "me", time: "2m ago" },
+  { text: "Yeah, just busy at work.", sender: "them", time: "1m ago" },
+  { text: "No worries! Book for tomorrow?", sender: "me", time: "Just now" }
+];
+
+const dashboardStats = data?.stats || [
+  { label: "Active Leads", value: "124", trend: "+12%" },
+  { label: "Response Time", value: "45s", trend: "-80%" },
+  { label: "Revenue", value: "$12.4k", trend: "+5%" }
+];
+
+// Logic Nodes (Visualizing an n8n workflow)
+const logicSteps = [
+  { icon: "ph:lightning", label: "Trigger", color: "text-yellow-400", bg: "bg-yellow-400/10", border: "border-yellow-400/20" },
+  { icon: "ph:brain", label: "AI Analysis", color: "text-purple-400", bg: "bg-purple-400/10", border: "border-purple-400/20" },
+  { icon: "ph:git-branch", label: "Router", color: "text-blue-400", bg: "bg-blue-400/10", border: "border-blue-400/20" },
+  { icon: "ph:check-circle", label: "Action", color: "text-green-400", bg: "bg-green-400/10", border: "border-green-400/20" }
+];
+---
+
+{type === 'phone' && (
+  <div class="relative mx-auto border-gray-900 bg-gray-900 border-[12px] rounded-[2.5rem] h-[500px] w-[280px] shadow-2xl shadow-slate-900/40">
+      <div class="h-[32px] w-[3px] bg-gray-900 absolute -left-[15px] top-[72px] rounded-l-lg"></div>
+      <div class="h-[46px] w-[3px] bg-gray-900 absolute -left-[15px] top-[124px] rounded-l-lg"></div>
+      <div class="rounded-[2rem] overflow-hidden w-full h-full bg-slate-50 relative flex flex-col">
+          <div class="bg-white/90 backdrop-blur p-4 pt-10 border-b border-gray-100 text-center shadow-sm z-10 sticky top-0">
+              <p class="text-[10px] uppercase text-gray-400 font-bold tracking-widest">Messages</p>
+              <p class="font-bold text-slate-900 text-sm">Coach Mike</p>
+          </div>
+          <div class="p-4 space-y-4 flex-1 overflow-y-auto bg-slate-50">
+              {phoneMessages.map((msg, index) => (
+                <div class={`flex flex-col ${msg.sender === 'me' ? 'items-end' : 'items-start'} animate-fade-in-up`} style={`animation-delay: ${index * 150}ms`}>
+                    <div class={`p-3 rounded-2xl text-xs max-w-[85%] shadow-sm ${msg.sender === 'me' ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-white text-slate-700 border border-gray-200 rounded-tl-none'}`}>
+                        {msg.text}
+                    </div>
+                    <span class="text-[9px] text-gray-400 mt-1 font-medium">{msg.time}</span>
+                </div>
+              ))}
+              <div class="flex items-center gap-1 ml-2 opacity-0 animate-pulse-slow" style="animation-delay: 2s; animation-fill-mode: forwards;">
+                <div class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce"></div>
+                <div class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-1.5 h-1.5 bg-gray-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+)}
+
+{type === 'dashboard' && (
+  <div class="w-full h-full min-h-[400px] bg-[#0F172A] rounded-2xl p-6 shadow-2xl border border-slate-800 relative overflow-hidden flex flex-col font-sans">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full"></div>
+    
+    <div class="flex items-center justify-between mb-8 border-b border-slate-800 pb-6 relative z-10">
+      <div class="flex items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
+      </div>
+      <div class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-[10px] font-mono text-slate-400">
+        LIVE_MONITOR_V2
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 mb-8 relative z-10">
+      {dashboardStats.map((stat) => (
+        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 backdrop-blur-sm group hover:border-blue-500/50 transition-colors">
+          <div class="text-[10px] text-slate-400 uppercase tracking-widest mb-2 font-bold">{stat.label}</div>
+          <div class="text-2xl font-bold text-white mb-1 group-hover:scale-105 transition-transform origin-left">{stat.value}</div>
+          <div class={`text-[10px] font-mono ${stat.trend.includes('+') ? 'text-green-400' : 'text-blue-400'}`}>
+            {stat.trend} <span class="opacity-50">vs last week</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex-1 space-y-3 relative z-10 overflow-hidden">
+      <div class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-2">Real-Time Event Log</div>
+       {[1,2,3,4].map((i) => (
+         <div class="h-12 w-full bg-slate-800/30 rounded-lg border border-slate-700/50 flex items-center px-4 gap-4 animate-slide-in" style={`animation-delay: ${i * 0.2}s`}>
+           <div class={`w-2 h-2 rounded-full ${i % 2 === 0 ? 'bg-green-500' : 'bg-blue-500'} animate-pulse`}></div>
+           <div class="h-2 w-24 bg-slate-700/50 rounded-full"></div>
+           <div class="h-2 w-full max-w-[100px] bg-slate-700/30 rounded-full ml-auto"></div>
+         </div>
+       ))}
+    </div>
+  </div>
+)}
+
+{type === 'logic' && (
+  <div class="w-full h-full min-h-[400px] bg-[#111827] rounded-2xl p-8 shadow-2xl border border-slate-800 relative overflow-hidden flex flex-col justify-center">
+    
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#60A5FA 1px, transparent 1px); background-size: 24px 24px;"></div>
+    
+    <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-800 transform -translate-x-1/2 z-0"></div>
+    
+    <div class="absolute left-1/2 top-0 w-1 h-8 bg-gradient-to-b from-transparent via-blue-400 to-transparent w-0.5 z-0 animate-data-flow"></div>
+
+    <div class="relative z-10 space-y-6">
+      
+      {logicSteps.map((step, i) => (
+        <div class="flex items-center justify-center gap-4 animate-fade-in-up" style={`animation-delay: ${i * 0.3}s`}>
+            
+            <div class={`w-64 bg-[#1E293B] p-3 rounded-xl border ${step.border} shadow-lg flex items-center gap-4 relative group hover:scale-105 transition-transform duration-300`}>
+                {i !== 0 && <div class="absolute -top-2 left-1/2 w-3 h-3 bg-slate-700 rounded-full border-2 border-[#111827] transform -translate-x-1/2"></div>}
+                
+                <div class={`w-10 h-10 rounded-lg ${step.bg} ${step.color} flex items-center justify-center shrink-0`}>
+                    <Icon name={step.icon} class="text-xl" />
+                </div>
+                
+                <div class="flex-1">
+                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Step 0{i+1}</div>
+                    <div class="text-sm font-bold text-slate-200">{step.label}</div>
+                </div>
+
+                <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></div>
+
+                {i !== logicSteps.length - 1 && <div class="absolute -bottom-2 left-1/2 w-3 h-3 bg-slate-700 rounded-full border-2 border-[#111827] transform -translate-x-1/2"></div>}
+            </div>
+
+        </div>
+      ))}
+
+    </div>
+  </div>
+)}
+
+<style>
+  @keyframes data-flow {
+    0% { top: -10%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: 110%; opacity: 0; }
+  }
+  .animate-data-flow {
+    animation: data-flow 2s infinite linear;
+  }
+  
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .animate-slide-in {
+    animation: slide-in 0.5s ease-out forwards;
+  }
+</style>
